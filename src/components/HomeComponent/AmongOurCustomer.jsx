@@ -1,13 +1,14 @@
 import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import React from "react";
 import AmongOurCustomerCarousel from "./AmongOurCustomerCarousel";
+import CommonContainer from "@/shared/LandingShared/CommonContainer";
 
 const AmongOurCustomer = () => {
   return (
-    <div className="flex flex-col items-center mt-30 mb-20">
+    <CommonContainer>
       <CommonTitle className="border-[#8133F1]" title={"Among our customer"} />
       <AmongOurCustomerCarousel />
-    </div>
+    </CommonContainer>
   );
 };
 

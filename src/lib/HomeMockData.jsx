@@ -138,3 +138,66 @@ export const InspectMockData = [
     icon: <FileHostingSVG />,
   },
 ];
+
+export const ReviewSectionMockData = [
+  {
+    id: 1,
+    userName: "Eifa Jonathan",
+    userAvatar: LocalImages.eifajonathan,
+    userFollowers: "32.6K",
+    userReview:
+      "As an agency owner, this tool is essential. I can protect all my creators from a single dashboard. Worth every penny.",
+    rating: 5,
+    userCompanyLogo: LocalImages.representPlatformLogo1,
+    removedLeaks: 342,
+    successRate: "98.7%",
+  },
+  {
+    id: 2,
+    userName: "Jordi Kader",
+    userAvatar: LocalImages.jordikader,
+    userFollowers: "45.2K",
+    userReview:
+      "The automated scanning is incredible. I used to spend hours searching for leaks myself. Now it all happens automatically.",
+    rating: 4,
+    userCompanyLogo: LocalImages.representPlatformLogo2,
+    removedLeaks: 289,
+    successRate: "97.5%",
+  },
+  {
+    id: 3,
+    userName: "Narendra Hasina",
+    userAvatar: LocalImages.narendrahasina,
+    userFollowers: "28.9K",
+    userReview:
+      "This platform saved my business. They found and removed over 300 leaks in the first month alone. I finally feel protected.",
+    rating: 5,
+    userCompanyLogo: LocalImages.representPlatformLogo3,
+    removedLeaks: 310,
+    successRate: "99.2%",
+  },
+  {
+    id: 4,
+    userName: "Shekh Modi",
+    userAvatar: LocalImages.shekhmodi,
+    userFollowers: "39.7K",
+    userReview:
+      "The takedown requests are handled quickly and professionally. I've seen a significant drop in unauthorized content since using this service.",
+    rating: 4,
+    userCompanyLogo: LocalImages.representPlatformLogo4,
+    removedLeaks: 275,
+    successRate: "98.0%",
+  },
+  {
+    id: 5,
+    userName: "Jr. Franklin",
+    userAvatar: LocalImages.jrFranklin,
+    userFollowers: "51.3K",
+    userReview:
+      "I was skeptical at first, but this tool exceeded my expectations. The personal agent feature is a game-changer for managing my online presence.",
+    rating: 5,
+    userCompanyLogo: LocalImages.representPlatformLogo5,
+    removedLeaks: 400,
+    successRate: "99.5%",
+  },
+];

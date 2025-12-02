@@ -5,7 +5,7 @@ const ComprehensiveScanning = () => {
   return (
     <div className="bg-primary/3 rounded-2xl py-11 mt-12 container mx-auto">
       <div className="max-w-3xl mx-auto">
-        <h6 class="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent text-[32px] font-semibold">
+        <h6 className="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent text-[32px] font-semibold">
           Comprehensive Scanning
         </h6>
 

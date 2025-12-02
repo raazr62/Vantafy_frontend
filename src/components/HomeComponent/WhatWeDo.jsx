@@ -2,10 +2,11 @@ import { WhatWeDoMockData } from "@/lib/HomeMockData";
 import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import React from "react";
 import ComprehensiveScanning from "./ComprehensiveScanning";
+import CommonContainer from "@/shared/LandingShared/CommonContainer";
 
 const WhatWeDo = () => {
   return (
-    <div className="flex flex-col items-center mt-30 mb-20 container mx-auto">
+    <CommonContainer>
       <CommonTitle title={"What we do"} />
       <p className="text-center text-[#333] font-medium py-8">
         Discover our full suite of copyright protection features
@@ -28,7 +29,7 @@ const WhatWeDo = () => {
 
       {/* Comprehensive Scanning */}
       <ComprehensiveScanning />
-    </div>
+    </CommonContainer>
   );
 };
 

@@ -11,7 +11,7 @@ const CommonTitle = ({ title, className = "border-primary" }) => {
       <SemiTitleLeftArrow />
       <div
         className={cn(
-          "text-lg font-bold py-2.5 px-4.5 border  rounded-[70px]",
+          "text-lg font-bold py-2.5 px-4.5 border  rounded-[70px] text-center",
           className
         )}
       >

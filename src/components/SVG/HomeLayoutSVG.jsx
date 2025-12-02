@@ -103,10 +103,10 @@ export const GoogleHomeSVG = ({ className }) => {
       <path
         d="M39.5999 18.7H22.3665V25.4833H32.4499C32.2665 27.1333 31.1665 29.7 28.7832 31.35C27.3165 32.45 25.1165 33.1833 22.3665 33.1833C17.5999 33.1833 13.3832 30.0666 11.9165 25.4833C11.5499 24.3833 11.3665 23.1 11.3665 21.8166C11.3665 20.5333 11.5499 19.25 11.9165 18.15C12.0999 17.7833 12.0999 17.4166 12.2832 17.2333C13.9332 13.3833 17.7832 10.6333 22.3665 10.6333C25.8499 10.6333 28.0499 12.1 29.5165 13.3833L34.6499 8.24996C31.5332 5.49996 27.3165 3.66663 22.3665 3.66663C15.2165 3.66663 8.9832 7.69996 6.04987 13.75C4.76654 16.3166 4.0332 19.0666 4.0332 22C4.0332 24.9333 4.76654 27.6833 6.04987 30.25C8.9832 36.3 15.2165 40.3333 22.3665 40.3333C27.3165 40.3333 31.5332 38.6833 34.4665 35.9333C37.9499 32.8166 39.9665 28.05 39.9665 22.3666C39.9665 20.9 39.7832 19.8 39.5999 18.7Z"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -304,7 +304,7 @@ export const AiProtectionSVG = ({ className }) => {
       viewBox="0 0 44 44"
       fill="none"
     >
-      <g clip-path="url(#clip0_16187_3374)">
+      <g clipPath="url(#clip0_16187_3374)">
         <path
           d="M24.7969 38.7578H19.2032C16.0209 38.7578 13.4316 36.1694 13.4316 32.988V20.2555H30.5676V32.988C30.5676 36.1694 27.9791 38.7578 24.7969 38.7578ZM14.2034 21.0264V32.9871C14.2034 35.7431 16.4463 37.9861 19.2032 37.9861H24.7969C27.5537 37.9861 29.7967 35.744 29.7967 32.9871V21.0264H14.2034Z"
           fill="currentColor"
@@ -389,17 +389,17 @@ export const SearchIconSVG = ({ className }) => {
     >
       <path
         d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         stroke="currentColor"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M22 22L20 20"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -416,14 +416,14 @@ export const BrowserIconSVG = ({ className }) => {
       <path
         d="M3 12H21M2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12Z"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
       />
       <path
         d="M11.4988 21.988C11.8323 22.0048 12.1664 22.0048 12.4998 21.988C17.1128 16.222 17.1128 7.77804 12.4998 2.01204C12.1664 1.99533 11.8323 1.99533 11.4988 2.01204C6.88581 7.77804 6.88581 16.222 11.4988 21.988Z"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
       />
     </svg>
   );
@@ -456,6 +456,46 @@ export const FileHostingSVG = ({ className }) => {
       <path
         d="M19.35 10.04C19.0141 8.33772 18.0976 6.80486 16.7571 5.70325C15.4165 4.60163 13.7351 3.99961 12 4C9.11 4 6.6 5.64 5.35 8.04C3.88023 8.19883 2.52101 8.89521 1.53349 9.99532C0.545971 11.0954 -0.000171702 12.5217 4.04928e-08 14C4.04928e-08 17.31 2.69 20 6 20H19C21.76 20 24 17.76 24 15C24 12.36 21.95 10.22 19.35 10.04ZM17 13L12 18L7 13H10V9H14V13H17Z"
         fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const CarouelLeftArrowIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-8 h-8 text-[#292D32]", className)}
+      viewBox="0 0 32 32"
+      fill="none"
+    >
+      <path
+        d="M20.1191 5.44006L11.4258 14.1334C10.3991 15.1601 10.3991 16.8401 11.4258 17.8667L20.1191 26.5601"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const CarouelRightArrowIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-8 h-8 text-[#292D32]", className)}
+      viewBox="0 0 32 32"
+      fill="none"
+    >
+      <path
+        d="M11.8809 26.5599L20.5742 17.8666C21.6009 16.8399 21.6009 15.1599 20.5742 14.1333L11.8809 5.43994"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );

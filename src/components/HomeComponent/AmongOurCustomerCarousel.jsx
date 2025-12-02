@@ -25,7 +25,7 @@ const AmongOurCustomerCarousel = () => {
                 <p className="font-semibold">{user.name}</p>
                 <img
                   src={user.companyLogo}
-                  className="w-10"
+                  className="w-14"
                   alt={user.companyLogo}
                 />
               </div>

@@ -1,13 +1,14 @@
 import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import React from "react";
 import RepresentPlatformCarousel from "./RepresentPlatformCarousel";
+import CommonContainer from "@/shared/LandingShared/CommonContainer";
 
 const RepresentPlatform = () => {
   return (
-    <div className="flex flex-col items-center my-20">
+    <CommonContainer>
       <CommonTitle title={"Represent platform"} />
       <RepresentPlatformCarousel />
-    </div>
+    </CommonContainer>
   );
 };
 
