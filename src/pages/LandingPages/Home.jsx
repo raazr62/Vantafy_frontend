@@ -34,6 +34,9 @@ const Home = () => {
 
       {/* Pricing & Plans */}
       <PricingAndPlans />
+
+      {/* FAQ */}
+      
     </div>
   );
 };
