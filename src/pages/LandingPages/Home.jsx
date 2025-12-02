@@ -1,6 +1,7 @@
 import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
 import Hero from "@/components/HomeComponent/Hero";
 import HowItWorks from "@/components/HomeComponent/HowItWorks";
+import PricingAndPlans from "@/components/HomeComponent/PricingAndPlans";
 import RepresentPlatform from "@/components/HomeComponent/RepresentPlatform";
 import ReviewSection from "@/components/HomeComponent/ReviewSection";
 import WeServed from "@/components/HomeComponent/WeServed";
@@ -30,6 +31,9 @@ const Home = () => {
 
       {/* How It Works */}
       <HowItWorks />
+
+      {/* Pricing & Plans */}
+      <PricingAndPlans />
     </div>
   );
 };
