@@ -79,37 +79,37 @@ export const WhatWeDoMockData = [
     icon: <DocumentScanSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 2,
     name: "Delist",
     icon: <GoogleHomeSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 3,
     name: "Takedown",
     icon: <TakedownSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 4,
     name: "Impresonation",
     icon: <ImpressionSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 5,
     name: "Platforms",
     icon: <PlatformsSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 6,
     name: "Personal Agent",
     icon: <PersonalAgentSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 7,
     name: "Ai Protection",
     icon: <AiProtectionSVG className={"group-hover:text-white"} />,
   },
   {
-    id: 1,
+    id: 8,
     name: "Anonymous",
     icon: <AnonymousSVG className={"group-hover:text-white"} />,
   },
@@ -207,5 +207,32 @@ export const WeServedMockData = [
   { id: 2, label: "Content Creators", value: "1M" },
   { id: 3, label: "Leaks found", value: "55M" },
   { id: 4, label: "Recovered", value: "55M" },
-  { id: 4, label: "Success Score", value: "100%" },
+  { id: 5, label: "Success Score", value: "100%" },
+];
+
+export const HowItWorksMockData = [
+  {
+    id: 1,
+    question: "Create & Optimize a free account",
+    answer:
+      "Sign up for a free DIY account. You can specify your niches and all of your usernames to make sure the free scan finds as many leaks as possible.",
+  },
+  {
+    id: 2,
+    question: "Explore where your leaks appear",
+    answer:
+      "Our platform helps you quickly identify where your content or data is leaking online. With detailed scanning tools, you can pinpoint the exact sources of leaks, making it easy to take action before they spread further.",
+  },
+  {
+    id: 3,
+    question: "Remove leaks by yourself or automatically",
+    answer:
+      "You have full control over leak removal. Choose to handle it manually with our step-by-step tools, or let our system automatically remove unauthorized content for you, saving time and ensuring faster protection.",
+  },
+  {
+    id: 4,
+    question: "Track progress & automatic scans",
+    answer:
+      "Stay updated on your leak protection efforts with real-time tracking. Our automatic scans continuously monitor the web for new leaks, and you can track removal success, statistics, and overall progress from your dashboard.",
+  },
 ];

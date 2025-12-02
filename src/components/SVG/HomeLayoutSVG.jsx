@@ -472,10 +472,10 @@ export const CarouelLeftArrowIconSVG = ({ className }) => {
       <path
         d="M20.1191 5.44006L11.4258 14.1334C10.3991 15.1601 10.3991 16.8401 11.4258 17.8667L20.1191 26.5601"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -492,10 +492,29 @@ export const CarouelRightArrowIconSVG = ({ className }) => {
       <path
         d="M11.8809 26.5599L20.5742 17.8666C21.6009 16.8399 21.6009 15.1599 20.5742 14.1333L11.8809 5.43994"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const CarouselDownSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-4 h-4 text-[#FF5CE1]", className)}
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <path
+        d="M8 2.6665V13.3332M8 13.3332L12 9.33317M8 13.3332L4 9.33317"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

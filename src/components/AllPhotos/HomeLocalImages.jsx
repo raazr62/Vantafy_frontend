@@ -9,6 +9,7 @@ import jrFranklin from "@/assets/Images/homeImages/jrFranklin.png";
 import narendrahasina from "@/assets/Images/homeImages/narendrahasina.png";
 import shekhmodi from "@/assets/Images/homeImages/shekhmodi.png";
 import jordikader from "@/assets/Images/homeImages/jordikader.png";
+import howItWorks from "@/assets/Images/homeImages/howItWorks.png";
 
 export const LocalImages = {
   heroGif,
@@ -22,4 +23,5 @@ export const LocalImages = {
   narendrahasina,
   shekhmodi,
   jordikader,
+  howItWorks,
 };
