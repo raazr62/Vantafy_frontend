@@ -50,6 +50,7 @@ const ReviewSection = () => {
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         spaceBetween={20}
         slidesPerView={3}
+        loop={true}
         className="py-4 w-full"
       >
         {ReviewSectionMockData.map((review) => {
