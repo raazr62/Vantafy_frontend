@@ -1,5 +1,6 @@
 import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
 import Hero from "@/components/HomeComponent/Hero";
+import HowItWorks from "@/components/HomeComponent/HowItWorks";
 import RepresentPlatform from "@/components/HomeComponent/RepresentPlatform";
 import ReviewSection from "@/components/HomeComponent/ReviewSection";
 import WeServed from "@/components/HomeComponent/WeServed";
@@ -26,6 +27,9 @@ const Home = () => {
 
       {/* We Served */}
       <WeServed />
+
+      {/* How It Works */}
+      <HowItWorks />
     </div>
   );
 };
