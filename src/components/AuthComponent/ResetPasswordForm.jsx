@@ -18,7 +18,7 @@ const ResetPasswordForm = () => {
     // Reset Password Logic
     else {
       toast.success(
-        "If an account with that email exists, a password reset link has been sent."
+        "We've emailed you a verification code to reset your password."
       );
       e.target.reset();
       navigate("/auth/otp-verify");

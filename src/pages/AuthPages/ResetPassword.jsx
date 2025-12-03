@@ -1,11 +1,11 @@
 import React from "react";
-import StartarBanner from "@/shared/AuthShared/StartarBanner";
 import ResetPasswordForm from "@/components/AuthComponent/ResetPasswordForm";
+import LockBanner from "@/shared/AuthShared/LockBanner";
 
 const ResetPassword = () => {
   return (
     <div className="h-screen flex">
-      <StartarBanner />
+      <LockBanner />
       <ResetPasswordForm />
     </div>
   );

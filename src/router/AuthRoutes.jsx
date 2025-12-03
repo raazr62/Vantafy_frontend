@@ -3,6 +3,7 @@ import { Navigate } from "react-router";
 
 const SignIn = lazy(() => import("@/pages/AuthPages/SignIn"));
 const ResetPassword = lazy(() => import("@/pages/AuthPages/ResetPassword"));
+const OtpVerify = lazy(() => import("@/pages/AuthPages/OtpVerify"));
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const authRoutes = [
@@ -17,6 +18,10 @@ export const authRoutes = [
   {
     path: "reset-password",
     element: <ResetPassword />,
+  },
+  {
+    path: "otp-verify",
+    element: <OtpVerify />,
   },
   {
     path: "*",
