@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { HashLink } from "react-router-hash-link";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,10 +72,10 @@ const Navbar = () => {
 
       {/* Auth Buttons */}
       <div className="flex gap-5.5 items-center">
-        <Button variant={"ghost"}>
+        <Button onClick={() => navigate("/auth/signin")} variant={"ghost"}>
           <SignInSVG /> Login
         </Button>
-        <Button>Get Protected</Button>
+        <Button onClick={() => navigate("/auth/signup")}>Get Protected</Button>
       </div>
     </nav>
   );
