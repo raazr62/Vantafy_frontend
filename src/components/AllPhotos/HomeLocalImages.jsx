@@ -10,6 +10,9 @@ import narendrahasina from "@/assets/Images/homeImages/narendrahasina.png";
 import shekhmodi from "@/assets/Images/homeImages/shekhmodi.png";
 import jordikader from "@/assets/Images/homeImages/jordikader.png";
 import howItWorks from "@/assets/Images/homeImages/howItWorks.png";
+import Facebook from "@/assets/Images/homeImages/Facebook.svg";
+import Instagram from "@/assets/Images/homeImages/Instagram.svg";
+import Twitter from "@/assets/Images/homeImages/Twitter.svg";
 
 export const LocalImages = {
   heroGif,
@@ -24,4 +27,7 @@ export const LocalImages = {
   shekhmodi,
   jordikader,
   howItWorks,
+  Facebook,
+  Instagram,
+  Twitter,
 };
