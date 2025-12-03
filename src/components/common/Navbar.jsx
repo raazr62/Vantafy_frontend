@@ -3,12 +3,15 @@ import React from "react";
 import { Button } from "../ui/button";
 import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between pt-8 mx-auto container">
+    <nav className="flex justify-between py-6 mx-auto container">
       {/* Logo */}
-      <h1 className="font-bold text-2xl text-primary">Vantafy</h1>
+      <Link to={"/"} className="font-bold text-3xl text-primary">
+        Vantafy
+      </Link>
 
       {/* NavLinks */}
       <ul className="flex items-center gap-8">

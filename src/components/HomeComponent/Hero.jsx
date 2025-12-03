@@ -4,7 +4,7 @@ import { LocalImages } from "../AllPhotos/HomeLocalImages";
 
 const Hero = () => {
   return (
-    <section className="flex container mx-auto justify-between items-center py-20">
+    <section className="flex container mx-auto justify-between items-center py-15 mt-10 overflow-hidden">
       {/* Hero Description */}
       <div className="space-y-4 max-w-4xl">
         <h1 className="font-bold text-5xl/tight">
@@ -17,17 +17,20 @@ const Hero = () => {
         <Button className={"font-semibold px-8 py-4"}>Get Protected</Button>
       </div>
 
-      <video
-        src={LocalImages.heroGif}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-130"
-        onLoadedMetadata={(e) => {
-          e.target.playbackRate = 2.5;
-        }}
-      ></video>
+      <div className="overflow-hidden rounded-xl">
+        <video
+          className="w-135 block"
+          src={LocalImages.heroGif}
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ clipPath: "inset(5px 5px 5px 8px)" }}
+          onLoadedMetadata={(e) => {
+            e.target.playbackRate = 1.5;
+          }}
+        ></video>
+      </div>
     </section>
   );
 };
