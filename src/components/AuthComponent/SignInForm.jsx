@@ -8,7 +8,6 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 
 const SignInForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const handleInputChange = (event) => {
@@ -19,12 +18,6 @@ const SignInForm = () => {
     }
   };
 
-  const handlePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const inputClass =
-    "pl-9 py-3.5 rounded-lg w-full border border-sky-500 focus:border-primary outline-none";
   return (
     <div className="flex-[55%] flex flex-col items-center justify-center w-full">
       <Link
@@ -76,7 +69,7 @@ const SignInForm = () => {
             </label>
 
             <Link
-              to={"/auth/forgot-pass"}
+              to={"/auth/reset-password"}
               className="text-sm font-medium text-sky-500 hover:underline"
             >
               Forgot Password

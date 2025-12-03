@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { Navigate } from "react-router";
 
 const SignIn = lazy(() => import("@/pages/AuthPages/SignIn"));
+const ResetPassword = lazy(() => import("@/pages/AuthPages/ResetPassword"));
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const authRoutes = [
@@ -12,6 +13,10 @@ export const authRoutes = [
   {
     path: "signin",
     element: <SignIn />,
+  },
+  {
+    path: "reset-password",
+    element: <ResetPassword />,
   },
   {
     path: "*",

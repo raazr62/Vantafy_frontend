@@ -40,9 +40,7 @@ const CommonInputField = ({
         />
 
         {/* Left Icon */}
-        {Icon && (
-          <Icon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
-        )}
+        {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2" />}
 
         {/* Password Toggle */}
         {isPassword && (
