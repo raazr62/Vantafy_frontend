@@ -6,7 +6,7 @@ import HowItWorksImages from "./HowItWorksImages";
 
 const HowItWorks = () => {
   return (
-    <CommonContainer>
+    <CommonContainer id={"how-it-works"}>
       <CommonTitle title={"How it works"} />
 
       {/* FAQ */}

@@ -15,10 +15,10 @@ import {
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
-  { id: 1, name: "What we do", link: "/#what-we-do" },
-  { id: 2, name: "Pricing", link: "/#pricing" },
-  { id: 3, name: "Testimonial", link: "/#testimonial" },
-  { id: 4, name: "Faq", link: "/#faq" },
+  { id: 1, name: "What we do", link: "#what-we-do" },
+  { id: 3, name: "Testimonial", link: "#testimonial" },
+  { id: 2, name: "Pricing", link: "#pricing" },
+  { id: 4, name: "Faq", link: "#faq" },
 ];
 
 export const RepresentPlatformLogos = [

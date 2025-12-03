@@ -12,7 +12,7 @@ import React from "react";
 const FAQ = () => {
   const formatNumber = (num) => (num < 9 ? `0${num + 1}` : `${num + 1}`);
   return (
-    <CommonContainer>
+    <CommonContainer id={"faq"}>
       <CommonTitle title={"FAQ"} />
       {/* FAQS */}
       <Accordion

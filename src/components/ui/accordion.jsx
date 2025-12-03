@@ -31,7 +31,7 @@ function AccordionTrigger({ className, children, ...props }) {
       >
         {children}
         <div className="p-2 bg-primary rounded-full flex items-center justify-center">
-          <CarouselDownSVG className="rounded-full pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-400" />
+          <CarouselDownSVG className="rounded-full pointer-events-none size-4 shrink-0 transition-transform duration-400" />
         </div>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>

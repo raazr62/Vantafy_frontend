@@ -6,7 +6,7 @@ import CommonContainer from "@/shared/LandingShared/CommonContainer";
 
 const WhatWeDo = () => {
   return (
-    <CommonContainer>
+    <CommonContainer id={"what-we-do"}>
       <CommonTitle title={"What we do"} />
       <p className="text-center text-[#333] font-medium py-8">
         Discover our full suite of copyright protection features
