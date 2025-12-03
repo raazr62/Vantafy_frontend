@@ -520,5 +520,23 @@ export const CarouselDownSVG = ({ className }) => {
   );
 };
 
-// className={cn("w-6 h-6 text-black", className)}
+export const PlusIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-3.5 h-3.5 text-[#E854CD]", className)}
+      viewBox="0 0 14 14"
+      fill="none"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8 0H6V6H0V8H6V14H8V8H14V6H8V0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 // export const TakedownSVG = ({ className }) => { return () }
+// className={cn("w-6 h-6 text-black", className)}
