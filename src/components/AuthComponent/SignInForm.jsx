@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { IoIosClose } from "react-icons/io";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 
 import { EmailIconSVG, GoogleAuthSVG, LockIconSVG } from "../SVG/AuthLayoutSVG";
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
+import toast from "react-hot-toast";
 
 const SignInForm = () => {
   const [checked, setChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     if (event.target.checked) {
@@ -16,6 +18,13 @@ const SignInForm = () => {
     } else {
       setChecked(false);
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Sign In Logic Here
+    toast.success("Signed in successfully!");
+    navigate("/");
   };
 
   return (
@@ -32,7 +41,10 @@ const SignInForm = () => {
         <p className="text-sm text-[#425583] mt-2 mb-10">
           Sign in to your account
         </p>
-        <form className="w-full flex flex-col gap-4 mt-4 ">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full flex flex-col gap-4 mt-4 "
+        >
           {/* Email */}
           <CommonInputField
             label="Email"
@@ -40,6 +52,7 @@ const SignInForm = () => {
             name="email"
             placeholder="example@gmail.com"
             icon={EmailIconSVG}
+            required
           />
 
           {/* Password */}
@@ -49,6 +62,7 @@ const SignInForm = () => {
             name="password"
             placeholder="Enter your password"
             icon={LockIconSVG}
+            required
           />
 
           {/* Remember & Forgot Pass */}
