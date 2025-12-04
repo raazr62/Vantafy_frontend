@@ -4,6 +4,9 @@ import { Navigate } from "react-router";
 const SignIn = lazy(() => import("@/pages/AuthPages/SignIn"));
 const ResetPassword = lazy(() => import("@/pages/AuthPages/ResetPassword"));
 const OtpVerify = lazy(() => import("@/pages/AuthPages/OtpVerify"));
+const ChangePassword = lazy(() => import("@/pages/AuthPages/ChangePassword"));
+const SignUp = lazy(() => import("@/pages/AuthPages/SignUp"));
+const AuthSuccess = lazy(() => import("@/pages/AuthPages/AuthSuccess"));
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const authRoutes = [
@@ -22,6 +25,18 @@ export const authRoutes = [
   {
     path: "otp-verify",
     element: <OtpVerify />,
+  },
+  {
+    path: "change-password",
+    element: <ChangePassword />,
+  },
+  {
+    path: "signup",
+    element: <SignUp />,
+  },
+  {
+    path: "success",
+    element: <AuthSuccess />,
   },
   {
     path: "*",

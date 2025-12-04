@@ -154,3 +154,47 @@
     animation-play-state: paused;
   }
 }
+
+/* Remove number input arrows - Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  /* Standard property */
+  margin: 0;
+}
+
+/* Remove arrows - Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  /* Standard */
+}
+
+@keyframes otp-shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-4px);
+  }
+
+  40% {
+    transform: translateX(4px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.otp-error {
+  animation: otp-shake 0.35s ease-in-out;
+}
