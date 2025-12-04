@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { EmailIconSVG, GoBackArrowSVG } from "../SVG/AuthLayoutSVG";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
-import OtpInput from "@/shared/AuthShared/OTPInput";
+import OtpInput from "@/shared/AuthShared/OtpInput";
 
 const OtpVerifyForm = ({ fromPage }) => {
   const navigate = useNavigate();
@@ -43,14 +43,14 @@ const OtpVerifyForm = ({ fromPage }) => {
     }
     toast.success("OTP Verified Successfully.");
     fromPage === "/auth/reset-password"
-      ? navigate("/auth/success", { state: { from: "/auth/reset-password" } })
+      ? navigate("/auth/change-password")
       : navigate("/auth/success", { state: { from: "/auth/signup" } });
   };
 
   return (
     <div className="flex-[55%] flex flex-col items-center justify-center w-full relative">
       <Link
-        to="/auth/signin"
+        to="/auth/reset-password"
         className="left-12 top-12 absolute text-slate-500 hover:text-red-500"
       >
         <GoBackArrowSVG />

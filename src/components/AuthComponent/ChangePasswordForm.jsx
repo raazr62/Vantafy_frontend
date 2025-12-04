@@ -22,13 +22,13 @@ const ChangePasswordForm = () => {
     // Password change logic
     toast.success("Your password has been successfully updated!");
     e.target.reset();
-    navigate("/auth/signin");
+    navigate("/auth/success", { state: { from: "/auth/reset-password" } });
   };
 
   return (
     <div className="flex-[55%] flex flex-col items-center justify-center w-full relative">
       <Link
-        to="/auth/signin"
+        to="/auth/otp-verify"
         className="left-12 top-12 absolute text-slate-500 hover:text-red-500"
       >
         <GoBackArrowSVG />
