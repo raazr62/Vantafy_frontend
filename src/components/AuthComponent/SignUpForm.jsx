@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 
 const SignUpForm = () => {
   const [checked, setChecked] = useState(false);
+  const [errorRole, setErrorRole] = useState(false);
   const [role, setRole] = useState("");
   const navigate = useNavigate();
 
@@ -28,6 +29,11 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!role) {
+      setErrorRole(true);
+      toast.error("Please Select a role");
+      return;
+    }
     // Sign In Logic Here
     toast.success("Signed up successfully!");
     navigate("/auth/otp-verify", { state: { from: "/auth/signup" } });
@@ -60,7 +66,10 @@ const SignUpForm = () => {
           <div className="flex items-center justify-between w-full gap-3.5">
             {/* Agency Owner */}
             <div
-              onClick={() => setRole("Agency Owner")}
+              onClick={() => {
+                setRole("Agency Owner");
+                setErrorRole(false);
+              }}
               className="border border-sky-500 rounded-xl py-4 w-full flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <div className="w-4 h-4 rounded-full border border-sky-500 flex items-center justify-center">
@@ -75,7 +84,10 @@ const SignUpForm = () => {
 
             {/* Customer */}
             <div
-              onClick={() => setRole("Customer")}
+              onClick={() => {
+                setRole("Customer");
+                setErrorRole(false);
+              }}
               className="border border-sky-500 rounded-xl py-4 w-full flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <div className="w-4 h-4 rounded-full border border-sky-500 flex items-center justify-center">
@@ -88,6 +100,11 @@ const SignUpForm = () => {
               </label>
             </div>
           </div>
+          {!!errorRole && (
+            <p className="text-center text-red-500 text-sm">
+              Please select your role
+            </p>
+          )}
 
           {/* Email */}
           <CommonInputField

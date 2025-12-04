@@ -43,8 +43,8 @@ const OtpVerifyForm = ({ fromPage }) => {
     }
     toast.success("OTP Verified Successfully.");
     fromPage === "/auth/reset-password"
-      ? navigate("/auth/change-password")
-      : navigate("/auth/signin");
+      ? navigate("/auth/success", { state: { from: "/auth/reset-password" } })
+      : navigate("/auth/success", { state: { from: "/auth/signup" } });
   };
 
   return (

@@ -1,8 +1,8 @@
 // CommonInputField.jsx
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import { FaRegEye } from "react-icons/fa6";
 import { PasswordEyeCloseIconSVG } from "@/components/SVG/AuthLayoutSVG";
+import { FaRegEye } from "react-icons/fa6";
 
 const CommonInputField = ({
   label,
@@ -19,7 +19,7 @@ const CommonInputField = ({
 
   return (
     <div className="flex flex-col gap-2 w-full">
-      {label && (
+      {!!label && (
         <label htmlFor={name} className="text-xs text-[#2E3139]">
           {label}
         </label>
@@ -34,16 +34,18 @@ const CommonInputField = ({
           required={required}
           className={cn(
             "w-full py-3.5 rounded-lg border border-sky-500 outline-none focus:border-primary",
-            Icon && "pl-9",
+            !!Icon && "pl-9",
             className
           )}
         />
 
         {/* Left Icon */}
-        {Icon && <Icon className="absolute left-3 top-1/2 -translate-y-1/2" />}
+        {!!Icon && (
+          <Icon className="absolute left-3 top-1/2 -translate-y-1/2" />
+        )}
 
         {/* Password Toggle */}
-        {isPassword && (
+        {!!isPassword && (
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
