@@ -1,4 +1,5 @@
 import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
+import FAQ from "@/components/HomeComponent/FAQ";
 import Hero from "@/components/HomeComponent/Hero";
 import HowItWorks from "@/components/HomeComponent/HowItWorks";
 import PricingAndPlans from "@/components/HomeComponent/PricingAndPlans";
@@ -36,7 +37,7 @@ const Home = () => {
       <PricingAndPlans />
 
       {/* FAQ */}
-      
+      <FAQ />
     </div>
   );
 };

@@ -8,7 +8,7 @@ import AgenciesBilling from "./AgenciesBilling";
 
 const PricingAndPlans = () => {
   return (
-    <CommonContainer>
+    <CommonContainer id={"pricing"}>
       <CommonTitle title={"Pricing & Plan"} />
 
       {/* Tabs And Content */}

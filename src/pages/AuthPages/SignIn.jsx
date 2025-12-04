@@ -1,5 +1,12 @@
+import SignInForm from "@/components/AuthComponent/SignInForm";
+import StartarBanner from "@/shared/AuthShared/StartarBanner";
 import React from "react";
 
 export default function SignIn() {
-  return <div className="text-3xl text-center py-30">Login Page</div>;
+  return (
+    <div className="h-screen flex">
+      <StartarBanner />
+      <SignInForm />
+    </div>
+  );
 }

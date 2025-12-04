@@ -15,10 +15,10 @@ import {
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
-  { id: 1, name: "What we do", link: "/#what-we-do" },
-  { id: 2, name: "Pricing", link: "/#pricing" },
-  { id: 3, name: "Testimonial", link: "/#testimonial" },
-  { id: 4, name: "Faq", link: "/#faq" },
+  { id: 1, name: "What we do", link: "#what-we-do" },
+  { id: 3, name: "Testimonial", link: "#testimonial" },
+  { id: 2, name: "Pricing", link: "#pricing" },
+  { id: 4, name: "Faq", link: "#faq" },
 ];
 
 export const RepresentPlatformLogos = [
@@ -471,5 +471,33 @@ export const AgencyPricingPlansMockData = [
       "Specialized human Searches",
       "Dedicated Support",
     ],
+  },
+];
+
+export const FAQMockData = [
+  {
+    id: 1,
+    question: "Alright, but what exactly do you do?",
+    answer:
+      "As a creative agency we work with you to develop solutions to address your brand needs. That includes various aspects of brand planning and strategy, marketing and design.",
+  },
+  {
+    id: 2,
+    question:
+      "I don't need a brand strategist but I need help executing an upcoming campaign. Can we still work together?",
+    answer:
+      "Absolutely. Even if you don’t need full brand strategy support, I can still help you plan and execute your upcoming campaign. I’ll align with your existing brand direction and ensure the campaign is delivered professionally and effectively.",
+  },
+  {
+    id: 3,
+    question: "Are your rates competitive?",
+    answer:
+      "Yes. My rates are structured to offer a strong balance of quality, expertise, and value. You get personalized attention, clear communication, and high-quality deliverables without unnecessary overhead costs.",
+  },
+  {
+    id: 4,
+    question: "Why do you have a monthly project cap?",
+    answer:
+      "I limit the number of projects I take on each month to ensure every client receives my full focus and consistent quality. This approach helps maintain clear communication, faster turnaround times, and better results for each project.",
   },
 ];

@@ -1,28 +1,70 @@
 import { NavlinksItems } from "@/lib/HomeMockData";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { HashLink } from "react-router-hash-link";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
+  const [active, setActive] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      const scrollY = window.scrollY + 200;
+
+      let current = "";
+      sections.forEach((section) => {
+        if (scrollY >= section.offsetTop) current = section.id;
+      });
+
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="flex justify-between pt-8 mx-auto container">
+    <nav className="flex justify-between py-6 mx-auto container">
       {/* Logo */}
-      <h1 className="font-bold text-2xl text-primary">Vantafy</h1>
+      <HashLink
+        smooth
+        scroll={(el) => {
+          const yOffset = -100;
+          const y =
+            el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }}
+        to={"/#"}
+        className="font-bold text-3xl text-primary"
+      >
+        Vantafy
+      </HashLink>
 
       {/* NavLinks */}
       <ul className="flex items-center gap-8">
-        {NavlinksItems.map((navlink) => (
-          <li key={navlink.id}>
+        {NavlinksItems.map((nav) => (
+          <li key={nav.id}>
             <HashLink
               smooth
-              to={navlink.link}
-              className={`${({ isActive }) =>
-                isActive
-                  ? "textPrimary font-semibold"
-                  : "text-lightText hover:textPrimary transition"} border-b-2 hover:border-b-primary pb-0.5 border-b-transparent transition-all duration-300 px-1`}
+              to={nav.link}
+              scroll={(el) => {
+                const yOffset = -100;
+                const y =
+                  el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }}
+              className={`px-2 pb-0.5 border-b-2 transition-all duration-300 ${
+                active === nav.link.replace("#", "")
+                  ? "textPrimary font-semibold border-primary"
+                  : "text-gray-500 font-medium border-transparent hover:textPrimary"
+              }`}
             >
-              {navlink.name}
+              {nav.name}
             </HashLink>
           </li>
         ))}
@@ -30,10 +72,10 @@ const Navbar = () => {
 
       {/* Auth Buttons */}
       <div className="flex gap-5.5 items-center">
-        <Button variant={"ghost"}>
+        <Button onClick={() => navigate("/auth/signin")} variant={"ghost"}>
           <SignInSVG /> Login
         </Button>
-        <Button>Get Protected</Button>
+        <Button onClick={() => navigate("/auth/signup")}>Get Protected</Button>
       </div>
     </nav>
   );

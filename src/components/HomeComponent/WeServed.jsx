@@ -6,7 +6,7 @@ import CountUp from "react-countup";
 
 const WeServed = () => {
   return (
-    <CommonContainer>
+    <CommonContainer id="we-served">
       <CommonTitle title={"We Served"} />
       <div
         className="bg-[linear-gradient(90deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)]
