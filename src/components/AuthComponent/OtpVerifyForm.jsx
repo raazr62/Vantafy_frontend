@@ -50,7 +50,7 @@ const OtpVerifyForm = ({ fromPage }) => {
   return (
     <div className="flex-[55%] flex flex-col items-center justify-center w-full relative">
       <Link
-        to="/auth/reset-password"
+        to={fromPage}
         className="left-12 top-12 absolute text-slate-500 hover:text-red-500"
       >
         <GoBackArrowSVG />
@@ -68,7 +68,7 @@ const OtpVerifyForm = ({ fromPage }) => {
           onSubmit={handleOtpVerify}
           className="w-full flex flex-col gap-4 mt-4 "
         >
-          {/* Email */}
+          {/* OTP */}
           <OtpInput length={6} onChange={(value) => setOtp(value)} />
 
           <Button
