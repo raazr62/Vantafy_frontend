@@ -5,6 +5,7 @@ const SignIn = lazy(() => import("@/pages/AuthPages/SignIn"));
 const ResetPassword = lazy(() => import("@/pages/AuthPages/ResetPassword"));
 const OtpVerify = lazy(() => import("@/pages/AuthPages/OtpVerify"));
 const ChangePassword = lazy(() => import("@/pages/AuthPages/ChangePassword"));
+const SignUp = lazy(() => import("@/pages/AuthPages/SignUp"));
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 
 export const authRoutes = [
@@ -27,6 +28,10 @@ export const authRoutes = [
   {
     path: "change-password",
     element: <ChangePassword />,
+  },
+  {
+    path: "signup",
+    element: <SignUp />,
   },
   {
     path: "*",
