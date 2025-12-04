@@ -27,6 +27,11 @@ const SignInForm = () => {
     navigate("/");
   };
 
+  const handleGoogleLogin = () => {
+    toast.success("Signed in successfully with Google!");
+    navigate("/");
+  };
+
   return (
     <div className="flex-[55%] flex flex-col items-center justify-center w-full">
       <Link
@@ -104,7 +109,10 @@ const SignInForm = () => {
           <hr className="border-[#EFE6FD] w-full" />
         </div>
 
-        <button className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-sm font-medium flex items-center pl-5">
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-sm font-medium flex items-center pl-5"
+        >
           <GoogleAuthSVG className={"w-4.5 h-4.5"} />{" "}
           <span className="w-full text-center">Sign in with Google</span>
         </button>

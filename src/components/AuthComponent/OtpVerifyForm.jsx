@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import OtpInput from "@/shared/AuthShared/OTPInput";
 
-const OtpVerifyForm = () => {
+const OtpVerifyForm = ({ fromPage }) => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState(null);
   const [timeLeft, setTimeLeft] = useState(60);
@@ -34,16 +34,17 @@ const OtpVerifyForm = () => {
     toast.success("OTP resent.");
   };
 
-  const handleResetPassword = (e) => {
+  const handleOtpVerify = (e) => {
     e.preventDefault();
 
     if (!otp || otp.length !== 6) {
       toast.error("Please enter the 6-digit OTP.");
       return;
     }
-    console.log(otp);
     toast.success("OTP Verified Successfully.");
-    // navigate("/auth/signin");
+    fromPage === "/auth/reset-password"
+      ? navigate("/auth/change-password")
+      : navigate("/auth/signin");
   };
 
   return (
@@ -64,7 +65,7 @@ const OtpVerifyForm = () => {
           Check your email to see the verification code
         </p>
         <form
-          onSubmit={handleResetPassword}
+          onSubmit={handleOtpVerify}
           className="w-full flex flex-col gap-4 mt-4 "
         >
           {/* Email */}

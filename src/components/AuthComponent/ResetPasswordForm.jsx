@@ -21,7 +21,7 @@ const ResetPasswordForm = () => {
         "We've emailed you a verification code to reset your password."
       );
       e.target.reset();
-      navigate("/auth/otp-verify");
+      navigate("/auth/otp-verify", { state: { from: "/auth/reset-password" } });
     }
   };
   return (
