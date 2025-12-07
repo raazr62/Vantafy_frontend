@@ -5,6 +5,7 @@ import DashboardLayout from "@/layout/DashboardLayout";
 import { generalRoutes } from "./GeneralRoutes";
 import { authRoutes } from "./AuthRoutes";
 import Overview from "@/pages/DashboardPages/Overview";
+import SelectNiches from "@/pages/SelectNiches";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: "/auth",
     element: <AuthLayout />,
     children: [...authRoutes],
+  },
+  {
+    path: "/select-niches",
+    element: <SelectNiches />,
   },
 ]);
 

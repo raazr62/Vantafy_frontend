@@ -22,16 +22,16 @@ export const NavlinksItems = [
 ];
 
 export const RepresentPlatformLogos = [
-  { id: 1, logo: LocalImages.representPlatformLogo1, alt: "Chaturbate Logo" },
-  { id: 2, logo: LocalImages.representPlatformLogo2, alt: "Fansly Logo" },
-  { id: 3, logo: LocalImages.representPlatformLogo3, alt: "Fanvue Logo" },
-  { id: 4, logo: LocalImages.representPlatformLogo4, alt: "OnlyFans Logo" },
-  { id: 5, logo: LocalImages.representPlatformLogo5, alt: "Manyvids Logo" },
-  { id: 6, logo: LocalImages.representPlatformLogo3, alt: "Fanvue Logo" },
-  { id: 7, logo: LocalImages.representPlatformLogo2, alt: "Fansly Logo" },
-  { id: 8, logo: LocalImages.representPlatformLogo4, alt: "OnlyFans Logo" },
-  { id: 9, logo: LocalImages.representPlatformLogo1, alt: "Chaturbate Logo" },
-  { id: 10, logo: LocalImages.representPlatformLogo5, alt: "Manyvids Logo" },
+  { id: 1, logo: LocalImages.chaturbateLogo, alt: "Chaturbate Logo" },
+  { id: 2, logo: LocalImages.fanslyLogo, alt: "Fansly Logo" },
+  { id: 3, logo: LocalImages.fanvueLogo, alt: "Fanvue Logo" },
+  { id: 4, logo: LocalImages.onlyFansLogo, alt: "OnlyFans Logo" },
+  { id: 5, logo: LocalImages.manyVidsLogo, alt: "Manyvids Logo" },
+  { id: 6, logo: LocalImages.fanvueLogo, alt: "Fanvue Logo" },
+  { id: 7, logo: LocalImages.fanslyLogo, alt: "Fansly Logo" },
+  { id: 8, logo: LocalImages.onlyFansLogo, alt: "OnlyFans Logo" },
+  { id: 9, logo: LocalImages.chaturbateLogo, alt: "Chaturbate Logo" },
+  { id: 10, logo: LocalImages.manyVidsLogo, alt: "Manyvids Logo" },
 ];
 
 export const ourCustomerMockData = [
@@ -39,35 +39,35 @@ export const ourCustomerMockData = [
     id: 1,
     name: "Eifa jonathan",
     subscribe: "32.6",
-    companyLogo: LocalImages.representPlatformLogo1,
+    companyLogo: LocalImages.chaturbateLogo,
     avatar: LocalImages.eifajonathan,
   },
   {
     id: 2,
     name: "Jordi Kader",
     subscribe: "32.6",
-    companyLogo: LocalImages.representPlatformLogo2,
+    companyLogo: LocalImages.fanslyLogo,
     avatar: LocalImages.jordikader,
   },
   {
     id: 3,
     name: "Narendra Hasina",
     subscribe: "32.6",
-    companyLogo: LocalImages.representPlatformLogo3,
+    companyLogo: LocalImages.fanvueLogo,
     avatar: LocalImages.narendrahasina,
   },
   {
     id: 4,
     name: "Shekh Modi",
     subscribe: "32.6",
-    companyLogo: LocalImages.representPlatformLogo4,
+    companyLogo: LocalImages.onlyFansLogo,
     avatar: LocalImages.shekhmodi,
   },
   {
     id: 5,
     name: "Jr. Franklin",
     subscribe: "32.6",
-    companyLogo: LocalImages.representPlatformLogo5,
+    companyLogo: LocalImages.manyVidsLogo,
     avatar: LocalImages.jrFranklin,
   },
 ];
@@ -148,7 +148,7 @@ export const ReviewSectionMockData = [
     userReview:
       "As an agency owner, this tool is essential. I can protect all my creators from a single dashboard. Worth every penny.",
     rating: 5,
-    userCompanyLogo: LocalImages.representPlatformLogo1,
+    userCompanyLogo: LocalImages.chaturbateLogo,
     removedLeaks: 342,
     successRate: "98.7%",
   },
@@ -160,7 +160,7 @@ export const ReviewSectionMockData = [
     userReview:
       "The automated scanning is incredible. I used to spend hours searching for leaks myself. Now it all happens automatically.",
     rating: 4,
-    userCompanyLogo: LocalImages.representPlatformLogo2,
+    userCompanyLogo: LocalImages.fanslyLogo,
     removedLeaks: 289,
     successRate: "97.5%",
   },
@@ -172,7 +172,7 @@ export const ReviewSectionMockData = [
     userReview:
       "This platform saved my business. They found and removed over 300 leaks in the first month alone. I finally feel protected.",
     rating: 5,
-    userCompanyLogo: LocalImages.representPlatformLogo3,
+    userCompanyLogo: LocalImages.fanvueLogo,
     removedLeaks: 310,
     successRate: "99.2%",
   },
@@ -184,7 +184,7 @@ export const ReviewSectionMockData = [
     userReview:
       "The takedown requests are handled quickly and professionally. I've seen a significant drop in unauthorized content since using this service.",
     rating: 4,
-    userCompanyLogo: LocalImages.representPlatformLogo4,
+    userCompanyLogo: LocalImages.onlyFansLogo,
     removedLeaks: 275,
     successRate: "98.0%",
   },
@@ -196,7 +196,7 @@ export const ReviewSectionMockData = [
     userReview:
       "I was skeptical at first, but this tool exceeded my expectations. The personal agent feature is a game-changer for managing my online presence.",
     rating: 5,
-    userCompanyLogo: LocalImages.representPlatformLogo5,
+    userCompanyLogo: LocalImages.manyVidsLogo,
     removedLeaks: 400,
     successRate: "99.5%",
   },
