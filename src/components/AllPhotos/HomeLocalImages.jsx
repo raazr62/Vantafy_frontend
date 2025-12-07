@@ -13,6 +13,8 @@ import howItWorks from "@/assets/Images/homeImages/howItWorks.png";
 import Facebook from "@/assets/Images/homeImages/Facebook.svg";
 import Instagram from "@/assets/Images/homeImages/Instagram.svg";
 import Twitter from "@/assets/Images/homeImages/Twitter.svg";
+import radarBG from "@/assets/Images/homeImages/radarBG.png";
+import radarSpinner from "@/assets/Images/homeImages/radarSpinner.png";
 
 export const LocalImages = {
   heroGif,
@@ -30,4 +32,6 @@ export const LocalImages = {
   Facebook,
   Instagram,
   Twitter,
+  radarBG,
+  radarSpinner,
 };
