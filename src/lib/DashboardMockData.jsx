@@ -1,5 +1,4 @@
 import { DashboardLocalImages } from "@/components/AllPhotos/DashboardLocalImages";
-import { LocalImages } from "@/components/AllPhotos/HomeLocalImages";
 
 export const nichesMockData = [
   "Images",
@@ -51,12 +50,12 @@ export const socialMediaAccountsMockData = [
   {
     id: 1,
     name: "Instagram",
-    logo: LocalImages.Instagram,
+    logo: DashboardLocalImages.instagramLogo,
   },
   {
     id: 1,
     name: "Twitter/X",
-    logo: LocalImages.Twitter,
+    logo: DashboardLocalImages.twitterLogo,
   },
   {
     id: 1,

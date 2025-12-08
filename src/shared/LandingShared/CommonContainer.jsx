@@ -4,7 +4,7 @@ const CommonContainer = ({ children, id }) => {
   return (
     <section
       id={id}
-      className="flex flex-col items-center mt-30 mb-20 container mx-auto"
+      className="flex flex-col items-center mt-40 container mx-auto"
     >
       {children}
     </section>
