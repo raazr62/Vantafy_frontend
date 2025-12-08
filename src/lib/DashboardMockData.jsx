@@ -43,22 +43,22 @@ export const socialMediaAccountsMockData = [
     logo: DashboardLocalImages.OnlyFansLogo,
   },
   {
-    id: 1,
+    id: 2,
     name: "Fansly",
     logo: DashboardLocalImages.fanslyLogo,
   },
   {
-    id: 1,
+    id: 3,
     name: "Instagram",
     logo: DashboardLocalImages.instagramLogo,
   },
   {
-    id: 1,
+    id: 4,
     name: "Twitter/X",
     logo: DashboardLocalImages.twitterLogo,
   },
   {
-    id: 1,
+    id: 5,
     name: "TikTok",
     logo: DashboardLocalImages.titokLogo,
   },
