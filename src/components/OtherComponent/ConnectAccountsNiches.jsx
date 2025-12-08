@@ -6,7 +6,7 @@ const ConnectAccountsNiches = () => {
   const [openAccountId, setOpenAccountId] = useState(null);
 
   return (
-    <div className="p-6 rounded-[12px] border border-[#EFE6FD] flex-1 overflow-y-auto">
+    <div className="p-6 rounded-[12px] grow border border-[#EFE6FD] flex-1 overflow-y-auto">
       <p className="text-2xl font-medium">Connect Your Accounts</p>
       <p className="text-[#90A1B9] text-justify mt-1">
         Add your social media platforms and paysite accounts to protect your

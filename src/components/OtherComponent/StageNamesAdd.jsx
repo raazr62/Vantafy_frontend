@@ -14,8 +14,17 @@ const StageNamesAdd = () => {
       e.target.reset();
     }
   };
+
+  const handleRemoveStageName = (index) => {
+    const removedStageName = stageNames[index];
+    const currentStageNames = stageNames.filter(
+      (name) => removedStageName !== name
+    );
+    setStageNames([...currentStageNames]);
+  };
+
   return (
-    <div className="p-6 rounded-[12px] border border-[#EFE6FD] flex-1 space-y-2">
+    <div className="p-6 h-[30%] rounded-[12px] border border-[#EFE6FD] flex-1 space-y-2">
       <p className="text-xl font-medium">Stage Names to Protect</p>
       <form
         onSubmit={handleSubmit}
@@ -43,7 +52,11 @@ const StageNamesAdd = () => {
             className="flex items-center gap-2 px-6 py-3 bg-[#D9E4E8] text-xs font-medium w-fit rounded-xl"
           >
             {name}{" "}
-            <FaRegTrashAlt size={16} className="text-red-500 cursor-pointer" />
+            <FaRegTrashAlt
+              onClick={() => handleRemoveStageName(idx)}
+              size={16}
+              className="text-red-500 cursor-pointer"
+            />
           </p>
         ))}
       </div>
