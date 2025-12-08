@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router";
+import Logo from "@/shared/LandingShared/Logo";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -42,7 +43,7 @@ const Navbar = () => {
         to={"/#"}
         className="font-bold text-3xl text-white"
       >
-        Vantafy
+        <Logo />
       </HashLink>
 
       {/* NavLinks */}

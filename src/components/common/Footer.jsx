@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import { LocalImages } from "../AllPhotos/HomeLocalImages";
 import { HashLink } from "react-router-hash-link";
+import Logo from "@/shared/LandingShared/Logo";
 
 const Footer = () => {
   return (
@@ -10,7 +11,8 @@ const Footer = () => {
       <div className="absolute bg-[#8133F18F] h-50 w-50 rounded-full left-0 -translate-x-1/2 blur-3xl"></div>
 
       <div className="flex flex-col items-center justify-center gap-8">
-        <p className="text-[#9654F4] text-[32px] font-bold">Vantafy</p>
+        {/* <p className="text-[#9654F4] text-[32px] font-bold">Vantafy</p> */}
+        <Logo className={"w-40"} />
 
         {/* Links */}
         <ul className="flex items-center gap-6 text-white">
