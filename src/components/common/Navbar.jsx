@@ -40,7 +40,7 @@ const Navbar = () => {
           window.scrollTo({ top: y, behavior: "smooth" });
         }}
         to={"/#"}
-        className="font-bold text-3xl text-primary"
+        className="font-bold text-3xl text-white"
       >
         Vantafy
       </HashLink>
@@ -58,10 +58,10 @@ const Navbar = () => {
                   el.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 window.scrollTo({ top: y, behavior: "smooth" });
               }}
-              className={`px-2 pb-0.5 border-b-2 transition-all duration-300 ${
+              className={`text-white px-2 pb-0.5 border-b-2 transition-all duration-300 ${
                 active === nav.link.replace("#", "")
-                  ? "textPrimary font-semibold border-primary"
-                  : "text-gray-500 font-medium border-transparent hover:textPrimary"
+                  ? "font-semibold border-white"
+                  : "font-medium border-transparent hover:textPrimary"
               }`}
             >
               {nav.name}
@@ -72,10 +72,20 @@ const Navbar = () => {
 
       {/* Auth Buttons */}
       <div className="flex gap-5.5 items-center">
-        <Button onClick={() => navigate("/auth/signin")} variant={"ghost"}>
-          <SignInSVG /> Login
+        <Button
+          onClick={() => navigate("/auth/signin")}
+          variant={"ghost"}
+          className={"text-white hover:text-white"}
+        >
+          <SignInSVG className={"text-white"} /> Login
         </Button>
-        <Button onClick={() => navigate("/auth/signup")}>Get Protected</Button>
+        <Button
+          onClick={() => navigate("/auth/signup")}
+          variant="outline"
+          className="bg-purple-800 text-white rounded-4xl font-medium border-sky-500 border-2 hover:bg-purple-700 hover:text-white"
+        >
+          Get Protected
+        </Button>
       </div>
     </nav>
   );

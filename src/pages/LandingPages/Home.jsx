@@ -11,7 +11,7 @@ import WhatWeDo from "@/components/HomeComponent/WhatWeDo";
 const Home = () => {
   return (
     <div>
-      <div className="bg-primary/1">
+      <div className="bg-linear-to-b from-sky-300 to-50% to-transparent">
         <Hero />
       </div>
 

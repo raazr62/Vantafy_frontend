@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { LocalImages } from "../AllPhotos/HomeLocalImages";
+import Radar from "./Radar";
 
 const Hero = () => {
   return (
@@ -17,20 +17,8 @@ const Hero = () => {
         <Button className={"font-semibold px-8 py-4"}>Get Protected</Button>
       </div>
 
-      <div className="overflow-hidden rounded-xl">
-        <video
-          className="w-135 block"
-          src={LocalImages.heroGif}
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ clipPath: "inset(5px 5px 5px 8px)" }}
-          onLoadedMetadata={(e) => {
-            e.target.playbackRate = 1.5;
-          }}
-        ></video>
-      </div>
+      {/* Radar */}
+      <Radar />
     </section>
   );
 };
