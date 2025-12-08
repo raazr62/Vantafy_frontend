@@ -51,7 +51,10 @@ const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
           />
           <br />
           <div className="flex items-center max-w-[415px] gap-3">
-            <button className="py-2 bg-sky-500 text-white rounded-xl w-4/6 cursor-pointer">
+            <button
+              type="submit"
+              className="py-2 bg-sky-500 text-white rounded-xl w-4/6 cursor-pointer"
+            >
               Save
             </button>
             <button
