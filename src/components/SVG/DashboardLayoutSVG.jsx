@@ -190,7 +190,78 @@ export const LogoutIconSVG = ({ className }) => {
   );
 };
 
-// className={cn("text-[#4A4A4A] w-4.5 h-4.5", className)}
+export const UpgradeTierIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-[19px] h-4.5", className)}
+      viewBox="0 0 19 18"
+      fill="none"
+    >
+      <path
+        d="M1.88672 14.625H16.8867V16.125H1.88672V14.625ZM1.88672 4.125L5.63672 6.75L9.38672 1.875L13.1367 6.75L16.8867 4.125V13.125H1.88672V4.125ZM3.38672 7.005V11.625H15.3867V7.005L12.8217 8.805L9.38672 4.335L5.95172 8.805L3.38672 7.005Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
+
+export const AlertIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-6 h-6 text-white", className)}
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const InfoIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("text-[#54D5FF] w-4.5 h-4.5", className)}
+      viewBox="0 0 18 18"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16609_2904)">
+        <path
+          d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9 12V9"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9 6H9.0075"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16609_2904">
+          <rect width="18" height="18" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
 // export const IconSVG = ({ className }) => {
 //   return
 // }

@@ -6,7 +6,7 @@ export default function DashboardLayout() {
   return (
     <div className="p-4 bg-[#F2F5F7] h-svh flex">
       <Sidebar />
-      <div className="px-5">
+      <div className="px-5 w-full flex-1 flex flex-col overflow-hidden">
         <Outlet />
       </div>
     </div>

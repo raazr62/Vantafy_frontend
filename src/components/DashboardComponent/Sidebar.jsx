@@ -7,7 +7,7 @@ import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
 const Sidebar = () => {
   return (
-    <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] h-full px-3 py-6 w-fit rounded-2xl flex flex-col justify-between">
+    <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] h-full px-3 py-6 max-w-[260px] w-full rounded-2xl flex flex-col justify-between">
       {/* Top Bar */}
       <div>
         <div className="p-1 bg-linear-to-br from-[#971DFE] to-[#C289E8] border border-purple-500 rounded-full flex items-center justify-center">

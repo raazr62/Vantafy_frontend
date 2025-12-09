@@ -117,3 +117,50 @@ export const sidebarLinks = [
     icon: <PlansIconSVG />,
   },
 ];
+
+export const accountStatsMockData = [
+  {
+    id: 1,
+    info: "Potential Revenue",
+    quantity: "$599",
+  },
+  {
+    id: 2,
+    info: "Infringing Site",
+    quantity: 76,
+  },
+  {
+    id: 3,
+    info: "Image Found",
+    quantity: 800,
+  },
+  {
+    id: 4,
+    info: "Video Found",
+    quantity: 150,
+  },
+  {
+    id: 5,
+    info: "Delisted",
+    quantity: "1,540",
+  },
+  {
+    id: 6,
+    info: "Full Deletion",
+    quantity: 150,
+  },
+];
+
+export const linksMockData = [
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+];
