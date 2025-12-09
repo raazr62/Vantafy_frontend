@@ -6,6 +6,7 @@ import { generalRoutes } from "./GeneralRoutes";
 import { authRoutes } from "./AuthRoutes";
 import Overview from "@/pages/DashboardPages/Overview";
 import SelectNiches from "@/pages/SelectNiches";
+import ConnectAccounts from "@/pages/ConnectAccounts";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/select-niches",
     element: <SelectNiches />,
+  },
+  {
+    path: "/connect-accounts",
+    element: <ConnectAccounts />,
   },
 ]);
 
