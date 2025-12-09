@@ -6,13 +6,13 @@ const ConnectAccountsNiches = () => {
   const [openAccountId, setOpenAccountId] = useState(null);
 
   return (
-    <div className="p-6 rounded-[12px] grow border border-[#EFE6FD] flex-1 overflow-y-auto">
+    <div className="p-6 rounded-[12px] grow border border-[#EFE6FD] flex-1 flex flex-col">
       <p className="text-2xl font-medium">Connect Your Accounts</p>
       <p className="text-[#90A1B9] text-justify mt-1">
         Add your social media platforms and paysite accounts to protect your
         content. We'll scan for unauthorized use and help keep your work secure.
       </p>
-      <div className="space-y-4 mt-6">
+      <div className="space-y-4 mt-6 grow overflow-y-auto">
         {socialMediaAccountsMockData.map((account) => (
           <AccountToConnect
             key={account.id}

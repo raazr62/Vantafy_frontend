@@ -6,13 +6,15 @@ import React from "react";
 const SelectNiches = () => {
   return (
     <div className="h-screen flex flex-col p-5 gap-5">
-      <div className="grow flex gap-6 overflow-y-auto">
+      <div className="grow flex gap-6 overflow-hidden">
         <ConnectAccountsNiches />
-        <div className="flex-1 flex flex-col gap-3">
+
+        <div className="flex-1 flex flex-col gap-3 overflow-hidden">
           <SelectYourNiches />
           <StageNamesAdd />
         </div>
       </div>
+
       <button className="bg-sky-500 text-xl font-semibold rounded-full w-full text-white py-3">
         Save
       </button>
