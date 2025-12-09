@@ -4,7 +4,7 @@ import Radar from "./Radar";
 
 const Hero = () => {
   return (
-    <section className="flex container mx-auto justify-between items-center py-15 mt-10 overflow-hidden">
+    <section className="flex container mx-auto justify-between items-center pt-40 overflow-hidden">
       {/* Hero Description */}
       <div className="space-y-4 max-w-4xl">
         <h1 className="font-bold text-5xl/tight">

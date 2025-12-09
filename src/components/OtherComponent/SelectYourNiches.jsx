@@ -1,8 +1,36 @@
-import React from "react";
+import { nichesMockData } from "@/lib/DashboardMockData";
+import React, { useState } from "react";
 
 const SelectYourNiches = () => {
+  const [selectedNiches, setSelectedNiches] = useState({});
+
+  const toggleNiche = (index) => {
+    setSelectedNiches((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   return (
-    <div className="p-6 rounded-[12px] border border-[#EFE6FD] flex-1"></div>
+    <div className="p-6 h-[calc(70%-12px)] rounded-[12px] border flex flex-col border-[#EFE6FD]">
+      <p className="text-xl font-medium mb-4">Select Your Niches</p>
+      <div className="grid grid-cols-4 gap-5 overflow-y-auto grow py-2">
+        {nichesMockData.map((niche, idx) => {
+          const isSelected = selectedNiches[idx] || false;
+          return (
+            <p
+              key={idx}
+              onClick={() => toggleNiche(idx)}
+              className={`font-medium rounded-full text-center py-3.5 cursor-pointer ${
+                isSelected ? "bg-primary text-white" : "bg-[#E9EEF0] text-black"
+              }`}
+            >
+              {niche}
+            </p>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 

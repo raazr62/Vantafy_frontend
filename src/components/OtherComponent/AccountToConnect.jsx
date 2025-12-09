@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
-const AccountToConnect = ({ account }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
   const [isConnected, setIsConnected] = useState(false);
   const { name, logo } = account;
+
   const handleAccountClick = () => {
-    setIsOpen(true);
+    if (!isConnected) {
+      onOpen();
+    }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const userName = e.target.name.value;
@@ -17,7 +20,9 @@ const AccountToConnect = ({ account }) => {
     }
     toast.success(`Your account connected ${e.target.name.value}`);
     setIsConnected(true);
+    onClose();
   };
+
   return (
     <div
       onClick={handleAccountClick}
@@ -32,8 +37,12 @@ const AccountToConnect = ({ account }) => {
           </p>
         </div>
       </div>
-      {!!isOpen && (
-        <form onSubmit={handleSubmit} className="space-y-3">
+      {isOpen && !isConnected && (
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-3"
+          onClick={(e) => e.stopPropagation()}
+        >
           <input
             type="text"
             name="name"
@@ -42,13 +51,17 @@ const AccountToConnect = ({ account }) => {
           />
           <br />
           <div className="flex items-center max-w-[415px] gap-3">
-            <button className="py-2 bg-sky-500 text-white rounded-xl w-4/6 cursor-pointer">
+            <button
+              type="submit"
+              className="py-2 bg-sky-500 text-white rounded-xl w-4/6 cursor-pointer"
+            >
               Save
             </button>
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                setIsOpen(false);
+                onClose();
               }}
               className="border border-[#EFE6FD] py-2 rounded-xl w-2/6 cursor-pointer"
             >

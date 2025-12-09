@@ -1,4 +1,7 @@
-import heroGif from "@/assets/Videos/RadarScreen.mp4";
+import vantafyWhiteFulltextLogo from "@/assets/Images/Logo/Vantafy_white_fulltext.png";
+import vantafyGrayFulltextLogo from "@/assets/Images/Logo/Vantafy_gray_fulltext.png";
+import vantafyGrayLogo from "@/assets/Images/Logo/VantafyGray.png";
+import VantafyWhiteLogo from "@/assets/Images/Logo/VantafyLogo.png";
 import chaturbateLogo from "@/assets/Images/homeImages/chaturbate.png";
 import fanslyLogo from "@/assets/Images/homeImages/Fansly_logo.svg";
 import fanvueLogo from "@/assets/Images/homeImages/fanvue.png";
@@ -15,9 +18,34 @@ import Instagram from "@/assets/Images/homeImages/Instagram.svg";
 import Twitter from "@/assets/Images/homeImages/Twitter.svg";
 import radarBG from "@/assets/Images/homeImages/radarBG.png";
 import radarSpinner from "@/assets/Images/homeImages/radarSpinner.png";
+import chaturbateOnlyLogo from "@/assets/Images/homeImages/radarLogos/chaturbate.png";
+import facebookOnlyLogo from "@/assets/Images/homeImages/radarLogos/Facebook.png";
+import instagramOnlyLogo from "@/assets/Images/homeImages/radarLogos/Instagram.png";
+import twitterLogoOnlyLogo from "@/assets/Images/homeImages/radarLogos/TwitterLogo.png";
+import vKLogoOnlyLogo from "@/assets/Images/homeImages/radarLogos/VKLogo.png";
+import bangOnlyLogo from "@/assets/Images/homeImages/radarLogos/bang.png";
+import hamsterOnlyLogo from "@/assets/Images/homeImages/radarLogos/hamster.png";
+import onlyfansOnlyLogo from "@/assets/Images/homeImages/radarLogos/OnlyfansLogo.png";
+import fanvueLogoOnlyLogo from "@/assets/Images/homeImages/radarLogos/fanvueLogo.png";
+import fanslyOnlyLogo from "@/assets/Images/homeImages/radarLogos/fanslyLogo.png";
+import porOnlyLogo from "@/assets/Images/homeImages/radarLogos/por.png";
 
 export const LocalImages = {
-  heroGif,
+  hamsterOnlyLogo,
+  onlyfansOnlyLogo,
+  fanslyOnlyLogo,
+  porOnlyLogo,
+  fanvueLogoOnlyLogo,
+  facebookOnlyLogo,
+  vKLogoOnlyLogo,
+  bangOnlyLogo,
+  instagramOnlyLogo,
+  twitterLogoOnlyLogo,
+  chaturbateOnlyLogo,
+  vantafyWhiteFulltextLogo,
+  vantafyGrayFulltextLogo,
+  vantafyGrayLogo,
+  VantafyWhiteLogo,
   chaturbateLogo,
   fanslyLogo,
   fanvueLogo,
