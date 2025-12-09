@@ -501,3 +501,44 @@ export const FAQMockData = [
       "I limit the number of projects I take on each month to ensure every client receives my full focus and consistent quality. This approach helps maintain clear communication, faster turnaround times, and better results for each project.",
   },
 ];
+
+export const RecommendedPricingPlansMockData = [
+  {
+    id: 1,
+    planName: "Silver",
+    price: "$900",
+    features: [
+      "5 Creators. Save $250!",
+      "Billed Monthly",
+      "Daily Report",
+      "Unlimited Stage Names",
+      "Daily Scans",
+      "Unlimited google Delisting",
+      "Unlimited Bing Delisting",
+      "Unlimited Social Media Removals",
+      "Unlimited User Submitted Request",
+      "Quantum scan with unlimited link removal",
+      "Specialized human Searches",
+      "Dedicated Support",
+    ],
+  },
+  {
+    id: 2,
+    planName: "Gold",
+    price: "$1700",
+    features: [
+      "10 Creators. Save $600!",
+      "Billed Monthly",
+      "Daily Report",
+      "Unlimited Stage Names",
+      "Daily Scans",
+      "Unlimited google Delisting",
+      "Unlimited Bing Delisting",
+      "Unlimited Social Media Removals",
+      "Unlimited User Submitted Request",
+      "Quantum scan with unlimited link removal",
+      "Specialized human Searches",
+      "Dedicated Support",
+    ],
+  },
+];

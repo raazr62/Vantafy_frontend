@@ -7,6 +7,7 @@ import { authRoutes } from "./AuthRoutes";
 import Overview from "@/pages/DashboardPages/Overview";
 import SelectNiches from "@/pages/SelectNiches";
 import ConnectAccounts from "@/pages/ConnectAccounts";
+import RecommendPlan from "@/pages/RecommendPlan";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/connect-accounts",
     element: <ConnectAccounts />,
+  },
+  {
+    path: "/recommend-plan",
+    element: <RecommendPlan />,
   },
 ]);
 
