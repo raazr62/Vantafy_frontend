@@ -24,12 +24,12 @@ const SignInForm = () => {
     e.preventDefault();
     // Sign In Logic Here
     toast.success("Signed in successfully!");
-    navigate("/");
+    navigate("/select-niches");
   };
 
   const handleGoogleLogin = () => {
     toast.success("Signed in successfully with Google!");
-    navigate("/");
+    navigate("/select-niches");
   };
 
   return (

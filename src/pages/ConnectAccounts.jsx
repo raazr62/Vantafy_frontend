@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { socialMediaAccountsMockData } from "@/lib/DashboardMockData";
 import { AiFillThunderbolt } from "react-icons/ai";
 import AccountToConnect from "@/components/OtherComponent/AccountToConnect";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 const ConnectAccounts = () => {
   const [openAccountId, setOpenAccountId] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="max-w-2xl mx-auto flex items-center justify-center h-svh py-5">
@@ -37,11 +40,21 @@ const ConnectAccounts = () => {
           You can connect multiple accounts. We'll monitor all of them for
           leaks.
         </p>
-        <button className="flex items-center gap-2.5 w-full justify-center py-3 bg-primary text-white text-lg my-4 rounded-xl font-medium">
+        <button
+          onClick={() => {
+            navigate("/recommend-plan");
+          }}
+          className="flex items-center gap-2.5 w-full justify-center py-3 bg-primary text-white text-lg my-4 rounded-xl font-medium cursor-pointer"
+        >
           <AiFillThunderbolt />
           Run Scan To Recommend Plan
         </button>
-        <button className="w-full py-3 text-lg rounded-xl bg-[#F5F5F5] font-medium border border-[#E5E5E5]">
+        <button
+          onClick={() => {
+            navigate("/pricing-plan");
+          }}
+          className="w-full py-3 text-lg rounded-xl bg-[#F5F5F5] font-medium border border-[#E5E5E5] cursor-pointer"
+        >
           Skip Scan & Choose Plan
         </button>
       </div>

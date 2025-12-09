@@ -2,8 +2,15 @@ import ConnectAccountsNiches from "@/components/OtherComponent/ConnectAccountsNi
 import SelectYourNiches from "@/components/OtherComponent/SelectYourNiches";
 import StageNamesAdd from "@/components/OtherComponent/StageNamesAdd";
 import React from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const SelectNiches = () => {
+  const navigate = useNavigate();
+  const handleSaveNiches = () => {
+    toast.success("Successfully saved your niches");
+    navigate("/connect-accounts");
+  };
   return (
     <div className="h-screen flex flex-col p-5 gap-5">
       <div className="grow flex gap-6 overflow-hidden">
@@ -15,7 +22,10 @@ const SelectNiches = () => {
         </div>
       </div>
 
-      <button className="bg-sky-500 text-xl font-semibold rounded-full w-full text-white py-3">
+      <button
+        onClick={handleSaveNiches}
+        className="bg-sky-500 text-xl font-semibold rounded-full w-full text-white py-3 cursor-pointer"
+      >
         Save
       </button>
     </div>

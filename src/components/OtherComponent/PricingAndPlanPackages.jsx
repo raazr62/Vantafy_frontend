@@ -1,8 +1,17 @@
 import { MonthlyPricingPlansMockData } from "@/lib/HomeMockData";
 import { Button } from "../ui/button";
 import React from "react";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 const PricingAndPlanPackages = () => {
+  const navigate = useNavigate();
+  const handleSubscription = (planName) => {
+    toast.success(
+      `Subscription confirmed! Thanks for choosing the ${planName} plan.`
+    );
+    navigate("/dashboard");
+  };
   return (
     <div className="flex gap-3 mt-4">
       {MonthlyPricingPlansMockData.map((plan) => {
@@ -38,6 +47,7 @@ const PricingAndPlanPackages = () => {
               ))}
             </div>
             <Button
+              onClick={() => handleSubscription(plan.planName)}
               className={
                 "bg-[linear-gradient(90deg,#FF8904_0%,#FDC700_100%)] text-black text-xs font-bold"
               }
