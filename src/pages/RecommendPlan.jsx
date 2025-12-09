@@ -4,7 +4,7 @@ import React from "react";
 
 const RecommendPlan = () => {
   return (
-    <div className="container max-w-6xl mx-auto flex items-center justify-center h-svh py-5">
+    <div className="container max-w-7xl mx-auto flex items-center justify-center h-svh py-5">
       <div className="w-full h-full flex flex-col">
         <Logo variant="grayFull" className={"mx-auto mb-3 w-40 shrink-0"} />
         <div className="rounded-[12px] border border-[#EFE6FD] flex flex-col p-6 flex-1 min-h-0">
