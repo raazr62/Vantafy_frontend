@@ -436,20 +436,20 @@ export const CopyAllIconSVG = ({ className }) => {
       viewBox="0 0 16 16"
       fill="none"
     >
-      <g clip-path="url(#clip0_16412_19630)">
+      <g clipPath="url(#clip0_16412_19630)">
         <path
           d="M13.332 5.33337H6.66536C5.92898 5.33337 5.33203 5.93033 5.33203 6.66671V13.3334C5.33203 14.0698 5.92898 14.6667 6.66536 14.6667H13.332C14.0684 14.6667 14.6654 14.0698 14.6654 13.3334V6.66671C14.6654 5.93033 14.0684 5.33337 13.332 5.33337Z"
           stroke="currentColor"
-          stroke-width="1.33333"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M2.66536 10.6667C1.93203 10.6667 1.33203 10.0667 1.33203 9.33337V2.66671C1.33203 1.93337 1.93203 1.33337 2.66536 1.33337H9.33203C10.0654 1.33337 10.6654 1.93337 10.6654 2.66671"
           stroke="currentColor"
-          stroke-width="1.33333"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -472,16 +472,16 @@ export const ScanCompleteIconSVG = ({ className }) => {
       <path
         d="M25.0013 45.8333C36.5072 45.8333 45.8346 36.5059 45.8346 25C45.8346 13.494 36.5072 4.16663 25.0013 4.16663C13.4954 4.16663 4.16797 13.494 4.16797 25C4.16797 36.5059 13.4954 45.8333 25.0013 45.8333Z"
         stroke="currentColor"
-        stroke-width="4.16667"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="4.16667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M18.75 25L22.9167 29.1667L31.25 20.8334"
         stroke="currentColor"
-        stroke-width="4.16667"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="4.16667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
