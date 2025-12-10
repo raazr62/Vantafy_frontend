@@ -41,7 +41,7 @@ const SignUpForm = () => {
 
   const handleGoogleLogin = () => {
     toast.success("Signed up successfully with Google!");
-    navigate("/");
+    navigate("/select-niches");
   };
 
   return (
