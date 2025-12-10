@@ -1,3 +1,4 @@
+// MonthlyLimitationHistory.jsx
 import { linksMockData } from "@/lib/DashboardMockData";
 import React from "react";
 import { InfoIconSVG } from "../SVG/DashboardLayoutSVG";
@@ -10,8 +11,7 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 const MonthlyLimitationHistory = () => {
   return (
-    <div className="flex-1 flex flex-col p-4 bg-white rounded-2xl">
-      {/* Header with tooltip */}
+    <div className="flex-1 flex flex-col p-4 bg-white rounded-2xl min-h-0">
       <div className="bg-[#F2F5F7] rounded-[12px] text-center text-lg font-semibold py-3 flex items-center justify-center gap-2">
         <span>Monthly Limit Reached</span>
 
@@ -33,7 +33,7 @@ const MonthlyLimitationHistory = () => {
         </TooltipProvider>
       </div>
 
-      {/* Links */}
+      {/* Scrollable list */}
       <div className="mt-4 flex-1 overflow-y-auto rounded-[12px]">
         {linksMockData.map((link, idx) => (
           <p

@@ -1,10 +1,11 @@
+// AccountHistory.jsx
 import React from "react";
 import DeletedLinksHistory from "./DeletedLinksHistory";
 import MonthlyLimitationHistory from "./MonthlyLimitationHistory";
 
 const AccountHistory = () => {
   return (
-    <div className="flex-5 flex flex-col gap-3">
+    <div className="flex flex-col gap-3 min-h-0 h-full">
       <DeletedLinksHistory />
       <MonthlyLimitationHistory />
     </div>
