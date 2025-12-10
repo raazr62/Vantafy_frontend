@@ -12,9 +12,9 @@ const SelectYourNiches = () => {
   };
 
   return (
-    <div className="p-6 h-[calc(70%-12px)] rounded-[12px] border flex flex-col border-[#EFE6FD]">
+    <div className="p-6 overflow-y-auto rounded-[12px] border flex flex-col border-[#EFE6FD]">
       <p className="text-xl font-medium mb-4">Select Your Niches</p>
-      <div className="grid grid-cols-4 gap-5 overflow-y-auto grow py-2">
+      <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-5 overflow-y-auto grow py-2">
         {nichesMockData.map((niche, idx) => {
           const isSelected = selectedNiches[idx] || false;
           return (

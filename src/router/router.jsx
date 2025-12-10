@@ -6,6 +6,10 @@ import { generalRoutes } from "./GeneralRoutes";
 import { authRoutes } from "./AuthRoutes";
 import Overview from "@/pages/DashboardPages/Overview";
 import SelectNiches from "@/pages/SelectNiches";
+import ConnectAccounts from "@/pages/ConnectAccounts";
+import RecommendPlan from "@/pages/RecommendPlan";
+import PricingPlan from "@/pages/PricingPlan";
+import { dashboardRoutes } from "./DashboardRoutes";
 
 const router = createBrowserRouter([
   {
@@ -16,16 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="overview" replace />,
-      },
-      {
-        path: "overview",
-        element: <Overview />,
-      },
-    ],
+    children: [...dashboardRoutes],
   },
   {
     path: "/auth",
@@ -35,6 +30,18 @@ const router = createBrowserRouter([
   {
     path: "/select-niches",
     element: <SelectNiches />,
+  },
+  {
+    path: "/connect-accounts",
+    element: <ConnectAccounts />,
+  },
+  {
+    path: "/recommend-plan",
+    element: <RecommendPlan />,
+  },
+  {
+    path: "/pricing-plan",
+    element: <PricingPlan />,
   },
 ]);
 

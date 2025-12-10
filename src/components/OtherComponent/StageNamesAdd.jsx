@@ -24,11 +24,11 @@ const StageNamesAdd = () => {
   };
 
   return (
-    <div className="p-6 h-[30%] rounded-[12px] border border-[#EFE6FD] flex-1 space-y-2">
+    <div className="px-6 py-3 rounded-[12px] border border-[#EFE6FD] grow h-full max-h-[220px] overflow-y-auto">
       <p className="text-xl font-medium">Stage Names to Protect</p>
       <form
         onSubmit={handleSubmit}
-        className="space-y-3"
+        className="space-y-3 mt-2"
         onClick={(e) => e.stopPropagation()}
       >
         <input
@@ -45,7 +45,7 @@ const StageNamesAdd = () => {
           Add
         </button>
       </form>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3 mt-2">
         {stageNames.map((name, idx) => (
           <p
             key={idx}

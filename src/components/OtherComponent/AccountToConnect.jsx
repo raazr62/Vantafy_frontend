@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { FaCheck } from "react-icons/fa6";
 
 const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
   const [isConnected, setIsConnected] = useState(false);
@@ -26,50 +27,55 @@ const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
   return (
     <div
       onClick={handleAccountClick}
-      className="border border-[#EFE6FD] p-4 rounded-[12px] space-y-6 cursor-pointer"
+      className="border border-[#EFE6FD] px-4 py-3 rounded-[12px] cursor-pointer flex items-center justify-between"
     >
-      <div className="flex items-center gap-4">
-        <img src={logo} alt={name} />
-        <div>
-          <p className="text-lg">{name}</p>
-          <p className={`${isConnected ? "text-green-400" : "text-[#90A1B9]"}`}>
-            {isConnected ? "connected" : "Not connected"}
-          </p>
-        </div>
-      </div>
-      {isOpen && !isConnected && (
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-3"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your user name"
-            className="bg-gray-100 w-full max-w-[415px] py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
-          />
-          <br />
-          <div className="flex items-center max-w-[415px] gap-3">
-            <button
-              type="submit"
-              className="py-2 bg-sky-500 text-white rounded-xl w-4/6 cursor-pointer"
+      <div className="space-y-6">
+        <div className="flex items-center gap-4">
+          <img src={logo} alt={name} />
+          <div>
+            <p className="text-lg">{name}</p>
+            <p
+              className={`${isConnected ? "text-green-400" : "text-[#90A1B9]"}`}
             >
-              Save
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onClose();
-              }}
-              className="border border-[#EFE6FD] py-2 rounded-xl w-2/6 cursor-pointer"
-            >
-              Cancel
-            </button>
+              {isConnected ? "connected" : "Not connected"}
+            </p>
           </div>
-        </form>
-      )}
+        </div>
+        {isOpen && !isConnected && (
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Your user name"
+              className="bg-gray-100 w-full max-w-[415px] py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
+            />
+            <br />
+            <div className="flex items-center max-w-[415px] gap-3">
+              <button
+                type="submit"
+                className="py-2 bg-sky-500 text-white rounded-xl w-4/6 cursor-pointer"
+              >
+                Save
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClose();
+                }}
+                className="border border-[#EFE6FD] py-2 rounded-xl w-2/6 cursor-pointer"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+      {!!isConnected && <FaCheck className="text-green-400" size={18} />}
     </div>
   );
 };

@@ -133,7 +133,6 @@
   }
 }
 
-
 /* Marquee */
 @keyframes marquee {
   0% {
@@ -197,4 +196,18 @@ input[type="number"] {
 
 .otp-error {
   animation: otp-shake 0.35s ease-in-out;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF1BE4;
+  border-radius: 16px;
 }
