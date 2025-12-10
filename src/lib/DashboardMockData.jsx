@@ -2,9 +2,12 @@ import { DashboardLocalImages } from "@/components/AllPhotos/DashboardLocalImage
 import {
   AffiliateIconSVG,
   HomeIconSVG,
+  ListOfDelistedLinksIconSVG,
   MessageIconSVG,
   PlansIconSVG,
   RequestRemovalIconSVG,
+  ScanResultIconSVG,
+  StartScanIconSVG,
   TeamIconSVG,
   UsersIconSVG,
 } from "@/components/SVG/DashboardLayoutSVG";
@@ -152,15 +155,33 @@ export const accountStatsMockData = [
 ];
 
 export const linksMockData = [
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
-  "https://www.thisisarandomlink.com/not-real/for-demo-purposes-",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+  "https://www.thisisarandomlink.com/not-real/for-demo",
+];
+
+export const overviewScanStatsMockData = [
+  {
+    id: 1,
+    title: "List of Delisted links",
+    icon: <ListOfDelistedLinksIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Start Scan",
+    icon: <StartScanIconSVG />,
+  },
+  {
+    id: 3,
+    title: "Scan Result",
+    icon: <ScanResultIconSVG />,
+  },
 ];

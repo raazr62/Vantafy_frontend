@@ -529,8 +529,8 @@ export const PlusIconSVG = ({ className }) => {
       fill="none"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M8 0H6V6H0V8H6V14H8V8H14V6H8V0Z"
         fill="currentColor"
       />
@@ -593,8 +593,8 @@ export const InstagramIconSVG = ({ className }) => {
         fill="url(#paint1_radial_16914_1617)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M11.9751 5.80802C8.57178 5.80802 5.81251 8.56727 5.81251 11.9705C5.81251 15.3738 8.57178 18.1318 11.9751 18.1318C15.3784 18.1318 18.1369 15.3738 18.1369 11.9705C18.1369 8.56727 15.3784 5.80802 11.9751 5.80802ZM12 15.9375C14.1746 15.9375 15.9375 14.1746 15.9375 12C15.9375 9.8254 14.1746 8.06252 12 8.06252C9.82538 8.06252 8.06251 9.8254 8.06251 12C8.06251 14.1746 9.82538 15.9375 12 15.9375Z"
         fill="url(#paint2_radial_16914_1617)"
       />

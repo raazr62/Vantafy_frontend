@@ -17,9 +17,8 @@ const Sidebar = () => {
         {/* Navigation Link */}
         <ul className="mt-8 space-y-1">
           {sidebarLinks.map((link) => (
-            <li>
+            <li key={link.id}>
               <NavLink
-                key={link.id}
                 className={({ isActive }) =>
                   `py-3 px-4 flex items-center gap-3 rounded-xl text-sm font-semibold
               ${isActive ? "bg-primary text-white" : "text-[#4A4A4A]"}`
