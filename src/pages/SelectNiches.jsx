@@ -14,7 +14,7 @@ const SelectNiches = () => {
   return (
     <div className="h-screen flex flex-col p-5 gap-5">
       <div className="grow flex gap-6 overflow-hidden">
-        <ConnectAccountsNiches />
+        {/* <ConnectAccountsNiches /> */}
 
         <div className="flex-1 flex flex-col gap-3 overflow-hidden">
           <SelectYourNiches />
