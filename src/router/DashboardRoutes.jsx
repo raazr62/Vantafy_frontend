@@ -3,6 +3,7 @@ import { Navigate } from "react-router";
 
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 const Overview = lazy(() => import("@/pages/DashboardPages/Overview"));
+const MyAccount = lazy(() => import("@/pages/DashboardPages/MyAccount"));
 
 export const dashboardRoutes = [
   {
@@ -12,6 +13,10 @@ export const dashboardRoutes = [
   {
     path: "overview",
     element: <Overview />,
+  },
+  {
+    path: "my-account",
+    element: <MyAccount />,
   },
   {
     path: "*",
