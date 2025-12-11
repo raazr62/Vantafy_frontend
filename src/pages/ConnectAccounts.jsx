@@ -3,7 +3,6 @@ import { socialMediaAccountsMockData } from "@/lib/DashboardMockData";
 import { AiFillThunderbolt } from "react-icons/ai";
 import AccountToConnect from "@/components/OtherComponent/AccountToConnect";
 import { useNavigate } from "react-router";
-import toast from "react-hot-toast";
 
 const ConnectAccounts = () => {
   const [openAccountId, setOpenAccountId] = useState(null);
