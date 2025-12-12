@@ -1,8 +1,7 @@
-// CommonInputField.jsx
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import { PasswordEyeCloseIconSVG } from "@/components/SVG/AuthLayoutSVG";
 import { FaRegEye } from "react-icons/fa6";
+import { PasswordEyeCloseIconSVG } from "@/components/SVG/AuthLayoutSVG";
 
 const CommonInputField = ({
   label,
@@ -11,41 +10,51 @@ const CommonInputField = ({
   placeholder,
   icon: Icon,
   className,
-  required = false,
+  register,
+  rules = {},
+  error,
+  readOnly = false,
+  ...props
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const isPassword = type === "password";
+  const inputType = isPassword ? (showPassword ? "text" : "password") : type;
 
   return (
     <div className="flex flex-col gap-2 w-full">
-      {!!label && (
-        <label htmlFor={name} className="text-xs text-[#2E3139]">
+      {/* Label */}
+      {label && (
+        <label htmlFor={name} className="text-xs text-[#2E3139] font-medium">
           {label}
         </label>
       )}
 
       <div className="relative">
+        {/* Input */}
         <input
           id={name}
-          name={name}
-          type={isPassword ? (showPassword ? "text" : "password") : type}
+          type={inputType}
           placeholder={placeholder}
-          required={required}
+          readOnly={readOnly}
           className={cn(
-            "w-full py-3.5 rounded-lg border border-sky-500 outline-none focus:border-primary",
-            !!Icon && "pl-9",
+            "w-full py-3.5 rounded-lg border border-sky-500 outline-none transition focus:border-primary",
+            Icon ? "pl-9" : "",
+            readOnly && "bg-gray-100 cursor-not-allowed opacity-70",
+            error && "border-red-500 focus:border-red-500",
             className
           )}
+          {...(register && register(name, rules))}
+          {...props}
         />
 
         {/* Left Icon */}
-        {!!Icon && (
-          <Icon className="absolute left-3 top-1/2 -translate-y-1/2" />
+        {Icon && (
+          <Icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
         )}
 
         {/* Password Toggle */}
-        {!!isPassword && (
+        {isPassword && (
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
@@ -59,6 +68,13 @@ const CommonInputField = ({
           </button>
         )}
       </div>
+
+      {/* Error Message */}
+      {error && (
+        <p className="text-red-500 text-xs mt-1">
+          {error.message || "Invalid field"}
+        </p>
+      )}
     </div>
   );
 };

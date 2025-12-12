@@ -1,5 +1,6 @@
 import { Camera } from "lucide-react";
 import React, { useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 const ProfilePhoto = () => {
   const fileInputRef = useRef(null);
@@ -29,6 +30,7 @@ const ProfilePhoto = () => {
   const handleProfileUpload = (file) => {
     console.log("Uploading file:", file);
     // Your upload logic goes here...
+    toast.success("Photo uploaded successfully");
   };
 
   return (

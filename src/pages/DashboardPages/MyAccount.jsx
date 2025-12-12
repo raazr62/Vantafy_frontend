@@ -10,12 +10,7 @@ const MyAccount = () => {
     "Stage names to protect",
     "Authorized Sites",
   ];
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Profile data:", formData);
-    // Add your form submission logic here
-  };
+
   return (
     <div className="overflow-y-auto">
       {/* Top Part */}
@@ -41,14 +36,13 @@ const MyAccount = () => {
       </div>
       {/* Profile */}
       {activeTab === "Profile" && (
-        <div onSubmit={handleSubmit} className="space-y-6 ">
+        <div className="space-y-6">
           <ProfileDetails />
 
           {/* Profile Bottom Part */}
           <ChangePassword />
         </div>
       )}
-      
     </div>
   );
 };

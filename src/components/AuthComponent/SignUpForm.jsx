@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { IoIosClose } from "react-icons/io";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
+import { useForm } from "react-hook-form";
 
 import {
   EmailIconSVG,
@@ -14,27 +15,40 @@ import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 
 const SignUpForm = () => {
-  const [checked, setChecked] = useState(false);
-  const [errorRole, setErrorRole] = useState(false);
-  const [role, setRole] = useState("");
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    if (event.target.checked) {
-      setChecked(true);
-    } else {
-      setChecked(false);
-    }
-  };
+  const [role, setRole] = useState("");
+  const [checked, setChecked] = useState(false);
+  const [roleError, setRoleError] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const password = watch("password");
+
+  const onSubmit = (data) => {
     if (!role) {
-      setErrorRole(true);
-      toast.error("Please Select a role");
+      setRoleError(true);
+      toast.error("Please select your role");
       return;
     }
-    // Sign In Logic Here
+
+    if (!checked) {
+      toast.error("You must agree to Terms & Condition");
+      return;
+    }
+
     toast.success("Signed up successfully!");
     navigate("/auth/otp-verify", { state: { from: "/auth/signup" } });
   };
@@ -58,17 +72,15 @@ const SignUpForm = () => {
         <p className="text-sm text-[#425583] mt-2 mb-10">
           Let’s create your account
         </p>
-        <form
-          onSubmit={handleSubmit}
-          className="w-full flex flex-col gap-4 mt-4 "
-        >
-          {/* Select Role */}
+
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+          {/* Role Selection */}
           <div className="flex items-center justify-between w-full gap-3.5">
             {/* Agency Owner */}
             <div
               onClick={() => {
                 setRole("Agency Owner");
-                setErrorRole(false);
+                setRoleError(false);
               }}
               className="border border-sky-500 rounded-xl py-4 w-full flex items-center justify-center gap-2.5 cursor-pointer"
             >
@@ -77,16 +89,14 @@ const SignUpForm = () => {
                   <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
                 )}
               </div>
-              <label htmlFor="agency-owner" className="text-sm">
-                Agency Owner
-              </label>
+              <label className="text-sm">Agency Owner</label>
             </div>
 
             {/* Customer */}
             <div
               onClick={() => {
                 setRole("Customer");
-                setErrorRole(false);
+                setRoleError(false);
               }}
               className="border border-sky-500 rounded-xl py-4 w-full flex items-center justify-center gap-2.5 cursor-pointer"
             >
@@ -95,25 +105,25 @@ const SignUpForm = () => {
                   <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
                 )}
               </div>
-              <label htmlFor="agency-owner" className="text-sm">
-                Customer
-              </label>
+              <label className="text-sm">Customer</label>
             </div>
           </div>
-          {!!errorRole && (
+
+          {roleError && (
             <p className="text-center text-red-500 text-sm">
               Please select your role
             </p>
           )}
 
-          {/* Email */}
+          {/* Full Name */}
           <CommonInputField
             label="Full Name"
-            type="text"
             name="fullName"
-            placeholder="Enter your full name."
+            placeholder="Enter your full name"
             icon={ProfileIconSVG}
-            required
+            register={register}
+            rules={{ required: "Full name is required" }}
+            error={errors.fullName}
           />
 
           {/* Email */}
@@ -123,7 +133,15 @@ const SignUpForm = () => {
             name="email"
             placeholder="example@gmail.com"
             icon={EmailIconSVG}
-            required
+            register={register}
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Invalid email format",
+              },
+            }}
+            error={errors.email}
           />
 
           {/* Password */}
@@ -133,7 +151,15 @@ const SignUpForm = () => {
             name="password"
             placeholder="Set your password"
             icon={LockIconSVG}
-            required
+            register={register}
+            rules={{
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            }}
+            error={errors.password}
           />
 
           {/* Confirm Password */}
@@ -143,17 +169,22 @@ const SignUpForm = () => {
             name="confirmPassword"
             placeholder="Confirm your password"
             icon={LockIconSVG}
-            required
+            register={register}
+            rules={{
+              required: "Confirm your password",
+              validate: (value) =>
+                value === password || "Passwords do not match",
+            }}
+            error={errors.confirmPassword}
           />
 
-          {/* Remember & Forgot Pass */}
+          {/* Terms Checkbox */}
           <label className="flex items-center gap-2.5 cursor-pointer">
             <input
               type="checkbox"
               className="sr-only"
               checked={checked}
-              onChange={handleInputChange}
-              required
+              onChange={(e) => setChecked(e.target.checked)}
             />
             {checked ? (
               <ImCheckboxChecked size={16} className="text-sky-500" />
@@ -165,31 +196,31 @@ const SignUpForm = () => {
             </span>
           </label>
 
-          <Button
-            type={"submit"}
-            className={"py-6 my-4"}
-            variant={"formSubmit"}
-          >
+          <Button type="submit" className="py-6 my-4" variant="formSubmit">
             Sign up
           </Button>
         </form>
+
+        {/* Divider */}
         <div className="flex items-center gap-2.5">
           <hr className="border-[#EFE6FD] w-full" />
           <span className="font-medium text-[#425583]">or</span>
           <hr className="border-[#EFE6FD] w-full" />
         </div>
 
+        {/* Google Auth */}
         <button
           onClick={handleGoogleLogin}
           className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-sm font-medium flex items-center pl-5"
         >
-          <GoogleAuthSVG className={"w-4.5 h-4.5"} />{" "}
+          <GoogleAuthSVG className="w-4.5 h-4.5" />
           <span className="w-full text-center">Sign up with Google</span>
         </button>
 
+        {/* Login Link */}
         <p className="text-center text-[#425583] text-sm">
           Already have an account?{" "}
-          <Link className="text-[#9654F4] font-medium" to={"/auth/signin"}>
+          <Link className="text-[#9654F4] font-medium" to="/auth/signin">
             Sign in
           </Link>
         </p>

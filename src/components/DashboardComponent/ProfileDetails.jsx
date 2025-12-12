@@ -1,135 +1,125 @@
-import React, { useState } from "react";
+import React from "react";
 import ProfilePhoto from "./ProfilePhoto";
 import AdvancedTimezoneDropdown from "@/shared/DashboardShared/AdvancedTimezoneDropdown";
 import CountryDropdown from "@/shared/DashboardShared/CountryDropdown";
 import { EmailIconSVG, ProfileIconSVG } from "../SVG/DashboardLayoutSVG";
 import { Button } from "../ui/button";
+import { useForm, Controller } from "react-hook-form";
+import CommonInputField from "@/shared/AuthShared/CommonInputField";
+import toast from "react-hot-toast";
 
 const ProfileDetails = () => {
-  // Add state for form data
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    country: "",
-    timezone: "",
+  const {
+    register,
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      country: "",
+      timezone: "",
+    },
   });
 
-  // Handle input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const timezone = watch("timezone");
 
-  // Handle country change from CountryDropdown
-  const handleCountryChange = (countryCode) => {
-    setFormData((prev) => ({
-      ...prev,
-      country: countryCode,
-      // Optionally clear timezone when country changes
-      timezone: "",
-    }));
-  };
-
-  // Handle timezone change
-  const handleTimezoneChange = (timezone) => {
-    setFormData((prev) => ({
-      ...prev,
-      timezone,
-    }));
+  const onSubmit = (data) => {
+    console.log("Profile Form Submitted:", data);
+    toast.success("Successfully updated profile details");
   };
 
   return (
     <div className="px-4 pt-4 bg-white pb-6 rounded-b-[12px]">
       <ProfilePhoto />
 
-      {/* All Input Fields */}
-      <div className="space-y-4 mt-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-4">
         {/* Full Name */}
-        <div>
-          <label
-            htmlFor="fullName"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Full Name
-          </label>
-          <div className="relative">
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              className="w-full pr-3 pl-8 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
-              placeholder="Enter your full name"
-            />
-            <ProfileIconSVG
-              className={"absolute top-1/2 -translate-y-1/2 left-2"}
-            />
-          </div>
-        </div>
+        <CommonInputField
+          label="Full Name"
+          name="fullName"
+          placeholder="Enter your full name"
+          icon={ProfileIconSVG}
+          register={register}
+          error={errors.fullName}
+          rules={{ required: "Full name is required" }}
+        />
 
-        {/* Email Address */}
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Email Address
-          </label>
-          <div className="relative">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full pr-3 pl-8 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your email"
-            />
-            <EmailIconSVG
-              className={"absolute top-1/2 -translate-y-1/2 left-2"}
-            />
-          </div>
-        </div>
+        {/* Email (Read Only) */}
+        <CommonInputField
+          label="Email Address"
+          name="email"
+          type="email"
+          placeholder="example@gmail.com"
+          value="fixedEmail@gmail.com"
+          icon={EmailIconSVG}
+          register={register}
+          readOnly={true}
+          className="bg-gray-100 cursor-not-allowed"
+        />
 
         {/* Country */}
         <div>
-          <label
-            htmlFor="country"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label className="block text-sm font-medium text-gray-700 mb-1">
             Country
           </label>
-          <CountryDropdown
-            value={formData.country}
-            onChange={handleCountryChange}
-            placeholder="Select your country"
+
+          <Controller
+            name="country"
+            control={control}
+            rules={{ required: "Country is required" }}
+            render={({ field }) => (
+              <CountryDropdown
+                value={field.value}
+                onChange={(val) => field.onChange(val)}
+                placeholder="Select your country"
+              />
+            )}
           />
+
+          {errors.country && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors.country.message}
+            </p>
+          )}
         </div>
 
         {/* Timezone */}
         <div>
-          <AdvancedTimezoneDropdown
-            value={formData.timezone}
-            onChange={handleTimezoneChange}
-            country={formData.country}
-            placeholder="Select your timezone"
+          <Controller
+            name="timezone"
+            control={control}
+            rules={{ required: "Timezone is required" }}
+            render={({ field }) => (
+              <AdvancedTimezoneDropdown
+                value={field.value}
+                onChange={(val) => field.onChange(val)}
+                country={watch("country")}
+                placeholder="Select your timezone"
+              />
+            )}
           />
+
+          {errors.timezone && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors.timezone.message}
+            </p>
+          )}
         </div>
 
-        {/* Display selected time info */}
-        {formData.timezone && (
+        {/* Timezone preview */}
+        {timezone && (
           <div className="p-3 bg-blue-50 rounded-md">
             <p className="text-sm text-blue-800">
-              <strong>Selected Timezone:</strong> {formData.timezone}
+              <strong>Selected Timezone:</strong> {timezone}
             </p>
+
             <p className="text-xs text-blue-600 mt-1">
               Current time:{" "}
               {new Date().toLocaleTimeString("en-US", {
-                timeZone: formData.timezone,
+                timeZone: timezone,
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: true,
@@ -137,11 +127,11 @@ const ProfileDetails = () => {
             </p>
           </div>
         )}
-      </div>
 
-      <Button type={"submit"} variant={"secondary"} className={"mt-4"}>
-        Save
-      </Button>
+        <Button type="submit" variant="secondary">
+          Save
+        </Button>
+      </form>
     </div>
   );
 };

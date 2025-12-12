@@ -7,22 +7,20 @@ import { EmailIconSVG, GoogleAuthSVG, LockIconSVG } from "../SVG/AuthLayoutSVG";
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
 
 const SignInForm = () => {
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    if (event.target.checked) {
-      setChecked(true);
-    } else {
-      setChecked(false);
-    }
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Sign In Logic Here
+  const onSubmit = (data) => {
+    console.log(data);
     toast.success("Signed in successfully!");
     navigate("/select-niches");
   };
@@ -46,18 +44,28 @@ const SignInForm = () => {
         <p className="text-sm text-[#425583] mt-2 mb-10">
           Sign in to your account
         </p>
+
+        {/* Form */}
         <form
-          onSubmit={handleSubmit}
-          className="w-full flex flex-col gap-4 mt-4 "
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full flex flex-col gap-4 mt-4"
         >
           {/* Email */}
           <CommonInputField
             label="Email"
             type="email"
             name="email"
-            placeholder="example@gmail.com"
             icon={EmailIconSVG}
-            required
+            placeholder="example@gmail.com"
+            register={register}
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Enter a valid email",
+              },
+            }}
+            error={errors.email}
           />
 
           {/* Password */}
@@ -65,19 +73,28 @@ const SignInForm = () => {
             label="Password"
             type="password"
             name="password"
-            placeholder="Enter your password"
             icon={LockIconSVG}
-            required
+            placeholder="Enter your password"
+            register={register}
+            rules={{
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            }}
+            error={errors.password}
           />
 
-          {/* Remember & Forgot Pass */}
+          {/* Remember me & Forgot password */}
           <div className="flex justify-between items-center">
             <label className="flex items-center gap-2.5 cursor-pointer">
               <input
                 type="checkbox"
                 className="hidden"
-                onChange={handleInputChange}
+                onChange={(e) => setChecked(e.target.checked)}
               />
+
               {checked ? (
                 <ImCheckboxChecked size={16} className="text-sky-500" />
               ) : (
@@ -88,38 +105,40 @@ const SignInForm = () => {
             </label>
 
             <Link
-              to={"/auth/reset-password"}
+              to="/auth/reset-password"
               className="text-sm font-medium text-sky-500 hover:underline"
             >
               Forgot Password
             </Link>
           </div>
 
-          <Button
-            type={"submit"}
-            className={"py-6 my-4"}
-            variant={"formSubmit"}
-          >
+          {/* Submit */}
+          <Button type="submit" className="py-6 my-4" variant="formSubmit">
             Sign in
           </Button>
         </form>
+
+        {/* Divider */}
         <div className="flex items-center gap-2.5">
           <hr className="border-[#EFE6FD] w-full" />
           <span className="font-medium text-[#425583]">or</span>
           <hr className="border-[#EFE6FD] w-full" />
         </div>
 
+        {/* Google Login */}
         <button
+          type="button"
           onClick={handleGoogleLogin}
           className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-sm font-medium flex items-center pl-5"
         >
-          <GoogleAuthSVG className={"w-4.5 h-4.5"} />{" "}
+          <GoogleAuthSVG className="w-4.5 h-4.5" />
           <span className="w-full text-center">Sign in with Google</span>
         </button>
 
+        {/* Sign Up redirect */}
         <p className="text-center text-[#425583] text-sm">
           Don't have an account?{" "}
-          <Link className="text-[#9654F4] font-medium" to={"/auth/signup"}>
+          <Link className="text-[#9654F4] font-medium" to="/auth/signup">
             Sign up
           </Link>
         </p>
