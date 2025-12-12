@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ProfilePhoto from "./ProfilePhoto";
 import AdvancedTimezoneDropdown from "@/shared/DashboardShared/AdvancedTimezoneDropdown";
 import CountryDropdown from "@/shared/DashboardShared/CountryDropdown";
+import { EmailIconSVG, ProfileIconSVG } from "../SVG/DashboardLayoutSVG";
+import { Button } from "../ui/button";
 
 const ProfileDetails = () => {
   // Add state for form data
@@ -53,15 +55,20 @@ const ProfileDetails = () => {
           >
             Full Name
           </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter your full name"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleInputChange}
+              className="w-full pr-3 pl-8 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
+              placeholder="Enter your full name"
+            />
+            <ProfileIconSVG
+              className={"absolute top-1/2 -translate-y-1/2 left-2"}
+            />
+          </div>
         </div>
 
         {/* Email Address */}
@@ -72,15 +79,20 @@ const ProfileDetails = () => {
           >
             Email Address
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Enter your email"
-          />
+          <div className="relative">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className="w-full pr-3 pl-8 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your email"
+            />
+            <EmailIconSVG
+              className={"absolute top-1/2 -translate-y-1/2 left-2"}
+            />
+          </div>
         </div>
 
         {/* Country */}
@@ -126,6 +138,10 @@ const ProfileDetails = () => {
           </div>
         )}
       </div>
+
+      <Button type={"submit"} variant={"secondary"} className={"mt-4"}>
+        Save
+      </Button>
     </div>
   );
 };

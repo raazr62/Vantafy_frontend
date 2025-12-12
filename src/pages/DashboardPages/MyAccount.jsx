@@ -17,7 +17,7 @@ const MyAccount = () => {
     // Add your form submission logic here
   };
   return (
-    <div>
+    <div className="overflow-y-auto">
       {/* Top Part */}
       <div className="bg-white rounded-t-[12px]">
         <div className="grid grid-cols-4 gap-2 w-full py-4 bg-slate-50 px-4 border border-slate-200 rounded-t-[12px]">
@@ -39,12 +39,16 @@ const MyAccount = () => {
           })}
         </div>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-6 ">
-        {activeTab === "Profile" && <ProfileDetails />}
+      {/* Profile */}
+      {activeTab === "Profile" && (
+        <div onSubmit={handleSubmit} className="space-y-6 ">
+          <ProfileDetails />
 
-        {/* Profile Bottom Part */}
-        {activeTab === "Profile" && <ChangePassword />}
-      </form>
+          {/* Profile Bottom Part */}
+          <ChangePassword />
+        </div>
+      )}
+      
     </div>
   );
 };

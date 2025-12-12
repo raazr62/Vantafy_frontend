@@ -487,6 +487,66 @@ export const ScanCompleteIconSVG = ({ className }) => {
   );
 };
 
+export const ProfileIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("text-[#454F5B] w-4.5 h-4.5", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+    >
+      <path
+        d="M15.8385 17.5V15.8333C15.8385 14.9493 15.4874 14.1014 14.8622 13.4763C14.2371 12.8512 13.3893 12.5 12.5052 12.5H7.50521C6.62115 12.5 5.77331 12.8512 5.14819 13.4763C4.52306 14.1014 4.17188 14.9493 4.17188 15.8333V17.5"
+        stroke="currentColor"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.0052 9.16667C11.8462 9.16667 13.3385 7.67428 13.3385 5.83333C13.3385 3.99238 11.8462 2.5 10.0052 2.5C8.16426 2.5 6.67188 3.99238 6.67188 5.83333C6.67188 7.67428 8.16426 9.16667 10.0052 9.16667Z"
+        stroke="currentColor"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const EmailIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-4.5 h-4.5 text-[#454F5B]", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+    >
+      <path
+        d="M18.3385 5.83301L10.846 10.6055C10.5918 10.7532 10.303 10.831 10.009 10.831C9.71493 10.831 9.42613 10.7532 9.17187 10.6055L1.67188 5.83301"
+        stroke="currentColor"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M16.6719 3.33301H3.33854C2.41807 3.33301 1.67188 4.0792 1.67188 4.99967V14.9997C1.67188 15.9201 2.41807 16.6663 3.33854 16.6663H16.6719C17.5923 16.6663 18.3385 15.9201 18.3385 14.9997V4.99967C18.3385 4.0792 17.5923 3.33301 16.6719 3.33301Z"
+        stroke="currentColor"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+// export const IconSVG = ({ className }) => {
+//   return
+// }
+
+// export const IconSVG = ({ className }) => {
+//   return
+// }
+
 // export const IconSVG = ({ className }) => {
 //   return
 // }

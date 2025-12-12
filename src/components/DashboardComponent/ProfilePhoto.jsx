@@ -32,7 +32,7 @@ const ProfilePhoto = () => {
   };
 
   return (
-    <div className="p-6 bg-[#F2F5F7] rounded-[12px] flex items-start gap-4">
+    <div className="p-4 bg-[#F2F5F7] rounded-[12px] flex items-start gap-4">
       {/* Profile picture */}
       <div>
         <div
