@@ -1,6 +1,8 @@
+import AccountNiches from "@/components/DashboardComponent/AccountNiches";
 import ChangePassword from "@/components/DashboardComponent/ChangePassword";
 import ProfileDetails from "@/components/DashboardComponent/ProfileDetails";
-import React, { useState } from "react";
+import StageNamesToProtect from "@/components/DashboardComponent/StageNamesToProtect";
+import { useState } from "react";
 
 const MyAccount = () => {
   const [activeTab, setActiveTab] = useState("Profile");
@@ -12,8 +14,8 @@ const MyAccount = () => {
   ];
 
   return (
-    <div className="overflow-y-auto">
-      {/* Top Part */}
+    <div className="flex flex-col h-full">
+      {/* Tab header (fixed height) */}
       <div className="bg-white rounded-t-[12px]">
         <div className="grid grid-cols-4 gap-2 w-full py-4 bg-slate-50 px-4 border border-slate-200 rounded-t-[12px]">
           {tabTiggerList.map((tab, idx) => {
@@ -34,15 +36,17 @@ const MyAccount = () => {
           })}
         </div>
       </div>
-      {/* Profile */}
-      {activeTab === "Profile" && (
-        <div className="space-y-6">
-          <ProfileDetails />
 
-          {/* Profile Bottom Part */}
+      {/* Scrollable content area */}
+      {activeTab === "Profile" && (
+        <div className="space-y-6 grow overflow-y-auto min-h-0 rounded-b-[12px]">
+          <ProfileDetails />
           <ChangePassword />
         </div>
       )}
+
+      {activeTab === "Niches" && <AccountNiches />}
+      {activeTab === "Stage names to protect" && <StageNamesToProtect />}
     </div>
   );
 };
