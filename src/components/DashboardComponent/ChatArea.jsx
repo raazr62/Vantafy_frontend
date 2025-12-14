@@ -375,7 +375,7 @@ const ChatArea = () => {
   // Fullscreen Image Viewer Component
   const FullscreenImageViewer = () => (
     <div
-      className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
       onClick={closeFullscreenImage}
     >
       <div className="relative max-w-full max-h-full">
