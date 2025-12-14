@@ -2,6 +2,7 @@ import { DashboardLocalImages } from "@/components/AllPhotos/DashboardLocalImage
 import {
   AffiliateIconSVG,
   HomeIconSVG,
+  ImageIconSVG,
   ListOfDelistedLinksIconSVG,
   MessageIconSVG,
   PlansIconSVG,
@@ -10,6 +11,9 @@ import {
   StartScanIconSVG,
   TeamIconSVG,
   UsersIconSVG,
+  VideoIconSVG,
+  WarningIconSVG,
+  WebIconSVG,
 } from "@/components/SVG/DashboardLayoutSVG";
 
 export const nichesMockData = [
@@ -320,5 +324,36 @@ export const scanCompleteOverviewMockData = [
     id: 4,
     title: "Videos",
     count: 400,
+  },
+];
+
+export const requestRemovalStatsMockData = [
+  {
+    id: 1,
+    count: 1247,
+    description: "Images Removed",
+    icon: <ImageIconSVG />,
+    bg: "bg-[#4E78FD1A]",
+  },
+  {
+    id: 2,
+    count: 89,
+    description: "Videos Detected",
+    icon: <VideoIconSVG />,
+    bg: "bg-[#FF1BE41A]",
+  },
+  {
+    id: 3,
+    count: 156,
+    description: "Detect Sites",
+    icon: <WebIconSVG />,
+    bg: "bg-[#10B9811A]",
+  },
+  {
+    id: 4,
+    count: 45,
+    description: "Request Remaining",
+    icon: <WarningIconSVG />,
+    bg: "bg-[#F59E0B1A]",
   },
 ];

@@ -4,6 +4,9 @@ import { Navigate } from "react-router";
 const NotFound = lazy(() => import("@/pages/NotFound/NotFound"));
 const Overview = lazy(() => import("@/pages/DashboardPages/Overview"));
 const MyAccount = lazy(() => import("@/pages/DashboardPages/MyAccount"));
+const RequestRemoval = lazy(() =>
+  import("@/pages/DashboardPages/RequestRemoval")
+);
 
 export const dashboardRoutes = [
   {
@@ -17,6 +20,10 @@ export const dashboardRoutes = [
   {
     path: "my-account",
     element: <MyAccount />,
+  },
+  {
+    path: "request-removal",
+    element: <RequestRemoval />,
   },
   {
     path: "*",
