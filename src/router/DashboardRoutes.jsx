@@ -7,6 +7,9 @@ const MyAccount = lazy(() => import("@/pages/DashboardPages/MyAccount"));
 const RequestRemoval = lazy(() =>
   import("@/pages/DashboardPages/RequestRemoval")
 );
+const DashboardPlans = lazy(() =>
+  import("@/pages/DashboardPages/DashboardPlans")
+);
 
 export const dashboardRoutes = [
   {
@@ -24,6 +27,10 @@ export const dashboardRoutes = [
   {
     path: "request-removal",
     element: <RequestRemoval />,
+  },
+  {
+    path: "plans",
+    element: <DashboardPlans />,
   },
   {
     path: "*",
