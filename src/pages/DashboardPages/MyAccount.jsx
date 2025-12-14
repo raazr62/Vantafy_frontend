@@ -1,4 +1,5 @@
 import AccountNiches from "@/components/DashboardComponent/AccountNiches";
+import AuthorizedSites from "@/components/DashboardComponent/AuthorizedSites";
 import ChangePassword from "@/components/DashboardComponent/ChangePassword";
 import ProfileDetails from "@/components/DashboardComponent/ProfileDetails";
 import StageNamesToProtect from "@/components/DashboardComponent/StageNamesToProtect";
@@ -47,6 +48,7 @@ const MyAccount = () => {
 
       {activeTab === "Niches" && <AccountNiches />}
       {activeTab === "Stage names to protect" && <StageNamesToProtect />}
+      {activeTab === "Authorized Sites" && <AuthorizedSites />}
     </div>
   );
 };
