@@ -1,20 +1,13 @@
 import React from "react";
 import { Plus, Camera, ImageIcon, FileText, Music } from "lucide-react";
 
-const UploadMenu = ({
-  isOpen,
-  onToggle,
-  onSelectPhotos,
-  onSelectCamera,
-  onSelectDocuments,
-  onSelectAudio,
-  fileInputRef,
-}) => {
+const UploadMenu = ({ isOpen, onToggle, fileInputRef, onFileSelect }) => {
   const handlePhotosClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.accept = "image/*,.mp4,.avi,.mov,.wmv";
       fileInputRef.current.click();
     }
+    onFileSelect();
   };
 
   const handleCameraClick = () => {
@@ -23,7 +16,7 @@ const UploadMenu = ({
       fileInputRef.current.capture = "environment";
       fileInputRef.current.click();
     }
-    onToggle();
+    onFileSelect();
   };
 
   const handleDocumentsClick = () => {
@@ -31,6 +24,7 @@ const UploadMenu = ({
       fileInputRef.current.accept = ".pdf,.doc,.docx,.txt,.xlsx,.xls";
       fileInputRef.current.click();
     }
+    onFileSelect();
   };
 
   const handleAudioClick = () => {
@@ -38,6 +32,7 @@ const UploadMenu = ({
       fileInputRef.current.accept = "audio/*,video/*";
       fileInputRef.current.click();
     }
+    onFileSelect();
   };
 
   return (

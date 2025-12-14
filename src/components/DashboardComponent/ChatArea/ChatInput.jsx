@@ -15,8 +15,9 @@ const ChatInput = ({
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [isUploadMenuOpen, setIsUploadMenuOpen] = useState(false);
   const emojiPickerRef = useRef(null);
+  const uploadMenuRef = useRef(null);
 
-  // Close emoji picker when clicking outside
+  // Close emoji picker and upload menu when clicking outside
   React.useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -24,6 +25,12 @@ const ChatInput = ({
         !emojiPickerRef.current.contains(event.target)
       ) {
         setShowEmojiPicker(false);
+      }
+      if (
+        uploadMenuRef.current &&
+        !uploadMenuRef.current.contains(event.target)
+      ) {
+        setIsUploadMenuOpen(false);
       }
     };
 
@@ -33,6 +40,11 @@ const ChatInput = ({
 
   const handleEmojiClick = (emojiObject) => {
     onInputChange(input + emojiObject.emoji);
+  };
+
+  const handleFileSelect = (e) => {
+    onFileSelect(e);
+    setIsUploadMenuOpen(false);
   };
 
   const isDisabled = !input.trim() && selectedFiles.length === 0;
@@ -47,17 +59,20 @@ const ChatInput = ({
         type="file"
         ref={fileInputRef}
         className="hidden"
-        onChange={onFileSelect}
+        onChange={handleFileSelect}
         multiple
         accept="image/*,.pdf,.doc,.docx,.txt,.xlsx,.xls,.ppt,.pptx,.zip,.rar,.mp3,.mp4"
       />
 
       {/* Upload Menu */}
-      <UploadMenu
-        isOpen={isUploadMenuOpen}
-        onToggle={() => setIsUploadMenuOpen(!isUploadMenuOpen)}
-        fileInputRef={fileInputRef}
-      />
+      <div ref={uploadMenuRef}>
+        <UploadMenu
+          isOpen={isUploadMenuOpen}
+          onToggle={() => setIsUploadMenuOpen(!isUploadMenuOpen)}
+          fileInputRef={fileInputRef}
+          onFileSelect={() => setIsUploadMenuOpen(false)}
+        />
+      </div>
 
       <div className="flex-1 relative">
         <input
