@@ -4,12 +4,15 @@ import {
   HomeIconSVG,
   ImageIconSVG,
   ListOfDelistedLinksIconSVG,
+  LockIconSVG,
   MessageIconSVG,
   PlansIconSVG,
   RequestRemovalIconSVG,
   ScanResultIconSVG,
+  StackIconSVG,
   StartScanIconSVG,
   TeamIconSVG,
+  ThunderIconSVG,
   UsersIconSVG,
   VideoIconSVG,
   WarningIconSVG,
@@ -355,5 +358,29 @@ export const requestRemovalStatsMockData = [
     description: "Request Remaining",
     icon: <WarningIconSVG />,
     bg: "bg-[#F59E0B1A]",
+  },
+];
+
+export const requestRemovalInfoMockData = [
+  {
+    id: 1,
+    icon: <ThunderIconSVG />,
+    title: "Priority Processing",
+    description: "Your requests are processed first",
+    bg: "bg-[#35A9FF]",
+  },
+  {
+    id: 2,
+    icon: <StackIconSVG />,
+    title: "Unlimited Requests",
+    description: "No limits on submissions",
+    bg: "bg-[#DF39E9]",
+  },
+  {
+    id: 3,
+    icon: <LockIconSVG />,
+    title: "Advanced Protection",
+    description: "AI-powered leak detection",
+    bg: "bg-[linear-gradient(180deg,#4E78FD_0%,#FF1BE4_100%)]",
   },
 ];

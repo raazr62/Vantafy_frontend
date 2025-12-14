@@ -664,6 +664,285 @@ export const WarningIconSVG = ({ className }) => {
   );
 };
 
+export const ThunderIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-5.5 h-5.5 text-white", className)}
+      viewBox="0 0 22 22"
+      fill="none"
+    >
+      <path
+        d="M3.65993 12.8048C3.48685 12.8054 3.31716 12.7568 3.17056 12.6648C3.02397 12.5728 2.90649 12.4411 2.83178 12.285C2.75707 12.1288 2.7282 11.9547 2.74851 11.7828C2.76882 11.6109 2.83748 11.4483 2.94652 11.3139L12.0013 1.98477C12.0692 1.90637 12.1618 1.85339 12.2638 1.83453C12.3658 1.81567 12.4712 1.83204 12.5626 1.88097C12.6541 1.92989 12.7262 2.00846 12.7671 2.10377C12.8081 2.19909 12.8154 2.30548 12.7879 2.4055L11.0318 7.91153C10.98 8.05012 10.9626 8.1992 10.9811 8.34599C10.9996 8.49277 11.0534 8.63288 11.138 8.75429C11.2225 8.87571 11.3352 8.9748 11.4665 9.04307C11.5977 9.11134 11.7436 9.14676 11.8915 9.14628H18.2939C18.467 9.14569 18.6367 9.19422 18.7833 9.28623C18.9299 9.37825 19.0473 9.50997 19.1221 9.6661C19.1968 9.82222 19.2256 9.99634 19.2053 10.1682C19.185 10.3401 19.1164 10.5027 19.0073 10.6371L9.95254 19.9663C9.88462 20.0447 9.79206 20.0977 9.69006 20.1165C9.58806 20.1354 9.48268 20.119 9.39121 20.0701C9.29974 20.0212 9.22762 19.9426 9.1867 19.8473C9.14577 19.752 9.13846 19.6456 9.16597 19.5455L10.922 14.0395C10.9738 13.9009 10.9912 13.7518 10.9727 13.6051C10.9542 13.4583 10.9004 13.3182 10.8159 13.1968C10.7313 13.0753 10.6186 12.9762 10.4873 12.908C10.3561 12.8397 10.2102 12.8043 10.0623 12.8048H3.65993Z"
+        stroke="currentColor"
+        stroke-width="1.82925"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const StackIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-5.5 h-5.5 text-white", className)}
+      viewBox="0 0 22 22"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16412_18243)">
+        <path
+          d="M10.9822 1.82837L1.83594 6.40149L10.9822 10.9746L20.1284 6.40149L10.9822 1.82837Z"
+          stroke="currentColor"
+          stroke-width="1.82925"
+        />
+        <path
+          d="M1.83594 15.5486L10.9822 20.1217L20.1284 15.5486"
+          stroke="currentColor"
+          stroke-width="1.82925"
+        />
+        <path
+          d="M1.83594 10.9742L10.9822 15.5474L20.1284 10.9742"
+          stroke="currentColor"
+          stroke-width="1.82925"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16412_18243">
+          <rect width="21.951" height="21.951" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const LockIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-5.5 h-5.5 text-white", className)}
+      viewBox="0 0 22 22"
+      fill="none"
+    >
+      <path
+        d="M17.3762 10.0598H4.57144C3.56117 10.0598 2.74219 10.8788 2.74219 11.8891V18.2914C2.74219 19.3017 3.56117 20.1207 4.57144 20.1207H17.3762C18.3864 20.1207 19.2054 19.3017 19.2054 18.2914V11.8891C19.2054 10.8788 18.3864 10.0598 17.3762 10.0598Z"
+        stroke="currentColor"
+        stroke-width="1.82925"
+      />
+      <path
+        d="M6.40625 10.06V6.40149C6.40625 5.18862 6.88806 4.02543 7.74569 3.1678C8.60331 2.31018 9.7665 1.82837 10.9794 1.82837C12.1922 1.82837 13.3554 2.31018 14.2131 3.1678C15.0707 4.02543 15.5525 5.18862 15.5525 6.40149V10.06"
+        stroke="currentColor"
+        stroke-width="1.82925"
+      />
+    </svg>
+  );
+};
+
+export const SendIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("w-4 h-4", className)}
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16412_18270)">
+        <path
+          d="M9.2181 13.7571C9.24221 13.8172 9.2841 13.8684 9.33818 13.904C9.39225 13.9396 9.4559 13.9577 9.5206 13.9561C9.5853 13.9544 9.64794 13.933 9.70013 13.8947C9.75231 13.8564 9.79152 13.8031 9.81252 13.7419L13.936 1.68863C13.9563 1.63242 13.9602 1.57159 13.9472 1.51326C13.9342 1.45493 13.9048 1.40151 13.8625 1.35925C13.8203 1.31699 13.7669 1.28764 13.7085 1.27463C13.6502 1.26163 13.5894 1.2655 13.5332 1.2858L1.47992 5.40928C1.4187 5.43027 1.36537 5.46949 1.32708 5.52167C1.2888 5.57385 1.26739 5.6365 1.26573 5.7012C1.26407 5.7659 1.28225 5.82955 1.31781 5.88362C1.35338 5.9377 1.40463 5.97959 1.4647 6.0037L6.49534 8.02103C6.65437 8.0847 6.79886 8.17991 6.9201 8.30094C7.04134 8.42196 7.13681 8.56627 7.20077 8.72519L9.2181 13.7571Z"
+          stroke="white"
+          stroke-width="1.30725"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M13.862 1.3623L6.92188 8.3018"
+          stroke="white"
+          stroke-width="1.30725"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16412_18270">
+          <rect width="15.2251" height="15.2251" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const DocumentIconSVG = ({ className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("text-[#FF1BE4] w-[15px] h-[15px]", className)}
+      viewBox="0 0 15 15"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16412_18306)">
+        <path
+          d="M3.52718 12.9314C3.21539 12.9314 2.91637 12.8075 2.69589 12.587C2.47542 12.3666 2.35156 12.0676 2.35156 11.7558V2.35079C2.35156 2.039 2.47542 1.73998 2.69589 1.5195C2.91637 1.29903 3.21539 1.17517 3.52718 1.17517H8.22967C8.41574 1.17487 8.60004 1.21138 8.77194 1.28261C8.94384 1.35383 9.09996 1.45836 9.23129 1.59017L11.3404 3.69923C11.4725 3.83061 11.5773 3.98687 11.6488 4.15899C11.7202 4.33111 11.7568 4.51568 11.7565 4.70203V11.7558C11.7565 12.0676 11.6327 12.3666 11.4122 12.587C11.1917 12.8075 10.8927 12.9314 10.5809 12.9314H3.52718Z"
+          stroke="currentColor"
+          stroke-width="1.17562"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8.22656 1.17505V4.1141C8.22656 4.27 8.28849 4.41951 8.39873 4.52975C8.50896 4.63998 8.65848 4.70191 8.81437 4.70191H11.7534"
+          stroke="currentColor"
+          stroke-width="1.17562"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M5.87875 5.28992H4.70312"
+          stroke="currentColor"
+          stroke-width="1.17562"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9.40561 7.64136H4.70312"
+          stroke="currentColor"
+          stroke-width="1.17562"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9.40561 9.99292H4.70312"
+          stroke="currentColor"
+          stroke-width="1.17562"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16412_18306">
+          <rect width="14.1074" height="14.1074" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const LinkOpenIconSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="11"
+      height="11"
+      viewBox="0 0 11 11"
+      fill="none"
+    >
+      <path
+        d="M6.85938 1.37256H9.60325V4.11643"
+        stroke="#4A4A4A"
+        stroke-width="0.914624"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M4.57812 6.40299L9.60856 1.37256"
+        stroke="#4A4A4A"
+        stroke-width="0.914624"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.23468 5.94484V8.68871C8.23468 8.93128 8.13832 9.16392 7.96679 9.33544C7.79527 9.50697 7.56263 9.60333 7.32005 9.60333H2.28962C2.04705 9.60333 1.81441 9.50697 1.64289 9.33544C1.47136 9.16392 1.375 8.93128 1.375 8.68871V3.65828C1.375 3.4157 1.47136 3.18306 1.64289 3.01154C1.81441 2.84001 2.04705 2.74365 2.28962 2.74365H5.0335"
+        stroke="#4A4A4A"
+        stroke-width="0.914624"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const StatusCompleteIconSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      height="13"
+      viewBox="0 0 13 13"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16412_18331)">
+        <path
+          d="M11.3929 5.22609C11.6315 6.39731 11.4615 7.61494 10.911 8.67593C10.3606 9.73693 9.46301 10.5771 8.36805 11.0565C7.27308 11.5358 6.04689 11.6253 4.89395 11.3099C3.74101 10.9946 2.73101 10.2936 2.03239 9.32371C1.33377 8.35385 0.988756 7.1738 1.05488 5.98035C1.12101 4.7869 1.59428 3.65219 2.39577 2.76544C3.19726 1.8787 4.27852 1.29352 5.45924 1.1075C6.63995 0.921483 7.84876 1.14586 8.88407 1.74322"
+          stroke="#10B981"
+          stroke-width="1.04512"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.70312 5.74789L6.27081 7.31558L11.4964 2.08997"
+          stroke="#10B981"
+          stroke-width="1.04512"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16412_18331">
+          <rect width="12.5415" height="12.5415" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const StatusFailedIconSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      height="13"
+      viewBox="0 0 13 13"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16412_18510)">
+        <path
+          d="M6.27249 11.4957C9.15851 11.4957 11.4981 9.15607 11.4981 6.27004C11.4981 3.38402 9.15851 1.04443 6.27249 1.04443C3.38646 1.04443 1.04688 3.38402 1.04688 6.27004C1.04688 9.15607 3.38646 11.4957 6.27249 11.4957Z"
+          stroke="#EF4444"
+          stroke-width="1.04512"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M7.83849 4.70239L4.70312 7.83776"
+          stroke="#EF4444"
+          stroke-width="1.04512"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M4.70312 4.70239L7.83849 7.83776"
+          stroke="#EF4444"
+          stroke-width="1.04512"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16412_18510">
+          <rect width="12.5415" height="12.5415" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+// export const IconSVG = ({ className }) => {
+//   return
+// }
+
+// export const IconSVG = ({ className }) => {
+//   return
+// }
+
 // export const IconSVG = ({ className }) => {
 //   return
 // }
