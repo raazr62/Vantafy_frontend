@@ -211,12 +211,6 @@ export const sidebarLinks = [
     icon: <MessageIconSVG />,
   },
   {
-    id: 3,
-    name: "Team",
-    to: "/dashboard/team",
-    icon: <TeamIconSVG />,
-  },
-  {
     id: 4,
     name: "My Account",
     to: "/dashboard/my-account",

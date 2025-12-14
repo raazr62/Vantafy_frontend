@@ -10,6 +10,9 @@ const RequestRemoval = lazy(() =>
 const DashboardPlans = lazy(() =>
   import("@/pages/DashboardPages/DashboardPlans")
 );
+const DashboardMessages = lazy(() =>
+  import("@/pages/DashboardPages/DashboardMessages")
+);
 
 export const dashboardRoutes = [
   {
@@ -31,6 +34,10 @@ export const dashboardRoutes = [
   {
     path: "plans",
     element: <DashboardPlans />,
+  },
+  {
+    path: "message",
+    element: <DashboardMessages />,
   },
   {
     path: "*",
