@@ -5,7 +5,7 @@ import ChatArea from "@/components/DashboardComponent/ChatArea";
 
 export default function DashboardMessages() {
   return (
-    <div className="grow bg-white rounded-2xl flex">
+    <div className="grow min-h-0 bg-white rounded-2xl flex">
       {/* Sidebar */}
       <MessageSidebar />
 
