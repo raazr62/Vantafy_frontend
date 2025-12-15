@@ -3,13 +3,18 @@ import { socialMediaAccountsMockData } from "@/lib/DashboardMockData";
 import { AiFillThunderbolt } from "react-icons/ai";
 import AccountToConnect from "@/components/OtherComponent/AccountToConnect";
 import { useNavigate } from "react-router";
+import Logo from "@/shared/LandingShared/Logo";
 
 const ConnectAccounts = () => {
   const [openAccountId, setOpenAccountId] = useState(null);
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-2xl mx-auto flex items-center justify-center h-svh py-5">
+    <div className="max-w-3xl mx-auto flex flex-col items-center justify-center h-svh py-5">
+      <Logo
+        variant="grayFull"
+        className={"mx-auto mb-3 shrink-0 sticky top-0"}
+      />
       <div className="p-6 rounded-[12px] border border-[#EFE6FD] flex flex-col h-full overflow-hidden">
         <p className="text-2xl font-medium">Connect Your Accounts</p>
         <p className="text-[#90A1B9] text-justify mt-1">

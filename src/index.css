@@ -245,3 +245,32 @@ input[type="number"] {
   display: none;
   /* Chrome, Safari */
 }
+
+
+/* Progress Bar design */
+.progress-bar {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Track */
+.progress-bar::-webkit-progress-bar {
+  background-color: #E2E8F0;
+  border-radius: 9999px;
+}
+
+/* Fill (Chrome, Edge, Safari) */
+.progress-bar::-webkit-progress-value {
+  background: linear-gradient(to left, #FF5CE1, #00AEEF);
+  border-radius: 9999px;
+}
+
+/* Fill (Firefox) */
+.progress-bar::-moz-progress-bar {
+  background: linear-gradient(to left, #FF5CE1, #00AEEF);
+  border-radius: 9999px;
+}
+
+.progress-bar::-webkit-progress-value {
+  transition: width 300ms ease;
+}

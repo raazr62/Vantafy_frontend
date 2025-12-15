@@ -9,7 +9,6 @@ const StageNamesToProtect = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const stageName = e.target.stageName.value;
-    const description = e.target.description.value;
 
     if (!stageName) {
       toast.error("Stage name required");
@@ -22,7 +21,6 @@ const StageNamesToProtect = () => {
       {
         id: stageNames.length + 1,
         stageName,
-        description,
         status: "Active",
         isCommonName,
       },
@@ -48,12 +46,6 @@ const StageNamesToProtect = () => {
           type="text"
           name="stageName"
           placeholder="Enter Stage Name"
-          className="bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Enter description"
           className="bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
         />
         <br />

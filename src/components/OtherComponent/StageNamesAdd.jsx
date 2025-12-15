@@ -31,20 +31,13 @@ const StageNamesAdd = () => {
         className="space-y-3 mt-2"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex gap-4">
-          <input
-            type="text"
-            name="stageName"
-            placeholder="Enter Stage Name"
-            className="bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
-          />
-          <input
-            type="text"
-            name="description"
-            placeholder="Enter description"
-            className="bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
-          />
-        </div>
+        <input
+          type="text"
+          name="stageName"
+          placeholder="Enter Stage Name"
+          className="bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
+        />
+
         <br />
         <button
           type="submit"

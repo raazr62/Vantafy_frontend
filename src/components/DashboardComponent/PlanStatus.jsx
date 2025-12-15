@@ -3,7 +3,7 @@ import { CrownIconSVG } from "../SVG/DashboardLayoutSVG";
 
 const PlanStatus = () => {
   return (
-    <div className="p-6 bg-white rounded-[18px] border border-primary mt-4 flex items-center justify-between">
+    <div className="p-4 bg-white rounded-[18px] border border-primary flex items-center justify-between">
       <div className="flex items-center gap-4">
         <div className="p-3.5 bg-linear-to-b from-[#4E78FD] to-[#FF1BE4] w-fit rounded-[12px]">
           <CrownIconSVG />
