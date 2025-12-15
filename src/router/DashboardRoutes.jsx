@@ -13,6 +13,9 @@ const DashboardPlans = lazy(() =>
 const DashboardMessages = lazy(() =>
   import("@/pages/DashboardPages/DashboardMessages")
 );
+const AffiliateProgram = lazy(() =>
+  import("@/pages/DashboardPages/AffiliateProgram")
+);
 
 export const dashboardRoutes = [
   {
@@ -38,6 +41,10 @@ export const dashboardRoutes = [
   {
     path: "message",
     element: <DashboardMessages />,
+  },
+  {
+    path: "affiliate-program",
+    element: <AffiliateProgram />,
   },
   {
     path: "*",

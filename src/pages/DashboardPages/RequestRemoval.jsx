@@ -1,6 +1,5 @@
 import RequestRemovalForm from "@/components/DashboardComponent/RequestRemovalForm";
 import RequestRemovalStats from "@/components/DashboardComponent/RequestRemovalStats";
-import SubmittedLinksStatus from "@/components/DashboardComponent/SubmittedLinksStatus";
 import React, { useState } from "react";
 
 const RequestRemoval = () => {
