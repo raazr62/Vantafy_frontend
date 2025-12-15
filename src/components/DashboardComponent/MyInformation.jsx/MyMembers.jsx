@@ -8,7 +8,7 @@ const MyMembers = () => {
   return (
     <div className="flex gap-4 grow min-h-0">
       <MyMembersAdd whichMember={whichMember} setWhichMember={setWhichMember} />
-      <MyMembersInfo />
+      <MyMembersInfo whichMember={whichMember} />
     </div>
   );
 };

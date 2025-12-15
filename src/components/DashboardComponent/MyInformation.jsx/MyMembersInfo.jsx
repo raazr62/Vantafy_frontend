@@ -1,8 +1,18 @@
+import { memberMockData } from "@/lib/DashboardMockData";
 import React from "react";
+import MemberNiches from "./MemberNiches";
+import MemberStageNames from "./MemberStageNames";
+import AuthorizedSocialMedia from "./AuthorizedSocialMedia";
 
-const MyMembersInfo = () => {
+const MyMembersInfo = ({ whichMember }) => {
+  const memberData = memberMockData.find((member) => member.id === whichMember);
+
   return (
-    <div className="bg-white rounded-2xl p-4 w-full shadow-[0_0.785px_2.355px_0_rgba(0,0,0,0.10),0_0.785px_1.57px_-0.785px_rgba(0,0,0,0.10)] space-y-4 flex items-center justify-between border border-[#E2E8F0]"></div>
+    <div className="space-y-4 flex flex-col min-h-0 grow flex-1">
+      <MemberNiches memberData={memberData} />
+      <MemberStageNames memberData={memberData} />
+      <AuthorizedSocialMedia memberData={memberData} />
+    </div>
   );
 };
 

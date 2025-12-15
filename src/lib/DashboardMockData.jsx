@@ -235,7 +235,7 @@ export const sidebarLinks = [
     icon: <AffiliateIconSVG />,
   },
   {
-    id: 7,
+    id: 8,
     name: "Plans",
     to: "/dashboard/plans",
     icon: <PlansIconSVG />,

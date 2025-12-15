@@ -9,8 +9,12 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
+import Swal from "sweetalert2";
 
 const MyMembersAdd = ({ setWhichMember, whichMember }) => {
+  // All Members List
+  const [membersData, setMembersData] = useState(memberMockData);
+
   // State for Input filed Toggle
   const [openAddMemberInput, setOpenAddMemberInput] = useState(false);
 
@@ -30,14 +34,39 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
     );
     setOpenAddMemberInput(false);
   };
+
+  const handleRemoveMember = (id) => {
+    if (!id) {
+      Swal.fire("Error", "Something went wrong", "error");
+      return;
+    }
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This member will be removed permanently.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, remove",
+      cancelButtonText: "No, cancel",
+      confirmButtonColor: "#ef4444",
+      cancelButtonColor: "#6b7280",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const filterdMembers = membersData.filter((member) => member.id !== id);
+        setMembersData(filterdMembers);
+        Swal.fire("Removed!", "Member has been removed.", "success");
+      }
+    });
+  };
+
   return (
-    <div className="bg-white rounded-2xl p-4 w-full shadow-[0_0.785px_2.355px_0_rgba(0,0,0,0.10),0_0.785px_1.57px_-0.785px_rgba(0,0,0,0.10)] space-y-4 border border-[#E2E8F0] flex flex-col grow min-h-0">
+    <div className="bg-white rounded-2xl p-4 w-full shadow-[0_0.785px_2.355px_0_rgba(0,0,0,0.10),0_0.785px_1.57px_-0.785px_rgba(0,0,0,0.10)] space-y-4 border border-[#E2E8F0] flex flex-col grow flex-1">
       {/* Header */}
       <div className="flex items-center justify-between w-full">
         <p className="text-xl font-semibold">Members</p>
         <button
           onClick={() => setOpenAddMemberInput(true)}
-          className="bg-[#3AB8FF] text-white p-2 rounded-[6px] flex items-center gap-1"
+          className="bg-[#3AB8FF] text-white p-2 rounded-[6px] flex items-center gap-1 cursor-pointer"
         >
           <AddMemberIconSVG /> Add Member
         </button>
@@ -77,13 +106,13 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
 
         {/* Member Lists */}
         <div className="space-y-2 mt-2 grow min-h-0 overflow-y-auto">
-          {memberMockData.map((memberData) => {
+          {membersData.map((memberData) => {
             const isActive = memberData.id === whichMember;
             return (
               <div
                 key={memberData.id}
                 onClick={() => setWhichMember(memberData.id)}
-                className={`py-5 px-4 border rounded-lg grid grid-cols-6 cursor-pointer ${
+                className={`py-5 px-4 border rounded-lg grid grid-cols-6 cursor-pointer items-center ${
                   isActive
                     ? "border-[#FFA9EF] shadow-[0_0_9px_0_rgba(255,92,225,0.30)]"
                     : "border-[#D9DADA]"
@@ -110,14 +139,19 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
                 <p className="font-bold text-primary">{memberData.links}</p>
 
                 {/* Delete Member */}
-                <button className="w-8 h-8 bg-[#FF2B2B1A] flex items-center justify-center rounded-full cursor-pointer">
+                <button
+                  onClick={() => handleRemoveMember(memberData.id)}
+                  className="w-8 h-8 bg-[#FF2B2B1A] flex items-center justify-center rounded-full cursor-pointer"
+                >
                   <IoMdClose color="red" size={20} />
                 </button>
 
                 {/* Edit Icon */}
-                <button className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer">
-                  <EditIconSVG />
-                </button>
+                {isActive && (
+                  <button className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer">
+                    <EditIconSVG />
+                  </button>
+                )}
               </div>
             );
           })}
