@@ -1077,9 +1077,48 @@ export const CopyLinkIconSVG = () => {
   );
 };
 
-// export const IconSVG = ({ className }) => {
-//   return
-// }
+export const ReferralProfileIconSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_16669_6069)">
+        <path
+          d="M8.00521 5.99992C9.29387 5.99992 10.3385 4.95525 10.3385 3.66659C10.3385 2.37792 9.29387 1.33325 8.00521 1.33325C6.71654 1.33325 5.67188 2.37792 5.67188 3.66659C5.67188 4.95525 6.71654 5.99992 8.00521 5.99992Z"
+          fill="#FF1BE4"
+          stroke="#FF1BE4"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M1.33594 13.6666C1.33594 10.7209 4.02227 8.33325 7.33594 8.33325"
+          stroke="#FF1BE4"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M10.3333 13.9999L13.6667 10.6666L12.3333 9.33325L9 12.6666V13.9999H10.3333Z"
+          fill="#FF1BE4"
+          stroke="#FF1BE4"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_16669_6069">
+          <rect width="16" height="16" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
 
 // export const IconSVG = ({ className }) => {
 //   return

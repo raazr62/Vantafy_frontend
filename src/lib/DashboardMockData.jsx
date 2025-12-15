@@ -378,3 +378,66 @@ export const requestRemovalInfoMockData = [
     bg: "bg-[linear-gradient(180deg,#4E78FD_0%,#FF1BE4_100%)]",
   },
 ];
+
+export const referralHistoryMockData = [
+  {
+    id: 1,
+    name: "Jerome Bell",
+    date: "19/12/25",
+  },
+  {
+    id: 2,
+    name: "Marvin McKinney",
+    date: "21/12/25",
+  },
+  {
+    id: 3,
+    name: "Jane Cooper",
+    date: "23/12/25",
+  },
+  {
+    id: 4,
+    name: "Brooklyn Simmons",
+    date: "16/12/25",
+  },
+  {
+    id: 5,
+    name: "Kristin Watson",
+    date: "18/12/25",
+  },
+  {
+    id: 6,
+    name: "Esther Howard",
+    date: "23/12/25",
+  },
+  {
+    id: 7,
+    name: "William Peterson",
+    date: "18/12/25",
+  },
+  {
+    id: 8,
+    name: "Mary Williams",
+    date: "16/12/25",
+  },
+  {
+    id: 9,
+    name: "Kristinson Watsen",
+    date: "18/12/25",
+  },
+  {
+    id: 10,
+    name: "Eddie Marktson",
+    date: "23/12/25",
+  },
+  {
+    id: 11,
+    name: "William Henry",
+    date: "18/12/25",
+  },
+  {
+    id: 12,
+    name: "Mary Nicolas",
+    date: "16/12/25",
+  },
+];
