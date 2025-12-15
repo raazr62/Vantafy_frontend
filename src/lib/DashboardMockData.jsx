@@ -2,14 +2,21 @@ import { DashboardLocalImages } from "@/components/AllPhotos/DashboardLocalImage
 import {
   AffiliateIconSVG,
   HomeIconSVG,
+  ImageIconSVG,
   ListOfDelistedLinksIconSVG,
+  LockIconSVG,
   MessageIconSVG,
   PlansIconSVG,
   RequestRemovalIconSVG,
   ScanResultIconSVG,
+  StackIconSVG,
   StartScanIconSVG,
   TeamIconSVG,
+  ThunderIconSVG,
   UsersIconSVG,
+  VideoIconSVG,
+  WarningIconSVG,
+  WebIconSVG,
 } from "@/components/SVG/DashboardLayoutSVG";
 
 export const nichesMockData = [
@@ -204,12 +211,6 @@ export const sidebarLinks = [
     icon: <MessageIconSVG />,
   },
   {
-    id: 3,
-    name: "Team",
-    to: "/dashboard/team",
-    icon: <TeamIconSVG />,
-  },
-  {
     id: 4,
     name: "My Account",
     to: "/dashboard/my-account",
@@ -320,5 +321,60 @@ export const scanCompleteOverviewMockData = [
     id: 4,
     title: "Videos",
     count: 400,
+  },
+];
+
+export const requestRemovalStatsMockData = [
+  {
+    id: 1,
+    count: 1247,
+    description: "Images Removed",
+    icon: <ImageIconSVG />,
+    bg: "bg-[#4E78FD1A]",
+  },
+  {
+    id: 2,
+    count: 89,
+    description: "Videos Detected",
+    icon: <VideoIconSVG />,
+    bg: "bg-[#FF1BE41A]",
+  },
+  {
+    id: 3,
+    count: 156,
+    description: "Detect Sites",
+    icon: <WebIconSVG />,
+    bg: "bg-[#10B9811A]",
+  },
+  {
+    id: 4,
+    count: 45,
+    description: "Request Remaining",
+    icon: <WarningIconSVG />,
+    bg: "bg-[#F59E0B1A]",
+  },
+];
+
+export const requestRemovalInfoMockData = [
+  {
+    id: 1,
+    icon: <ThunderIconSVG />,
+    title: "Priority Processing",
+    description: "Your requests are processed first",
+    bg: "bg-[#35A9FF]",
+  },
+  {
+    id: 2,
+    icon: <StackIconSVG />,
+    title: "Unlimited Requests",
+    description: "No limits on submissions",
+    bg: "bg-[#DF39E9]",
+  },
+  {
+    id: 3,
+    icon: <LockIconSVG />,
+    title: "Advanced Protection",
+    description: "AI-powered leak detection",
+    bg: "bg-[linear-gradient(180deg,#4E78FD_0%,#FF1BE4_100%)]",
   },
 ];

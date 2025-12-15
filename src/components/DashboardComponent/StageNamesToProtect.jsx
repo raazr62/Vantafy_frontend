@@ -28,6 +28,7 @@ const StageNamesToProtect = () => {
       },
       ...stageNames,
     ]);
+    e.target.reset();
   };
 
   const handleDelete = (id) => {
