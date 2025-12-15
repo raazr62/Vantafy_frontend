@@ -1,8 +1,10 @@
 import { LocalImages } from "@/components/AllPhotos/HomeLocalImages";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { useNavigate } from "react-router";
 
 const Logo = ({ className, variant = "whiteFull" }) => {
+  const navigate = useNavigate();
   const logoSrc =
     variant === "whiteFull"
       ? LocalImages.vantafyWhiteFulltextLogo
@@ -11,8 +13,18 @@ const Logo = ({ className, variant = "whiteFull" }) => {
       : variant === "white"
       ? LocalImages.VantafyWhiteLogo
       : variant === "gray" && LocalImages.vantafyGrayLogo;
+  const handleClick = () => {
+    navigate("/");
+  };
 
-  return <img className={cn("w-35", className)} src={logoSrc} alt="Vantafy" />;
+  return (
+    <img
+      onClick={handleClick}
+      className={cn("w-35 cursor-pointer", className)}
+      src={logoSrc}
+      alt="Vantafy"
+    />
+  );
 };
 
 export default Logo;
