@@ -10,7 +10,7 @@ import { CopyAllIconSVG } from "../SVG/DashboardLayoutSVG";
 import { linksMockData } from "@/lib/DashboardMockData";
 import { Check } from "lucide-react";
 
-const ListOfDelistedLinksModal = forwardRef((props, ref) => {
+const ListOfDelistedLinksModal = forwardRef((ref) => {
   const [copiedAll, setCopiedAll] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState(null);
 
