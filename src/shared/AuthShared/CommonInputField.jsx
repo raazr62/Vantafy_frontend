@@ -14,6 +14,8 @@ const CommonInputField = ({
   rules = {},
   error,
   readOnly = false,
+  value,
+  labelClassName,
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,7 +27,10 @@ const CommonInputField = ({
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
       {label && (
-        <label htmlFor={name} className="text-xs text-[#2E3139] font-medium">
+        <label
+          htmlFor={name}
+          className={cn("text-xs text-[#2E3139] font-medium", labelClassName)}
+        >
           {label}
         </label>
       )}
@@ -36,6 +41,7 @@ const CommonInputField = ({
           id={name}
           type={inputType}
           placeholder={placeholder}
+          value={value}
           readOnly={readOnly}
           className={cn(
             "w-full py-3.5 rounded-lg border border-sky-500 outline-none transition focus:border-primary",

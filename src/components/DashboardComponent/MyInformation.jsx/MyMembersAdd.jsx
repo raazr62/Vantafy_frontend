@@ -10,8 +10,11 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
 import Swal from "sweetalert2";
+import { Dialog } from "@/components/ui/dialog";
+import EditProfileModal from "../EditProfileModal";
 
 const MyMembersAdd = ({ setWhichMember, whichMember }) => {
+  const [activeDialog, setActiveDialog] = useState(null);
   // All Members List
   const [membersData, setMembersData] = useState(memberMockData);
 
@@ -148,9 +151,25 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
 
                 {/* Edit Icon */}
                 {isActive && (
-                  <button className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer">
-                    <EditIconSVG />
-                  </button>
+                  <>
+                    <button
+                      onClick={() => setActiveDialog("Edit Profile")}
+                      className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer"
+                    >
+                      <EditIconSVG />
+                    </button>
+                    <Dialog
+                      open={!!activeDialog}
+                      onOpenChange={() => setActiveDialog(null)}
+                    >
+                      {activeDialog === "Edit Profile" && (
+                        <EditProfileModal
+                          setActiveDialog={setActiveDialog}
+                          memberData={memberData}
+                        />
+                      )}
+                    </Dialog>
+                  </>
                 )}
               </div>
             );
