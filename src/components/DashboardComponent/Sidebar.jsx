@@ -9,7 +9,7 @@ const Sidebar = () => {
   return (
     <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] h-full px-3 py-6 max-w-[260px] w-full rounded-2xl flex flex-col justify-between">
       {/* Top Bar */}
-      <div>
+      <div className="mt-2">
         <Link
           to={"/"}
           className="p-1 bg-linear-to-br from-[#971DFE] to-[#C289E8] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
@@ -18,7 +18,7 @@ const Sidebar = () => {
         </Link>
 
         {/* Navigation Link */}
-        <ul className="mt-8 space-y-1">
+        <ul className="mt-3 lg:mt-8 space-y-1">
           {sidebarLinks.map((link) => (
             <li key={link.id}>
               <NavLink
@@ -37,7 +37,7 @@ const Sidebar = () => {
 
       {/* Bottom Part*/}
       <div className="max-w-[230px]">
-        <button className="flex items-center gap-2 text-red-600 font-medium mb-8 px-2 cursor-pointer">
+        <button className="flex items-center gap-2 text-red-600 font-medium mb-2 lg:mb-8 px-2 cursor-pointer">
           <LogoutIconSVG /> Logout
         </button>
         <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] p-4 rounded-2xl flex flex-col items-center gap-3">
