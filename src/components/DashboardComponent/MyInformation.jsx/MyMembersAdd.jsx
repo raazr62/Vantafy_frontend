@@ -151,21 +151,26 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
 
                 {/* Edit Icon */}
                 {isActive && (
-                  <button
-                    onClick={() => setActiveDialog("Edit Profile")}
-                    className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer"
-                  >
-                    <EditIconSVG />
-                  </button>
+                  <>
+                    <button
+                      onClick={() => setActiveDialog("Edit Profile")}
+                      className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer"
+                    >
+                      <EditIconSVG />
+                    </button>
+                    <Dialog
+                      open={!!activeDialog}
+                      onOpenChange={() => setActiveDialog(null)}
+                    >
+                      {activeDialog === "Edit Profile" && (
+                        <EditProfileModal
+                          setActiveDialog={setActiveDialog}
+                          memberData={memberData}
+                        />
+                      )}
+                    </Dialog>
+                  </>
                 )}
-                <Dialog
-                  open={!!activeDialog}
-                  onOpenChange={() => setActiveDialog(null)}
-                >
-                  {activeDialog === "Edit Profile" && (
-                    <EditProfileModal memberData={memberData} />
-                  )}
-                </Dialog>
               </div>
             );
           })}

@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 
-const EditProfileModal = ({ memberData }) => {
+const EditProfileModal = ({ memberData, setActiveDialog }) => {
   const fileInputRef = useRef(null);
 
   // Store the preview
@@ -110,8 +110,14 @@ const EditProfileModal = ({ memberData }) => {
           </p>
 
           <div className="flex items-center justify-end gap-3">
-            <Button variant={"outline"}>Cancel</Button>
-            <Button variant={"formSubmit"} className={"w-auto"}>
+            <Button onClick={() => setActiveDialog("")} variant={"outline"}>
+              Cancel
+            </Button>
+            <Button
+              onClick={() => setActiveDialog("")}
+              variant={"formSubmit"}
+              className={"w-auto"}
+            >
               Save Changes
             </Button>
           </div>

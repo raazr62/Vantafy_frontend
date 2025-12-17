@@ -57,7 +57,7 @@ const MemberStageNames = ({ memberData }) => {
         </form>
       )}
 
-      <div className="space-y-2 grow overflow-y-auto">
+      <div className="space-y-2 grow overflow-y-auto px-2">
         {memberData.stageNames.map((stageName, idx) => (
           <p
             key={idx}
