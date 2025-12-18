@@ -5,6 +5,7 @@ import CommonContainer from "@/shared/LandingShared/CommonContainer";
 import Scan from "./Scan";
 import Delist from "./Delist";
 import Takedown from "./Takedown";
+import Impersonation from "./Impersonation";
 
 const WhatWeDo = () => {
   const [activeCard, setActiveCard] = useState("Scan");
@@ -58,6 +59,7 @@ const WhatWeDo = () => {
       {activeCard === "Scan" && <Scan />}
       {activeCard === "Delist" && <Delist />}
       {activeCard === "Takedown" && <Takedown />}
+      {activeCard === "Impersonation" && <Impersonation />}
     </CommonContainer>
   );
 };

@@ -93,7 +93,7 @@ export const WhatWeDoMockData = [
   },
   {
     id: 4,
-    name: "Impresonation",
+    name: "Impersonation",
     icon: <ImpressionSVG className={"group-hover:text-white"} />,
   },
   {
@@ -115,6 +115,34 @@ export const WhatWeDoMockData = [
     id: 8,
     name: "Anonymous",
     icon: <AnonymousSVG className={"group-hover:text-white"} />,
+  },
+];
+
+export const impersonationMockData = [
+  {
+    id: 1,
+    siteName: "OnlyFans",
+    logo: LocalImages.onlyfansOnlyLogo,
+  },
+  {
+    id: 2,
+    siteName: "Fansly",
+    logo: LocalImages.fanslyOnlyLogo,
+  },
+  {
+    id: 3,
+    siteName: "Instagram",
+    logo: LocalImages.instagramOnlyLogo,
+  },
+  {
+    id: 4,
+    siteName: "Twitter",
+    logo: LocalImages.twitterLogoOnlyLogo,
+  },
+  {
+    id: 5,
+    siteName: "TikTok",
+    logo: LocalImages.tiktokOnlyLogo,
   },
 ];
 
