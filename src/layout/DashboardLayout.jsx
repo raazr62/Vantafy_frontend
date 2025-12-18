@@ -10,7 +10,7 @@ export default function DashboardLayout() {
   const [sheetOpen, setSheetOpen] = useState(false);
   return (
     <div className="p-4 bg-[#F2F5F7] h-screen flex">
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         <Sidebar />
       </div>
 
@@ -28,7 +28,7 @@ export default function DashboardLayout() {
       </Sheet>
 
       <div className="px-5 w-full flex-1 flex flex-col min-h-0">
-        {/* <Outlet /> */}
+        <Outlet />
       </div>
     </div>
   );
