@@ -21,8 +21,10 @@ const ScanCompleteModal = ({ setActiveDialog }) => {
 
       {/* Description */}
       <div className="space-y-1">
-        <p className="text-2xl font-medium text-center">Scan Complete!</p>
-        <p className="text-[#707070] text-center">
+        <p className="text-lg sm:text-xl md:text-2xl font-medium text-center">
+          Scan Complete!
+        </p>
+        <p className="text-[#707070] text-center text-sm sm:text-base">
           We found 100 potential matches across 200 sites
         </p>
       </div>
@@ -33,11 +35,11 @@ const ScanCompleteModal = ({ setActiveDialog }) => {
             key={scanData.id}
             className="py-5 rounded-[12px] flex flex-col items-center justify-center bg-[#F7FCFF] gap-2"
           >
-            <p className="text-[#707070] text-sm font-medium">
+            <p className="text-[#707070] text-xs sm:text-sm font-medium">
               {scanData.title}
             </p>
             <p
-              className={`font-semibold text-3xl ${
+              className={`font-semibold text-xl sm:text-2xl md:text-3xl ${
                 scanData.title === "Matches Found"
                   ? "text-primary"
                   : "text-[#212B36]"
@@ -52,7 +54,7 @@ const ScanCompleteModal = ({ setActiveDialog }) => {
         <button
           onClick={() => setActiveDialog("Scan Result Single")}
           className={
-            "bg-[#3AB8FF] py-2 text-white text-sm font-semibold w-full rounded-xl cursor-pointer"
+            "bg-[#3AB8FF] py-2 text-white text-xs sm:text-sm font-semibold w-full rounded-xl cursor-pointer"
           }
         >
           View Results
@@ -60,7 +62,7 @@ const ScanCompleteModal = ({ setActiveDialog }) => {
         <button
           onClick={() => setActiveDialog("Start Scan")}
           className={
-            "py-2 text-sm font-semibold w-full rounded-xl border border-[#0000001A] cursor-pointer"
+            "py-2 text-xs sm:text-sm font-semibold w-full rounded-xl border border-[#0000001A] cursor-pointer"
           }
         >
           Start New Scan

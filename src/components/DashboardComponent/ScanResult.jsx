@@ -52,13 +52,21 @@ const ScanResult = ({ activeDialog }) => {
       {/* Stats Card */}
       <div className="grid grid-cols-2 gap-4">
         <div className="rounded-[12px] bg-linear-to-b from-[rgba(78,120,253,0.04)] to-[rgba(255,27,228,0.04)] flex flex-col items-center justify-center py-5 space-y-1">
-          <p className="text-[#707070] text-sm font-medium">Total Scanned</p>
-          <p className="text-3xl font-semibold text-[#212B36]">2,450</p>
+          <p className="text-[#707070] text-xs sm:text-sm font-medium">
+            Total Scanned
+          </p>
+          <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#212B36]">
+            2,450
+          </p>
         </div>
 
         <div className="rounded-[12px] bg-linear-to-b from-[rgba(78,120,253,0.04)] to-[rgba(255,27,228,0.04)] flex flex-col items-center justify-center py-5 space-y-1">
-          <p className="text-[#707070] text-sm font-medium">Matches Found</p>
-          <p className="text-3xl font-semibold text-[#FF4ECF]">76</p>
+          <p className="text-[#707070] text-xs sm:text-sm font-medium">
+            Matches Found
+          </p>
+          <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#FF4ECF]">
+            76
+          </p>
         </div>
       </div>
 
@@ -90,11 +98,11 @@ const ScanResult = ({ activeDialog }) => {
         {linksMockData.map((link, idx) => (
           <div
             key={idx}
-            className={`py-3 px-4 first:rounded-t-[12px] last:rounded-b-[12px] flex items-center justify-between border-b border-b-white last:border-b-0 ${
+            className={`py-2 sm:py-3 px-2 sm:px-4 first:rounded-t-[12px] last:rounded-b-[12px] flex items-center justify-between border-b border-b-white last:border-b-0 ${
               idx % 2 === 0 ? "bg-[#F6FCFF]" : "bg-[#FFEDFC99]"
             }`}
           >
-            <span className="text-sm truncate mr-2">{link}</span>
+            <span className="text-xs sm:text-sm truncate mr-2">{link}</span>
             <button
               onClick={() => copySingleLink(link, idx)}
               className="p-1.5 rounded-md hover:bg-gray-100 transition-colors"

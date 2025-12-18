@@ -18,10 +18,11 @@ const StartScanModal = ({ setActiveDialog }) => {
         </DialogDescription>
       </DialogHeader>
 
-      <div className="rounded-[12px] bg-[linear-gradient(180deg,#4e78fd0a_0%,#ff1be40a_100%)] p-6 text-center space-y-3 my-4">
-        
-        <p className="text-lg font-medium">Ready to scan your content?</p>
-        <p className="text-[#707070] text-sm">
+      <div className="rounded-[12px] bg-[linear-gradient(180deg,#4e78fd0a_0%,#ff1be40a_100%)] p-6 text-center space-y-1 sm:space-y-3 my-1 sm:my-4">
+        <p className="text-base sm:text-lg font-medium">
+          Ready to scan your content?
+        </p>
+        <p className="text-[#707070] text-xs sm:text-sm">
           This process may take several minutes depending on the amount of
           content.
         </p>

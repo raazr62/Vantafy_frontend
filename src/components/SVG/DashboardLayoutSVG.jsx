@@ -444,11 +444,11 @@ export const ScanResultIconSVG = ({ className }) => {
   );
 };
 
-export const CopyAllIconSVG = ({ className }) => {
+export const CopyAllIconSVG = ({ className = "w-4 h-4" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w- h-4", className)}
+      className={cn("", className)}
       viewBox="0 0 16 16"
       fill="none"
     >

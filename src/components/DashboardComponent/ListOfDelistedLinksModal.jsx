@@ -64,15 +64,17 @@ const ListOfDelistedLinksModal = forwardRef((ref) => {
         </div>
       </DialogHeader>
 
-      <div className="max-h-[50svh] mt-3 rounded-[12px] border border-[#E5E7EB] overflow-y-auto">
+      <div className="max-h-[50svh] rounded-[12px] border border-[#E5E7EB] overflow-y-auto">
         {linksMockData.map((link, idx) => (
           <div
             key={idx}
-            className={`py-3 px-4 first:rounded-t-[12px] last:rounded-b-[12px] flex items-center justify-between border-b border-b-white last:border-b-0 ${
+            className={`py-2 sm:py-3 px-2 sm:px-4 first:rounded-t-[12px] last:rounded-b-[12px] flex items-center justify-between border-b border-b-white last:border-b-0 ${
               idx % 2 === 0 ? "bg-[#F6FCFF]" : "bg-[#FFEDFC99]"
             }`}
           >
-            <span className="text-sm truncate mr-2">{link}</span>
+            <span className="text-xs sm:text-sm truncate mr-0.5 sm:mr-2">
+              {link}
+            </span>
             <button
               onClick={() => copySingleLink(link, idx)}
               className="p-1.5 rounded-md hover:bg-gray-100 transition-colors"
