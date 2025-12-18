@@ -115,6 +115,29 @@ export const WhatWeDoMockData = [
   },
 ];
 
+export const protectionStatsMockData = [
+  {
+    id: 1,
+    count: "72k+",
+    text: "Platforms Monitored",
+  },
+  {
+    id: 2,
+    count: "24/7",
+    text: "Active Scans",
+  },
+  {
+    id: 3,
+    count: "<24h",
+    text: "Response Time",
+  },
+  {
+    id: 4,
+    count: "99%",
+    text: "Success Rate",
+  },
+];
+
 export const InspectMockData = [
   {
     id: 1,

@@ -379,83 +379,184 @@ export const AnonymousSVG = ({ className }) => {
   );
 };
 
-export const SearchIconSVG = ({ className }) => {
+export const SearchIconSVG = () => {
   return (
     <svg
-      className={cn("w-6 h-6 text-black", className)}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        stroke="currentColor"
-        strokeLinejoin="round"
+        d="M21.0002 20.9999L16.6602 16.6599"
+        stroke="#155DFC"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <path
-        d="M22 22L20 20"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+        stroke="#155DFC"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );
 };
 
-export const BrowserIconSVG = ({ className }) => {
+export const BrowserIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-6 h-6 text-black", className)}
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
     >
       <path
-        d="M3 12H21M2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12Z"
-        stroke="black"
-        strokeWidth="2"
-        strokeLinecap="square"
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+        stroke="#9810FA"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <path
-        d="M11.4988 21.988C11.8323 22.0048 12.1664 22.0048 12.4998 21.988C17.1128 16.222 17.1128 7.77804 12.4998 2.01204C12.1664 1.99533 11.8323 1.99533 11.4988 2.01204C6.88581 7.77804 6.88581 16.222 11.4988 21.988Z"
+        d="M12 2C9.43223 4.69615 8 8.27674 8 12C8 15.7233 9.43223 19.3038 12 22C14.5678 19.3038 16 15.7233 16 12C16 8.27674 14.5678 4.69615 12 2Z"
+        stroke="#9810FA"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M2 12H22"
+        stroke="#9810FA"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const ShareIconSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z"
+        stroke="#E60076"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z"
+        stroke="#E60076"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z"
+        stroke="#E60076"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.58984 13.51L15.4198 17.49"
+        stroke="#E60076"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M15.4098 6.51001L8.58984 10.49"
+        stroke="#E60076"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const FileHostingSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M12 15V3"
+        stroke="#4F39F6"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+        stroke="#4F39F6"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M7 10L12 15L17 10"
+        stroke="#4F39F6"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const ShieldIconSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+    >
+      <path
+        d="M16.6673 10.8333C16.6673 15 13.7507 17.0833 10.284 18.2916C10.1025 18.3532 9.90527 18.3502 9.72565 18.2833C6.25065 17.0833 3.33398 15 3.33398 10.8333V4.99997C3.33398 4.77895 3.42178 4.56699 3.57806 4.41071C3.73434 4.25443 3.9463 4.16663 4.16732 4.16663C5.83398 4.16663 7.91732 3.16663 9.36732 1.89997C9.54386 1.74913 9.76845 1.66626 10.0007 1.66626C10.2329 1.66626 10.4574 1.74913 10.634 1.89997C12.0923 3.17497 14.1673 4.16663 15.834 4.16663C16.055 4.16663 16.267 4.25443 16.4232 4.41071C16.5795 4.56699 16.6673 4.77895 16.6673 4.99997V10.8333Z"
+        stroke="white"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const TikMarkIConSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M20 6L9 17L4 12"
         stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="square"
-      />
-    </svg>
-  );
-};
-
-export const ShareIconSVG = ({ className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-6 h-6 text-black", className)}
-      viewBox="0 0 24 24"
-      fill="none"
-    >
-      <path
-        d="M18.0005 15C17.2149 15.0007 16.4609 15.3095 15.9005 15.86L8.00052 12.34V12V11.67L15.9005 8.14004C16.9208 9.14008 18.5047 9.28194 19.6864 8.47911C20.8681 7.67628 21.3198 6.15151 20.7659 4.8346C20.2121 3.51769 18.8064 2.77402 17.4061 3.05709C16.0058 3.34016 14.9994 4.57141 15.0005 6.00004V6.34004L7.10052 9.86004C5.92356 8.70372 4.03373 8.71486 2.87048 9.88499C1.70724 11.0551 1.70724 12.945 2.87048 14.1151C4.03373 15.2852 5.92356 15.2964 7.10052 14.14L15.0005 17.67V18C15.0005 19.6569 16.3437 21 18.0005 21C19.6574 21 21.0005 19.6569 21.0005 18C21.0005 16.3432 19.6574 15 18.0005 15Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-};
-
-export const FileHostingSVG = ({ className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-6 h-6 text-black", className)}
-      viewBox="0 0 24 24"
-      fill="none"
-    >
-      <path
-        d="M19.35 10.04C19.0141 8.33772 18.0976 6.80486 16.7571 5.70325C15.4165 4.60163 13.7351 3.99961 12 4C9.11 4 6.6 5.64 5.35 8.04C3.88023 8.19883 2.52101 8.89521 1.53349 9.99532C0.545971 11.0954 -0.000171702 12.5217 4.04928e-08 14C4.04928e-08 17.31 2.69 20 6 20H19C21.76 20 24 17.76 24 15C24 12.36 21.95 10.22 19.35 10.04ZM17 13L12 18L7 13H10V9H14V13H17Z"
-        fill="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );
