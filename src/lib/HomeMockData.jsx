@@ -19,6 +19,9 @@ import {
   TailoredSolutionIconSVG,
   SupportIconSVG,
   MessageIconSVG,
+  FacialRecognitionIconSVG,
+  OcrTechnologyIconSVG,
+  SmartAlgorithmsIconSVG,
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
@@ -206,6 +209,27 @@ export const personalAgentMockData = [
     description:
       "Live chat support available seven days a week for immediate assistance",
     icon: <SupportIconSVG />,
+  },
+];
+
+export const aiProtectionMockData = [
+  {
+    id: 1,
+    title: "Facial Recognition",
+    description: "Identifies your content across platforms",
+    icon: <FacialRecognitionIconSVG />,
+  },
+  {
+    id: 2,
+    title: "OCR Technology",
+    description: "Detects text and watermarks in images",
+    icon: <OcrTechnologyIconSVG />,
+  },
+  {
+    id: 1,
+    title: "Smart Algorithms",
+    description: "Custom-built for content protection",
+    icon: <SmartAlgorithmsIconSVG />,
   },
 ];
 

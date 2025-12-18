@@ -8,6 +8,7 @@ import Takedown from "./Takedown";
 import Impersonation from "./Impersonation";
 import Platforms from "./Platforms";
 import PersonalAgent from "./PersonalAgent";
+import AiProtection from "./AiProtection";
 
 const WhatWeDo = () => {
   const [activeCard, setActiveCard] = useState("Scan");
@@ -64,6 +65,7 @@ const WhatWeDo = () => {
       {activeCard === "Impersonation" && <Impersonation />}
       {activeCard === "Platforms" && <Platforms />}
       {activeCard === "Personal Agent" && <PersonalAgent />}
+      {activeCard === "Ai Protection" && <AiProtection />}
     </CommonContainer>
   );
 };
