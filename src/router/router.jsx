@@ -4,7 +4,6 @@ import AuthLayout from "@/layout/AuthLayout";
 import DashboardLayout from "@/layout/DashboardLayout";
 import { generalRoutes } from "./GeneralRoutes";
 import { authRoutes } from "./AuthRoutes";
-import Overview from "@/pages/DashboardPages/Overview";
 import SelectNiches from "@/pages/SelectNiches";
 import ConnectAccounts from "@/pages/ConnectAccounts";
 import RecommendPlan from "@/pages/RecommendPlan";

@@ -12,6 +12,19 @@ import {
   SearchIconSVG,
   ShareIconSVG,
   TakedownSVG,
+  CoverageIconSVG,
+  FastResponseIconSVG,
+  LegalCompilanceIconSVG,
+  DeepUnderstandingIconSVG,
+  TailoredSolutionIconSVG,
+  SupportIconSVG,
+  MessageIconSVG,
+  FacialRecognitionIconSVG,
+  OcrTechnologyIconSVG,
+  SmartAlgorithmsIconSVG,
+  LockIconSVG,
+  DatabaseProtectionIconSVG,
+  CorporateShieldIconSVG,
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
@@ -90,7 +103,7 @@ export const WhatWeDoMockData = [
   },
   {
     id: 4,
-    name: "Impresonation",
+    name: "Impersonation",
     icon: <ImpressionSVG className={"group-hover:text-white"} />,
   },
   {
@@ -112,6 +125,158 @@ export const WhatWeDoMockData = [
     id: 8,
     name: "Anonymous",
     icon: <AnonymousSVG className={"group-hover:text-white"} />,
+  },
+];
+
+export const impersonationMockData = [
+  {
+    id: 1,
+    siteName: "OnlyFans",
+    logo: LocalImages.onlyfansOnlyLogo,
+  },
+  {
+    id: 2,
+    siteName: "Fansly",
+    logo: LocalImages.fanslyOnlyLogo,
+  },
+  {
+    id: 3,
+    siteName: "Instagram",
+    logo: LocalImages.instagramOnlyLogo,
+  },
+  {
+    id: 4,
+    siteName: "Twitter",
+    logo: LocalImages.twitterLogoOnlyLogo,
+  },
+  {
+    id: 5,
+    siteName: "TikTok",
+    logo: LocalImages.tiktokOnlyLogo,
+  },
+];
+
+export const takeDownMockData = [
+  {
+    id: 1,
+    title: "Fast Response",
+    description:
+      "Close relationships with platforms ensure quick content removal",
+    icon: <FastResponseIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Legal Compliance",
+    description: "All takedowns follow DMCA guidelines and legal requirements",
+    icon: <LegalCompilanceIconSVG />,
+  },
+  {
+    id: 3,
+    title: "Comprehensive Coverage",
+    description: "We remove illegal copies from all detected sources*",
+    icon: <CoverageIconSVG />,
+  },
+];
+
+export const platformsMockData = [
+  {
+    id: 1,
+    title: "Deep Understanding",
+    description: "We know the social ecosystem inside and out",
+    icon: <DeepUnderstandingIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Tailored Solutions",
+    description: "Services  designed for all over creators",
+    icon: <TailoredSolutionIconSVG />,
+  },
+  {
+    id: 3,
+    title: "Experienced Support",
+    description: "Whatever you're facing, we've handled it before",
+    icon: <SupportIconSVG />,
+  },
+];
+
+export const personalAgentMockData = [
+  {
+    id: 1,
+    title: "Reddit Expertise",
+    description: "We know the OnlyFans ecosystem inside and out",
+    icon: <MessageIconSVG />,
+  },
+  {
+    id: 2,
+    title: "7 days/week Support",
+    description:
+      "Live chat support available seven days a week for immediate assistance",
+    icon: <SupportIconSVG />,
+  },
+];
+
+export const anonymousMockData = [
+  {
+    id: 1,
+    title: "Your Info Stays Private",
+    description: "We never expose your real name, address, or contact details",
+    icon: <LockIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Database Protection",
+    description:
+      "Shielded from public databases like Lumen used by Google and Twitter",
+    icon: <DatabaseProtectionIconSVG />,
+  },
+  {
+    id: 1,
+    title: "Corporate Shield",
+    description: "Rulta's corporate details are used for all legal filings",
+    icon: <CorporateShieldIconSVG />,
+  },
+];
+export const aiProtectionMockData = [
+  {
+    id: 1,
+    title: "Facial Recognition",
+    description: "Identifies your content across platforms",
+    icon: <FacialRecognitionIconSVG />,
+  },
+  {
+    id: 2,
+    title: "OCR Technology",
+    description: "Detects text and watermarks in images",
+    icon: <OcrTechnologyIconSVG />,
+  },
+  {
+    id: 1,
+    title: "Smart Algorithms",
+    description: "Custom-built for content protection",
+    icon: <SmartAlgorithmsIconSVG />,
+  },
+];
+
+export const protectionStatsMockData = [
+  {
+    id: 1,
+    count: "72k+",
+    text: "Platforms Monitored",
+  },
+  {
+    id: 2,
+    count: "24/7",
+    text: "Active Scans",
+  },
+  {
+    id: 3,
+    count: "<24h",
+    text: "Response Time",
+  },
+  {
+    id: 4,
+    count: "99%",
+    text: "Success Rate",
   },
 ];
 

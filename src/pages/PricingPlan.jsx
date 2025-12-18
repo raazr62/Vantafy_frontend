@@ -24,13 +24,13 @@ const PricingPlan = () => {
                 <TabsTrigger value="agencies">Agencies</TabsTrigger>
               </TabsList>
               <TabsContent value="monthly-billing">
-                <MonthlyBilling />
+                <MonthlyBilling fromAuthPage={true} />
               </TabsContent>
               <TabsContent value="annual-billing">
-                <AnnualBilling />
+                <AnnualBilling fromAuthPage={true} />
               </TabsContent>
               <TabsContent value="agencies">
-                <AgenciesBilling />
+                <AgenciesBilling fromAuthPage={true} />
               </TabsContent>
             </Tabs>
           </div>

@@ -29,6 +29,7 @@ import onlyfansOnlyLogo from "@/assets/Images/homeImages/radarLogos/OnlyfansLogo
 import fanvueLogoOnlyLogo from "@/assets/Images/homeImages/radarLogos/fanvueLogo.png";
 import fanslyOnlyLogo from "@/assets/Images/homeImages/radarLogos/fanslyLogo.png";
 import porOnlyLogo from "@/assets/Images/homeImages/radarLogos/por.png";
+import tiktokOnlyLogo from "@/assets/Images/homeImages/tiktokOnlyLogo.png";
 
 export const LocalImages = {
   hamsterOnlyLogo,
@@ -62,4 +63,5 @@ export const LocalImages = {
   Twitter,
   radarBG,
   radarSpinner,
+  tiktokOnlyLogo,
 };
