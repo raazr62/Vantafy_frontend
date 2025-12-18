@@ -3,6 +3,8 @@ import { WhatWeDoMockData } from "@/lib/HomeMockData";
 import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import CommonContainer from "@/shared/LandingShared/CommonContainer";
 import Scan from "./Scan";
+import Delist from "./Delist";
+import Takedown from "./Takedown";
 
 const WhatWeDo = () => {
   const [activeCard, setActiveCard] = useState("Scan");
@@ -54,6 +56,8 @@ const WhatWeDo = () => {
       </div>
 
       {activeCard === "Scan" && <Scan />}
+      {activeCard === "Delist" && <Delist />}
+      {activeCard === "Takedown" && <Takedown />}
     </CommonContainer>
   );
 };

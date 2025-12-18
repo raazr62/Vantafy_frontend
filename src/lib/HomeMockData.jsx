@@ -12,6 +12,9 @@ import {
   SearchIconSVG,
   ShareIconSVG,
   TakedownSVG,
+  CoverageIconSVG,
+  FastResponseIconSVG,
+  LegalCompilanceIconSVG,
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
@@ -112,6 +115,28 @@ export const WhatWeDoMockData = [
     id: 8,
     name: "Anonymous",
     icon: <AnonymousSVG className={"group-hover:text-white"} />,
+  },
+];
+
+export const takeDownMockData = [
+  {
+    id: 1,
+    title: "Fast Response",
+    description:
+      "Close relationships with platforms ensure quick content removal",
+    icon: <FastResponseIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Legal Compliance",
+    description: "All takedowns follow DMCA guidelines and legal requirements",
+    icon: <LegalCompilanceIconSVG />,
+  },
+  {
+    id: 3,
+    title: "Comprehensive Coverage",
+    description: "We remove illegal copies from all detected sources*",
+    icon: <CoverageIconSVG />,
   },
 ];
 
