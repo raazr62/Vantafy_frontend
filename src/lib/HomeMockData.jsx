@@ -22,6 +22,9 @@ import {
   FacialRecognitionIconSVG,
   OcrTechnologyIconSVG,
   SmartAlgorithmsIconSVG,
+  LockIconSVG,
+  DatabaseProtectionIconSVG,
+  CorporateShieldIconSVG,
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
@@ -212,6 +215,27 @@ export const personalAgentMockData = [
   },
 ];
 
+export const anonymousMockData = [
+  {
+    id: 1,
+    title: "Your Info Stays Private",
+    description: "We never expose your real name, address, or contact details",
+    icon: <LockIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Database Protection",
+    description:
+      "Shielded from public databases like Lumen used by Google and Twitter",
+    icon: <DatabaseProtectionIconSVG />,
+  },
+  {
+    id: 1,
+    title: "Corporate Shield",
+    description: "Rulta's corporate details are used for all legal filings",
+    icon: <CorporateShieldIconSVG />,
+  },
+];
 export const aiProtectionMockData = [
   {
     id: 1,
