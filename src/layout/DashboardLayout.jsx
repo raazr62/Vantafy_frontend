@@ -28,7 +28,7 @@ export default function DashboardLayout() {
       </Sheet>
 
       <div className="px-5 w-full flex-1 flex flex-col min-h-0">
-        <Outlet />
+        {/* <Outlet /> */}
       </div>
     </div>
   );
