@@ -6,6 +6,8 @@ import Scan from "./Scan";
 import Delist from "./Delist";
 import Takedown from "./Takedown";
 import Impersonation from "./Impersonation";
+import Platforms from "./Platforms";
+import PersonalAgent from "./PersonalAgent";
 
 const WhatWeDo = () => {
   const [activeCard, setActiveCard] = useState("Scan");
@@ -60,6 +62,8 @@ const WhatWeDo = () => {
       {activeCard === "Delist" && <Delist />}
       {activeCard === "Takedown" && <Takedown />}
       {activeCard === "Impersonation" && <Impersonation />}
+      {activeCard === "Platforms" && <Platforms />}
+      {activeCard === "Personal Agent" && <PersonalAgent />}
     </CommonContainer>
   );
 };

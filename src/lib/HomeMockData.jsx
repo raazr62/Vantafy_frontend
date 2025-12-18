@@ -15,6 +15,9 @@ import {
   CoverageIconSVG,
   FastResponseIconSVG,
   LegalCompilanceIconSVG,
+  DeepUnderstandingIconSVG,
+  TailoredSolutionIconSVG,
+  SupportIconSVG,
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
@@ -165,6 +168,27 @@ export const takeDownMockData = [
     title: "Comprehensive Coverage",
     description: "We remove illegal copies from all detected sources*",
     icon: <CoverageIconSVG />,
+  },
+];
+
+export const platformsMockData = [
+  {
+    id: 1,
+    title: "Deep Understanding",
+    description: "We know the social ecosystem inside and out",
+    icon: <DeepUnderstandingIconSVG />,
+  },
+  {
+    id: 2,
+    title: "Tailored Solutions",
+    description: "Services  designed for all over creators",
+    icon: <TailoredSolutionIconSVG />,
+  },
+  {
+    id: 3,
+    title: "Experienced Support",
+    description: "Whatever you're facing, we've handled it before",
+    icon: <SupportIconSVG />,
   },
 ];
 
