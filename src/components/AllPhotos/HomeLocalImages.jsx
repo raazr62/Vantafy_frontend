@@ -30,8 +30,18 @@ import fanvueLogoOnlyLogo from "@/assets/Images/homeImages/radarLogos/fanvueLogo
 import fanslyOnlyLogo from "@/assets/Images/homeImages/radarLogos/fanslyLogo.png";
 import porOnlyLogo from "@/assets/Images/homeImages/radarLogos/por.png";
 import tiktokOnlyLogo from "@/assets/Images/homeImages/tiktokOnlyLogo.png";
+import tiktokIcon from "@/assets/Images/homeImages/Impersonation/tiktokIcon.png";
+import InstagramIcon from "@/assets/Images/homeImages/Impersonation/InstagramIcon.png";
+import OnlyfansIcon from "@/assets/Images/homeImages/Impersonation/OnlyfansIcon.png";
+import TwitterIcon from "@/assets/Images/homeImages/Impersonation/TwitterIcon.png";
+import FanslyIcon from "@/assets/Images/homeImages/Impersonation/FanslyIcon.png";
 
 export const LocalImages = {
+  tiktokIcon,
+  InstagramIcon,
+  OnlyfansIcon,
+  TwitterIcon,
+  FanslyIcon,
   hamsterOnlyLogo,
   onlyfansOnlyLogo,
   fanslyOnlyLogo,

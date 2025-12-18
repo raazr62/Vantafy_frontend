@@ -132,22 +132,22 @@ export const impersonationMockData = [
   {
     id: 1,
     siteName: "OnlyFans",
-    logo: LocalImages.onlyfansOnlyLogo,
+    logo: LocalImages.OnlyfansIcon,
   },
   {
     id: 2,
     siteName: "Fansly",
-    logo: LocalImages.fanslyOnlyLogo,
+    logo: LocalImages.FanslyIcon,
   },
   {
     id: 3,
     siteName: "Instagram",
-    logo: LocalImages.instagramOnlyLogo,
+    logo: LocalImages.InstagramIcon,
   },
   {
     id: 4,
     siteName: "Twitter",
-    logo: LocalImages.twitterLogoOnlyLogo,
+    logo: LocalImages.TwitterIcon,
   },
   {
     id: 5,
