@@ -18,6 +18,7 @@ import {
   DeepUnderstandingIconSVG,
   TailoredSolutionIconSVG,
   SupportIconSVG,
+  MessageIconSVG,
 } from "@/components/SVG/HomeLayoutSVG";
 
 export const NavlinksItems = [
@@ -188,6 +189,22 @@ export const platformsMockData = [
     id: 3,
     title: "Experienced Support",
     description: "Whatever you're facing, we've handled it before",
+    icon: <SupportIconSVG />,
+  },
+];
+
+export const personalAgentMockData = [
+  {
+    id: 1,
+    title: "Reddit Expertise",
+    description: "We know the OnlyFans ecosystem inside and out",
+    icon: <MessageIconSVG />,
+  },
+  {
+    id: 2,
+    title: "7 days/week Support",
+    description:
+      "Live chat support available seven days a week for immediate assistance",
     icon: <SupportIconSVG />,
   },
 ];

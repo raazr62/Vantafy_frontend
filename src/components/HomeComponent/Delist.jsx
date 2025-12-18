@@ -26,7 +26,7 @@ const Delist = () => {
             <SearchIconSVG /> 100% remove from google
           </p>
           <p className="flex items-center gap-2 text-sm font-medium">
-            <BrowserIconSVG /> 100% remove from google
+            <BrowserIconSVG /> Google search engine covered
           </p>
         </div>
 
