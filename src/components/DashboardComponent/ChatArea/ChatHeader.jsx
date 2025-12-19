@@ -20,16 +20,16 @@ const ChatHeader = ({
           <SupportIconSVG />
         </div>
         <div>
-          <p className="font-semibold text-sm">{filterMessages.person}</p>
+          <p className="font-semibold text-sm">{filterMessages?.person}</p>
           <div className="flex items-center gap-2">
             <div
               className={`w-2 h-2 rounded-full ${
-                filterMessages.isActive ? "bg-green-500" : "bg-red-500"
+                filterMessages?.isActive ? "bg-green-500" : "bg-red-500"
               }`}
             ></div>
             <p className="text-xs text-gray-500">
-              {filterMessages.isActive ? "Online •" : "Offline •"}{" "}
-              {filterMessages.typingIndicator && "Typing..."}
+              {filterMessages?.isActive ? "Online •" : "Offline •"}{" "}
+              {filterMessages?.typingIndicator && "Typing..."}
             </p>
           </div>
         </div>

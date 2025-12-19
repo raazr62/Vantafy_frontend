@@ -31,7 +31,7 @@ const MessageItem = ({
     >
       <div className="relative group max-w-[80%]">
         {/* Files Section */}
-        {msg.files && msg.files.length > 0 && (
+        {/* {msg.files && msg.files.length > 0 && (
           <div className="mb-2 flex flex-wrap gap-3">
             {msg.files.map((file) => (
               <div
@@ -130,13 +130,13 @@ const MessageItem = ({
               </div>
             ))}
           </div>
-        )}
+        )} */}
 
         {/* Message Text */}
         {msg.text && (
           <div className="relative">
             <div
-              className={`max-w-full px-6 py-4 rounded-4xl text-sm leading-relaxed whitespace-pre-line
+              className={`max-w-full px-3 sm:px-6 py-2 sm:py-4 rounded-2xl sm:rounded-3xl md:rounded-4xl text-sm leading-relaxed whitespace-pre-line
                 ${
                   msg.sender === "me"
                     ? "bg-[#35A9FF] text-white rounded-br-none"

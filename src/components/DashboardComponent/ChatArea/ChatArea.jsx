@@ -186,7 +186,7 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
       )}
 
       <section
-        className={`flex flex-col flex-4/5 relative ${
+        className={`flex flex-col overflow-hidden flex-4/5 relative ${
           !!currentUserId ? "flex" : "hidden sm:flex"
         }`}
       >
@@ -200,8 +200,8 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
         />
 
         {/* Messages */}
-        <div className="grow overflow-y-auto p-6 space-y-6">
-          {/* {messages.map((msg) => (
+        <div className="grow overflow-y-auto p-6 space-y-6 max-h-[68vh] sm:max-h-full">
+          {messages.map((msg) => (
             <MessageItem
               key={msg.id}
               msg={msg}
@@ -213,7 +213,7 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
               onDeleteMessage={deleteMessage}
               onCopyMessage={copyMessage}
             />
-          ))} */}
+          ))}
 
           {/* Typing Indicator */}
           {typingIndicator && <TypingIndicator />}
