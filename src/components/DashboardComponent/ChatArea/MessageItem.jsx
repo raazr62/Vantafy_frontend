@@ -31,7 +31,7 @@ const MessageItem = ({
     >
       <div className="relative group max-w-[80%]">
         {/* Files Section */}
-        {/* {msg.files && msg.files.length > 0 && (
+        {msg.files && msg.files.length > 0 && (
           <div className="mb-2 flex flex-wrap gap-3">
             {msg.files.map((file) => (
               <div
@@ -56,7 +56,7 @@ const MessageItem = ({
                         }
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/5 transition-all duration-300" />
-                      <div className="absolute top-2 right-2 opacity-0 group-hover/image:opacity-100 transition-opacity flex gap-1">
+                      <div className="absolute top-2 right-2 lg:opacity-0 lg:group-hover/image:opacity-100 transition-opacity flex gap-1">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -130,7 +130,7 @@ const MessageItem = ({
               </div>
             ))}
           </div>
-        )} */}
+        )}
 
         {/* Message Text */}
         {msg.text && (
