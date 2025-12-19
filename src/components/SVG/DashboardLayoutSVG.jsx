@@ -684,7 +684,7 @@ export const ThunderIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-5.5 h-5.5 text-white", className)}
+      className={cn("w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white", className)}
       viewBox="0 0 22 22"
       fill="none"
     >
@@ -703,7 +703,7 @@ export const StackIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-5.5 h-5.5 text-white", className)}
+      className={cn("w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white", className)}
       viewBox="0 0 22 22"
       fill="none"
     >
@@ -737,7 +737,7 @@ export const LockIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-5.5 h-5.5 text-white", className)}
+      className={cn("w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white", className)}
       viewBox="0 0 22 22"
       fill="none"
     >
@@ -759,7 +759,7 @@ export const SendIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-4 h-4", className)}
+      className={cn("w-3 h-3 sm:w-4 sm:h-4", className)}
       viewBox="0 0 16 16"
       fill="none"
     >
