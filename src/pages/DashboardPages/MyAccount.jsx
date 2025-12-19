@@ -15,7 +15,7 @@ const MyAccount = () => {
   ];
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full pb-4 lg:pb-0">
       {/* Tab header (fixed height) */}
       <div className="bg-white rounded-t-[12px]">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full p-2 sm:p-4 bg-slate-50 border border-slate-200 rounded-t-[12px]">

@@ -9,7 +9,7 @@ const DashboardPlansCard = () => {
     <div>
       {/* Tabs And Content */}
       <Tabs defaultValue="monthly-billing" className="w-full mt-4">
-        <TabsList className={"sm:min-w-lg mx-auto"}>
+        <TabsList className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}>
           <TabsTrigger value="monthly-billing">Monthly billing</TabsTrigger>
           <TabsTrigger value="annual-billing">Annual billing</TabsTrigger>
           <TabsTrigger value="agencies">Agencies</TabsTrigger>

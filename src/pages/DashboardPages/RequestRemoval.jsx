@@ -6,7 +6,7 @@ const RequestRemoval = () => {
   const [linksData, setLinksData] = useState([]);
 
   return (
-    <div className="flex flex-col gap-4 h-full">
+    <div className="flex flex-col gap-4 h-full pb-4 lg:pb-0">
       <RequestRemovalStats />
       <RequestRemovalForm setLinksData={setLinksData} linksData={linksData} />
     </div>

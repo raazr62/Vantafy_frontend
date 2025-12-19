@@ -14,7 +14,7 @@ export default function Overview() {
   const [activeDialog, setActiveDialog] = useState(null);
 
   return (
-    <div className="flex flex-col h-full gap-3">
+    <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
       <LimitationStatus />
 
       {/* Middle layout */}
