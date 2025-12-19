@@ -1,4 +1,5 @@
 import { DashboardLocalImages } from "@/components/AllPhotos/DashboardLocalImages";
+import TypingIndicator from "@/components/DashboardComponent/ChatArea/TypingIndicator";
 import {
   AffiliateIconSVG,
   HomeIconSVG,
@@ -745,6 +746,80 @@ export const memberMockData = [
       "https://instagram.com/maxxx.monroe",
       "https://twitter.com/MaxxxMonroe_",
       "https://linktr.ee/maxxxmonroe",
+    ],
+  },
+];
+
+export const allUserMessagesMockData = [
+  {
+    id: 1,
+    person: "Support",
+    lastMessage:
+      "Hey! Did you finish the Hi-FI wireframes for flora app design?",
+    time: "Today | 05:30 PM",
+    messageStatus: 2,
+    isActive: true,
+    typingIndicator: false,
+    conversation: [
+      {
+        id: 1,
+        text: "Hello! How can I help you today?",
+        time: "04:45 PM",
+        sender: "support",
+        files: [
+          {
+            id: "file1",
+            name: "product-guide.pdf",
+            type: "document",
+            size: 2457600,
+            url: "#",
+            mimeType: "application/pdf",
+            thumbnail: null,
+          },
+        ],
+      },
+      {
+        id: 2,
+        text: "I need help with uploading files",
+        time: "04:46 PM",
+        sender: "me",
+      },
+      {
+        id: 3,
+        text: "Sure! I'll send you an example image",
+        time: "04:47 PM",
+        sender: "support",
+        files: [
+          {
+            id: "file2",
+            name: "screenshot.png",
+            type: "image",
+            size: 1024000,
+            url: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+            mimeType: "image/png",
+            thumbnail:
+              "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=40",
+          },
+        ],
+      },
+      {
+        id: 4,
+        text: "Thanks! Here's my document",
+        time: "04:48 PM",
+        sender: "me",
+        files: [
+          {
+            id: "file3",
+            name: "requirements.docx",
+            type: "document",
+            size: 204800,
+            url: "#",
+            mimeType:
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            thumbnail: null,
+          },
+        ],
+      },
     ],
   },
 ];
