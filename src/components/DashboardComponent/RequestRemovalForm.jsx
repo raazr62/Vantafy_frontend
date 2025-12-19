@@ -79,7 +79,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
             remaining for removal requests this month under your{" "}
             <span className="font-semibold">Premium</span> plan.{" "}
           </p>
-          {!linksData.length > 0 && (
+          {linksData.length > 0 && (
             <DialogTrigger asChild>
               <button
                 type="button"
