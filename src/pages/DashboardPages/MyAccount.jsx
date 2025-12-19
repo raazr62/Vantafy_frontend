@@ -18,7 +18,7 @@ const MyAccount = () => {
     <div className="flex flex-col h-full">
       {/* Tab header (fixed height) */}
       <div className="bg-white rounded-t-[12px]">
-        <div className="grid grid-cols-4 gap-2 w-full py-4 bg-slate-50 px-4 border border-slate-200 rounded-t-[12px]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full p-2 sm:p-4 bg-slate-50 border border-slate-200 rounded-t-[12px]">
           {tabTiggerList.map((tab, idx) => {
             const active = tab === activeTab;
             return (
@@ -27,9 +27,9 @@ const MyAccount = () => {
                 onClick={() => setActiveTab(tab)}
                 className={`${
                   active
-                    ? "font-semibold border border-[#FF5CE1] bg-[linear-gradient(90deg,rgba(236,112,218,0.10)_0%,rgba(81,174,250,0.10)_100%)]"
+                    ? "font-medium sm:font-semibold border border-[#FF5CE1] bg-[linear-gradient(90deg,rgba(236,112,218,0.10)_0%,rgba(81,174,250,0.10)_100%)]"
                     : "text-[#212B36] bg-white border border-slate-200"
-                } text-center py-4 rounded-xl cursor-pointer text-sm`}
+                } text-center py-4 rounded-xl cursor-pointer text-xs sm:text-sm`}
               >
                 {tab}
               </p>
@@ -40,7 +40,7 @@ const MyAccount = () => {
 
       {/* Scrollable content area */}
       {activeTab === "Profile" && (
-        <div className="space-y-6 grow overflow-y-auto min-h-0 rounded-b-[12px]">
+        <div className="space-y-4 sm:space-y-6 grow overflow-y-auto min-h-0 rounded-b-[12px]">
           <ProfileDetails />
           <ChangePassword />
         </div>

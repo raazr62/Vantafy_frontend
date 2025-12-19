@@ -9,7 +9,7 @@ import Logo from "@/shared/LandingShared/Logo";
 export default function DashboardLayout() {
   const [sheetOpen, setSheetOpen] = useState(false);
   return (
-    <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen flex flex-col xl:flex-row">
+    <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen min-h-svh flex flex-col xl:flex-row">
       <div className="hidden xl:block">
         <Sidebar />
       </div>

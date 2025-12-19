@@ -24,7 +24,7 @@ const CommonInputField = ({
   const inputType = isPassword ? (showPassword ? "text" : "password") : type;
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-1 sm:gap-2 w-full">
       {/* Label */}
       {label && (
         <label
@@ -44,7 +44,7 @@ const CommonInputField = ({
           value={value}
           readOnly={readOnly}
           className={cn(
-            "w-full py-3.5 rounded-lg border border-sky-500 outline-none transition focus:border-primary",
+            "w-full py-2 text-sm sm:text-base sm:py-3.5 rounded-lg border border-sky-500 outline-none transition focus:border-primary",
             Icon ? "pl-9" : "",
             readOnly && "bg-gray-100 cursor-not-allowed opacity-70",
             error && "border-red-500 focus:border-red-500",

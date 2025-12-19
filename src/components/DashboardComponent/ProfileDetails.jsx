@@ -32,10 +32,13 @@ const ProfileDetails = () => {
   };
 
   return (
-    <div className="px-4 pt-4 bg-white pb-6 rounded-b-[12px]">
+    <div className="px-2 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white rounded-b-[12px]">
       <ProfilePhoto />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-2 sm:space-y-4 mt-4"
+      >
         {/* Full Name */}
         <CommonInputField
           label="Full Name"
@@ -62,7 +65,7 @@ const ProfileDetails = () => {
 
         {/* Country */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="text-xs text-[#2E3139] font-medium mb-1">
             Country
           </label>
 

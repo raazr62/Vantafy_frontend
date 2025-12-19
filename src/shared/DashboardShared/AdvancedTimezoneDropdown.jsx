@@ -90,7 +90,7 @@ const AdvancedTimezoneDropdown = ({
       }
     }
 
-    return tzs.slice(0, 50); // Limit for performance
+    return tzs.slice(0, 50);
   }, [allTimezones, search, country]);
 
   // Auto-detect user's timezone
@@ -144,7 +144,7 @@ const AdvancedTimezoneDropdown = ({
     <div className="relative">
       <label
         htmlFor="timezone"
-        className="block text-sm font-medium text-gray-700 mb-1"
+        className="block text-xs font-medium text-gray-700 mb-1"
       >
         Timezone
       </label>
