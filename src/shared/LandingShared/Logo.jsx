@@ -20,7 +20,7 @@ const Logo = ({ className, variant = "whiteFull" }) => {
   return (
     <img
       onClick={handleClick}
-      className={cn("w-35 cursor-pointer", className)}
+      className={cn("w-25 sm:w-30 lg:w-35 cursor-pointer", className)}
       src={logoSrc}
       alt="Vantafy"
     />

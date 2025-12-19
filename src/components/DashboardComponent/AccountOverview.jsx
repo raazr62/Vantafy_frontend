@@ -4,7 +4,7 @@ import AccountOverviewStats from "./AccountOverviewStats";
 
 const AccountOverview = () => {
   return (
-    <div className="p-4 bg-white rounded-2xl space-y-4 h-full overflow-y-auto">
+    <div className="p-3 lg:p-4 bg-white rounded-2xl space-y-4 lg:h-full lg:overflow-y-auto">
       <AccountOverviewDetails />
       <AccountOverviewStats />
     </div>
