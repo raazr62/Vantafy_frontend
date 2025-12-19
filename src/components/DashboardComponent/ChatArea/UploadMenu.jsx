@@ -40,9 +40,9 @@ const UploadMenu = ({ isOpen, onToggle, fileInputRef, onFileSelect }) => {
       <button
         type="button"
         onClick={() => onToggle()}
-        className="p-3 rounded-full bg-blue-500 shadow flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer"
+        className="p-1 sm:p-3 rounded-full bg-blue-500 shadow flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer"
       >
-        <Plus className="w-5 h-5 text-white" />
+        <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
       </button>
 
       {isOpen && (
