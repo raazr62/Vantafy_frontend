@@ -185,59 +185,67 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
         />
       )}
 
-      <section
-        className={`flex flex-col overflow-hidden flex-4/5 relative ${
-          !!currentUserId ? "flex" : "hidden sm:flex"
-        }`}
-      >
-        {/* Header */}
-        <ChatHeader
-          filterMessages={filterMessages}
-          setCurrentUserId={setCurrentUserId}
-          openClearBtn={openClearBtn}
-          setOpenClearBtn={setOpenClearBtn}
-          onClearChat={handleClearChat}
-        />
+      {filterMessages ? (
+        <section
+          className={`flex flex-col overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 relative max-h-[calc(100vh-68px)] lg:max-h-full`}
+        >
+          {/* Header */}
+          <ChatHeader
+            filterMessages={filterMessages}
+            setCurrentUserId={setCurrentUserId}
+            openClearBtn={openClearBtn}
+            setOpenClearBtn={setOpenClearBtn}
+            onClearChat={handleClearChat}
+          />
 
-        {/* Messages */}
-        <div className="grow overflow-y-auto p-6 space-y-6 max-h-[68vh] sm:max-h-full">
-          {messages.map((msg) => (
-            <MessageItem
-              key={msg.id}
-              msg={msg}
-              expandedImages={expandedImages}
-              toggleImageExpand={toggleImageExpand}
-              onOpenFullscreen={openFullscreenImage}
-              showMessageMenu={showMessageMenu}
-              onShowMessageMenu={setShowMessageMenu}
-              onDeleteMessage={deleteMessage}
-              onCopyMessage={copyMessage}
-            />
-          ))}
+          {/* Messages */}
+          <div className="grow overflow-y-auto p-6 space-y-6 min-h-0 sm:max-h-full">
+            {messages.map((msg) => (
+              <MessageItem
+                key={msg.id}
+                msg={msg}
+                expandedImages={expandedImages}
+                toggleImageExpand={toggleImageExpand}
+                onOpenFullscreen={openFullscreenImage}
+                showMessageMenu={showMessageMenu}
+                onShowMessageMenu={setShowMessageMenu}
+                onDeleteMessage={deleteMessage}
+                onCopyMessage={copyMessage}
+              />
+            ))}
 
-          {/* Typing Indicator */}
-          {typingIndicator && <TypingIndicator />}
+            {/* Typing Indicator */}
+            {typingIndicator && <TypingIndicator />}
 
-          <div ref={messagesEndRef} />
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* File Preview Section */}
+          <FilePreviewSection
+            selectedFiles={selectedFiles}
+            onRemoveFile={removeFile}
+            onOpenFullscreen={openFullscreenImage}
+          />
+
+          {/* Input Area */}
+          <ChatInput
+            input={input}
+            onInputChange={setInput}
+            onSendMessage={handleSendMessage}
+            selectedFiles={selectedFiles}
+            fileInputRef={fileInputRef}
+            onFileSelect={handleFileSelect}
+          />
+        </section>
+      ) : (
+        <div
+          className={`flex items-center justify-center overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 ${
+            !!currentUserId ? "flex" : "hidden sm:flex"
+          }`}
+        >
+          <p className="text-2xl">Open a conversation</p>
         </div>
-
-        {/* File Preview Section */}
-        <FilePreviewSection
-          selectedFiles={selectedFiles}
-          onRemoveFile={removeFile}
-          onOpenFullscreen={openFullscreenImage}
-        />
-
-        {/* Input Area */}
-        <ChatInput
-          input={input}
-          onInputChange={setInput}
-          onSendMessage={handleSendMessage}
-          selectedFiles={selectedFiles}
-          fileInputRef={fileInputRef}
-          onFileSelect={handleFileSelect}
-        />
-      </section>
+      )}
     </>
   );
 };

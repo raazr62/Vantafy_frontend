@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { ClockIconSVG, SupportIconSVG } from "../SVG/DashboardLayoutSVG";
+import { allUserMessagesMockData } from "@/lib/DashboardMockData";
 const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
-  const [chatList, setChatList] = useState([
-    {
-      id: 1,
-      person: "Support",
-      lastMessage:
-        "Hey! Did you finish the Hi-FI wireframes for flora app design?",
-      time: "Today | 05:30 PM",
-      messageStatus: 2,
-    },
-  ]);
+  const [chatList, setChatList] = useState(allUserMessagesMockData);
 
   useEffect(() => {
     setChatList((prev) =>
@@ -49,7 +41,11 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
           <div
             key={chat.id}
             onClick={() => setCurrentUserId(chat.id)}
-            className="px-2 sm:px-4 py-2 sm:py-3 bg-[linear-gradient(90deg,#EC70DA14_0%,#51AEFA14_100%)]"
+            className={`px-2 sm:px-4 py-2 sm:py-3 border-t border-gray-200 last:border-b cursor-pointer ${
+              currentUserId === chat.id
+                ? "bg-[linear-gradient(90deg,#EC70DA14_0%,#51AEFA14_100%)]"
+                : ""
+            }`}
           >
             <div className="flex items-start gap-2 sm:gap-3">
               {chat.person === "Support" ? (
@@ -58,7 +54,7 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
                 </div>
               ) : (
                 <img
-                  src="https://i.pravatar.cc/"
+                  src={chat.avatar}
                   alt={`${chat.person} avatar`}
                   className="w-8 h-8 sm:w-9 sm:h-9 rounded-full"
                 />
@@ -69,7 +65,7 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
                     <p className="text-sm sm:text-base font-medium">
                       {chat.person}
                     </p>
-                    {!chat.messageStatus > 0 && (
+                    {chat.messageStatus > 0 && (
                       <span className="min-w-5 h-5 px-1 text-xs bg-pink-500 text-white flex items-center justify-center rounded-full">
                         {chat.messageStatus > 99 ? "99+" : chat.messageStatus}
                       </span>

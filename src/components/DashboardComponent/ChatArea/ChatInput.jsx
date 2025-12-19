@@ -52,7 +52,7 @@ const ChatInput = ({
   return (
     <form
       onSubmit={onSendMessage}
-      className="py-4 px-6 flex items-center gap-3 bg-[#FFF5FDE0] relative border-t"
+      className="py-2 sm:py-4 px-3 sm:px-6 flex items-center gap-3 bg-[#FFF5FDE0] relative border-t"
     >
       {/* Hidden file input */}
       <input
@@ -79,7 +79,7 @@ const ChatInput = ({
           value={input}
           onChange={(e) => onInputChange(e.target.value)}
           placeholder="Type your message..."
-          className="w-full py-3 px-4 pr-12 rounded-full border focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm bg-white"
+          className="w-full py-2 px-3 sm:py-3 sm:px-4 pr-12 rounded-full border focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
         />
 
         {/* Emoji Picker */}
@@ -90,7 +90,7 @@ const ChatInput = ({
           <button
             type="button"
             onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 cursor-pointer"
+            className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded-full hover:bg-gray-100 cursor-pointer"
           >
             <Smile className="w-5 h-5 text-gray-400" />
           </button>
@@ -113,13 +113,13 @@ const ChatInput = ({
       <button
         type="submit"
         disabled={isDisabled || isLoading}
-        className={`p-3 rounded-full flex items-center justify-center text-white shadow transition-colors ${
+        className={`p-2 sm:p-3 rounded-full flex items-center justify-center text-white shadow transition-colors ${
           isDisabled || isLoading
             ? "bg-blue-300 cursor-not-allowed"
             : "bg-blue-500 hover:bg-blue-600 cursor-pointer"
         }`}
       >
-        <Send className="w-5 h-5" />
+        <Send className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
     </form>
   );
