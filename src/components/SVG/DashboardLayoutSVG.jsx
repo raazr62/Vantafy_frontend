@@ -1155,8 +1155,7 @@ export const AddMemberIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="18"
-      height="18"
+      className="w-4 h-4 sm:w-4.5 sm:h-4.5"
       viewBox="0 0 18 18"
       fill="none"
     >
