@@ -63,7 +63,7 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
                 className="w-full h-full object-cover rounded-full"
               />
               <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded-full">
-                <Camera size={40} className="text-white" />
+                <Camera className="text-primary text-base sm:text-xl" />
               </div>
               <div className="w-6 h-6 bg-green-500 absolute bottom-0 right-0 rounded-full border-4 border-white"></div>
             </div>
@@ -80,10 +80,11 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
           {/* Info + Upload button */}
           <div className="space-y-1">
             <button
-              className="rounded-xl font-medium cursor-pointer flex items-center gap-2 text-primary py-3 px-6 border-2 border-primary"
+              className="rounded-xl text-sm sm:text-base font-medium cursor-pointer flex items-center gap-2 text-primary py-2 sm:py-3 px-2 sm:px-6 border-2 border-primary"
               onClick={triggerFileInput}
             >
-              <Camera size={20} className="text-primary" /> Upload New Photo
+              <Camera className="text-primary text-base sm:text-xl" /> Upload
+              New Photo
             </button>
           </div>
         </div>
@@ -96,27 +97,24 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
             className={"px-6 font-semibold"}
             readOnly
           />
-          <CommonInputField
-            label={"Email"}
-            labelClassName={"text-base"}
-            value={memberData.email}
-            className={"px-6 font-semibold"}
-            readOnly
-          />
 
           <p className="text-xs text-[#475569]">
             Links Attributed:{" "}
             <span className="text-primary font-bold">{memberData.links}</span>
           </p>
 
-          <div className="flex items-center justify-end gap-3">
-            <Button onClick={() => setActiveDialog("")} variant={"outline"}>
+          <div className="flex items-center sm:justify-end gap-3">
+            <Button
+              onClick={() => setActiveDialog("")}
+              variant={"outline"}
+              className={"flex-1 sm:grow-0"}
+            >
               Cancel
             </Button>
             <Button
               onClick={() => setActiveDialog("")}
               variant={"formSubmit"}
-              className={"w-auto"}
+              className={"flex-1 sm:grow-0"}
             >
               Save Changes
             </Button>

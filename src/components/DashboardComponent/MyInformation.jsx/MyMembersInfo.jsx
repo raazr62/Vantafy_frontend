@@ -8,7 +8,7 @@ const MyMembersInfo = ({ whichMember }) => {
   const memberData = memberMockData.find((member) => member.id === whichMember);
 
   return (
-    <div className="space-y-4 flex flex-col min-h-0 grow flex-1">
+    <div className="flex flex-col gap-4 min-h-0 grow flex-1">
       <MemberNiches memberData={memberData} />
       <MemberStageNames memberData={memberData} />
       <AuthorizedSocialMedia memberData={memberData} />

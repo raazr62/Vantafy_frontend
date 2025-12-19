@@ -13,16 +13,16 @@ const AccountNiches = () => {
   };
 
   return (
-    <div className="pr-0 p-6 rounded-b-[12px] border border-[#EFE6FD] bg-white flex flex-col min-h-0">
+    <div className="py-4 rounded-b-[12px] border border-[#EFE6FD] bg-white flex flex-col min-h-0">
       {/* Scrollable list section */}
-      <div className="flex flex-wrap gap-5 py-2 grow overflow-y-auto min-h-0">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-5 grow overflow-y-auto min-h-0 p-2 sm:p-6">
         {nichesMockData.map((niche, idx) => {
           const isSelected = selectedNiches[idx] || false;
           return (
             <p
               key={idx}
               onClick={() => toggleNiche(idx)}
-              className={`font-medium rounded-full text-center py-3.5 px-8 cursor-pointer ${
+              className={`text-sm sm:text-base font-medium rounded-full text-center py-2 sm:py-3.5 cursor-pointer ${
                 isSelected ? "bg-primary text-white" : "bg-[#E9EEF0] text-black"
               }`}
             >
@@ -30,12 +30,14 @@ const AccountNiches = () => {
             </p>
           );
         })}
+        {/* Save button stays fixed at bottom */}
+        <Button
+          variant="secondary"
+          className="mt-4 col-span-2 sm:col-span-3 lg:col-span-4"
+        >
+          Save
+        </Button>
       </div>
-
-      {/* Save button stays fixed at bottom */}
-      <Button variant="secondary" className="mt-4 ">
-        Save
-      </Button>
     </div>
   );
 };

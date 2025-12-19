@@ -66,10 +66,10 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
     <div className="bg-white rounded-2xl p-4 w-full shadow-[0_0.785px_2.355px_0_rgba(0,0,0,0.10),0_0.785px_1.57px_-0.785px_rgba(0,0,0,0.10)] space-y-4 border border-[#E2E8F0] flex flex-col grow flex-1">
       {/* Header */}
       <div className="flex items-center justify-between w-full">
-        <p className="text-xl font-semibold">Members</p>
+        <p className="text-lg sm:text-xl font-semibold">Members</p>
         <button
           onClick={() => setOpenAddMemberInput(true)}
-          className="bg-[#3AB8FF] text-white p-2 rounded-[6px] flex items-center gap-1 cursor-pointer"
+          className="bg-[#3AB8FF] text-white p-1 px-2 sm:p-2 rounded-[6px] flex items-center gap-1 cursor-pointer text-sm sm:text-base"
         >
           <AddMemberIconSVG /> Add Member
         </button>
@@ -100,10 +100,10 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
       )}
 
       {/* All the member List */}
-      <div className="flex flex-col grow min-h-0">
+      <div className="flex flex-col grow min-h-0 max-h-90 lg:max-h-full">
         {/* Sub Header */}
-        <div className="bg-[#F8FAFC] grid grid-cols-6 border-b border-b-[#E2E8F0] py-3.5 px-5">
-          <p className="col-span-3 text-xs font-bold">Member</p>
+        <div className="bg-[#F8FAFC] grid grid-cols-8 border-b border-b-[#E2E8F0] py-3.5 px-5">
+          <p className="col-span-5 text-xs font-bold">Member</p>
           <p className="text-xs font-bold">Links</p>
         </div>
 
@@ -115,38 +115,41 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
               <div
                 key={memberData.id}
                 onClick={() => setWhichMember(memberData.id)}
-                className={`py-5 px-4 border rounded-lg grid grid-cols-6 cursor-pointer items-center ${
+                className={`py-2.5 sm:py-5 px-2 sm:px-4 border rounded-lg grid grid-cols-8 cursor-pointer items-center ${
                   isActive
                     ? "border-[#FFA9EF] shadow-[0_0_9px_0_rgba(255,92,225,0.30)]"
                     : "border-[#D9DADA]"
                 }`}
               >
                 {/* Image Name and Email */}
-                <div className="col-span-3 flex items-center gap-2">
+                <div className="col-span-5 flex items-center gap-2">
                   {/* Image */}
                   <div className="relative w-fit">
                     <img
                       src={memberData.image}
                       alt={memberData.name}
-                      className="w-10.5 h-10.5 rounded-full border-2 border-gray-300"
+                      className="w-7.5 h-7.5 sm:w-10.5 sm:h-10.5 rounded-full border sm:border-2 border-gray-300"
                     />
                     <p className="absolute w-3 h-3 rounded-full bg-green-500 right-0 bottom-0"></p>
                   </div>
                   <div className="space-y-1">
-                    <p className="font-semibold text-sm">{memberData.name}</p>
-                    <p className="text-[#475569] text-xs">{memberData.email}</p>
+                    <p className="font-medium sm:font-semibold text-xs sm:text-sm">
+                      {memberData.name}
+                    </p>
                   </div>
                 </div>
 
                 {/* Links */}
-                <p className="font-bold text-primary">{memberData.links}</p>
+                <p className="text-sm sm:text-base font-semibold sm:font-bold text-primary">
+                  {memberData.links}
+                </p>
 
                 {/* Delete Member */}
                 <button
                   onClick={() => handleRemoveMember(memberData.id)}
-                  className="w-8 h-8 bg-[#FF2B2B1A] flex items-center justify-center rounded-full cursor-pointer"
+                  className="w-6 h-6 sm:w-8 sm:h-8 bg-[#FF2B2B1A] flex items-center justify-center rounded-full cursor-pointer"
                 >
-                  <IoMdClose color="red" size={20} />
+                  <IoMdClose color="red" className="text-sm sm:text-xl" />
                 </button>
 
                 {/* Edit Icon */}
@@ -154,9 +157,9 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
                   <>
                     <button
                       onClick={() => setActiveDialog("Edit Profile")}
-                      className="w-8 h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer"
+                      className="w-6 h-6 sm:w-8 sm:h-8 self-center rounded-lg bg-[#FFD4F7] flex items-center justify-center cursor-pointer"
                     >
-                      <EditIconSVG />
+                      <EditIconSVG className="text-sm sm:text-xl" />
                     </button>
                     <Dialog
                       open={!!activeDialog}

@@ -1,26 +1,35 @@
 import React from "react";
-import { Download, Info, MoreVertical } from "lucide-react";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { MoreVertical } from "lucide-react";
+import { FaArrowLeft, FaRegTrashAlt } from "react-icons/fa";
 import { SupportIconSVG } from "../../SVG/DashboardLayoutSVG";
 
 const ChatHeader = ({
-  typingIndicator,
   openClearBtn,
   setOpenClearBtn,
   onClearChat,
+  setCurrentUserId,
+  filterMessages,
 }) => {
   return (
     <header className="py-4 border-b flex items-center justify-between px-6">
       <div className="flex items-center gap-3">
+        <button onClick={() => setCurrentUserId()} className="text-primary">
+          <FaArrowLeft />
+        </button>
         <div className="p-2 rounded-xl bg-linear-to-l from-[#EC70DA] to-[#51AEFA] flex items-center justify-center text-white">
           <SupportIconSVG />
         </div>
         <div>
-          <p className="font-semibold text-sm">Support Team</p>
+          <p className="font-semibold text-sm">{filterMessages?.person}</p>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <div
+              className={`w-2 h-2 rounded-full ${
+                filterMessages?.isActive ? "bg-green-500" : "bg-red-500"
+              }`}
+            ></div>
             <p className="text-xs text-gray-500">
-              Online • {typingIndicator && "Typing..."}
+              {filterMessages?.isActive ? "Online •" : "Offline •"}{" "}
+              {filterMessages?.typingIndicator && "Typing..."}
             </p>
           </div>
         </div>

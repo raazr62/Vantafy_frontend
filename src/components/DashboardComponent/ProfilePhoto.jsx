@@ -62,11 +62,13 @@ const ProfilePhoto = () => {
 
       {/* Info + Upload button */}
       <div className="space-y-1">
-        <p className="text-[#212B36]">Profile Photo</p>
-        <p className="text-[#90A1B9]">JPG, PNG. Max size 5MB.</p>
+        <p className="text-[#212B36] text-sm sm:text-base">Profile Photo</p>
+        <p className="text-[#90A1B9] text-sm sm:text-base">
+          JPG, PNG. Max size 5MB.
+        </p>
 
         <button
-          className="rounded-xl px-2.5 py-2 bg-[#35A9FF] text-white text-sm font-semibold cursor-pointer"
+          className="rounded-xl px-2 sm:px-2.5 py-1 sm:py-2 bg-[#35A9FF] text-white text-sm font-medium sm:font-semibold cursor-pointer"
           onClick={triggerFileInput}
         >
           Upload New Photo

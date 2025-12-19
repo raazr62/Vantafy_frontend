@@ -684,7 +684,7 @@ export const ThunderIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-5.5 h-5.5 text-white", className)}
+      className={cn("w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white", className)}
       viewBox="0 0 22 22"
       fill="none"
     >
@@ -703,7 +703,7 @@ export const StackIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-5.5 h-5.5 text-white", className)}
+      className={cn("w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white", className)}
       viewBox="0 0 22 22"
       fill="none"
     >
@@ -737,7 +737,7 @@ export const LockIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-5.5 h-5.5 text-white", className)}
+      className={cn("w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white", className)}
       viewBox="0 0 22 22"
       fill="none"
     >
@@ -759,7 +759,7 @@ export const SendIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-4 h-4", className)}
+      className={cn("w-3 h-3 sm:w-4 sm:h-4", className)}
       viewBox="0 0 16 16"
       fill="none"
     >
@@ -1003,8 +1003,7 @@ export const CrownIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="28"
-      height="28"
+      className="w-5 h-5 sm:w-7 sm:h-7"
       viewBox="0 0 28 28"
       fill="none"
     >
@@ -1047,8 +1046,7 @@ export const ClockIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
+      className="w-3 h-3 sm:w-3.5 sm:h-3.5"
       viewBox="0 0 14 14"
       fill="none"
     >
@@ -1080,8 +1078,7 @@ export const CopyLinkIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -1157,8 +1154,7 @@ export const AddMemberIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="18"
-      height="18"
+      className="w-4 h-4 sm:w-4.5 sm:h-4.5"
       viewBox="0 0 18 18"
       fill="none"
     >

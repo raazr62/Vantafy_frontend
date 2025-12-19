@@ -6,7 +6,7 @@ const MyMembers = () => {
   const [whichMember, setWhichMember] = useState(1);
 
   return (
-    <div className="flex gap-4 grow min-h-0">
+    <div className="flex flex-col lg:flex-row gap-4 grow min-h-0">
       <MyMembersAdd whichMember={whichMember} setWhichMember={setWhichMember} />
       <MyMembersInfo whichMember={whichMember} />
     </div>

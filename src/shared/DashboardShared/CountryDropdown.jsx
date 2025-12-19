@@ -133,8 +133,8 @@ const CountryDropdownComponent = (
 
   const triggerClasses = cn(
     // Base styles
-    "flex h-10 w-full items-center justify-between cursor-pointer",
-    "px-4 sm:ps-10 ps-16 text-black border border-gray-300 bg-white outline-0",
+    "flex py-2 sm:py-3.5 w-full items-center justify-between cursor-pointer",
+    "px-4 ps-8 sm:ps-10 text-black border border-gray-300 bg-white outline-0",
     "rounded-md",
     "transition-colors duration-200 hover:border-gray-400",
     "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-gray-300",
@@ -222,7 +222,7 @@ const CountryDropdownComponent = (
                       value={country.name}
                       onSelect={() => handleSelect(country)}
                       className={cn(
-                        "flex items-center w-full gap-3 px-3 py-3 text-sm transition-colors cursor-pointer",
+                        "flex items-center w-full gap-3 px-2 sm:px-3 py-2 sm:py-3 text-sm transition-colors cursor-pointer",
                         "hover:bg-gray-100 focus:bg-gray-100",
                         isSelected && "bg-blue-50 hover:bg-blue-100"
                       )}
@@ -257,10 +257,9 @@ const CountryDropdownComponent = (
           </Command>
         </PopoverContent>
       </Popover>
-
       {/* Location Icon */}
       <div
-        className="absolute top-1/2 sm:left-3 left-6 -translate-y-1/2 pointer-events-none"
+        className="absolute top-1/2 left-3 -translate-y-1/2 pointer-events-none"
         aria-hidden="true"
       >
         <MapPin className="w-4 h-4 text-gray-400" />

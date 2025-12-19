@@ -35,7 +35,7 @@ const MemberStageNames = ({ memberData }) => {
             type="text"
             name="stageName"
             placeholder={"Enter Stage Name"}
-            className={"px-4 py-1.5 text-xs"}
+            className={"px-2 sm:px-4 sm:py-1.5 text-xs"}
           />
           <div className="flex items-center gap-5 mt-2">
             <Button
@@ -57,7 +57,7 @@ const MemberStageNames = ({ memberData }) => {
         </form>
       )}
 
-      <div className="space-y-2 grow overflow-y-auto px-2">
+      <div className="space-y-2 grow overflow-y-auto px-2 max-h-80 lg:max-h-full">
         {memberData.stageNames.map((stageName, idx) => (
           <p
             key={idx}

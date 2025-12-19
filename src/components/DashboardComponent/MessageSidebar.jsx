@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { ClockIconSVG, SupportIconSVG } from "../SVG/DashboardLayoutSVG";
-const MessageSidebar = () => {
+const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
   const [chatList, setChatList] = useState([
     {
       id: 1,
@@ -22,13 +22,17 @@ const MessageSidebar = () => {
   }, []);
 
   return (
-    <aside className="border-r flex flex-col flex-1/5">
-      <div className="px-5 py-3 font-semibold text-lg border-b border-b-[#AFB8CF]">
+    <aside
+      className={`${
+        !!currentUserId ? "hidden sm:flex" : "flex"
+      } border-r flex-col flex-1/5`}
+    >
+      <div className="px-5 py-3 font-semibold text-base sm:text-lg border-b border-b-[#AFB8CF]">
         Messages
       </div>
 
       {/* Search */}
-      <div className="px-5 py-3">
+      <div className="px-2 sm:px-5 py-3">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
@@ -44,9 +48,10 @@ const MessageSidebar = () => {
         {chatList.map((chat) => (
           <div
             key={chat.id}
-            className="px-4 py-3 bg-[linear-gradient(90deg,#EC70DA14_0%,#51AEFA14_100%)]"
+            onClick={() => setCurrentUserId(chat.id)}
+            className="px-2 sm:px-4 py-2 sm:py-3 bg-[linear-gradient(90deg,#EC70DA14_0%,#51AEFA14_100%)]"
           >
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-2 sm:gap-3">
               {chat.person === "Support" ? (
                 <div className="p-2 rounded-xl bg-linear-to-l from-[#EC70DA] to-[#51AEFA] flex items-center justify-center text-white font-semibold">
                   <SupportIconSVG />
@@ -55,20 +60,22 @@ const MessageSidebar = () => {
                 <img
                   src="https://i.pravatar.cc/"
                   alt={`${chat.person} avatar`}
-                  className="w-9 h-9 rounded-full"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full"
                 />
               )}
               <div>
                 <div className="flex-1">
                   <div className="flex justify-between items-center">
-                    <p className="font-medium">{chat.person}</p>
-                    {chat.messageStatus > 0 && (
-                      <span className="text-xs bg-pink-500 text-white px-2 py-0.5 rounded-full">
-                        {chat.messageStatus}
+                    <p className="text-sm sm:text-base font-medium">
+                      {chat.person}
+                    </p>
+                    {!chat.messageStatus > 0 && (
+                      <span className="min-w-5 h-5 px-1 text-xs bg-pink-500 text-white flex items-center justify-center rounded-full">
+                        {chat.messageStatus > 99 ? "99+" : chat.messageStatus}
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-[#636363] truncate">
+                  <p className="text-xs text-[#636363] line-clamp-1">
                     {chat.lastMessage}
                   </p>
                 </div>
@@ -76,7 +83,9 @@ const MessageSidebar = () => {
                   <div>
                     <ClockIconSVG />
                   </div>
-                  <p className="text-[11px] text-gray-400">{chat.time}</p>
+                  <p className="text-[10px] sm:text-[11px] text-gray-400">
+                    {chat.time}
+                  </p>
                 </div>
               </div>
             </div>

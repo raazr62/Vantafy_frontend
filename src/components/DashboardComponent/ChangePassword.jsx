@@ -25,7 +25,7 @@ const ChangePassword = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="px-4 pt-4 bg-white pb-6 rounded-[12px] space-y-4"
+      className="px-4 pt-4 bg-white pb-6 rounded-[12px] space-y-2 sm:space-y-4"
     >
       {/* Current Password */}
       <CommonInputField

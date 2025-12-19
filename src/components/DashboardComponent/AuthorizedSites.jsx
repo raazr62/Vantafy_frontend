@@ -36,12 +36,12 @@ const AuthorizedSites = () => {
   };
 
   return (
-    <div className="bg-white py-6 px-4.5 rounded-b-[12px] grow min-h-0">
+    <div className="bg-white py-4 sm:py-6 px-2 sm:px-4.5 rounded-b-[12px] grow min-h-0">
       <div className="p-4 border border-[#EAEAEA] rounded-xl space-y-4 h-full flex flex-col">
         {/* Add Site */}
         <form
           onSubmit={handleAuthorizeSitesSubmit}
-          className="flex items-center gap-2"
+          className="flex sm:items-center flex-col sm:flex-row gap-2"
         >
           <CommonInputField
             name="authorizedLink"
@@ -54,7 +54,7 @@ const AuthorizedSites = () => {
           />
           <button
             type="submit"
-            className="bg-sky-500 text-white rounded-xl px-9.5 py-4 font-semibold cursor-pointer"
+            className="bg-sky-500 text-white rounded-xl sm:px-9.5 py-1.5 sm:py-4 text-sm sm:text-base font-semibold cursor-pointer"
           >
             Add
           </button>
@@ -75,10 +75,10 @@ const AuthorizedSites = () => {
                     e.currentTarget.src = `https://www.google.com/s2/favicons?domain=${site.domain}&sz=64`;
                   }}
                   alt={site.domain}
-                  className="w-8 h-8 rounded"
+                  className="w-4.5 h-4.5 sm:w-8 sm:h-8 rounded"
                 />
 
-                <p className="text-sm text-gray-700 truncate max-w-[260px] sm:max-w-full">
+                <p className="text-xs sm:text-sm text-gray-700 truncate max-w-[260px] sm:max-w-full">
                   {site.url}
                 </p>
               </div>
@@ -93,7 +93,7 @@ const AuthorizedSites = () => {
           ))}
 
           {authorizedSitesData.length === 0 && (
-            <p className="text-3xl text-gray-400 text-center h-full flex items-center justify-center">
+            <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl text-gray-400 text-center h-full flex items-center justify-center">
               No authorized sites added yet
             </p>
           )}

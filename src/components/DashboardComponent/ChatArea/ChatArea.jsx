@@ -6,69 +6,18 @@ import FilePreviewSection from "./FilePreviewSection";
 import ChatInput from "./ChatInput";
 import TypingIndicator from "./TypingIndicator";
 import { getFileType, fileToBase64 } from "./utils/fileUtils";
+import { allUserMessagesMockData } from "@/lib/DashboardMockData";
 
-const ChatArea = () => {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      text: "Hello! How can I help you today?",
-      time: "04:45 PM",
-      sender: "support",
-      files: [
-        {
-          id: "file1",
-          name: "product-guide.pdf",
-          type: "document",
-          size: 2457600,
-          url: "#",
-          mimeType: "application/pdf",
-          thumbnail: null,
-        },
-      ],
-    },
-    {
-      id: 2,
-      text: "I need help with uploading files",
-      time: "04:46 PM",
-      sender: "me",
-    },
-    {
-      id: 3,
-      text: "Sure! I'll send you an example image",
-      time: "04:47 PM",
-      sender: "support",
-      files: [
-        {
-          id: "file2",
-          name: "screenshot.png",
-          type: "image",
-          size: 1024000,
-          url: "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-          mimeType: "image/png",
-          thumbnail:
-            "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=40",
-        },
-      ],
-    },
-    {
-      id: 4,
-      text: "Thanks! Here's my document",
-      time: "04:48 PM",
-      sender: "me",
-      files: [
-        {
-          id: "file3",
-          name: "requirements.docx",
-          type: "document",
-          size: 204800,
-          url: "#",
-          mimeType:
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-          thumbnail: null,
-        },
-      ],
-    },
-  ]);
+const ChatArea = ({ setCurrentUserId, currentUserId }) => {
+  const filterMessages = allUserMessagesMockData.find(
+    (user) => user.id === currentUserId
+  );
+
+  const [messages, setMessages] = useState(filterMessages?.conversation ?? []);
+
+  useEffect(() => {
+    setMessages(filterMessages?.conversation ?? []);
+  }, [currentUserId]);
 
   const [openClearBtn, setOpenClearBtn] = useState(false);
   const [input, setInput] = useState("");
@@ -236,17 +185,22 @@ const ChatArea = () => {
         />
       )}
 
-      <section className="flex flex-col flex-4/5 relative">
+      <section
+        className={`flex flex-col overflow-hidden flex-4/5 relative ${
+          !!currentUserId ? "flex" : "hidden sm:flex"
+        }`}
+      >
         {/* Header */}
         <ChatHeader
-          typingIndicator={typingIndicator}
+          filterMessages={filterMessages}
+          setCurrentUserId={setCurrentUserId}
           openClearBtn={openClearBtn}
           setOpenClearBtn={setOpenClearBtn}
           onClearChat={handleClearChat}
         />
 
         {/* Messages */}
-        <div className="grow overflow-y-auto p-6 space-y-6">
+        <div className="grow overflow-y-auto p-6 space-y-6 max-h-[68vh] sm:max-h-full">
           {messages.map((msg) => (
             <MessageItem
               key={msg.id}
