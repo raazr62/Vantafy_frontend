@@ -16,28 +16,28 @@ const Home = () => {
       </div>
 
       {/* Represent Platform */}
-      <RepresentPlatform />
+      {/* <RepresentPlatform /> */}
 
       {/* AmongOurCustomer */}
-      <AmongOurCustomer />
+      {/* <AmongOurCustomer /> */}
 
       {/* What We Do */}
-      <WhatWeDo />
+      {/* <WhatWeDo /> */}
 
       {/* Review Section */}
-      <ReviewSection />
+      {/* <ReviewSection /> */}
 
       {/* We Served */}
-      <WeServed />
+      {/* <WeServed /> */}
 
       {/* How It Works */}
-      <HowItWorks />
+      {/* <HowItWorks /> */}
 
       {/* Pricing & Plans */}
-      <PricingAndPlans />
+      {/* <PricingAndPlans /> */}
 
       {/* FAQ */}
-      <FAQ />
+      {/* <FAQ /> */}
     </div>
   );
 };

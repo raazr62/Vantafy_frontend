@@ -10,9 +10,7 @@ export default function MainLayout() {
         <Navbar />
       </section>
       <Outlet />
-      <footer>
-        <Footer />
-      </footer>
+      <footer>{/* <Footer /> */}</footer>
     </>
   );
 }

@@ -49,7 +49,6 @@ export default function Radar() {
     return (Math.atan2(dy, dx) * 180) / Math.PI + 180;
   };
 
-  //
   // Calculate logo positions in a circle
   const radius = 215;
   const center = { x: 200, y: 200 };
@@ -64,9 +63,9 @@ export default function Radar() {
   });
 
   return (
-    <div className="overflow-hidden rounded-xl relative w-[500px] h-[500px] flex items-center justify-center">
-      <div className="relative w-[400px] h-[400px]">
-        <div className="relative">
+    <div className="lg:p-10">
+      <div className="relative min-w-[400px] min-h-[400px] origin-center scale-[0.55] sm:scale-[0.7] md:scale-[0.85] lg:scale-100">
+        <div className="relative w-full h-full">
           <img src={LocalImages.radarBG} className="w-full" alt="Radar" />
         </div>
 
@@ -108,22 +107,22 @@ export default function Radar() {
             />
           );
         })}
-      </div>
 
-      {/* Logos around the radar */}
-      {logoPositions.map((logo) => (
-        <motion.img
-          key={logo.id}
-          src={logo.image}
-          alt={logo.alt}
-          className="absolute w-8"
-          style={{
-            left: logo.x + 33,
-            top: logo.y + 40,
-            zIndex: 30,
-          }}
-        />
-      ))}
+        {/* Logos around the radar */}
+        {logoPositions.map((logo) => (
+          <motion.img
+            key={logo.id}
+            src={logo.image}
+            alt={logo.alt}
+            className="absolute w-8"
+            style={{
+              left: logo.x - 20,
+              top: logo.y - 10,
+              zIndex: 30,
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
