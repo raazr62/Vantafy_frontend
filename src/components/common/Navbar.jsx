@@ -5,8 +5,11 @@ import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router";
 import Logo from "@/shared/LandingShared/Logo";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
   const navigate = useNavigate();
 
@@ -29,8 +32,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleDrawer = () => {
+    setOpen(!open);
+    setIsOpen(!open);
+  };
+
   return (
-    <nav className="flex justify-between py-6 mx-auto container">
+    <nav className="flex justify-between py-2 sm:py-3 md:py-4 lg:py-6 px-4 sm:px-0 mx-auto container">
       {/* Logo */}
       <HashLink
         smooth
@@ -46,8 +54,8 @@ const Navbar = () => {
         <Logo />
       </HashLink>
 
-      {/* NavLinks */}
-      <ul className="flex items-center gap-8">
+      {/* Desktop NavLinks */}
+      <ul className="hidden lg:flex items-center gap-8">
         {NavlinksItems.map((nav) => (
           <li key={nav.id}>
             <HashLink
@@ -71,8 +79,18 @@ const Navbar = () => {
         ))}
       </ul>
 
+      <MobileNav
+        toggleDrawer={toggleDrawer}
+        isOpen={isOpen}
+        NavlinksItems={NavlinksItems}
+        setIsOpen={setIsOpen}
+        setOpen={setOpen}
+        active={active}
+        open={open}
+      />
+
       {/* Auth Buttons */}
-      <div className="flex gap-5.5 items-center">
+      <div className="hidden lg:flex gap-5.5 items-center">
         <Button
           onClick={() => navigate("/auth/signin")}
           variant={"ghost"}
