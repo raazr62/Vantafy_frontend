@@ -19,7 +19,7 @@ const Home = () => {
       <RepresentPlatform />
 
       {/* AmongOurCustomer */}
-      {/* <AmongOurCustomer /> */}
+      <AmongOurCustomer />
 
       {/* What We Do */}
       {/* <WhatWeDo /> */}
