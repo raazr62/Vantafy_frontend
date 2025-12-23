@@ -6,16 +6,15 @@ import Logo from "@/shared/LandingShared/Logo";
 
 const Footer = () => {
   return (
-    <div className="relative bg-[#1E2833] py-18 overflow-hidden ">
+    <div className="relative bg-[#1E2833] py-14  md:py-18 overflow-hidden px-4 sm:px-0">
       <div className="absolute bg-[#8133F18F] h-50 w-50 rounded-full right-0 translate-x-1/2 blur-3xl"></div>
       <div className="absolute bg-[#8133F18F] h-50 w-50 rounded-full left-0 -translate-x-1/2 blur-3xl"></div>
 
-      <div className="flex flex-col items-center justify-center gap-8">
-        {/* <p className="text-[#9654F4] text-[32px] font-bold">Vantafy</p> */}
-        <Logo className={"w-40"} />
+      <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+        <Logo className={"w-30 sm:w-35 lg:w-40"} />
 
         {/* Links */}
-        <ul className="flex items-center gap-6 text-white">
+        <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-white text-sm sm:text-base">
           <li>
             <HashLink
               smooth
@@ -89,7 +88,7 @@ const Footer = () => {
         </ul>
 
         {/* Social Links */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <Link target="_blank" to={"https://facebook.com/"}>
             <img src={LocalImages.Facebook} alt="Facebook Logo" />
           </Link>
@@ -97,7 +96,11 @@ const Footer = () => {
             <img src={LocalImages.Twitter} alt="X Logo" />
           </Link>
           <Link target="_blank" to={"https://www.instagram.com/"}>
-            <img src={LocalImages.Instagram} alt="Instagram Logo" />
+            <img
+              src={LocalImages.InstagramIcon}
+              alt="Instagram Logo"
+              className="w-6"
+            />
           </Link>
         </div>
       </div>

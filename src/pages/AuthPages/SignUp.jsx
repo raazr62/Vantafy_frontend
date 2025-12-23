@@ -4,7 +4,7 @@ import React from "react";
 
 export default function SignUp() {
   return (
-    <div className="h-screen flex">
+    <div className="h-screen flex overflow-hidden">
       <StartarBanner />
       <SignUpForm />
     </div>

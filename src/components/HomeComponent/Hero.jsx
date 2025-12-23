@@ -4,21 +4,25 @@ import Radar from "./Radar";
 
 const Hero = () => {
   return (
-    <section className="flex container mx-auto justify-between items-center pt-40 overflow-hidden">
+    <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-15 md:pt-26 lg:pt-35 px-4 xl:px-0">
       {/* Hero Description */}
-      <div className="space-y-4 max-w-4xl">
-        <h1 className="font-bold text-5xl/tight">
+      <div className="flex flex-col items-center gap-2 lg:gap-4 text-center lg:items-start sm:text-left max-w-2xl pt-5">
+        <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl/tight text-center lg:text-left">
           Protect your images & videos automatically.
         </h1>
-        <p className="text-xl text-lightText/60">
+        <p className="text-base sm:text-lg lg:text-xl text-lightText/60 text-center lg:text-left">
           An AI platform that detects and removes unauthorized media online,
           protecting your creative work around the clock with smart automation.
         </p>
-        <Button className={"font-semibold px-8 py-4"}>Get Protected</Button>
+        <Button className="font-semibold px-8 py-4 lg:mt-2 place-content-center">
+          Get Protected
+        </Button>
       </div>
 
       {/* Radar */}
-      <Radar />
+      <div className="w-full flex justify-center lg:justify-end">
+        <Radar />
+      </div>
     </section>
   );
 };

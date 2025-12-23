@@ -4,8 +4,8 @@ import React from "react";
 const LockBanner = () => {
   return (
     <div
-      className="bg-[linear-gradient(180deg,#FF53EB_0%,#FF89F1_100%)]
-      px-9 relative flex-[45%] overflow-hidden flex items-center justify-center"
+      className="hidden lg:flex bg-[linear-gradient(180deg,#FF53EB_0%,#FF89F1_100%)]
+      px-9 relative flex-[45%] overflow-hidden items-center justify-center"
     >
       {/* Outer Circle */}
       <div className="bg-[#F243DD] p-20.5 rounded-full aspect-square flex items-center justify-center">

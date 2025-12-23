@@ -82,7 +82,7 @@ const OtpInput = ({ length = 6, onChange, onSubmitOtp }) => {
 
   return (
     <div
-      className={`grid grid-cols-6 gap-2.5 w-full transition-all ${
+      className={`grid grid-cols-6 gap-1.5 sm:gap-2.5 w-full transition-all ${
         error ? "otp-error" : ""
       }`}
     >
@@ -93,8 +93,8 @@ const OtpInput = ({ length = 6, onChange, onSubmitOtp }) => {
           type="number"
           inputMode="numeric"
           maxLength={1}
-          className="p-3 text-center border border-primary rounded-md outline-none 
-                     focus:border-[#3B9DF8] text-lg font-semibold
+          className="p-2 sm:p-3 text-center border border-primary rounded-md outline-none 
+                     focus:border-[#3B9DF8] text-base sm:text-lg font-semibold
                      no-spinner"
           placeholder="-"
           onChange={(e) => handleInputChange(e, index)}
