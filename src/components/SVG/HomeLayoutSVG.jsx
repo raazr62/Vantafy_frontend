@@ -34,64 +34,6 @@ export const SignInSVG = ({ className }) => {
   );
 };
 
-export const SemiTitleRightArrow = ({ className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-69.75 h-1.5", className)}
-      viewBox="0 0 279 6"
-      fill="none"
-    >
-      <path
-        d="M-3.26633e-05 2.88672L2.88672 5.77347L5.77347 2.88672L2.88672 -3.26633e-05L-3.26633e-05 2.88672ZM2.88672 2.88672V3.38672H278.887V2.88672V2.38672H2.88672V2.88672Z"
-        fill="url(#paint0_linear_16187_3191)"
-      />
-      <defs>
-        <linearGradient
-          id="paint0_linear_16187_3191"
-          x1="2.88672"
-          y1="3.38672"
-          x2="278.887"
-          y2="3.38672"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#AD46FF" />
-          <stop offset="1" stopColor="white" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
-
-export const SemiTitleLeftArrow = ({ className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-69.75 h-1.5", className)}
-      viewBox="0 0 279 6"
-      fill="none"
-    >
-      <path
-        d="M278.887 2.88672L276 -3.26633e-05L273.113 2.88672L276 5.77347L278.887 2.88672ZM0 2.88672V3.38672H276V2.88672V2.38672H0V2.88672Z"
-        fill="url(#paint0_linear_16187_3188)"
-      />
-      <defs>
-        <linearGradient
-          id="paint0_linear_16187_3188"
-          x1="0"
-          y1="3.38672"
-          x2="276"
-          y2="3.38672"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="#AD46FF" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
-
 export const GoogleHomeSVG = ({ className }) => {
   return (
     <svg

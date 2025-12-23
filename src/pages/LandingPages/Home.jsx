@@ -16,7 +16,7 @@ const Home = () => {
       </div>
 
       {/* Represent Platform */}
-      {/* <RepresentPlatform /> */}
+      <RepresentPlatform />
 
       {/* AmongOurCustomer */}
       {/* <AmongOurCustomer /> */}
