@@ -12,7 +12,7 @@ const AmongOurCustomerCarousel = () => {
         {ourCustomerMockData.map((user) => (
           <div
             key={user.id}
-            className="flex items-center gap-2 border border-gray-200 p-2 sm:p-3 rounded-xl min-w-[220px] sm:min-w-[260px]"
+            className="flex items-center gap-2 border border-gray-200 p-2 sm:p-3 rounded-xl min-w-[220px] sm:min-w-[280px]"
           >
             <img
               src={user.avatar}
@@ -40,7 +40,7 @@ const AmongOurCustomerCarousel = () => {
         {ourCustomerMockData.map((user) => (
           <div
             key={`2-${user.id}`}
-            className="flex items-center gap-2 border border-gray-200 p-2 sm:p-3 rounded-xl min-w-[220px] sm:min-w-[260px]"
+            className="flex items-center gap-2 border border-gray-200 p-2 sm:p-3 rounded-xl min-w-[220px] sm:min-w-[280px]"
           >
             <img
               src={user.avatar}

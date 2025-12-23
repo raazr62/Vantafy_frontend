@@ -36,10 +36,10 @@ const WhatWeDo = () => {
               )}
             >
               {isActive && (
-                <div className="absolute w-96 h-96 left-[-111px] top-[-245px] bg-fuchsia-100 rounded-full" />
+                <div className="absolute w-40 h-40 -top-20 -left-20 sm:w-45 sm:h-45 sm:-top-20 sm:-left-20 xl:w-96 xl:h-96 xl:left-[-111px] xl:top-[-245px] bg-fuchsia-100 rounded-full" />
               )}
 
-              <div className="relative z-50 flex flex-col items-center gap-2">
+              <div className="relative z-10 flex flex-col items-center gap-2">
                 {React.cloneElement(weDo.icon)}
                 <p className="text-xs sm:text-sm font-medium text-center text-black">
                   {weDo.name}
