@@ -16,13 +16,13 @@ const Home = () => {
       </div>
 
       {/* Represent Platform */}
-      {/* <RepresentPlatform /> */}
+      <RepresentPlatform />
 
       {/* AmongOurCustomer */}
-      {/* <AmongOurCustomer /> */}
+      <AmongOurCustomer />
 
       {/* What We Do */}
-      {/* <WhatWeDo /> */}
+      <WhatWeDo />
 
       {/* Review Section */}
       {/* <ReviewSection /> */}

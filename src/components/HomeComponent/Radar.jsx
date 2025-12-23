@@ -31,8 +31,6 @@ export default function Radar() {
     { x: "60%", y: "65%" },
   ];
 
-  //
-
   // Spinner rotation offset
   const SCANNER_OFFSET = -80;
 
@@ -50,6 +48,8 @@ export default function Radar() {
   };
 
   // Calculate logo positions in a circle
+  // const radius = 170;
+  // const center = { x: 155, y: 150 };
   const radius = 215;
   const center = { x: 200, y: 200 };
 

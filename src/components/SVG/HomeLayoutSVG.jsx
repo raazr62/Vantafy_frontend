@@ -34,64 +34,6 @@ export const SignInSVG = ({ className }) => {
   );
 };
 
-export const SemiTitleRightArrow = ({ className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-69.75 h-1.5", className)}
-      viewBox="0 0 279 6"
-      fill="none"
-    >
-      <path
-        d="M-3.26633e-05 2.88672L2.88672 5.77347L5.77347 2.88672L2.88672 -3.26633e-05L-3.26633e-05 2.88672ZM2.88672 2.88672V3.38672H278.887V2.88672V2.38672H2.88672V2.88672Z"
-        fill="url(#paint0_linear_16187_3191)"
-      />
-      <defs>
-        <linearGradient
-          id="paint0_linear_16187_3191"
-          x1="2.88672"
-          y1="3.38672"
-          x2="278.887"
-          y2="3.38672"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#AD46FF" />
-          <stop offset="1" stopColor="white" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
-
-export const SemiTitleLeftArrow = ({ className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-69.75 h-1.5", className)}
-      viewBox="0 0 279 6"
-      fill="none"
-    >
-      <path
-        d="M278.887 2.88672L276 -3.26633e-05L273.113 2.88672L276 5.77347L278.887 2.88672ZM0 2.88672V3.38672H276V2.88672V2.38672H0V2.88672Z"
-        fill="url(#paint0_linear_16187_3188)"
-      />
-      <defs>
-        <linearGradient
-          id="paint0_linear_16187_3188"
-          x1="0"
-          y1="3.38672"
-          x2="276"
-          y2="3.38672"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="#AD46FF" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
-
 export const GoogleHomeSVG = ({ className }) => {
   return (
     <svg
@@ -379,12 +321,11 @@ export const AnonymousSVG = ({ className }) => {
   );
 };
 
-export const SearchIconSVG = () => {
+export const SearchIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -406,12 +347,11 @@ export const SearchIconSVG = () => {
   );
 };
 
-export const WarningIconSVG = () => {
+export const WarningIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-6 h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -436,12 +376,11 @@ export const WarningIconSVG = () => {
   );
 };
 
-export const BrowserIconSVG = () => {
+export const BrowserIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -470,12 +409,11 @@ export const BrowserIconSVG = () => {
   );
 };
 
-export const ShareIconSVG = () => {
+export const ShareIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -518,12 +456,11 @@ export const ShareIconSVG = () => {
   );
 };
 
-export const FileHostingSVG = () => {
+export const FileHostingSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -556,8 +493,7 @@ export const ShieldIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
+      className={cn("w-4 h-4 sm:w-5 sm:h-5")}
       viewBox="0 0 20 20"
       fill="none"
     >
@@ -576,8 +512,7 @@ export const TikMarkIConSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -775,8 +710,7 @@ export const FastResponseIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-5 h-5 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -792,8 +726,7 @@ export const LegalCompilanceIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-5 h-5 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -818,19 +751,19 @@ export const CoverageIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
       <path
-        d="M2.35154 13.214C1.99854 10.916 1.82154 9.768 2.25654 8.749C2.69054 7.731 3.65454 7.034 5.58154 5.641L7.02154 4.6C9.41854 2.867 10.6175 2 12.0005 2C13.3835 2 14.5825 2.867 16.9795 4.6L18.4195 5.641C20.3465 7.034 21.3095 7.731 21.7445 8.749C22.1785 9.768 22.0025 10.916 21.6495 13.213L21.3485 15.173C20.8485 18.429 20.5975 20.057 19.4295 21.029C18.2615 22.001 16.5545 22 13.1395 22H10.8605C7.44554 22 5.73854 22 4.57054 21.029C3.40254 20.057 3.15254 18.429 2.65154 15.172L2.35154 13.214Z"
+        d="M12.125 14.339C13.11 14.339 14.0547 13.9477 14.7512 13.2512M12.125 14.339C11.14 14.339 10.1953 13.9477 9.49881 13.2512M12.125 14.339V17.125M14.7512 13.2512C15.4477 12.5547 15.839 11.61 15.839 10.625M14.7512 13.2512L16.721 15.221M15.839 10.625C15.839 9.63999 15.4477 8.69532 14.7512 7.99881M15.839 10.625H18.625M14.7512 7.99881C14.0547 7.3023 13.11 6.911 12.125 6.911M14.7512 7.99881L16.721 6.029M12.125 6.911C11.14 6.911 10.1953 7.3023 9.49881 7.99881M12.125 6.911V4.125M9.49881 7.99881C8.80229 8.69532 8.411 9.63999 8.411 10.625M9.49881 7.99881L7.529 6.029M8.411 10.625C8.411 11.61 8.80229 12.5547 9.49881 13.2512M8.411 10.625H5.625M9.49881 13.2512L7.529 15.221M11.506 4.125H12.744M16.283 5.59L17.159 6.467M18.625 10.006V11.244M17.159 14.783L16.283 15.659M12.744 17.125H11.506M7.967 15.659L7.091 14.783M5.625 11.244V10.006M7.091 6.467L7.967 5.591"
         stroke="white"
         stroke-width="1.5"
+        stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
-        d="M11.25 13.25C12.437 14.437 14 15.643 14 15.643L16.143 13.5C16.143 13.5 14.937 11.937 13.75 10.75C12.563 9.563 11 8.357 11 8.357L8.857 10.5C8.857 10.5 10.063 12.063 11.25 13.25ZM11.25 13.25L7.5 17M16.5 13.143L13.643 16M11.357 8L8.5 10.857"
+        d="M2.25002 3.92296V11.537C2.25002 15.26 3.87902 20.337 10.923 23.05C11.6163 23.3166 12.3838 23.3166 13.077 23.05C20.118 20.342 21.75 15.228 21.75 11.537V3.92296C21.7516 3.63652 21.6705 3.35571 21.5166 3.11415C21.3626 2.87259 21.1423 2.68053 20.882 2.56096C18.0819 1.33875 15.0552 0.721617 12 0.749957C8.94488 0.721617 5.91818 1.33875 3.11802 2.56096C2.85773 2.68053 2.63742 2.87259 2.48348 3.11415C2.32953 3.35571 2.24848 3.63652 2.25002 3.92296Z"
         stroke="white"
         stroke-width="1.5"
         stroke-linecap="round"
@@ -844,8 +777,7 @@ export const DeepUnderstandingIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -869,8 +801,7 @@ export const TailoredSolutionIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -886,8 +817,7 @@ export const SupportIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >

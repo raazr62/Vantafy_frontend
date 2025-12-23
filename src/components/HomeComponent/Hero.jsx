@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-15 md:pt-26 lg:pt-35 px-4 xl:px-0">
       {/* Hero Description */}
-      <div className="flex flex-col items-center gap-2 lg:gap-4 text-center lg:items-start sm:text-left max-w-2xl pt-5">
+      <div className="absolute top-85 sm:static flex flex-col items-center gap-2 lg:gap-4 text-center lg:items-start sm:text-left max-w-2xl lg:pt-5">
         <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl/tight text-center lg:text-left">
           Protect your images & videos automatically.
         </h1>
