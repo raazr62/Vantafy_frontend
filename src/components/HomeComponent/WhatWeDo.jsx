@@ -10,10 +10,10 @@ import Platforms from "./Platforms";
 import PersonalAgent from "./PersonalAgent";
 import AiProtection from "./AiProtection";
 import Anonymous from "./Anonymous";
+import { cn } from "@/lib/utils";
 
 const WhatWeDo = () => {
   const [activeCard, setActiveCard] = useState("Scan");
-
   return (
     <CommonContainer id="what-we-do">
       <CommonTitle title="What we do" />
@@ -21,6 +21,7 @@ const WhatWeDo = () => {
         Discover our full suite of copyright protection features
       </p>
 
+      {/* Old */}
       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 w-full px-4 xl:px-0">
         {WhatWeDoMockData.map((weDo) => {
           const isActive = weDo.name === activeCard;
@@ -29,32 +30,21 @@ const WhatWeDo = () => {
             <div
               key={weDo.name}
               onClick={() => setActiveCard(weDo.name)}
-              className={`rounded-[12px] border border-[#DCE4FF] py-2 sm:py-3 px-4 sm:px-6 lg:px-8
-                flex flex-col items-center justify-center gap-1 sm:gap-2 group
-                hover:bg-[linear-gradient(90deg,#3F80FF_0%,#FF1BE4_87.03%)]
-                hover:border-purple-700 cursor-pointer transition-all duration-300
-                ${
-                  isActive
-                    ? "bg-[linear-gradient(90deg,#3F80FF_0%,#FF1BE4_87.03%)] border-purple-700"
-                    : ""
-                }
-              `}
+              className={cn(
+                "relative rounded-[12px] border border-b-6 border-[#DCE4FF] py-2 sm:py-3 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-1 sm:gap-2 overflow-hidden cursor-pointer",
+                isActive && "bg-fuchsia-50 rounded-2xl  border-sky-500"
+              )}
             >
-              {/* ICON */}
-              {React.cloneElement(weDo.icon, {
-                className: `transition-colors w-7 h-7 sm:w-9 sm:h-9 lg:w-11 lg:h-11 ${
-                  isActive ? "text-white" : "text-black group-hover:text-white"
-                }`,
-              })}
+              {isActive && (
+                <div className="absolute w-96 h-96 left-[-111px] top-[-245px] bg-fuchsia-100 rounded-full" />
+              )}
 
-              {/* TEXT */}
-              <p
-                className={`text-xs sm:text-sm font-medium text-center transition-colors ${
-                  isActive ? "text-white" : "text-black group-hover:text-white"
-                }`}
-              >
-                {weDo.name}
-              </p>
+              <div className="relative z-50 flex flex-col items-center gap-2">
+                {React.cloneElement(weDo.icon)}
+                <p className="text-xs sm:text-sm font-medium text-center text-black">
+                  {weDo.name}
+                </p>
+              </div>
             </div>
           );
         })}
