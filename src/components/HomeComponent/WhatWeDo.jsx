@@ -17,11 +17,11 @@ const WhatWeDo = () => {
   return (
     <CommonContainer id="what-we-do">
       <CommonTitle title="What we do" />
-      <p className="text-center text-[#333] font-medium py-8">
+      <p className="text-sm sm:text-base text-center text-[#333] font-medium py-4 sm:py-6 lg:py-8 px-4 xl:px-0">
         Discover our full suite of copyright protection features
       </p>
 
-      <div className="grid grid-cols-4 gap-4 w-full">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 w-full px-4 xl:px-0">
         {WhatWeDoMockData.map((weDo) => {
           const isActive = weDo.name === activeCard;
 
@@ -29,8 +29,8 @@ const WhatWeDo = () => {
             <div
               key={weDo.name}
               onClick={() => setActiveCard(weDo.name)}
-              className={`rounded-[12px] border border-[#DCE4FF] py-3 px-8
-                flex flex-col items-center justify-center gap-2 group
+              className={`rounded-[12px] border border-[#DCE4FF] py-2 sm:py-3 px-4 sm:px-6 lg:px-8
+                flex flex-col items-center justify-center gap-1 sm:gap-2 group
                 hover:bg-[linear-gradient(90deg,#3F80FF_0%,#FF1BE4_87.03%)]
                 hover:border-purple-700 cursor-pointer transition-all duration-300
                 ${
@@ -42,14 +42,14 @@ const WhatWeDo = () => {
             >
               {/* ICON */}
               {React.cloneElement(weDo.icon, {
-                className: `transition-colors ${
+                className: `transition-colors w-7 h-7 sm:w-9 sm:h-9 lg:w-11 lg:h-11 ${
                   isActive ? "text-white" : "text-black group-hover:text-white"
                 }`,
               })}
 
               {/* TEXT */}
               <p
-                className={`text-sm font-medium text-center transition-colors ${
+                className={`text-xs sm:text-sm font-medium text-center transition-colors ${
                   isActive ? "text-white" : "text-black group-hover:text-white"
                 }`}
               >

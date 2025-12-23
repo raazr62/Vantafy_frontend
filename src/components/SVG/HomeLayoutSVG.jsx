@@ -321,12 +321,11 @@ export const AnonymousSVG = ({ className }) => {
   );
 };
 
-export const SearchIconSVG = () => {
+export const SearchIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -348,12 +347,11 @@ export const SearchIconSVG = () => {
   );
 };
 
-export const WarningIconSVG = () => {
+export const WarningIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -378,12 +376,11 @@ export const WarningIconSVG = () => {
   );
 };
 
-export const BrowserIconSVG = () => {
+export const BrowserIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -412,12 +409,11 @@ export const BrowserIconSVG = () => {
   );
 };
 
-export const ShareIconSVG = () => {
+export const ShareIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -460,12 +456,11 @@ export const ShareIconSVG = () => {
   );
 };
 
-export const FileHostingSVG = () => {
+export const FileHostingSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className={cn("w-4 h-4 sm:w-6 sm:h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -498,8 +493,7 @@ export const ShieldIconSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
+      className={cn("w-4 h-4 sm:w-5 sm:h-5")}
       viewBox="0 0 20 20"
       fill="none"
     >
@@ -518,8 +512,7 @@ export const TikMarkIConSVG = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      className="w-4 h-4 sm:w-6 sm:h-6"
       viewBox="0 0 24 24"
       fill="none"
     >
