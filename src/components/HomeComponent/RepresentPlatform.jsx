@@ -7,7 +7,7 @@ const RepresentPlatform = () => {
   return (
     <CommonContainer className={"mt-45 sm:mt-20"}>
       <CommonTitle title={"Represent platform"} />
-      {/* <RepresentPlatformCarousel /> */}
+      <RepresentPlatformCarousel />
     </CommonContainer>
   );
 };
