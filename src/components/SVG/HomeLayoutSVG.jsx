@@ -987,13 +987,63 @@ export const CorporateShieldIconSVG = () => {
   );
 };
 
-// export const =() => {
-//   return
-// }
+export const IdentityScanSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      viewBox="0 0 44 44"
+      fill="none"
+    >
+      <path
+        d="M29.3333 38.5H38.5V29.3333M14.6667 5.5H5.5V14.6667M29.3333 5.5H38.5V14.6667M14.6667 38.5H5.5V29.3333M38.5 22H5.5"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="square"
+      />
+    </svg>
+  );
+};
 
-// export const =() => {
-//   return
-// }
+export const IdentityTrackSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      viewBox="0 0 44 44"
+      fill="none"
+    >
+      <path
+        d="M15.5827 22H2.29102C2.29102 32.8845 11.1148 41.7083 21.9993 41.7083V28.4167"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M22 35.0625C29.2142 35.0625 35.0625 29.2142 35.0625 22C35.0625 14.7858 29.2142 8.9375 22 8.9375C14.7858 8.9375 8.9375 14.7858 8.9375 22C8.9375 29.2142 14.7858 35.0625 22 35.0625Z"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M22.0007 28.4168C25.5445 28.4168 28.4173 25.544 28.4173 22.0002C28.4173 18.4563 25.5445 15.5835 22.0007 15.5835C18.4568 15.5835 15.584 18.4563 15.584 22.0002C15.584 25.544 18.4568 28.4168 22.0007 28.4168Z"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M28.4167 21.9998H41.7083C41.7083 11.1153 32.8845 2.2915 22 2.2915V15.5832"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
 
 // export const =() => {
 //   return

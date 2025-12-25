@@ -2,6 +2,7 @@ import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
 import FAQ from "@/components/HomeComponent/FAQ";
 import Hero from "@/components/HomeComponent/Hero";
 import HowItWorks from "@/components/HomeComponent/HowItWorks";
+import IdentityTracking from "@/components/HomeComponent/IdentityTracking";
 import PricingAndPlans from "@/components/HomeComponent/PricingAndPlans";
 import RepresentPlatform from "@/components/HomeComponent/RepresentPlatform";
 import ReviewSection from "@/components/HomeComponent/ReviewSection";
@@ -32,6 +33,9 @@ const Home = () => {
 
       {/* How It Works */}
       <HowItWorks />
+
+      {/* Identity Tracking */}
+      <IdentityTracking />
 
       {/* Pricing & Plans */}
       {/* <PricingAndPlans /> */}
