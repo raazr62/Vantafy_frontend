@@ -72,7 +72,7 @@ const ReviewSection = () => {
         {ReviewSectionMockData.map((review) => {
           return (
             <SwiperSlide key={review.id}>
-              <div className="flex flex-col-reverse xl:flex-row xl:max-h-[420px]">
+              <div className="flex flex-col-reverse xl:flex-row xl:min-h-[500px] xl:max-h-[500px]">
                 <div className="w-full xl:w-[60%] p-5 sm:p-6 xl:p-8 rounded-b-3xl xl:rounded-3xl border border-[#CBCBCB] flex flex-col justify-between gap-2 sm:gap-4 xl:gap-5">
                   <div className="space-y-2 sm:space-y-4 xl:space-y-5">
                     <img
@@ -111,7 +111,7 @@ const ReviewSection = () => {
                 </div>
                 <div className="w-full xl:w-[40%] order-1 xl:order-2">
                   <img
-                    className="w-full max-h-[300px] xl:max-h-full object-cover rounded-t-3xl xl:rounded-3xl object-top"
+                    className="w-full max-h-[300px] xl:min-h-[500px] object-cover rounded-t-3xl xl:rounded-3xl object-top"
                     src={review.userAvatar}
                     alt={review.userName}
                   />
