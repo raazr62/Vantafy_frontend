@@ -28,10 +28,10 @@ const Home = () => {
       <ReviewSection />
 
       {/* We Served */}
-      {/* <WeServed /> */}
+      <WeServed />
 
       {/* How It Works */}
-      {/* <HowItWorks /> */}
+      <HowItWorks />
 
       {/* Pricing & Plans */}
       {/* <PricingAndPlans /> */}
