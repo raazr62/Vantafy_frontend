@@ -35,13 +35,30 @@ import InstagramIcon from "@/assets/Images/homeImages/Impersonation/InstagramIco
 import OnlyfansIcon from "@/assets/Images/homeImages/Impersonation/OnlyfansIcon.png";
 import TwitterIcon from "@/assets/Images/homeImages/Impersonation/TwitterIcon.png";
 import FanslyIcon from "@/assets/Images/homeImages/Impersonation/FanslyIcon.png";
+import NarendraHasina from "@/assets/Images/homeImages/Narendra Hasina.png";
+import LunaBen from "@/assets/Images/homeImages/Luna Ben.png";
+import MikeyMoye from "@/assets/Images/homeImages/Mikey Moye.png";
+import EifaJonathan from "@/assets/Images/homeImages/Eifa Jonathan.png";
+import JennyLopez from "@/assets/Images/homeImages/Jenny Lopez.png";
+import CatherineLucas from "@/assets/Images/homeImages/Catherine Lucas.png";
+import EmilieWilliamson from "@/assets/Images/homeImages/Emilie Williamson.png";
+import AlexRivera from "@/assets/Images/homeImages/Alex Rivera.png";
+
 
 export const LocalImages = {
-  tiktokIcon,
-  InstagramIcon,
-  OnlyfansIcon,
-  TwitterIcon,
-  FanslyIcon,
+  NarendraHasina,
+LunaBen,
+MikeyMoye,
+EifaJonathan,
+JennyLopez,
+CatherineLucas,
+EmilieWilliamson,
+AlexRivera,
+tiktokIcon,
+InstagramIcon,
+OnlyfansIcon,
+TwitterIcon,
+FanslyIcon,
   hamsterOnlyLogo,
   onlyfansOnlyLogo,
   fanslyOnlyLogo,
