@@ -45,7 +45,7 @@ const Home = () => {
       <Device />
 
       {/* FAQ */}
-      {/* <FAQ /> */}
+      <FAQ />
     </div>
   );
 };

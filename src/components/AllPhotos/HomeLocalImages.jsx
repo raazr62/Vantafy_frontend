@@ -45,8 +45,10 @@ import EmilieWilliamson from "@/assets/Images/homeImages/Emilie Williamson.png";
 import AlexRivera from "@/assets/Images/homeImages/Alex Rivera.png";
 import IdentitiyTrackingImage from "@/assets/Images/homeImages/IdentitiyTrackingImage.png";
 import responsiveImage from "@/assets/Images/homeImages/responsiveImage.png";
+import FaqSpinner from "@/assets/Images/homeImages/FaqSpinner.png";
 
 export const LocalImages = {
+  FaqSpinner,
   responsiveImage,
   IdentitiyTrackingImage,
   NarendraHasina,
