@@ -38,7 +38,7 @@ const Home = () => {
       <IdentityTracking />
 
       {/* Pricing & Plans */}
-      {/* <PricingAndPlans /> */}
+      <PricingAndPlans />
 
       {/* FAQ */}
       {/* <FAQ /> */}
