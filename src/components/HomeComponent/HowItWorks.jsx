@@ -10,7 +10,7 @@ const HowItWorks = () => {
       <CommonTitle title={"How it works"} />
 
       {/* FAQ */}
-      <div className="w-full flex items-center justify-between gap-16 mt-6">
+      <div className="w-full flex items-center justify-between lg:gap-4 xl:gap-16 mt-6">
         {/* Accordion How it works
          */}
         <HowItWorksAccordion />

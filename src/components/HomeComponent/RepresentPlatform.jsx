@@ -5,7 +5,7 @@ import CommonContainer from "@/shared/LandingShared/CommonContainer";
 
 const RepresentPlatform = () => {
   return (
-    <CommonContainer className={"mt-50 sm:mt-25"}>
+    <CommonContainer className={"mt-50 sm:mt-25 w-full"}>
       <CommonTitle title={"Represent platform"} />
       <RepresentPlatformCarousel />
     </CommonContainer>

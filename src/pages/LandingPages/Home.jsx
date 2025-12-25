@@ -1,7 +1,9 @@
 import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
+import Device from "@/components/HomeComponent/Device";
 import FAQ from "@/components/HomeComponent/FAQ";
 import Hero from "@/components/HomeComponent/Hero";
 import HowItWorks from "@/components/HomeComponent/HowItWorks";
+import IdentityTracking from "@/components/HomeComponent/IdentityTracking";
 import PricingAndPlans from "@/components/HomeComponent/PricingAndPlans";
 import RepresentPlatform from "@/components/HomeComponent/RepresentPlatform";
 import ReviewSection from "@/components/HomeComponent/ReviewSection";
@@ -25,19 +27,25 @@ const Home = () => {
       <WhatWeDo />
 
       {/* Review Section */}
-      {/* <ReviewSection /> */}
+      <ReviewSection />
 
       {/* We Served */}
-      {/* <WeServed /> */}
+      <WeServed />
 
       {/* How It Works */}
-      {/* <HowItWorks /> */}
+      <HowItWorks />
+
+      {/* Identity Tracking */}
+      <IdentityTracking />
 
       {/* Pricing & Plans */}
-      {/* <PricingAndPlans /> */}
+      <PricingAndPlans />
+
+      {/* Device */}
+      <Device />
 
       {/* FAQ */}
-      {/* <FAQ /> */}
+      <FAQ />
     </div>
   );
 };

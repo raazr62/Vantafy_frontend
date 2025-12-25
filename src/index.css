@@ -1,5 +1,5 @@
 /* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -57,9 +57,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #FF1BE4;
+  --primary: #ff1be4;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: #3F80FF;
+  --secondary: #3f80ff;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -83,10 +83,9 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   /* Custom */
-  --textPrimary: #212B36;
-  --font-montserrat: 'Montserrat',
-    sans-serif;
-    --lightText: #333333;
+  --textPrimary: #212b36;
+  --font-montserrat: "Montserrat", sans-serif;
+  --lightText: #333333;
 }
 
 .dark {
@@ -133,27 +132,6 @@
   }
 }
 
-/* Marquee */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@layer utilities {
-  .animate-marquee {
-    animation: marquee 15s linear infinite;
-  }
-
-  .group:hover .group-hover\:animation-paused {
-    animation-play-state: paused;
-  }
-}
-
 /* Remove number input arrows - Chrome, Safari, Edge */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -171,7 +149,6 @@ input[type="number"] {
 }
 
 @keyframes otp-shake {
-
   0%,
   100% {
     transform: translateX(0);
@@ -208,10 +185,9 @@ input[type="number"] {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF1BE4;
+  background: #ff1be4;
   border-radius: 16px;
 }
-
 
 /* Loader */
 .loader {
@@ -232,7 +208,6 @@ input[type="number"] {
   }
 }
 
-
 /* Scrollbar hidden */
 .no-scrollbar {
   -ms-overflow-style: none;
@@ -246,7 +221,6 @@ input[type="number"] {
   /* Chrome, Safari */
 }
 
-
 /* Progress Bar design */
 .progress-bar {
   appearance: none;
@@ -255,19 +229,19 @@ input[type="number"] {
 
 /* Track */
 .progress-bar::-webkit-progress-bar {
-  background-color: #E2E8F0;
+  background-color: #e2e8f0;
   border-radius: 9999px;
 }
 
 /* Fill (Chrome, Edge, Safari) */
 .progress-bar::-webkit-progress-value {
-  background: linear-gradient(to left, #FF5CE1, #00AEEF);
+  background: linear-gradient(to left, #ff5ce1, #00aeef);
   border-radius: 9999px;
 }
 
 /* Fill (Firefox) */
 .progress-bar::-moz-progress-bar {
-  background: linear-gradient(to left, #FF5CE1, #00AEEF);
+  background: linear-gradient(to left, #ff5ce1, #00aeef);
   border-radius: 9999px;
 }
 

@@ -47,44 +47,6 @@ export const RepresentPlatformLogos = [
   { id: 10, logo: LocalImages.manyVidsLogo, alt: "Manyvids Logo" },
 ];
 
-export const ourCustomerMockData = [
-  {
-    id: 1,
-    name: "Eifa jonathan",
-    subscribe: "32.6",
-    companyLogo: LocalImages.chaturbateLogo,
-    avatar: LocalImages.eifajonathan,
-  },
-  {
-    id: 2,
-    name: "Jordi Kader",
-    subscribe: "32.6",
-    companyLogo: LocalImages.fanslyLogo,
-    avatar: LocalImages.jordikader,
-  },
-  {
-    id: 3,
-    name: "Narendra Hasina",
-    subscribe: "32.6",
-    companyLogo: LocalImages.fanvueLogo,
-    avatar: LocalImages.narendrahasina,
-  },
-  {
-    id: 4,
-    name: "Shekh Modi",
-    subscribe: "32.6",
-    companyLogo: LocalImages.onlyFansLogo,
-    avatar: LocalImages.shekhmodi,
-  },
-  {
-    id: 5,
-    name: "Jr. Franklin",
-    subscribe: "32.6",
-    companyLogo: LocalImages.manyVidsLogo,
-    avatar: LocalImages.jrFranklin,
-  },
-];
-
 export const WhatWeDoMockData = [
   {
     id: 1,
@@ -304,66 +266,116 @@ export const InspectMockData = [
   },
 ];
 
+export const ourCustomerMockData = [
+  {
+    id: 1,
+    name: "Eifa jonathan",
+    subscribe: "32.6",
+    companyLogo: LocalImages.hamsterOnlyLogo,
+    avatar: LocalImages.EifaJonathan,
+  },
+  {
+    id: 2,
+    name: "Luna Ben",
+    subscribe: "32.6",
+    companyLogo: LocalImages.fanslyOnlyLogo,
+    avatar: LocalImages.LunaBen,
+  },
+  {
+    id: 3,
+    name: "Mikey Moye",
+    subscribe: "32.6",
+    companyLogo: LocalImages.fanvueLogoOnlyLogo,
+    avatar: LocalImages.MikeyMoye,
+  },
+  {
+    id: 4,
+    name: "Narendra Hasina",
+    subscribe: "32.6",
+    companyLogo: LocalImages.onlyfansOnlyLogo,
+    avatar: LocalImages.NarendraHasina,
+  },
+  {
+    id: 5,
+    name: "Jenny Lopez",
+    subscribe: "32.6",
+    companyLogo: LocalImages.hamsterOnlyLogo,
+    avatar: LocalImages.JennyLopez,
+  },
+  {
+    id: 6,
+    name: "Emilie Williamson",
+    subscribe: "32.6",
+    companyLogo: LocalImages.fanvueLogoOnlyLogo,
+    avatar: LocalImages.EmilieWilliamson,
+  },
+];
+
 export const ReviewSectionMockData = [
   {
     id: 1,
     userName: "Eifa Jonathan",
-    userAvatar: LocalImages.eifajonathan,
+    userAvatar: LocalImages.EifaJonathan,
     userFollowers: "32.6K",
-    userReview:
-      "As an agency owner, this tool is essential. I can protect all my creators from a single dashboard. Worth every penny.",
+    reviewTitle: "Smarter Comparison Engine",
+    userReview: `"We lean heavily on Guidally to identify our travel needs and match the perfect eSIM plans. It understands our personas, what drives our connectivity, and the kind of journeys we're on. So, being able to integrate seamless recommendations to send users the right plans based on their travel status is a pivotal piece of avoiding data surprises on the go"`,
     rating: 5,
     userCompanyLogo: LocalImages.chaturbateLogo,
     removedLeaks: 342,
     successRate: "98.7%",
+    userRole: "Content Creator, Chaturbate",
   },
   {
     id: 2,
-    userName: "Jordi Kader",
-    userAvatar: LocalImages.jordikader,
+    userName: "Emilie Williamson",
+    userAvatar: LocalImages.EmilieWilliamson,
     userFollowers: "45.2K",
-    userReview:
-      "The automated scanning is incredible. I used to spend hours searching for leaks myself. Now it all happens automatically.",
+    reviewTitle: "Smarter Comparison Engine",
+    userReview: `"We lean heavily on Guidally to identify our travel needs and match the perfect eSIM plans. It understands our personas, what drives our connectivity, and the kind of journeys we're on. So, being able to integrate seamless recommendations to send users the right plans based on their travel status is a pivotal piece of avoiding data surprises on the go"`,
     rating: 4,
     userCompanyLogo: LocalImages.fanslyLogo,
     removedLeaks: 289,
     successRate: "97.5%",
+    userRole: "Content Creator, Fansly",
   },
   {
     id: 3,
     userName: "Narendra Hasina",
-    userAvatar: LocalImages.narendrahasina,
+    userAvatar: LocalImages.NarendraHasina,
     userFollowers: "28.9K",
-    userReview:
-      "This platform saved my business. They found and removed over 300 leaks in the first month alone. I finally feel protected.",
+    reviewTitle: "Smarter Comparison Engine",
+    userReview: `"We lean heavily on Guidally to identify our travel needs and match the perfect eSIM plans. It understands our personas, what drives our connectivity, and the kind of journeys we're on. So, being able to integrate seamless recommendations to send users the right plans based on their travel status is a pivotal piece of avoiding data surprises on the go"`,
     rating: 5,
     userCompanyLogo: LocalImages.fanvueLogo,
     removedLeaks: 310,
     successRate: "99.2%",
+    userRole: "Content Creator, Fanvue",
   },
   {
     id: 4,
-    userName: "Shekh Modi",
-    userAvatar: LocalImages.shekhmodi,
+    userName: "Alex Rivera",
+    userAvatar: LocalImages.AlexRivera,
     userFollowers: "39.7K",
-    userReview:
-      "The takedown requests are handled quickly and professionally. I've seen a significant drop in unauthorized content since using this service.",
+    reviewTitle: "Smarter Comparison Engine",
+    userReview: `"We lean heavily on Guidally to identify our travel needs and match the perfect eSIM plans. It understands our personas, what drives our connectivity, and the kind of journeys we're on. So, being able to integrate seamless recommendations to send users the right plans based on their travel status is a pivotal piece of avoiding data surprises on the go"`,
     rating: 4,
     userCompanyLogo: LocalImages.onlyFansLogo,
     removedLeaks: 275,
     successRate: "98.0%",
+    userRole: "Content Creator, OnlyFans",
   },
   {
     id: 5,
-    userName: "Jr. Franklin",
-    userAvatar: LocalImages.jrFranklin,
+    userName: "Catherine Lucas",
+    userAvatar: LocalImages.CatherineLucas,
     userFollowers: "51.3K",
-    userReview:
-      "I was skeptical at first, but this tool exceeded my expectations. The personal agent feature is a game-changer for managing my online presence.",
+    reviewTitle: "Smarter Comparison Engine",
+    userReview: `"We lean heavily on Guidally to identify our travel needs and match the perfect eSIM plans. It understands our personas, what drives our connectivity, and the kind of journeys we're on. So, being able to integrate seamless recommendations to send users the right plans based on their travel status is a pivotal piece of avoiding data surprises on the go"`,
     rating: 5,
     userCompanyLogo: LocalImages.manyVidsLogo,
     removedLeaks: 400,
     successRate: "99.5%",
+    userRole: "Content Creator, Manyvids",
   },
 ];
 
