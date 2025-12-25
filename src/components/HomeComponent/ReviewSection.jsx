@@ -18,7 +18,7 @@ import {
 
 const ReviewSection = () => {
   return (
-    <CommonContainer id={"testimonial"}>
+    <CommonContainer id={"testimonial"} className={"w-full"}>
       <CommonTitle title={"Whats our client say"} />
 
       <div className="flex justify-end gap-3 mb-4 mt-5 sm:mt-8">
