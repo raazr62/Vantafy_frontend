@@ -531,7 +531,10 @@ export const CarouelLeftArrowIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-8 h-8 text-[#292D32]", className)}
+      className={cn(
+        "sm:w-6 sm:h-6 w-5 h-5 lg:w-8 lg:h-8 text-[#292D32]",
+        className
+      )}
       viewBox="0 0 32 32"
       fill="none"
     >
@@ -551,7 +554,10 @@ export const CarouelRightArrowIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-8 h-8 text-[#292D32]", className)}
+      className={cn(
+        "sm:w-6 sm:h-6 w-5 h-5 lg:w-8 lg:h-8 text-[#292D32]",
+        className
+      )}
       viewBox="0 0 32 32"
       fill="none"
     >
