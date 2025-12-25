@@ -44,8 +44,10 @@ import CatherineLucas from "@/assets/Images/homeImages/Catherine Lucas.png";
 import EmilieWilliamson from "@/assets/Images/homeImages/Emilie Williamson.png";
 import AlexRivera from "@/assets/Images/homeImages/Alex Rivera.png";
 import IdentitiyTrackingImage from "@/assets/Images/homeImages/IdentitiyTrackingImage.png";
+import responsiveImage from "@/assets/Images/homeImages/responsiveImage.png";
 
 export const LocalImages = {
+  responsiveImage,
   IdentitiyTrackingImage,
   NarendraHasina,
   LunaBen,

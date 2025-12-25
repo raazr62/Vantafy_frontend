@@ -1,4 +1,5 @@
 import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
+import Device from "@/components/HomeComponent/Device";
 import FAQ from "@/components/HomeComponent/FAQ";
 import Hero from "@/components/HomeComponent/Hero";
 import HowItWorks from "@/components/HomeComponent/HowItWorks";
@@ -39,6 +40,9 @@ const Home = () => {
 
       {/* Pricing & Plans */}
       <PricingAndPlans />
+
+      {/* Device */}
+      <Device />
 
       {/* FAQ */}
       {/* <FAQ /> */}
