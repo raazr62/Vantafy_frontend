@@ -12,7 +12,7 @@ const PricingPlan = () => {
         <div className="bg-white/90 backdrop-blur-xs mb-3 shrink-0 sticky top-0 w-full">
           <Logo variant="grayFull" className={"mx-auto"} />
         </div>
-        <div className="rounded-[12px] border border-[#EFE6FD] flex flex-col py-4 sm:py-6 flex-1">
+        <div className="rounded-[12px] border border-[#EFE6FD] flex flex-col py-4 sm:py-6 sm:px-4 flex-1 sm:mx-4">
           <div className="flex justify-center flex-1 w-full">
             <Tabs defaultValue="monthly-billing" className="w-full">
               <TabsList
