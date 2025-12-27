@@ -6,7 +6,7 @@ import Footer from "@/components/common/Footer";
 export default function MainLayout() {
   return (
     <>
-      <section className="fixed left-1/2 -translate-x-1/2 bg-linear-to-b from-[#971DFE] to-[#C289E8] backdrop-blur-lg top-0 z-50 items-center w-full">
+      <section className="fixed left-1/2 -translate-x-1/2 bg-linear-to-b from-[#971DFE] to-[#C289E8] border-b-2 border-b-white top-0 z-50 items-center w-full">
         <Navbar />
       </section>
       <Outlet />

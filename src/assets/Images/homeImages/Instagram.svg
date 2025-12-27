@@ -7,37 +7,37 @@
 <path fillRule="evenodd" clipRule="evenodd" d="M11.9751 5.80802C8.57178 5.80802 5.81251 8.56727 5.81251 11.9705C5.81251 15.3738 8.57178 18.1318 11.9751 18.1318C15.3784 18.1318 18.1369 15.3738 18.1369 11.9705C18.1369 8.56727 15.3784 5.80802 11.9751 5.80802ZM12 15.9375C14.1746 15.9375 15.9375 14.1746 15.9375 12C15.9375 9.8254 14.1746 8.06252 12 8.06252C9.82538 8.06252 8.06251 9.8254 8.06251 12C8.06251 14.1746 9.82538 15.9375 12 15.9375Z" fill="url(#paint5_radial_16918_2265)"/>
 <defs>
 <radialGradient id="paint0_radial_16918_2265" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(6.37503 25.8485) rotate(-90) scale(23.7858 22.1226)">
-<stop stop-color="#FFDD55"/>
-<stop offset="0.1" stop-color="#FFDD55"/>
-<stop offset="0.5" stop-color="#FF543E"/>
-<stop offset="1" stop-color="#C837AB"/>
+<stop stopColor="#FFDD55"/>
+<stop offset="0.1" stopColor="#FFDD55"/>
+<stop offset="0.5" stopColor="#FF543E"/>
+<stop offset="1" stopColor="#C837AB"/>
 </radialGradient>
 <radialGradient id="paint1_radial_16918_2265" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(6.37503 25.8485) rotate(-90) scale(23.7858 22.1226)">
-<stop stop-color="#FFDD55"/>
-<stop offset="0.1" stop-color="#FFDD55"/>
-<stop offset="0.5" stop-color="#FF543E"/>
-<stop offset="1" stop-color="#C837AB"/>
+<stop stopColor="#FFDD55"/>
+<stop offset="0.1" stopColor="#FFDD55"/>
+<stop offset="0.5" stopColor="#FF543E"/>
+<stop offset="1" stopColor="#C837AB"/>
 </radialGradient>
 <radialGradient id="paint2_radial_16918_2265" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(6.37503 25.8485) rotate(-90) scale(23.7858 22.1226)">
-<stop stop-color="#FFDD55"/>
-<stop offset="0.1" stop-color="#FFDD55"/>
-<stop offset="0.5" stop-color="#FF543E"/>
-<stop offset="1" stop-color="#C837AB"/>
+<stop stopColor="#FFDD55"/>
+<stop offset="0.1" stopColor="#FFDD55"/>
+<stop offset="0.5" stopColor="#FF543E"/>
+<stop offset="1" stopColor="#C837AB"/>
 </radialGradient>
 <radialGradient id="paint3_radial_16918_2265" cx="0" cy="0" r="1" gradientTransform="matrix(2.08689 10.4255 -42.9735 8.60689 -4.02013 1.72892)" gradientUnits="userSpaceOnUse">
-<stop stop-color="#3771C8"/>
-<stop offset="0.128" stop-color="#3771C8"/>
-<stop offset="1" stop-color="#6600FF" stop-opacity="0"/>
+<stop stopColor="#3771C8"/>
+<stop offset="0.128" stopColor="#3771C8"/>
+<stop offset="1" stopColor="#6600FF" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint4_radial_16918_2265" cx="0" cy="0" r="1" gradientTransform="matrix(2.08689 10.4255 -42.9735 8.60689 -4.02013 1.72892)" gradientUnits="userSpaceOnUse">
-<stop stop-color="#3771C8"/>
-<stop offset="0.128" stop-color="#3771C8"/>
-<stop offset="1" stop-color="#6600FF" stop-opacity="0"/>
+<stop stopColor="#3771C8"/>
+<stop offset="0.128" stopColor="#3771C8"/>
+<stop offset="1" stopColor="#6600FF" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint5_radial_16918_2265" cx="0" cy="0" r="1" gradientTransform="matrix(2.08689 10.4255 -42.9735 8.60689 -4.02013 1.72892)" gradientUnits="userSpaceOnUse">
-<stop stop-color="#3771C8"/>
-<stop offset="0.128" stop-color="#3771C8"/>
-<stop offset="1" stop-color="#6600FF" stop-opacity="0"/>
+<stop stopColor="#3771C8"/>
+<stop offset="0.128" stopColor="#3771C8"/>
+<stop offset="1" stopColor="#6600FF" stop-opacity="0"/>
 </radialGradient>
 </defs>
 </svg>

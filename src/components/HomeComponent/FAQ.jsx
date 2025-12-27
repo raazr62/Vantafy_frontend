@@ -41,7 +41,7 @@ const FAQ = () => {
           })}
         </Accordion>
 
-        <div className="relative flex-2/7">
+        <div className="relative overflow-hidden flex-2/7">
           <motion.img
             animate={{
               rotate: 360,

@@ -22,12 +22,12 @@ const WhatWeDo = () => {
       </p>
 
       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 w-full px-4 xl:px-0">
-        {WhatWeDoMockData.map((weDo) => {
+        {WhatWeDoMockData.map((weDo, idx) => {
           const isActive = weDo.name === activeCard;
 
           return (
             <div
-              key={weDo.name}
+              key={idx}
               onClick={() => setActiveCard(weDo.name)}
               className={cn(
                 "relative rounded-[12px] border border-b-6 border-[#DCE4FF] py-2 sm:py-3 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-1 sm:gap-2 overflow-hidden cursor-pointer",

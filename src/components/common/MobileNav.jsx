@@ -21,7 +21,7 @@ const MobileNav = ({
   active,
   open,
 }) => {
-const navigate= useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Drawer
@@ -60,7 +60,7 @@ const navigate= useNavigate()
         </button>
       </DrawerTrigger>
 
-      <DrawerContent className="h-full w-3/5! sm:w-1/2! bg-linear-to-bl from-primary/80 to-purple-600/80 backdrop-blur-md fixed left-0 top-0 rounded-none">
+      <DrawerContent className="h-full w-3/5! sm:w-1/2! bg-primary/80 backdrop-blur-xs fixed left-0 top-0 rounded-none">
         <DrawerHeader className="flex items-end justify-end">
           <DrawerClose asChild>
             <button className="text-white p-2">
@@ -103,7 +103,7 @@ const navigate= useNavigate()
         <div className="flex flex-col gap-3 px-4 pb-4">
           <Button
             className={
-              "bg-primary text-white hover:bg-primary/80 hover:text-white"
+              "bg-transparent text-white hover:bg-primary/80 hover:text-white"
             }
             onClick={() => navigate("/auth/signin")}
             variant={"outline"}
@@ -113,10 +113,10 @@ const navigate= useNavigate()
 
           <button
             onClick={() => navigate("/auth/signup")}
-            class="rounded px-5 py-2.5 overflow-hidden group bg-purple-500 relative hover:bg-linear-to-r hover:from-purple-500 hover:to-purple-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-purple-400 transition-all ease-out duration-300 cursor-pointer"
+            className="rounded px-5 py-2.5 overflow-hidden group bg-purple-500 relative hover:bg-linear-to-r hover:from-purple-500 hover:to-purple-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-purple-400 transition-all ease-out duration-300 cursor-pointer"
           >
-            <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span class="relative">Get Protected</span>
+            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+            <span className="relative">Get Protected</span>
           </button>
         </div>
       </DrawerContent>

@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between py-2 sm:py-3 md:py-4 lg:py-6 px-4 sm:px-0 mx-auto container">
+    <nav className="flex justify-between py-2 sm:py-3 lg:py-4 px-4 sm:px-0 mx-auto container">
       {/* Logo */}
       <HashLink
         smooth
