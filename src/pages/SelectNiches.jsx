@@ -17,7 +17,7 @@ const SelectNiches = () => {
       <div className="grow flex items-center flex-col gap-6 overflow-hidden">
         {/* <ConnectAccountsNiches /> */}
         <Logo variant="grayFull" className={"mx-auto shrink-0 sticky top-0"} />
-        <div className="flex-1 flex flex-col gap-3 overflow-hidden">
+        <div className="flex-1 flex flex-col gap-2 sm:gap-3 overflow-hidden w-full grow">
           <SelectYourNiches />
           <StageNamesAdd />
         </div>
@@ -25,7 +25,7 @@ const SelectNiches = () => {
 
       <button
         onClick={handleSaveNiches}
-        className="bg-sky-500 text-xl font-semibold rounded-full w-full text-white py-3 cursor-pointer"
+        className="bg-sky-500 sm:text-lg lg:text-xl font-semibold rounded-full w-full text-white py-1.5 sm:py-2 lg:py-3 cursor-pointer"
       >
         Save
       </button>
