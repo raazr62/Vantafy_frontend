@@ -92,13 +92,16 @@ const MobileNav = ({
                           el.getBoundingClientRect().top +
                           window.pageYOffset +
                           yOffset;
-                        window.scrollTo({ top: y, behavior: "smooth" });
+                        // Add delay to allow drawer to close and body scroll to unlock
+                        setTimeout(() => {
+                          window.scrollTo({ top: y, behavior: "smooth" });
+                        }, 300);
                       }}
                       onClick={toggleDrawer}
                       className={`block w-full rounded-xl px-5 py-3 text-base font-medium transition-all duration-300 ${
                         isActive
-                          ? "bg-fuchsia-50 text-primary ring-1 ring-fuchsia-100" // Active: High contrast light purple bg
-                          : "text-gray-600 hover:bg-gray-50 hover:text-black" // Default: Dark text, light hover
+                          ? "bg-fuchsia-50 text-primary ring-1 ring-fuchsia-100"
+                          : "text-gray-600 hover:bg-gray-50 hover:text-black"
                       }`}
                     >
                       {nav.name}
