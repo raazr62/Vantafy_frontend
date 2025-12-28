@@ -12,7 +12,9 @@ const Logo = ({ className, variant = "whiteFull" }) => {
       ? LocalImages.vantafyGrayFulltextLogo
       : variant === "white"
       ? LocalImages.VantafyWhiteLogo
-      : variant === "gray" && LocalImages.vantafyGrayLogo;
+      : variant === "gray"
+      ? LocalImages.vantafyGrayLogo
+      : "";
   const handleClick = () => {
     navigate("/");
   };

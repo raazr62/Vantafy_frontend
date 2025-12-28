@@ -15,7 +15,7 @@ const MonthlyBilling = ({ fromAuthPage }) => {
     }
   };
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-2 sm:mt-4 w-fit mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-2 sm:mt-4 mx-auto">
       {MonthlyPricingPlansMockData.map((plan) => {
         const backroundColor =
           plan.planName === "Silver"

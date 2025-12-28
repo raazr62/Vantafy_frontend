@@ -368,8 +368,8 @@ export const WarningIconSVG = ({ className }) => {
           y2="12"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4E78FD" />
-          <stop offset="1" stop-color="#FF1BE4" />
+          <stop stopColor="#4E78FD" />
+          <stop offset="1" stopColor="#FF1BE4" />
         </linearGradient>
       </defs>
     </svg>
@@ -679,9 +679,9 @@ export const InstagramIconSVG = ({ className }) => {
           gradientTransform="matrix(2.08689 10.4255 -42.9735 8.60689 -4.02013 1.72892)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3771C8" />
-          <stop offset="0.128" stop-color="#3771C8" />
-          <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+          <stop stopColor="#3771C8" />
+          <stop offset="0.128" stopColor="#3771C8" />
+          <stop offset="1" stopColor="#6600FF" stop-opacity="0" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_16914_1617"
@@ -691,9 +691,9 @@ export const InstagramIconSVG = ({ className }) => {
           gradientTransform="matrix(2.08689 10.4255 -42.9735 8.60689 -4.02013 1.72892)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3771C8" />
-          <stop offset="0.128" stop-color="#3771C8" />
-          <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+          <stop stopColor="#3771C8" />
+          <stop offset="0.128" stopColor="#3771C8" />
+          <stop offset="1" stopColor="#6600FF" stop-opacity="0" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_16914_1617"
@@ -703,9 +703,9 @@ export const InstagramIconSVG = ({ className }) => {
           gradientTransform="matrix(2.08689 10.4255 -42.9735 8.60689 -4.02013 1.72892)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3771C8" />
-          <stop offset="0.128" stop-color="#3771C8" />
-          <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+          <stop stopColor="#3771C8" />
+          <stop offset="0.128" stopColor="#3771C8" />
+          <stop offset="1" stopColor="#6600FF" stop-opacity="0" />
         </radialGradient>
       </defs>
     </svg>

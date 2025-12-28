@@ -15,6 +15,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // If drawer is open, don't update active state (prevents reset due to body lock)
+      if (isOpen) return;
+
       const sections = document.querySelectorAll("section[id]");
       const scrollY = window.scrollY + 200;
 
@@ -30,7 +33,7 @@ const Navbar = () => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isOpen]);
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -38,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between py-2 sm:py-3 md:py-4 lg:py-6 px-4 sm:px-0 mx-auto container">
+    <nav className="flex justify-between py-2 sm:py-3 lg:py-4 px-4 sm:px-0 mx-auto container">
       {/* Logo */}
       <HashLink
         smooth
