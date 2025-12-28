@@ -36,88 +36,101 @@ const MobileNav = ({
         <button
           onClick={toggleDrawer}
           type="button"
-          className="inline-flex items-center p-2 w-8 h-8 justify-center text-sm lg:hidden"
+          className="inline-flex items-center p-2 w-8 h-8 justify-center text-sm lg:hidden group"
           aria-controls="navbar-sticky"
           aria-expanded={isOpen}
         >
           <div className="flex flex-col items-center justify-center w-10 h-10 space-y-1.5">
             <span
-              className={`w-8 h-[3px] rounded transition-all bg-white duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
+              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
+                isOpen ? "rotate-45 translate-y-2" : "group-hover:w-6"
               }`}
             ></span>
             <span
-              className={`w-8 h-[3px] rounded transition-all bg-white duration-300 ${
+              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
                 isOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`w-8 h-[3px] rounded transition-all bg-white duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2.5" : ""
+              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
+                isOpen ? "-rotate-45 -translate-y-2.5" : "group-hover:w-4"
               }`}
             ></span>
           </div>
         </button>
       </DrawerTrigger>
 
-      <DrawerContent className="w-3/5! sm:w-1/2! bg-primary rounded-none">
-        <DrawerHeader className="flex items-end justify-end">
+      {/* Modern Light Theme Drawer with Solid Decorative Shapes */}
+      <DrawerContent className="w-[300px]! h-full rounded-r-3xl rounded-l-none border-r border-gray-100 bg-white shadow-2xl p-0 overflow-hidden">
+        {/* Decorative Blobs (Solid, No Blur) */}
+        <div className="absolute -top-20 -left-20 w-64 h-64 bg-fuchsia-100 rounded-full pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-sky-100 rounded-full pointer-events-none" />
+
+        {/* Header with Close Button */}
+        <DrawerHeader className="absolute top-4 right-4 z-50 p-0">
           <DrawerClose asChild>
-            <button className="text-white p-2">
+            <button className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200 hover:text-black">
               <X className="h-5 w-5" />
             </button>
           </DrawerClose>
         </DrawerHeader>
 
-        {/* Nav Links */}
-        <nav className="flex flex-col justify-between h-full">
-          <ul className="flex flex-col p-5 pt-0 space-y-4">
-            {NavlinksItems.map((nav) => (
-              <li className="list-none" key={nav.id}>
-                <HashLink
-                  smooth
-                  to={nav.link}
-                  scroll={(el) => {
-                    const yOffset = -100;
-                    const y =
-                      el.getBoundingClientRect().top +
-                      window.pageYOffset +
-                      yOffset;
-                    window.scrollTo({ top: y, behavior: "smooth" });
-                  }}
-                  onClick={toggleDrawer}
-                  className={`text-white px-2 pb-0.5 border-b-2 transition-all duration-300 ${
-                    active === nav.link.replace("#", "")
-                      ? "font-semibold border-white"
-                      : "font-medium border-transparent hover:textPrimary"
-                  }`}
-                >
-                  {nav.name}
-                </HashLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="relative z-10 flex h-full flex-col justify-between p-6 pt-20">
+          {/* Nav Links */}
+          <nav>
+            <ul className="flex flex-col space-y-3">
+              {NavlinksItems.map((nav) => {
+                const isActive = active === nav.link.replace("#", "");
+                return (
+                  <li key={nav.id}>
+                    <HashLink
+                      smooth
+                      to={nav.link}
+                      scroll={(el) => {
+                        const yOffset = -100;
+                        const y =
+                          el.getBoundingClientRect().top +
+                          window.pageYOffset +
+                          yOffset;
+                        window.scrollTo({ top: y, behavior: "smooth" });
+                      }}
+                      onClick={toggleDrawer}
+                      className={`block w-full rounded-xl px-5 py-3 text-base font-medium transition-all duration-300 ${
+                        isActive
+                          ? "bg-fuchsia-50 text-primary ring-1 ring-fuchsia-100" // Active: High contrast light purple bg
+                          : "text-gray-600 hover:bg-gray-50 hover:text-black" // Default: Dark text, light hover
+                      }`}
+                    >
+                      {nav.name}
+                    </HashLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-        {/* Auth Buttons */}
-        <div className="flex flex-col gap-3 px-4 pb-4">
-          <Button
-            className={
-              "bg-transparent text-white hover:bg-primary/80 hover:text-white"
-            }
-            onClick={() => navigate("/auth/signin")}
-            variant={"outline"}
-          >
-            <SignInSVG className={"text-white"} /> Login
-          </Button>
+          {/* Footer / Auth Buttons */}
+          <div className="flex flex-col gap-4">
+            <div className="h-px w-full bg-gray-100" />
 
-          <button
-            onClick={() => navigate("/auth/signup")}
-            className="rounded px-5 py-2.5 overflow-hidden group bg-purple-500 relative hover:bg-linear-to-r hover:from-purple-500 hover:to-purple-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-purple-400 transition-all ease-out duration-300 cursor-pointer"
-          >
-            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Get Protected</span>
-          </button>
+            <Button
+              className="w-full justify-start gap-3 rounded-xl border border-gray-200 bg-white py-6 text-base text-gray-700 hover:bg-gray-50 hover:text-black"
+              onClick={() => navigate("/auth/signin")}
+              variant="ghost"
+            >
+              <SignInSVG className="h-5 w-5 text-gray-500" />
+              <span>Login</span>
+            </Button>
+
+            <button
+              onClick={() => navigate("/auth/signup")}
+              className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-primary to-purple-600 px-5 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-primary/25 active:scale-[0.98]"
+            >
+              <span className="relative flex items-center justify-center gap-2">
+                Get Protected
+              </span>
+            </button>
+          </div>
         </div>
       </DrawerContent>
     </Drawer>

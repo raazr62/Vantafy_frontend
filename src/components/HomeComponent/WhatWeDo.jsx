@@ -17,11 +17,11 @@ const WhatWeDo = () => {
   return (
     <CommonContainer id="what-we-do" className={"w-full"}>
       <CommonTitle title="What we do" />
-      <p className="text-sm sm:text-base text-center text-[#333] font-medium py-4 sm:py-6 lg:py-8 px-4 xl:px-0">
+      {/* <p className="text-sm sm:text-base text-center text-[#333] font-medium py-4 sm:py-6 lg:py-8 px-4 xl:px-0">
         Discover our full suite of copyright protection features
-      </p>
+      </p> */}
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 w-full px-4 xl:px-0">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 w-full px-4 xl:px-0 mt-6">
         {WhatWeDoMockData.map((weDo, idx) => {
           const isActive = weDo.name === activeCard;
 
