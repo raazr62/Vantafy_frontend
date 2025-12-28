@@ -100,7 +100,7 @@ const MobileNav = ({
                       onClick={toggleDrawer}
                       className={`block w-full rounded-xl px-5 py-3 text-base font-medium transition-all duration-300 ${
                         isActive
-                          ? "bg-fuchsia-50 text-primary ring-1 ring-fuchsia-100"
+                          ? "bg-fuchsia-50 text-primary ring-1 ring-fuchsia-200"
                           : "text-gray-600 hover:bg-gray-50 hover:text-black"
                       }`}
                     >
@@ -114,7 +114,7 @@ const MobileNav = ({
 
           {/* Footer / Auth Buttons */}
           <div className="flex flex-col gap-4">
-            <div className="h-px w-full bg-gray-100" />
+            <div className="h-px w-full bg-fuchsia-100" />
 
             <Button
               className="w-full justify-start gap-3 rounded-xl border border-gray-200 bg-white py-6 text-base text-gray-700 hover:bg-gray-50 hover:text-black"

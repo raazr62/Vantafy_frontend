@@ -15,6 +15,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // If drawer is open, don't update active state (prevents reset due to body lock)
+      if (isOpen) return;
+
       const sections = document.querySelectorAll("section[id]");
       const scrollY = window.scrollY + 200;
 
@@ -30,7 +33,7 @@ const Navbar = () => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isOpen]);
 
   const toggleDrawer = () => {
     setOpen(!open);
