@@ -14,10 +14,10 @@ import { LocalImages } from "../AllPhotos/HomeLocalImages";
 const FAQ = () => {
   const formatNumber = (num) => (num < 9 ? `0${num + 1}` : `${num + 1}`);
   return (
-    <CommonContainer id={"faq"} className={"mb-10 sm:mb-20 lg:mb-30"}>
+    <CommonContainer id={"faq"}>
       <CommonTitle title={"FAQ"} />
       {/* FAQS */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 mt-8">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-4 sm:mt-6 lg:mt-8">
         <Accordion
           type="single"
           collapsible
@@ -52,7 +52,7 @@ const FAQ = () => {
               },
             }}
             src={LocalImages.FaqSpinner}
-            className="lg:max-w-full lg:max-h-full max-w-[300px] max-h-[300px]"
+            className="lg:max-w-full lg:max-h-full max-w-[300px] max-h-[300px] p-2"
             alt="Faq Image Spinner"
           />
           <p className="text-xl sm:text-2xl lg:text-[28px] font-bold text-white bg-linear-to-l from-[#EC70DA] to-[#51AEFA] rounded-full w-18 h-18 sm:w-20 sm:h-20 lg:w-25 lg:h-25 flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
