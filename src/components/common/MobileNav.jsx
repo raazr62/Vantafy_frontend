@@ -60,7 +60,7 @@ const MobileNav = ({
         </button>
       </DrawerTrigger>
 
-      <DrawerContent className="h-full w-3/5! sm:w-1/2! bg-primary/80 backdrop-blur-xs fixed left-0 top-0 rounded-none">
+      <DrawerContent className="w-3/5! sm:w-1/2! bg-primary rounded-none">
         <DrawerHeader className="flex items-end justify-end">
           <DrawerClose asChild>
             <button className="text-white p-2">
