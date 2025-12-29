@@ -61,10 +61,10 @@ const MobileNav = ({
       </DrawerTrigger>
 
       {/* Modern Light Theme Drawer with Solid Decorative Shapes */}
-      <DrawerContent className="w-[300px]! h-full rounded-r-3xl rounded-l-none border-r border-gray-100 bg-white shadow-2xl p-0 overflow-hidden">
+      <DrawerContent className="w-4/6! max-w-[300px]! h-full rounded-r-3xl rounded-l-none border-r border-gray-100 bg-white shadow-2xl p-0 overflow-hidden">
         {/* Decorative Blobs (Solid, No Blur) */}
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-fuchsia-100 rounded-full pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-sky-100 rounded-full pointer-events-none" />
+        {/* <div className="absolute -top-20 -left-20 w-64 h-64 bg-fuchsia-100 rounded-full pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-sky-100 rounded-full pointer-events-none" /> */}
 
         {/* Header with Close Button */}
         <DrawerHeader className="absolute top-4 right-4 z-50 p-0">
@@ -98,10 +98,10 @@ const MobileNav = ({
                         }, 300);
                       }}
                       onClick={toggleDrawer}
-                      className={`block w-full rounded-xl px-5 py-3 text-base font-medium transition-all duration-300 ${
+                      className={`block w-full px-2 my-3 text-base font-medium transition-all duration-300 text-gray-600 ${
                         isActive
-                          ? "bg-fuchsia-50 text-primary ring-1 ring-fuchsia-200"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-black"
+                          ? "border-l-3 border-primary"
+                          : "hover:bg-gray-50 hover:text-black"
                       }`}
                     >
                       {nav.name}
