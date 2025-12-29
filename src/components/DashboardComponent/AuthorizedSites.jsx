@@ -63,13 +63,6 @@ const AuthorizedSites = () => {
       const formData = new FormData(e.target);
       const username = formData.get("username") || "";
 
-      console.log("Selected Platform:", selectedPlatform);
-      console.log("Username from form:", username);
-      console.log("Calling addSite with:", {
-        platform: selectedPlatform,
-        username,
-      });
-
       const success = addSite(selectedPlatform, username);
 
       if (success) {
@@ -142,204 +135,176 @@ const AuthorizedSites = () => {
   }, [isModalOpen]);
 
   return (
-    <>
-      {/* Toast Notifications */}
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 3000,
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
-          success: {
-            duration: 3000,
-            iconTheme: {
-              primary: "#10b981",
-              secondary: "#fff",
-            },
-          },
-          error: {
-            duration: 4000,
-            iconTheme: {
-              primary: "#ef4444",
-              secondary: "#fff",
-            },
-          },
-        }}
-      />
-
-      <div className="bg-white py-4 sm:py-6 px-2 sm:px-4.5 rounded-b-[12px] grow min-h-0">
-        <div className="p-4 border border-[#EAEAEA] rounded-xl space-y-4 h-full flex flex-col">
-          {/* Add Site Form */}
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="flex sm:items-center flex-col sm:flex-row gap-2 relative"
-          >
-            {/* No Platform Selected - Show Add Button */}
-            {!selectedPlatform && (
+    <div className="bg-white py-4 sm:py-6 px-2 sm:px-4.5 rounded-b-[12px] grow min-h-0">
+      <div className="p-4 border border-[#EAEAEA] rounded-xl space-y-4 h-full flex flex-col">
+        {/* Add Site Form */}
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="flex sm:items-center flex-col sm:flex-row gap-2 relative"
+        >
+          {/* No Platform Selected - Show Add Button */}
+          {!selectedPlatform && (
+            <div
+              ref={modalTriggerRef}
+              onClick={handleOpenModal}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleOpenModal();
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label="Add an account"
+              aria-haspopup="dialog"
+              aria-expanded={isModalOpen}
+              className="w-full py-2 text-sm sm:text-base sm:py-3.5 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent cursor-pointer px-4 flex items-center justify-between transition-all"
+            >
+              <p className="flex items-center gap-2 text-primary">
+                <FaPlus size={14} aria-hidden="true" /> Add an account
+              </p>
               <div
-                ref={modalTriggerRef}
-                onClick={handleOpenModal}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleOpenModal();
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-label="Add an account"
-                aria-haspopup="dialog"
-                aria-expanded={isModalOpen}
-                className="w-full py-2 text-sm sm:text-base sm:py-3.5 rounded-lg border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent cursor-pointer px-4 flex items-center justify-between transition-all"
+                className="flex relative"
+                aria-label={`${totalPlatformCount} platforms available`}
               >
-                <p className="flex items-center gap-2 text-primary">
-                  <FaPlus size={14} aria-hidden="true" /> Add an account
-                </p>
+                {AuthorizedSitesLogoAndLinkMockData.subscriptionPlatforms
+                  .slice(0, 3)
+                  .map((platform, idx) => (
+                    <div
+                      key={platform.id}
+                      className={`relative ${
+                        idx === 0
+                          ? "-left-4"
+                          : idx === 1
+                          ? "-left-6"
+                          : idx === 2
+                          ? "-left-10"
+                          : ""
+                      }`}
+                    >
+                      <img
+                        src={platform.logo}
+                        alt=""
+                        aria-hidden="true"
+                        className="w-6 h-6"
+                      />
+                    </div>
+                  ))}
                 <div
-                  className="flex relative"
-                  aria-label={`${totalPlatformCount} platforms available`}
+                  className="text-xs font-semibold bg-black px-2 py-1 rounded-full absolute right-2 top-1/2 -translate-y-1/2 text-white"
+                  aria-label={`${totalPlatformCount} total platforms`}
                 >
-                  {AuthorizedSitesLogoAndLinkMockData.subscriptionPlatforms
-                    .slice(0, 3)
-                    .map((platform, idx) => (
-                      <div
-                        key={platform.id}
-                        className={`relative ${
-                          idx === 0
-                            ? "-left-4"
-                            : idx === 1
-                            ? "-left-6"
-                            : idx === 2
-                            ? "-left-10"
-                            : ""
-                        }`}
-                      >
-                        <img
-                          src={platform.logo}
-                          alt=""
-                          aria-hidden="true"
-                          className="w-6 h-6"
-                        />
-                      </div>
-                    ))}
-                  <div
-                    className="text-xs font-semibold bg-black px-2 py-1 rounded-full absolute right-2 top-1/2 -translate-y-1/2 text-white"
-                    aria-label={`${totalPlatformCount} total platforms`}
-                  >
-                    {totalPlatformCount}+
-                  </div>
+                  {totalPlatformCount}+
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Custom Platform Input */}
-            {selectedPlatform && selectedPlatform.name === "Custom" && (
-              <div className="relative w-full">
-                <CommonInputField
-                  name="authorizedLink"
-                  type="url"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder="Paste website URL here"
-                  className="pl-9! border-[#707070]"
-                  required
-                  aria-label="Enter custom website URL"
-                />
-                <VscGlobe
-                  size={18}
-                  className="absolute top-1/2 -translate-y-1/2 left-3 pointer-events-none"
-                  aria-hidden="true"
-                />
-                <p className="bg-white absolute left-5 -top-3 px-1 text-sm text-primary">
-                  Your url
-                </p>
-                <button
-                  type="button"
-                  onClick={resetForm}
-                  aria-label="Cancel custom URL"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 text-2xl hover:text-red-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"
-                >
-                  <IoCloseCircleOutline aria-hidden="true" />
-                </button>
-              </div>
-            )}
-
-            {/* Non-Custom Platform Input */}
-            {selectedPlatform && selectedPlatform.name !== "Custom" && (
-              <div className="relative w-full">
-                <input
-                  name="username"
-                  type="text"
-                  placeholder="your-username"
-                  className="w-full py-2 text-sm sm:text-base sm:py-3.5 rounded-lg border border-[#707070] outline-none transition focus:border-primary pl-11"
-                  required
-                  aria-label={`Enter your ${selectedPlatform.name} username`}
-                />
-                <img
-                  src={selectedPlatform.logo}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute top-1/2 -translate-y-1/2 left-3 w-6 h-6 pointer-events-none"
-                />
-                <p className="bg-white absolute left-5 -top-3 px-1 text-sm text-primary">
-                  {selectedPlatform.link}
-                </p>
-                <button
-                  type="button"
-                  onClick={resetForm}
-                  aria-label={`Cancel ${selectedPlatform.name} selection`}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 text-2xl hover:text-red-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"
-                >
-                  <IoCloseCircleOutline aria-hidden="true" />
-                </button>
-              </div>
-            )}
-
-            {/* Submit Button - Only show when platform is selected */}
-            {selectedPlatform && (
-              <button
-                type="submit"
-                className="bg-sky-500 text-white rounded-xl sm:px-9.5 py-1.5 sm:py-4 text-sm sm:text-base font-semibold cursor-pointer hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Add authorized site"
-              >
-                Add
-              </button>
-            )}
-
-            {/* Platform Selection Modal */}
-            {isModalOpen && (
-              <AuthorizedSitesLogoAndNamePopUp
-                handleSelectPlatform={handleSelectPlatform}
-                onClose={() => setModalOpen(false)}
+          {/* Custom Platform Input */}
+          {selectedPlatform && selectedPlatform.name === "Custom" && (
+            <div className="relative w-full">
+              <CommonInputField
+                name="authorizedLink"
+                type="url"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="Paste website URL here"
+                className="pl-9! border-[#707070]"
+                required
+                aria-label="Enter custom website URL"
               />
-            )}
-          </form>
+              <VscGlobe
+                size={18}
+                className="absolute top-1/2 -translate-y-1/2 left-3 pointer-events-none"
+                aria-hidden="true"
+              />
+              <p className="bg-white absolute left-5 -top-3 px-1 text-sm text-primary">
+                Your url
+              </p>
+              <button
+                type="button"
+                onClick={resetForm}
+                aria-label="Cancel custom URL"
+                className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 text-2xl hover:text-red-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"
+              >
+                <IoCloseCircleOutline aria-hidden="true" />
+              </button>
+            </div>
+          )}
 
-          {/* Authorized Sites List */}
-          <div
-            className="space-y-2 grow min-h-0 overflow-y-auto"
-            role="list"
-            aria-label="Authorized sites"
-          >
-            {sites.map((site) => (
-              <SiteItem key={site.id} site={site} onDelete={handleDelete} />
-            ))}
+          {/* Non-Custom Platform Input */}
+          {selectedPlatform && selectedPlatform.name !== "Custom" && (
+            <div className="relative w-full">
+              <input
+                name="username"
+                type="text"
+                placeholder="your-username"
+                className="w-full py-2 text-sm sm:text-base sm:py-3.5 rounded-lg border border-[#707070] outline-none transition focus:border-primary pl-11"
+                required
+                aria-label={`Enter your ${selectedPlatform.name} username`}
+              />
+              <img
+                src={selectedPlatform.logo}
+                alt=""
+                aria-hidden="true"
+                className="absolute top-1/2 -translate-y-1/2 left-3 w-6 h-6 pointer-events-none"
+              />
+              <p className="bg-white absolute left-5 -top-3 px-1 text-sm text-primary">
+                {selectedPlatform.link}
+              </p>
+              <button
+                type="button"
+                onClick={resetForm}
+                aria-label={`Cancel ${selectedPlatform.name} selection`}
+                className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 text-2xl hover:text-red-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"
+              >
+                <IoCloseCircleOutline aria-hidden="true" />
+              </button>
+            </div>
+          )}
 
-            {/* Empty State */}
-            {!hasSites && (
-              <div className="h-full flex items-center justify-center">
-                <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl text-gray-400 text-center">
-                  No authorized sites added yet
-                </p>
-              </div>
-            )}
-          </div>
+          {/* Submit Button - Only show when platform is selected */}
+          {selectedPlatform && (
+            <button
+              type="submit"
+              className="bg-sky-500 text-white rounded-xl sm:px-9.5 py-1.5 sm:py-4 text-sm sm:text-base font-semibold cursor-pointer hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Add authorized site"
+            >
+              Add
+            </button>
+          )}
+
+          {/* Platform Selection Modal */}
+          {isModalOpen && (
+            <AuthorizedSitesLogoAndNamePopUp
+              handleSelectPlatform={handleSelectPlatform}
+              onClose={() => setModalOpen(false)}
+            />
+          )}
+        </form>
+
+        {/* Authorized Sites List */}
+        <div
+          className="space-y-2 grow min-h-0 overflow-y-auto"
+          role="list"
+          aria-label="Authorized sites"
+        >
+          {sites.map((site) => (
+            <SiteItem key={site.id} site={site} onDelete={handleDelete} />
+          ))}
+
+          {/* Empty State */}
+          {!hasSites && (
+            <div className="h-full flex items-center justify-center">
+              <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl text-gray-400 text-center">
+                No authorized sites added yet
+              </p>
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
