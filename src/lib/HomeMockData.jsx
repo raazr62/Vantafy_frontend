@@ -192,7 +192,7 @@ export const anonymousMockData = [
     icon: <DatabaseProtectionIconSVG />,
   },
   {
-    id: 1,
+    id: 3,
     title: "Corporate Shield",
     description: "Rulta's corporate details are used for all legal filings",
     icon: <CorporateShieldIconSVG />,
@@ -212,7 +212,7 @@ export const aiProtectionMockData = [
     icon: <OcrTechnologyIconSVG />,
   },
   {
-    id: 1,
+    id: 3,
     title: "Smart Algorithms",
     description: "Custom-built for content protection",
     icon: <SmartAlgorithmsIconSVG />,
@@ -719,3 +719,199 @@ export const RecommendedPricingPlansMockData = [
     ],
   },
 ];
+
+export const AuthorizedSitesLogoAndLinkMockData = {
+  subscriptionPlatforms: [
+    {
+      id: 1,
+      logo: "https://icons.duckduckgo.com/ip3/onlyfans.com.ico",
+      link: "https://onlyfans.com/",
+      name: "OnlyFans",
+    },
+
+    {
+      id: 2,
+      logo: "https://icons.duckduckgo.com/ip3/fanvue.com.ico",
+      link: "https://fanvue.com/",
+      name: "Fanvue",
+    },
+    {
+      id: 5,
+      logo: "https://icons.duckduckgo.com/ip3/truefollowrs.com.ico",
+      link: "https://truefollowrs.com/",
+      name: "TrueFollowrs",
+    },
+    {
+      id: 3,
+      logo: "https://icons.duckduckgo.com/ip3/patreon.com.ico",
+      link: "https://patreon.com/",
+      name: "Patreon",
+    },
+    {
+      id: 4,
+      logo: "https://icons.duckduckgo.com/ip3/fansly.com.ico",
+      link: "https://fansly.com/",
+      name: "Fansly",
+    },
+    {
+      id: 6,
+      logo: "https://icons.duckduckgo.com/ip3/ManyVids.com.ico",
+      link: "https://manyvids.com/",
+      name: "ManyVids",
+    },
+    {
+      id: 7,
+      logo: "https://icons.duckduckgo.com/ip3/justforfans.com.ico",
+      link: "https://justfor.fans/",
+      name: "JustForFans",
+    },
+    {
+      id: 8,
+      logo: "https://icons.duckduckgo.com/ip3/brezzels.com.ico",
+      link: "https://brezzels.com/",
+      name: "Brezzels",
+    },
+    {
+      id: 9,
+      logo: "https://icons.duckduckgo.com/ip3/mym.fans.ico",
+      link: "https://mym.fans/",
+      name: "Mym.fans",
+    },
+    {
+      id: 10,
+      logo: "https://icons.duckduckgo.com/ip3/4Based.com.ico",
+      link: "https://4based.com/",
+      name: "4Based",
+    },
+    {
+      id: 11,
+      logo: "https://icons.duckduckgo.com/ip3/loyalfans.com.ico",
+      link: "https://loyalfans.com/",
+      name: "LoyalFans",
+    },
+    {
+      id: 12,
+      logo: "https://icons.duckduckgo.com/ip3/slushy.com.ico",
+      link: "https://slushy.com/",
+      name: "Slushy",
+    },
+    {
+      id: 13,
+      logo: "https://icons.duckduckgo.com/ip3/sunroom.com.ico",
+      link: "https://sunroom.com/",
+      name: "Sunroom",
+    },
+    {
+      id: 14,
+      logo: "https://icons.duckduckgo.com/ip3/fanfix.com.ico",
+      link: "https://fanfix.com/",
+      name: "Fanfix",
+    },
+    {
+      id: 15,
+      logo: "https://icons.duckduckgo.com/ip3/my.club.ico",
+      link: "https://my.club/",
+      name: "My.Club",
+    },
+    {
+      id: 16,
+      logo: "https://icons.duckduckgo.com/ip3/sextpanther.com.ico",
+      link: "https://sextpanther.com/",
+      name: "SextPanther",
+    },
+  ],
+  streamingPlatforms: [
+    {
+      id: 1,
+      logo: "https://icons.duckduckgo.com/ip3/chaturbate.com.ico",
+      link: "https://chaturbate.com/",
+      name: "Chaturbate",
+    },
+    {
+      id: 2,
+      logo: "https://icons.duckduckgo.com/ip3/cam4.com.ico",
+      link: "https://cam4.com/",
+      name: "Cam4",
+    },
+    {
+      id: 3,
+      logo: "https://icons.duckduckgo.com/ip3/camsoda.com.ico",
+      link: "https://camsoda.com/",
+      name: "Camsoda",
+    },
+    {
+      id: 4,
+      logo: "https://icons.duckduckgo.com/ip3/stripchat.com.ico",
+      link: "https://stripchat.com/",
+      name: "Stripchat",
+    },
+    {
+      id: 5,
+      logo: "https://icons.duckduckgo.com/ip3/livejasmin.com.ico",
+      link: "https://livejasmin.com/",
+      name: "Livejasmin",
+    },
+    {
+      id: 6,
+      logo: "https://icons.duckduckgo.com/ip3/streamate.com.ico",
+      link: "https://streamate.com/",
+      name: "Streamate",
+    },
+    {
+      id: 7,
+      logo: "https://icons.duckduckgo.com/ip3/bongacams.com.ico",
+      link: "https://bongacams.com/",
+      name: "Bongacams",
+    },
+    {
+      id: 8,
+      logo: "https://icons.duckduckgo.com/ip3/myfreecams.com.ico",
+      link: "https://myfreecams.com/",
+      name: "MyFreeCams",
+    },
+  ],
+  nonSubscriptionPlatforms: [
+    {
+      id: 1,
+      logo: "https://icons.duckduckgo.com/ip3/instagram.com.ico",
+      link: "https://instagram.com/",
+      name: "Instagram",
+    },
+    {
+      id: 2,
+      logo: "https://icons.duckduckgo.com/ip3/tiktok.com.ico",
+      link: "https://tiktok.com/",
+      name: "TikTok",
+    },
+    {
+      id: 3,
+      logo: "https://icons.duckduckgo.com/ip3/x.com.ico",
+      link: "https://x.com/",
+      name: "X",
+    },
+    {
+      id: 4,
+      logo: "https://icons.duckduckgo.com/ip3/reddit.com.ico",
+      link: "https://reddit.com/u/",
+      name: "Reddit (u/username)",
+    },
+    {
+      id: 5,
+      logo: "https://icons.duckduckgo.com/ip3/reddit.com.ico",
+      link: "https://reddit.com/r/",
+      name: "Reddit (r/subreddit)",
+    },
+    {
+      id: 6,
+      logo: "https://icons.duckduckgo.com/ip3/facebook.com.ico",
+      link: "https://facebook.com/",
+      name: "Facebook",
+    },
+    {
+      id: 7,
+      logo: "https://icons.duckduckgo.com/ip3/snapchat.com.ico",
+      link: "https://snapchat.com/",
+      name: "Snapchat",
+    },
+  ],
+};
