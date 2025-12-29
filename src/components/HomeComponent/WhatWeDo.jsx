@@ -23,7 +23,44 @@ const WhatWeDo = () => {
         Discover our full suite of copyright protection features
       </p> */}
 
-      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 xl:px-0 mt-6 pb-2 no-scrollbar">
+      {/* Mobile Scroll Indicator */}
+      <div className="flex md:hidden justify-center items-center mt-2">
+        <motion.div
+          className="flex items-center gap-1 text-xs font-semibold text-gray-400"
+          initial={{ opacity: 0.8 }}
+          animate={{ opacity: 1 }}
+        >
+          <span>Swipe to see more</span>
+          <motion.div
+            animate={{
+              x: [0, 10, 0],
+              opacity: [1, 0.5, 1],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <MdSwipe className="text-fuchsia-500 text-sm" />
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Mobile Scroll Indicator (Dots) */}
+      <div className="flex md:hidden justify-center gap-2 mt-2 mb-3">
+        {WhatWeDoMockData.map((data, idx) => (
+          <div
+            key={idx}
+            className={cn(
+              "h-2 rounded-full transition-all duration-300",
+              activeCard === data.name ? "bg-primary w-6" : "bg-gray-300 w-2"
+            )}
+          />
+        ))}
+      </div>
+
+      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 xl:px-0 pb-2 no-scrollbar sm:pt-4 lg:pt-6">
         {WhatWeDoMockData.map((weDo, idx) => {
           const isActive = weDo.name === activeCard;
 
@@ -49,43 +86,6 @@ const WhatWeDo = () => {
             </div>
           );
         })}
-      </div>
-
-      {/* Mobile Scroll Indicator */}
-      <div className="flex md:hidden justify-center items-center mt-1 mb-2.5">
-        <motion.div
-          className="flex items-center gap-1 text-xs font-semibold text-gray-400"
-          initial={{ opacity: 0.8 }}
-          animate={{ opacity: 1 }}
-        >
-          <span>Swipe to see more</span>
-          <motion.div
-            animate={{
-              x: [0, 10, 0],
-              opacity: [1, 0.5, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <MdSwipe className="text-fuchsia-500 text-sm" />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Mobile Scroll Indicator (Dots) */}
-      <div className="flex md:hidden justify-center gap-2 mb-2">
-        {WhatWeDoMockData.map((data, idx) => (
-          <div
-            key={idx}
-            className={cn(
-              "h-2 rounded-full transition-all duration-300",
-              activeCard === data.name ? "bg-primary w-6" : "bg-gray-300 w-2"
-            )}
-          />
-        ))}
       </div>
 
       {activeCard === "Scan" && <Scan />}

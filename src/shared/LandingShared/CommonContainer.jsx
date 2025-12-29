@@ -6,7 +6,7 @@ const CommonContainer = ({ children, id, className }) => {
     <section
       id={id}
       className={cn(
-        "flex flex-col items-center mt-10 sm:mt-20 lg:mt-30 w-11/12 container mx-auto",
+        "flex flex-col items-center mt-10 sm:mt-12 lg:mt-15 w-11/12 container mx-auto",
         className
       )}
     >
