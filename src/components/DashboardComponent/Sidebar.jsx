@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
-const Sidebar = () => {
+const Sidebar = ({ setSheetOpen }) => {
   return (
     <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] h-full px-3 py-6 max-w-[260px] w-full lg:rounded-2xl flex flex-col justify-between">
       {/* Top Bar */}
@@ -20,7 +20,7 @@ const Sidebar = () => {
         {/* Navigation Link */}
         <ul className="mt-3 lg:mt-8 space-y-1">
           {sidebarLinks.map((link) => (
-            <li key={link.id}>
+            <li key={link.id} onClick={() => setSheetOpen(false)}>
               <NavLink
                 className={({ isActive }) =>
                   `py-1.5 sm:py-3 px-4 flex items-center gap-3 rounded-xl text-xs sm:text-sm font-medium sm:font-semibold
