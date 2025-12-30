@@ -24,7 +24,7 @@ const WhatWeDo = () => {
       </p> */}
 
       {/* Mobile Scroll Indicator */}
-      <div className="flex md:hidden justify-center items-center mt-2">
+      <div className="flex md:hidden justify-center items-center mt-10">
         <motion.div
           className="flex items-center gap-1 text-xs font-semibold text-gray-400"
           initial={{ opacity: 0.8 }}
@@ -60,7 +60,7 @@ const WhatWeDo = () => {
         ))}
       </div>
 
-      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 xl:px-0 pb-2 no-scrollbar sm:pt-4 lg:pt-6">
+      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 xl:px-0 pb-2 no-scrollbar sm:mt-12 lg:mt-15">
         {WhatWeDoMockData.map((weDo, idx) => {
           const isActive = weDo.name === activeCard;
 
