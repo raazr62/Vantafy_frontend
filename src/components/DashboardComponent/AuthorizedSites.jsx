@@ -240,7 +240,7 @@ const AuthorizedSites = () => {
                 name="username"
                 type="text"
                 placeholder="your-username"
-                className="w-full py-2 text-sm sm:text-base sm:py-3.5 rounded-lg border border-[#707070] outline-none transition focus:border-primary pl-11"
+                className="w-full py-2 sm:py-3.5 rounded-lg border border-[#707070] outline-none transition focus:border-primary pl-11"
                 required
                 aria-label={`Enter your ${selectedPlatform.name} username`}
               />

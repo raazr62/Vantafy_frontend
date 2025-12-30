@@ -53,7 +53,7 @@ const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
               type="text"
               name="name"
               placeholder="Your user name"
-              className="bg-gray-100 w-full max-w-[415px] py-1.5 sm:py-2.5 px-3 sm:px-4 rounded-xl outline-none border border-transparent focus:border-sky-500 text-sm sm:text-base"
+              className="bg-gray-100 w-full max-w-[415px] py-1.5 sm:py-2.5 px-3 sm:px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
             />
             <br />
             <div className="flex items-center max-w-[415px] gap-3">

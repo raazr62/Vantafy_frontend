@@ -46,7 +46,7 @@ const StageNamesToProtect = () => {
           type="text"
           name="stageName"
           placeholder="Enter Stage Name"
-          className="bg-gray-100 w-full py-2 sm:py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500 text-sm sm:text-base"
+          className="bg-gray-100 w-full py-2 sm:py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
         />
         <br />
         <button
