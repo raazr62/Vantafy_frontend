@@ -17,7 +17,7 @@ const FAQ = () => {
     <CommonContainer id={"faq"}>
       <CommonTitle title={"FAQ"} />
       {/* FAQS */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-4 sm:mt-6 lg:mt-8">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-10 sm:mt-12 lg:mt-15">
         <Accordion
           type="single"
           collapsible
