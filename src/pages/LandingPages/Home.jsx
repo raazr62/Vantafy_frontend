@@ -13,7 +13,7 @@ import WhatWeDo from "@/components/HomeComponent/WhatWeDo";
 const Home = () => {
   return (
     <div>
-      <div className="bg-linear-to-b from-sky-300 to-50% to-transparent">
+      <div className="bg-linear-to-b from-sky-300 to-50% to-transparent relative -top-10 sm:static">
         <Hero />
       </div>
 
