@@ -92,7 +92,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
           )}
         </div>
 
-        <DialogContent className="sm:max-w-5xl max-h-[90vh] flex flex-col overflow-hidden">
+        <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
           <DialogHeader>
             <DialogTitle>Submitted Links</DialogTitle>
           </DialogHeader>
