@@ -91,7 +91,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
           )}
         </div>
 
-        <DialogContent className="sm:max-w-5xl h-[90vh] flex flex-col">
+        <DialogContent className="sm:max-w-5xl max-h-[90vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>Submitted Links</DialogTitle>
           </DialogHeader>
@@ -112,7 +112,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
           rows={6}
           value={urlsText}
           onChange={(e) => setUrlsText(e.target.value)}
-          className="w-full border border-[#EEEDF0] rounded-[12px] focus:border-primary outline-0 px-3 sm:px-5 py-2 sm:py-4 grow min-h-0 text-sm sm:text-base"
+          className="w-full border border-[#EEEDF0] rounded-[12px] focus:border-primary outline-0 px-3 sm:px-5 py-2 sm:py-4 grow min-h-0"
           placeholder="Paste the URLs of the leaked content here (one link per line)..."
         ></textarea>
         <p className="text-[10px] sm:text-xs text-[#4A4A4A] my-3">
