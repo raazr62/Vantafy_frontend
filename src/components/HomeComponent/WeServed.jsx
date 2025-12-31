@@ -8,7 +8,7 @@ const WeServed = () => {
   return (
     <CommonContainer id="we-served">
       <CommonTitle title={"We Served"} />
-      <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] xl:w-9/10 py-4 px-6 rounded-[30px] mt-8 border border-[#AD46FF] grid grid-cols-2 sm:grid-cols-6 items-center gap-3 xl:gap-6">
+      <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] xl:w-9/10 py-4 px-6 rounded-[30px] mt-10 sm:mt-12 lg:mt-15 border border-[#AD46FF] grid grid-cols-2 sm:grid-cols-6 items-center gap-3 xl:gap-6">
         <p className="text-sm lg:text-base font-bold text-center col-span-2 sm:col-span-1">
           Numbers
           <br className="hidden sm:block" /> Matters

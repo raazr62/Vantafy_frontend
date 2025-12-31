@@ -7,7 +7,7 @@ const IdentityTracking = () => {
   return (
     <CommonContainer>
       <CommonTitle title="Identity Tracking" />
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 px-4 xl:px-0 mt-8">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 px-4 xl:px-0 mt-10 sm:mt-12 lg:mt-15">
         {/* Image */}
         <div className="relative rounded-[12px] flex-1">
           <img

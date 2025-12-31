@@ -9,7 +9,7 @@ import Logo from "@/shared/LandingShared/Logo";
 export default function DashboardLayout() {
   const [sheetOpen, setSheetOpen] = useState(false);
   return (
-    <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen min-h-svh flex flex-col xl:flex-row">
+    <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row">
       <div className="hidden xl:block">
         <Sidebar />
       </div>
@@ -31,11 +31,14 @@ export default function DashboardLayout() {
         </div>
 
         <SheetContent side="left" className="p-0 w-60 md:pt-10 border-none">
-          <Sidebar closeSheet={() => setSheetOpen(false)} />
+          <Sidebar
+            setSheetOpen={setSheetOpen}
+            closeSheet={() => setSheetOpen(false)}
+          />
         </SheetContent>
       </Sheet>
 
-      <div className="px-2 lg:px-5 w-full flex-1 flex flex-col min-h-0 lg:max-h-[calc(100vh-80px)] xl:max-h-full mt-17 xl:mt-0">
+      <div className="px-2 lg:px-5 w-full flex-1 flex flex-col min-h-0 lg:max-h-[calc(100vh-80px)] xl:max-h-full mt-14 xl:mt-0 overflow-y-auto xl:overflow-visible">
         <Outlet />
       </div>
     </div>

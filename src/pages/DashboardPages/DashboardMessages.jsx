@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function DashboardMessages() {
   const [currentUserId, setCurrentUserId] = useState();
   return (
-    <div className="grow min-h-0 bg-white rounded-2xl flex">
+    <div className="grow h-full bg-white rounded-2xl flex overflow-hidden">
       {/* Sidebar */}
       <MessageSidebar
         currentUserId={currentUserId}

@@ -35,7 +35,7 @@ const StageNamesAdd = () => {
           type="text"
           name="stageName"
           placeholder="Enter Stage Name"
-          className="text-sm sm:text-base bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
+          className="bg-gray-100 w-full py-2.5 px-4 rounded-xl outline-none border border-transparent focus:border-sky-500"
         />
 
         <br />

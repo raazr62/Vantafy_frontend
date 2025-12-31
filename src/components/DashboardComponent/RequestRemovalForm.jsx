@@ -47,7 +47,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
   };
 
   return (
-    <div className="bg-white p-3 sm:p-6 rounded-2xl min-h-0 grow flex flex-col gap-5">
+    <div className="bg-white p-3 sm:p-6 rounded-2xl lg:min-h-0 grow flex flex-col-reverse lg:flex-col gap-5">
       {/* Info And Feature */}
       <div
         className="border-[0.952px] border-[rgba(0,0,0,0)]
@@ -106,7 +106,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
       </Dialog>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="grow min-h-0 flex flex-col">
+      <form onSubmit={handleSubmit} className="grow lg:min-h-0 flex flex-col">
         <textarea
           name="urls"
           rows={6}

@@ -187,7 +187,7 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
 
       {filterMessages ? (
         <section
-          className={`flex flex-col overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 relative max-h-[calc(100vh-68px)] lg:max-h-full`}
+          className={`flex flex-col overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 h-full`}
         >
           {/* Header */}
           <ChatHeader
@@ -239,7 +239,7 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
         </section>
       ) : (
         <div
-          className={`flex items-center justify-center overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 ${
+          className={`flex items-center justify-center overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 h-full ${
             !!currentUserId ? "flex" : "hidden sm:flex"
           }`}
         >
