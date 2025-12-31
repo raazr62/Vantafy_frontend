@@ -44,7 +44,7 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
       });
 
     setLinksData((prev) => [...linksArray, ...prev]);
-    e.target.reset();
+    setUrlsText("");
   };
 
   return (
