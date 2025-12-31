@@ -13,9 +13,9 @@ const SubmittedLinksStatus = ({ linksData, setLinksData }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-0 h-full">
+    <div className="flex flex-col min-h-0 flex-1">
       {/* Scrollable Table Wrapper */}
-      <div className="overflow-x-auto flex-1 flex flex-col min-h-0">
+      <div className="overflow-x-auto overflow-y-auto flex-1 flex flex-col min-h-0">
         <table className="min-w-full border-collapse">
           {/* Table Head - Sticky */}
           <thead className="text-xs font-semibold text-gray-600 border-b-2 border-gray-200 bg-white sticky top-0 z-20">
