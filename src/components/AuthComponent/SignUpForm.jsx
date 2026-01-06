@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { IoIosClose } from "react-icons/io";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { useForm } from "react-hook-form";
 
@@ -14,6 +13,7 @@ import {
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
+import { useCreateUser } from "@/hooks/useCreateUser";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -21,6 +21,8 @@ const SignUpForm = () => {
   const [role, setRole] = useState("");
   const [checked, setChecked] = useState(false);
   const [roleError, setRoleError] = useState(false);
+
+  const { mutate: createUser } = useCreateUser();
 
   const {
     register,
@@ -50,8 +52,7 @@ const SignUpForm = () => {
       return;
     }
 
-    toast.success("Signed up successfully!");
-    navigate("/auth/otp-verify", { state: { from: "/auth/signup" } });
+    createUser(data);
   };
 
   const handleGoogleLogin = () => {
