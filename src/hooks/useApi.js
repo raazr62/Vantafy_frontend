@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   GetData,
   PostData,
@@ -10,42 +10,91 @@ import {
 } from "@/api";
 
 /**
- * Hook to use API calls with loading and error states
- * @param {Function} apiFunc - The API function to call (e.g., GetData, PostData)
- * @returns {Object} { execute, data, loading, error }
+ * Generic Hook for fetching data (GET)
+ * @param {Array} queryKey - The Query Key (e.g., ['users', 1])
+ * @param {string} endpoint - The API endpoint
+ * @param {Object} params - Query parameters
+ * @param {Object} options - Approx options for useQuery (enabled, staleTime, etc.)
+ * @returns {UseQueryResult}
  */
-export const useApi = (apiFunc) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  const execute = useCallback(
-    async (...args) => {
-      try {
-        setLoading(true);
-        setError(null);
-        const result = await apiFunc(...args);
-        setData(result);
-        return result;
-      } catch (err) {
-        setError(err);
-        throw err;
-      } finally {
-        setLoading(false);
-      }
-    },
-    [apiFunc]
-  );
-
-  return { execute, data, loading, error };
+export const useFetch = (queryKey, endpoint, params = {}, options = {}) => {
+  return useQuery({
+    queryKey,
+    queryFn: () => GetData(endpoint, params),
+    ...options,
+  });
 };
 
-// --- Specialized Hooks (Optional Shortcuts) ---
+/**
+ * Generic Hook for Mutations (POST, PUT, PATCH, DELETE)
+ * @param {Function} mutationFn - The API function
+ * @param {Object} options - Approx options for useMutation (onSuccess, onError, etc.)
+ * @returns {UseMutationResult}
+ */
+const useGenericMutation = (mutationFn, options = {}) => {
+  const queryClient = useQueryClient();
 
-export const useGet = () => useApi(GetData);
-export const usePost = () => useApi(PostData);
-export const usePut = () => useApi(PutData);
-export const usePatch = () => useApi(PatchData);
-export const useDelete = () => useApi(DeleteData);
-export const useUpload = () => useApi(UploadFile);
-export const usePostForm = () => useApi(PostFormUrlEncoded);
+  return useMutation({
+    mutationFn,
+    ...options,
+    onSuccess: (data, variables, context) => {
+      // Optional: Invalidate queries if provided
+      if (options.invalidateQueries) {
+        queryClient.invalidateQueries({ queryKey: options.invalidateQueries });
+      }
+      if (options.onSuccess) {
+        options.onSuccess(data, variables, context);
+      }
+    },
+  });
+};
+
+// --- Specialized Mutation Hooks ---
+
+export const usePost = (options) =>
+  useGenericMutation(
+    (payload) => PostData(options?.endpoint || "", payload),
+    options
+  );
+export const usePut = (options) =>
+  useGenericMutation(
+    (payload) => PutData(options?.endpoint || "", payload),
+    options
+  );
+export const usePatch = (options) =>
+  useGenericMutation(
+    (payload) => PatchData(options?.endpoint || "", payload),
+    options
+  );
+export const useDelete = (options) =>
+  useGenericMutation(
+    (payload) => DeleteData(options?.endpoint || "", payload),
+    options
+  );
+export const useUpload = (options) =>
+  useGenericMutation(
+    (payload) => UploadFile(options?.endpoint || "", payload),
+    options
+  );
+export const usePostForm = (options) =>
+  useGenericMutation(
+    (payload) => PostFormUrlEncoded(options?.endpoint || "", payload),
+    options
+  );
+
+/* 
+Usage Example:
+  
+  // 1. Fetching
+  const { data, isLoading } = useFetch(['users'], '/users');
+
+  // 2. Creating (Post)
+  const { mutate: createUser } = usePost({
+    endpoint: '/users/create',
+    invalidateQueries: ['users'], 
+    onSuccess: () => console.log("User created!")
+  });
+
+  // Call it: createUser({ name: "John" });
+*/
