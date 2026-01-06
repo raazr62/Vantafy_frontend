@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 export const useCreateUser = () => {
   const navigate = useNavigate();
   return usePost({
-    endpoint: "/users/create",
+    endpoint: "/signup/",
     invalidateQueries: ["register-user"],
     onSuccess: () => {
       toast.success("Signed up successfully!");
