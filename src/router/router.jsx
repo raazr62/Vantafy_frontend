@@ -9,38 +9,44 @@ import ConnectAccounts from "@/pages/ConnectAccounts";
 import RecommendPlan from "@/pages/RecommendPlan";
 import PricingPlan from "@/pages/PricingPlan";
 import { dashboardRoutes } from "./DashboardRoutes";
+import AxiosInterceptor from "@/components/AxiosInterceptor";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <MainLayout />,
-    children: [...generalRoutes],
-  },
-  {
-    path: "/dashboard",
-    element: <DashboardLayout />,
-    children: [...dashboardRoutes],
-  },
-  {
-    path: "/auth",
-    element: <AuthLayout />,
-    children: [...authRoutes],
-  },
-  {
-    path: "/select-niches",
-    element: <SelectNiches />,
-  },
-  {
-    path: "/connect-accounts",
-    element: <ConnectAccounts />,
-  },
-  {
-    path: "/recommend-plan",
-    element: <RecommendPlan />,
-  },
-  {
-    path: "/pricing-plan",
-    element: <PricingPlan />,
+    element: <AxiosInterceptor />,
+    children: [
+      {
+        path: "/",
+        element: <MainLayout />,
+        children: [...generalRoutes],
+      },
+      {
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [...dashboardRoutes],
+      },
+      {
+        path: "/auth",
+        element: <AuthLayout />,
+        children: [...authRoutes],
+      },
+      {
+        path: "/select-niches",
+        element: <SelectNiches />,
+      },
+      {
+        path: "/connect-accounts",
+        element: <ConnectAccounts />,
+      },
+      {
+        path: "/recommend-plan",
+        element: <RecommendPlan />,
+      },
+      {
+        path: "/pricing-plan",
+        element: <PricingPlan />,
+      },
+    ],
   },
 ]);
 

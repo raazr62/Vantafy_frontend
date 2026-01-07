@@ -18,8 +18,14 @@ export const fileUploadApi = axios.create({
 });
 
 // --- Response Interceptors ---
+// --- Response Interceptors ---
 let isRefreshing = false;
 let failedQueue = [];
+let navigateFn = null;
+
+export const setupAxios = (navigate) => {
+  navigateFn = navigate;
+};
 
 const processQueue = (error, token = null) => {
   failedQueue.forEach((prom) => {
@@ -54,7 +60,7 @@ const errorInterceptor = async (error) => {
 
     try {
       // Attempt to refresh the token
-      await baseApi.post("/auth/refresh");
+      await baseApi.post("/token/refresh/");
 
       // If successful, process the queue and retry the original request
       processQueue(null);
@@ -65,8 +71,22 @@ const errorInterceptor = async (error) => {
       isRefreshing = false;
 
       // Auth cookie really expired - Logout user
-      if (typeof window !== "undefined") {
-        window.location.href = "/auth/login";
+      try {
+        await axios.post(
+          `${BASE_URL}/signout/`,
+          {},
+          {
+            withCredentials: true,
+          }
+        );
+      } catch (logoutError) {
+        console.error("Logout failed", logoutError);
+      } finally {
+        if (navigateFn) {
+          navigateFn("/auth/signin");
+        } else if (typeof window !== "undefined") {
+          window.location.href = "/auth/signin";
+        }
       }
       return Promise.reject(refreshError);
     }
