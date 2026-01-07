@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { EmailIconSVG, GoBackArrowSVG } from "../SVG/AuthLayoutSVG";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import OtpInput from "@/shared/AuthShared/OtpInput";
+import { useResendOtp } from "@/hooks/useResendOtp";
+import { useVerifyOtp } from "@/hooks/useVerifyOtp";
 
 const OtpVerifyForm = ({ fromPage }) => {
-  const navigate = useNavigate();
   const [otp, setOtp] = useState(null);
   const [timeLeft, setTimeLeft] = useState(60);
   const [canResend, setCanResend] = useState(false);
-
+  const { mutate: resendOtp } = useResendOtp();
+  const { mutate: verifyOtp } = useVerifyOtp(fromPage);
   React.useEffect(() => {
     if (timeLeft <= 0) {
       setCanResend(true);
@@ -30,8 +32,12 @@ const OtpVerifyForm = ({ fromPage }) => {
     setTimeLeft(60);
     setCanResend(false);
 
-    // Resend API will be call here
-    toast.success("OTP resent.");
+    const resendData = {
+      email: localStorage.getItem("email"),
+      purpose: localStorage.getItem("purpose"),
+    };
+
+    resendOtp(resendData);
   };
 
   const handleOtpVerify = (e) => {
@@ -41,10 +47,13 @@ const OtpVerifyForm = ({ fromPage }) => {
       toast.error("Please enter the 6-digit OTP.");
       return;
     }
-    toast.success("OTP Verified Successfully.");
-    fromPage === "/auth/reset-password"
-      ? navigate("/auth/change-password")
-      : navigate("/auth/success", { state: { from: "/auth/signup" } });
+    const verifyOtpData = {
+      email: localStorage.getItem("email"),
+      purpose: localStorage.getItem("purpose"),
+      otp: otp.toString(),
+    };
+
+    verifyOtp(verifyOtpData);
   };
 
   return (
@@ -92,12 +101,12 @@ const OtpVerifyForm = ({ fromPage }) => {
           ) : (
             <p>
               Didn't receive the code?{" "}
-              <span
+              <button
                 onClick={handleResend}
                 className="text-xs sm:text-sm text-blue-500 hover:underline cursor-pointer"
               >
                 Resend code
-              </span>
+              </button>
             </p>
           )}
         </div>

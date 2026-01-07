@@ -29,12 +29,14 @@ const SignUpForm = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
   } = useForm({
     defaultValues: {
       fullName: "",
       email: "",
       password: "",
       confirmPassword: "",
+      purpose: "account_create",
     },
   });
 
@@ -51,7 +53,7 @@ const SignUpForm = () => {
       toast.error("You must agree to Terms & Condition");
       return;
     }
-
+    setValue("purpose", "account_create");
     createUser(data);
   };
 
