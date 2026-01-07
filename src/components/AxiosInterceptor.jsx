@@ -12,7 +12,7 @@ const AxiosInterceptor = () => {
   }, [navigate]);
 
   if (!isSet) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return <Outlet />;
