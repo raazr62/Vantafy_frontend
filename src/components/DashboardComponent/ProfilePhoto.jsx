@@ -1,9 +1,10 @@
 import { Camera } from "lucide-react";
 import React, { useRef, useState } from "react";
-import toast from "react-hot-toast";
+import { useUpdateAvatar } from "@/hooks/useUpdateAvatar";
 
 const ProfilePhoto = () => {
   const fileInputRef = useRef(null);
+  const { mutate: updateAvatar, isPending } = useUpdateAvatar();
 
   // Store the preview
   const [avatar, setAvatar] = useState("https://i.pravatar.cc/");
@@ -28,9 +29,10 @@ const ProfilePhoto = () => {
   };
 
   const handleProfileUpload = (file) => {
-    console.log("Uploading file:", file);
-    // Your upload logic goes here...
-    toast.success("Photo uploaded successfully");
+    const formData = new FormData();
+    formData.append("avatar", file);
+
+    updateAvatar(formData);
   };
 
   return (
@@ -68,10 +70,11 @@ const ProfilePhoto = () => {
         </p>
 
         <button
-          className="rounded-xl px-2 sm:px-2.5 py-1 sm:py-2 bg-[#35A9FF] text-white text-sm font-medium sm:font-semibold cursor-pointer"
+          className="rounded-xl px-2 sm:px-2.5 py-1 sm:py-2 bg-[#35A9FF] text-white text-sm font-medium sm:font-semibold cursor-pointer disabled:opacity-50"
           onClick={triggerFileInput}
+          disabled={isPending}
         >
-          Upload New Photo
+          {isPending ? "Uploading..." : "Upload New Photo"}
         </button>
       </div>
     </div>

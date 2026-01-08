@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { IoIosClose } from "react-icons/io";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 
 import {
@@ -13,10 +12,13 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import { useSignIn } from "@/hooks/useSignIn";
 
 const SignInForm = () => {
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
+
+  const { mutate: signIn } = useSignIn();
 
   const {
     register,
@@ -25,9 +27,7 @@ const SignInForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    toast.success("Signed in successfully!");
-    navigate("/select-niches");
+    signIn(data);
   };
 
   const handleGoogleLogin = () => {
