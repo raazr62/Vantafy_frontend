@@ -9,7 +9,7 @@ export const useCreateUser = () => {
     invalidateQueries: ["register-user"],
     onSuccess: ({ data }) => {
       localStorage.setItem("email", data.email);
-      localStorage.setItem("purpose", "create-account");
+      localStorage.setItem("purpose", "account_create");
       toast.success("Signed up successfully!");
       navigate("/auth/otp-verify", { state: { from: "/auth/signup" } });
     },

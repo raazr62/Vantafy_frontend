@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
 
 export const useVerifyOtp = ({ fromPage }) => {
+  console.log(fromPage);
   const navigate = useNavigate();
   return usePost({
     endpoint: "/verify-otp/",

@@ -1,12 +1,13 @@
 import React from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { EmailIconSVG, GoBackArrowSVG } from "../SVG/AuthLayoutSVG";
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
+import { useSendOtp } from "@/hooks/useSendOtp";
 
 const ResetPasswordForm = () => {
-  const navigate = useNavigate();
+  const { mutate: sendOtp } = useSendOtp();
   const handleResetPassword = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -17,11 +18,7 @@ const ResetPasswordForm = () => {
     }
     // Reset Password Logic
     else {
-      toast.success(
-        "We've emailed you a verification code to reset your password."
-      );
-      e.target.reset();
-      navigate("/auth/otp-verify", { state: { from: "/auth/reset-password" } });
+      sendOtp({ email, purpose: "password_reset" });
     }
   };
   return (
