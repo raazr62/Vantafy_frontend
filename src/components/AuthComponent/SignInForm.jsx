@@ -13,11 +13,11 @@ import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { useSignIn } from "@/hooks/useSignIn";
+import { useGoogleLoginHook } from "@/hooks/useGoogleLoginHook";
 
 const SignInForm = () => {
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate();
-
+  const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook();
   const { mutate: signIn } = useSignIn();
 
   const {
@@ -31,8 +31,7 @@ const SignInForm = () => {
   };
 
   const handleGoogleLogin = () => {
-    toast.success("Signed in successfully with Google!");
-    navigate("/select-niches");
+    googleLogin();
   };
 
   return (
@@ -145,10 +144,13 @@ const SignInForm = () => {
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-xs sm:text-sm font-medium flex items-center pl-5"
+            disabled={isGoogleLoading}
+            className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-xs sm:text-sm font-medium flex items-center pl-5 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <GoogleAuthSVG className="w-4.5 h-4.5" />
-            <span className="w-full text-center">Sign in with Google</span>
+            <span className="w-full text-center">
+              {isGoogleLoading ? "Signing in..." : "Sign in with Google"}
+            </span>
           </button>
 
           {/* Sign Up redirect */}
