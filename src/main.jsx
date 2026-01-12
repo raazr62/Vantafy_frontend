@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 import { RouterProvider } from "react-router";
 import ReactDOM from "react-dom/client";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const queryClient = new QueryClient();
 const root = document.getElementById("root");
@@ -17,7 +18,9 @@ ReactDOM.createRoot(root).render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <Toaster position="top-center" reverseOrder={false} />
-        <RouterProvider router={router} />
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+          <RouterProvider router={router} />
+        </GoogleOAuthProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </Provider>
     </QueryClientProvider>

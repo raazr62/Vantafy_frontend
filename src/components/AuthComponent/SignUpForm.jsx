@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { useForm } from "react-hook-form";
 
@@ -14,14 +14,13 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import { useCreateUser } from "@/hooks/useCreateUser";
+import { useGoogleLoginHook } from "@/hooks/useGoogleLoginHook";
 
 const SignUpForm = () => {
-  const navigate = useNavigate();
-
   const [role, setRole] = useState("");
   const [checked, setChecked] = useState(false);
   const [roleError, setRoleError] = useState(false);
-
+  const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook(role);
   const { mutate: createUser } = useCreateUser();
 
   const {
@@ -58,8 +57,11 @@ const SignUpForm = () => {
   };
 
   const handleGoogleLogin = () => {
-    toast.success("Signed up successfully with Google!");
-    navigate("/select-niches");
+    if (!role) {
+      toast.error("Please select your role");
+      return;
+    }
+    googleLogin();
   };
 
   return (
@@ -228,10 +230,13 @@ const SignUpForm = () => {
           {/* Google Auth */}
           <button
             onClick={handleGoogleLogin}
-            className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-xs sm:text-sm font-medium flex items-center pl-5"
+            disabled={isGoogleLoading}
+            className="w-full mt-4 mb-8 py-4 border border-purple-500 rounded-xl cursor-pointer text-xs sm:text-sm font-medium flex items-center pl-5 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <GoogleAuthSVG className="w-4.5 h-4.5" />
-            <span className="w-full text-center">Sign up with Google</span>
+            <span className="w-full text-center">
+              {isGoogleLoading ? "Signing in..." : "Sign up with Google"}
+            </span>
           </button>
 
           {/* Login Link */}
