@@ -89,10 +89,10 @@ const Footer = () => {
 
         {/* Social Links */}
         <div className="flex items-center gap-4 sm:gap-6">
-          <Link target="_blank" to={"https://facebook.com/"}>
+          <Link target="_blank" to={"https://www.facebook.com/"}>
             <img src={LocalImages.Facebook} alt="Facebook Logo" />
           </Link>
-          <Link target="_blank" to={"https://x.com/"}>
+          <Link target="_blank" to={"https://www.x.com/"}>
             <img src={LocalImages.Twitter} alt="X Logo" />
           </Link>
           <Link target="_blank" to={"https://www.instagram.com/"}>
