@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router";
+import { createBrowserRouter } from "react-router";
 import MainLayout from "@/layout/MainLayout";
 import AuthLayout from "@/layout/AuthLayout";
 import DashboardLayout from "@/layout/DashboardLayout";
@@ -10,6 +10,7 @@ import RecommendPlan from "@/pages/RecommendPlan";
 import PricingPlan from "@/pages/PricingPlan";
 import { dashboardRoutes } from "./DashboardRoutes";
 import AxiosInterceptor from "@/components/AxiosInterceptor";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <DashboardLayout />,
+        element: (
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        ),
         children: [...dashboardRoutes],
       },
       {
@@ -32,19 +37,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/select-niches",
-        element: <SelectNiches />,
+        element: (
+          <ProtectedRoute>
+            <SelectNiches />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/connect-accounts",
-        element: <ConnectAccounts />,
+        element: (
+          <ProtectedRoute>
+            <ConnectAccounts />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/recommend-plan",
-        element: <RecommendPlan />,
+        element: (
+          <ProtectedRoute>
+            <RecommendPlan />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/pricing-plan",
-        element: <PricingPlan />,
+        element: (
+          <ProtectedRoute>
+            <PricingPlan />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

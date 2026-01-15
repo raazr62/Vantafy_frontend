@@ -18,7 +18,6 @@ import { useGoogleLoginHook } from "@/hooks/useGoogleLoginHook";
 
 const SignUpForm = () => {
   const [role, setRole] = useState("");
-  const [checked, setChecked] = useState(false);
   const [roleError, setRoleError] = useState(false);
   const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook(role);
   const { mutate: createUser } = useCreateUser();
@@ -36,10 +35,13 @@ const SignUpForm = () => {
       password: "",
       confirmPassword: "",
       purpose: "account_create",
+      role: "",
+      term_and_condition_accepted: false,
     },
   });
 
   const password = watch("password");
+  const termAccepted = watch("term_and_condition_accepted");
 
   const onSubmit = (data) => {
     if (!role) {
@@ -48,12 +50,12 @@ const SignUpForm = () => {
       return;
     }
 
-    if (!checked) {
+    if (!termAccepted) {
       toast.error("You must agree to Terms & Condition");
       return;
     }
-    setValue("purpose", "account_create");
-    createUser(data);
+
+    createUser({ ...data, role });
   };
 
   const handleGoogleLogin = () => {
@@ -91,13 +93,14 @@ const SignUpForm = () => {
               {/* Agency Owner */}
               <div
                 onClick={() => {
-                  setRole("Agency Owner");
+                  setRole("agency");
+                  setValue("role", "agency");
                   setRoleError(false);
                 }}
                 className="border border-sky-500 rounded-xl py-3 sm:py-4 w-full flex items-center justify-center gap-1.5 sm:gap-2.5 cursor-pointer"
               >
                 <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-sky-500 flex items-center justify-center">
-                  {role === "Agency Owner" && (
+                  {role === "agency" && (
                     <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
                   )}
                 </div>
@@ -107,13 +110,14 @@ const SignUpForm = () => {
               {/* Customer */}
               <div
                 onClick={() => {
-                  setRole("Customer");
+                  setRole("customer");
+                  setValue("role", "customer");
                   setRoleError(false);
                 }}
                 className="border border-sky-500 rounded-xl py-3 sm:py-4 w-full flex items-center justify-center gap-1.5 sm:gap-2.5 cursor-pointer"
               >
                 <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-sky-500 flex items-center justify-center">
-                  {role === "Customer" && (
+                  {role === "customer" && (
                     <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
                   )}
                 </div>
@@ -195,10 +199,12 @@ const SignUpForm = () => {
               <input
                 type="checkbox"
                 className="sr-only"
-                checked={checked}
-                onChange={(e) => setChecked(e.target.checked)}
+                checked={termAccepted}
+                onChange={(e) =>
+                  setValue("term_and_condition_accepted", e.target.checked)
+                }
               />
-              {checked ? (
+              {termAccepted ? (
                 <ImCheckboxChecked className="text-sky-500 text-sm sm:text-base" />
               ) : (
                 <ImCheckboxUnchecked className="text-sky-500 text-sm sm:text-base" />

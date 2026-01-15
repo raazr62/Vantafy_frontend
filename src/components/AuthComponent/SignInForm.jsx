@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import React from "react";
+import { Link } from "react-router";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 
 import {
@@ -10,13 +10,11 @@ import {
 } from "../SVG/AuthLayoutSVG";
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
-import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { useSignIn } from "@/hooks/useSignIn";
 import { useGoogleLoginHook } from "@/hooks/useGoogleLoginHook";
 
 const SignInForm = () => {
-  const [checked, setChecked] = useState(false);
   const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook();
   const { mutate: signIn } = useSignIn();
 
@@ -24,7 +22,17 @@ const SignInForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    setValue,
+    watch,
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+      remember_me: false,
+    },
+  });
+
+  const rememberMe = watch("remember_me");
 
   const onSubmit = (data) => {
     signIn(data);
@@ -99,10 +107,11 @@ const SignInForm = () => {
                 <input
                   type="checkbox"
                   className="hidden"
-                  onChange={(e) => setChecked(e.target.checked)}
+                  checked={rememberMe}
+                  onChange={(e) => setValue("remember_me", e.target.checked)}
                 />
 
-                {checked ? (
+                {rememberMe ? (
                   <ImCheckboxChecked className="text-sky-500 text-sm sm:text-base" />
                 ) : (
                   <ImCheckboxUnchecked className="text-sky-500 text-sm sm:text-base" />

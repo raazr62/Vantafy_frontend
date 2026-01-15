@@ -1,0 +1,36 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  user: null,
+  isAuthenticated: false,
+  isLoading: true, // Start as true to prevent flash of login page
+};
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload;
+      state.isAuthenticated = true;
+      state.isLoading = false;
+    },
+    clearUser: (state) => {
+      state.user = null;
+      state.isAuthenticated = false;
+      state.isLoading = false;
+    },
+    setAuthLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
+  },
+});
+
+export const { setUser, clearUser, setAuthLoading } = authSlice.actions;
+
+// Selectors
+export const selectUser = (state) => state.auth.user;
+export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
+export const selectAuthLoading = (state) => state.auth.isLoading;
+
+export default authSlice.reducer;
