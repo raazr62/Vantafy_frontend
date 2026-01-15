@@ -1,18 +1,27 @@
 import { usePost } from "./useApi";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/Redux/slices/authSlice";
 
 export const useSignIn = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   return usePost({
     endpoint: "/signin/",
-    invalidateQueries: ["sign-in-user"],
-    onSuccess: () => {
-      toast.success("Signed in successfully!");
+    invalidateQueries: ["verify-token"], // Invalidate the verify token query
+    onSuccess: (data) => {
+      // Store user data in Redux
+      // Backend returns: { success: true, message: "...", data: { id, email, role } }
+      if (data.success && data.data) {
+        dispatch(setUser(data.data));
+      }
+      toast.success(data.message || "Signed in successfully!");
       navigate("/select-niches");
     },
-    onError: () => {
-      toast.error("Something went wrong!");
+    onError: (error) => {
+      toast.error(error?.response?.data?.message || "Something went wrong!");
     },
   });
 };
