@@ -10,12 +10,21 @@ import ReviewSection from "@/components/HomeComponent/ReviewSection";
 import WeServed from "@/components/HomeComponent/WeServed";
 import WhatWeDo from "@/components/HomeComponent/WhatWeDo";
 import { useLandingPage } from "@/hooks/useLandingPage";
+import { Atom } from "react-loading-indicators";
 
 const Home = () => {
   const { data, isLoading, isError } = useLandingPage();
 
   if (isLoading) {
-    return <div className="text-center py-20">Loading...</div>; // Simple loading state, can be improved
+    return (
+      <div
+        className={
+          "fixed top-0 left-0 bg-white/90 backdrop-blur-2xl w-svw h-svh z-50 flex items-center justify-center"
+        }
+      >
+        <Atom color="#FF1BE4" size="large" text="Vantafy" textColor="#FF1BE4" />
+      </div>
+    );
   }
 
   if (isError) {
@@ -26,7 +35,7 @@ const Home = () => {
     hero_section,
     customers,
     faqs,
-    hero_radar_icons = [], // Default to empty array to prevent map error in Radar
+    hero_radar_icons = [],
     how_it_works,
     identity_tracking,
     platforms,
