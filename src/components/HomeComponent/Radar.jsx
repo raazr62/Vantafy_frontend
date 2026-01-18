@@ -1,24 +1,26 @@
-import { motion, useAnimationFrame } from "framer-motion";
-import { useState } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
+import { useMemo } from "react";
 import { LocalImages } from "../AllPhotos/HomeLocalImages";
 
-export default function Radar() {
-  const [rotation, setRotation] = useState(0);
+export default function Radar({ hero_radar_icons }) {
+  // Use motion value instead of state to avoid re-renders
+  const rotation = useMotionValue(0);
 
-  const radarLogos = [
-    { id: 1, image: LocalImages.chaturbateOnlyLogo, alt: "Chaturbate Logo" },
-    { id: 2, image: LocalImages.facebookOnlyLogo, alt: "Facebook Logo" },
-    { id: 3, image: LocalImages.instagramOnlyLogo, alt: "Instagram Logo" },
-    { id: 4, image: LocalImages.twitterLogoOnlyLogo, alt: "Twitter Logo" },
-    { id: 5, image: LocalImages.vKLogoOnlyLogo, alt: "VK Logo" },
-    { id: 6, image: LocalImages.bangOnlyLogo, alt: "Bang Logo" },
-    { id: 7, image: LocalImages.chaturbateOnlyLogo, alt: "Chaturbate Logo" },
-    { id: 8, image: LocalImages.hamsterOnlyLogo, alt: "Hamster Logo" },
-    { id: 9, image: LocalImages.onlyfansOnlyLogo, alt: "OnlyFans Logo" },
-    { id: 10, image: LocalImages.fanvueLogoOnlyLogo, alt: "Fanvue Logo" },
-    { id: 11, image: LocalImages.fanslyOnlyLogo, alt: "Fansly Logo" },
-    { id: 12, image: LocalImages.porOnlyLogo, alt: "Por Logo" },
-  ];
+  // Memoize radarLogos to prevent recreating on every render
+  const radarLogos = useMemo(
+    () =>
+      hero_radar_icons.map((logo, index) => ({
+        id: index + 1,
+        image: logo,
+        alt: `Logo ${index + 1}`,
+      })),
+    [hero_radar_icons],
+  );
 
   const dots = [
     { x: "30%", y: "75%" },
@@ -34,9 +36,10 @@ export default function Radar() {
   // Spinner rotation offset
   const SCANNER_OFFSET = -80;
 
+  // Update motion value directly - no re-renders!
   useAnimationFrame((t) => {
     const angle = (t / 2500) * 360;
-    setRotation(angle % 360);
+    rotation.set(angle % 360);
   });
 
   const getDotAngle = (x, y) => {
@@ -48,19 +51,20 @@ export default function Radar() {
   };
 
   // Calculate logo positions in a circle
-  // const radius = 170;
-  // const center = { x: 155, y: 150 };
   const radius = 215;
   const center = { x: 200, y: 200 };
 
-  const logoPositions = radarLogos.map((logo, index) => {
-    const angle = (index / radarLogos.length) * 2 * Math.PI;
-
-    const x = center.x + radius * Math.cos(angle);
-    const y = center.y + radius * Math.sin(angle);
-
-    return { ...logo, x, y };
-  });
+  // Memoize logo positions to prevent recreating on every render
+  const logoPositions = useMemo(
+    () =>
+      radarLogos.map((logo, index) => {
+        const angle = (index / radarLogos.length) * 2 * Math.PI;
+        const x = center.x + radius * Math.cos(angle);
+        const y = center.y + radius * Math.sin(angle);
+        return { ...logo, x, y };
+      }),
+    [radarLogos],
+  );
 
   return (
     <div className="lg:p-10">
@@ -84,26 +88,30 @@ export default function Radar() {
           alt="Radar Spinner"
         />
 
-        {/* Dots */}
+        {/* Dots - using motion value for rotation */}
         {dots.map((dot, i) => {
-          const angle = getDotAngle(dot.x, dot.y);
-          const scannerAngle = (rotation + SCANNER_OFFSET + 360) % 360;
-          const fadeIn = Math.abs(scannerAngle - angle) < 20;
+          const dotAngle = getDotAngle(dot.x, dot.y);
 
           return (
             <motion.div
               key={i}
-              animate={{
-                opacity: fadeIn ? 1 : 0,
-                scale: fadeIn ? 1.6 : 1,
-              }}
-              transition={{ duration: 0.4 }}
-              className="absolute w-1.5 h-1.5 bg-purple-600 rounded-full shadow-lg shadow-purple-400/40"
               style={{
                 left: dot.x,
                 top: dot.y,
                 zIndex: 20,
+                opacity: useTransform(rotation, (r) => {
+                  const scannerAngle = (r + SCANNER_OFFSET + 360) % 360;
+                  const fadeIn = Math.abs(scannerAngle - dotAngle) < 20;
+                  return fadeIn ? 1 : 0;
+                }),
+                scale: useTransform(rotation, (r) => {
+                  const scannerAngle = (r + SCANNER_OFFSET + 360) % 360;
+                  const fadeIn = Math.abs(scannerAngle - dotAngle) < 20;
+                  return fadeIn ? 1.6 : 1;
+                }),
               }}
+              transition={{ duration: 0.4 }}
+              className="absolute w-1.5 h-1.5 bg-purple-600 rounded-full shadow-lg shadow-purple-400/40"
             />
           );
         })}
@@ -112,7 +120,7 @@ export default function Radar() {
         {logoPositions.map((logo) => (
           <motion.img
             key={logo.id}
-            src={logo.image}
+            src={import.meta.env.VITE_IMAGE_URL + logo.image}
             alt={logo.alt}
             className="absolute w-8"
             style={{
