@@ -9,34 +9,56 @@ import RepresentPlatform from "@/components/HomeComponent/RepresentPlatform";
 import ReviewSection from "@/components/HomeComponent/ReviewSection";
 import WeServed from "@/components/HomeComponent/WeServed";
 import WhatWeDo from "@/components/HomeComponent/WhatWeDo";
+import { useLandingPage } from "@/hooks/useLandingPage";
 
 const Home = () => {
+  const { data, isLoading, isError } = useLandingPage();
+
+  if (isLoading) {
+    return <div className="text-center py-20">Loading...</div>; // Simple loading state, can be improved
+  }
+
+  if (isError) {
+    return <div className="text-center py-20">Something went wrong.</div>;
+  }
+
+  const {
+    hero_section,
+    customers,
+    faqs,
+    hero_radar_icons = [], // Default to empty array to prevent map error in Radar
+    how_it_works,
+    identity_tracking,
+    platforms,
+    testimonials,
+  } = data?.data || {};
+
   return (
     <div>
       <div className="bg-linear-to-b from-sky-300 to-50% to-transparent relative -top-10 sm:static">
-        <Hero />
+        <Hero hero_radar_icons={hero_radar_icons} hero_section={hero_section} />
       </div>
 
       {/* Represent Platform */}
-      <RepresentPlatform />
+      <RepresentPlatform platforms={platforms} />
 
       {/* AmongOurCustomer */}
-      <AmongOurCustomer />
+      <AmongOurCustomer customers={customers} />
 
       {/* What We Do */}
       <WhatWeDo />
 
       {/* Review Section */}
-      <ReviewSection />
+      <ReviewSection testimonials={testimonials} />
 
       {/* We Served */}
       <WeServed />
 
       {/* How It Works */}
-      <HowItWorks />
+      <HowItWorks how_it_works={how_it_works} />
 
       {/* Identity Tracking */}
-      <IdentityTracking />
+      <IdentityTracking identity_tracking={identity_tracking} />
 
       {/* Pricing & Plans */}
       <PricingAndPlans />
@@ -45,7 +67,7 @@ const Home = () => {
       <Device />
 
       {/* FAQ */}
-      <FAQ />
+      <FAQ faqs={faqs} />
     </div>
   );
 };
