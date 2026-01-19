@@ -9,7 +9,7 @@ const AmongOurCustomerCarousel = ({ customers }) => {
       {/* <div className="absolute left-0 top-0 h-full w-40 sm:w-45 lg:w-50 z-10 pointer-events-none bg-linear-to-r from-white via-white/40 to-transparent" /> */}
 
       <Marquee pauseOnHover={true} speed={50} gradient={false}>
-        {customers.map((customer) => (
+        {(customers || []).map((customer) => (
           <div
             key={customer.id}
             className="relative min-w-[250px] md:min-w-[280px] xl:min-w-[348px] rounded-2xl mx-1 sm:mx-1.5 lg:mx-2.5"
