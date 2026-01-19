@@ -3,7 +3,7 @@ import {
   useAnimationFrame,
   useMotionValue,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useMemo } from "react";
 import { LocalImages } from "../AllPhotos/HomeLocalImages";
 

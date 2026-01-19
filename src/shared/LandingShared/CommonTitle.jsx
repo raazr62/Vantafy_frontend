@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const CommonTitle = ({ title, className = "border-primary" }) => {
   return (
@@ -22,7 +22,7 @@ const CommonTitle = ({ title, className = "border-primary" }) => {
       <div
         className={cn(
           "md:text-lg font-semibold sm:font-bold py-1.5 sm:py-2.5 px-2 md:px-4.5 border-[0.5px] sm:border rounded-[70px] text-center",
-          className
+          className,
         )}
       >
         {title}
