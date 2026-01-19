@@ -1,5 +1,5 @@
 import { FAQMockData } from "@/lib/HomeMockData";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   Accordion,
   AccordionContent,

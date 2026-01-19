@@ -3,11 +3,11 @@ import React from "react";
 import AmongOurCustomerCarousel from "./AmongOurCustomerCarousel";
 import CommonContainer from "@/shared/LandingShared/CommonContainer";
 
-const AmongOurCustomer = () => {
+const AmongOurCustomer = ({ customers }) => {
   return (
     <CommonContainer className={"w-full"}>
       <CommonTitle className="border-[#8133F1]" title={"Among our customer"} />
-      <AmongOurCustomerCarousel />
+      <AmongOurCustomerCarousel customers={customers} />
     </CommonContainer>
   );
 };

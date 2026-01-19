@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   GetData,
+  GetPublicData,
   PostData,
   PutData,
   PatchData,
@@ -22,6 +23,28 @@ export const useFetch = (queryKey, endpoint, params = {}, options = {}) => {
   return useQuery({
     queryKey,
     queryFn: () => GetData(endpoint, params),
+    ...options,
+  });
+};
+
+/**
+ * Generic Hook for fetching PUBLIC data (GET without credentials)
+ * Use this for public endpoints that don't require authentication
+ * @param {Array} queryKey - The Query Key (e.g., ['landing-page'])
+ * @param {string} endpoint - The API endpoint
+ * @param {Object} params - Query parameters
+ * @param {Object} options - Approx options for useQuery (enabled, staleTime, etc.)
+ * @returns {UseQueryResult}
+ */
+export const usePublicFetch = (
+  queryKey,
+  endpoint,
+  params = {},
+  options = {},
+) => {
+  return useQuery({
+    queryKey,
+    queryFn: () => GetPublicData(endpoint, params),
     ...options,
   });
 };
@@ -55,32 +78,32 @@ const useGenericMutation = (mutationFn, options = {}) => {
 export const usePost = (options) =>
   useGenericMutation(
     (payload) => PostData(options?.endpoint || "", payload),
-    options
+    options,
   );
 export const usePut = (options) =>
   useGenericMutation(
     (payload) => PutData(options?.endpoint || "", payload),
-    options
+    options,
   );
 export const usePatch = (options) =>
   useGenericMutation(
     (payload) => PatchData(options?.endpoint || "", payload),
-    options
+    options,
   );
 export const useDelete = (options) =>
   useGenericMutation(
     (payload) => DeleteData(options?.endpoint || "", payload),
-    options
+    options,
   );
 export const useUpload = (options) =>
   useGenericMutation(
     (payload) => UploadFile(options?.endpoint || "", payload),
-    options
+    options,
   );
 export const usePostForm = (options) =>
   useGenericMutation(
     (payload) => PostFormUrlEncoded(options?.endpoint || "", payload),
-    options
+    options,
   );
 
 /* 

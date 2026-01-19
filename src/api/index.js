@@ -6,6 +6,15 @@ export const GetData = async (endpoint, params = {}) => {
   return response.data;
 };
 
+// --- Public GET (without credentials) ---
+export const GetPublicData = async (endpoint, params = {}) => {
+  const response = await baseApi.get(endpoint, {
+    params,
+    withCredentials: false, // Override the default withCredentials: true for public endpoints
+  });
+  return response.data;
+};
+
 // --- Generic POST ---
 export const PostData = async (endpoint, payload) => {
   const response = await baseApi.post(endpoint, payload);

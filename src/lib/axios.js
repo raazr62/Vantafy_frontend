@@ -9,12 +9,16 @@ export const baseApi = axios.create({
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
+    "X-Client-Type": "web",
   },
 });
 
 export const fileUploadApi = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
+  headers: {
+    "X-Client-Type": "web",
+  },
 });
 
 // --- Response Interceptors ---
@@ -77,7 +81,7 @@ const errorInterceptor = async (error) => {
           {},
           {
             withCredentials: true,
-          }
+          },
         );
       } catch (logoutError) {
         console.error("Logout failed", logoutError);
@@ -98,5 +102,5 @@ const errorInterceptor = async (error) => {
 baseApi.interceptors.response.use((response) => response, errorInterceptor);
 fileUploadApi.interceptors.response.use(
   (response) => response,
-  errorInterceptor
+  errorInterceptor,
 );

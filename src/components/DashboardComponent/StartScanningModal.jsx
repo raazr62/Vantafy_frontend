@@ -6,7 +6,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import toast from "react-hot-toast";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const StartScanningModal = ({ setActiveDialog }) => {
   const [progress, setProgress] = useState(0);
