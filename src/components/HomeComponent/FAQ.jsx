@@ -11,7 +11,7 @@ import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import React from "react";
 import { LocalImages } from "../AllPhotos/HomeLocalImages";
 
-const FAQ = () => {
+const FAQ = ({ faqs }) => {
   const formatNumber = (num) => (num < 9 ? `0${num + 1}` : `${num + 1}`);
   return (
     <CommonContainer id={"faq"}>
@@ -22,9 +22,9 @@ const FAQ = () => {
           type="single"
           collapsible
           className="w-full flex-5/7"
-          defaultValue={FAQMockData[0].id.toString()}
+          defaultValue={faqs[0].id.toString()}
         >
-          {FAQMockData.map((faq, idx) => {
+          {faqs.map((faq, idx) => {
             return (
               <AccordionItem key={faq.id} value={faq.id.toString()}>
                 <AccordionTrigger>
