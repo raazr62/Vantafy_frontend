@@ -3,7 +3,7 @@ import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import { LocalImages } from "../AllPhotos/HomeLocalImages";
 import { IdentityScanSVG, IdentityTrackSVG } from "../SVG/HomeLayoutSVG";
 
-const IdentityTracking = () => {
+const IdentityTracking = ({ identity_tracking }) => {
   return (
     <CommonContainer>
       <CommonTitle title="Identity Tracking" />
@@ -26,11 +26,10 @@ const IdentityTracking = () => {
         {/* Content */}
         <div className="flex-1 space-y-2 text-center lg:text-left">
           <p className="text-lg sm:text-xl lg:text-2xl font-semibold">
-            Searching through all of your stage names is how I found you.
+            {identity_tracking[0].title}
           </p>
           <p className="text-base sm:text-lg lg:text-xl">
-            To ensure full coverage, our AI searches for unauthorized content
-            using all of your stage names.
+            {identity_tracking[0].short_description}
           </p>
         </div>
       </div>
