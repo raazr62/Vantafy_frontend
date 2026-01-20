@@ -16,7 +16,7 @@ import {
   CarouelRightArrowIconSVG,
 } from "../SVG/HomeLayoutSVG";
 
-const ReviewSection = () => {
+const ReviewSection = ({ testimonials }) => {
   return (
     <CommonContainer id={"testimonial"} className={"w-full"}>
       <CommonTitle title={"Whats our client say"} />
@@ -69,7 +69,7 @@ const ReviewSection = () => {
         loop={true}
         className="px-4! xl:px-0 w-full"
       >
-        {ReviewSectionMockData.map((review) => {
+        {testimonials.map((review) => {
           return (
             <SwiperSlide key={review.id}>
               <div className="flex flex-col-reverse xl:flex-row xl:min-h-[500px] xl:max-h-[500px]">
@@ -77,15 +77,15 @@ const ReviewSection = () => {
                   <div className="space-y-2 sm:space-y-4 xl:space-y-5">
                     <img
                       className="max-w-[60px] sm:max-w-[80px] lg:max-w-[90px] xl:max-w-[100px]"
-                      src={review.userCompanyLogo}
+                      src={import.meta.env.VITE_IMAGE_URL + review.platform}
                       alt="Company Logo"
                     />
                     <div className="space-y-1">
                       <p className="text-xl sm:text-2xl xl:text-3xl font-semibold">
-                        {review.reviewTitle}
+                        {review.review_title}
                       </p>
                       <p className="text-[#706B6B] text-sm sm:text-base">
-                        {review.userReview}
+                        {review.review}
                       </p>
                     </div>
                   </div>
@@ -101,19 +101,19 @@ const ReviewSection = () => {
                       ))}
                     </p>
                     <p className="text-lg xl:text-xl font-semibold">
-                      {review.userName}
+                      {review.name}
                     </p>
 
                     <p className="text-[#706B6B] text-sm xl:text-base">
-                      {review.userRole}
+                      {review.profession}
                     </p>
                   </div>
                 </div>
                 <div className="w-full xl:w-[40%] order-1 xl:order-2">
                   <img
                     className="w-full max-h-[300px] xl:min-h-[500px] object-cover rounded-t-3xl xl:rounded-t-none xl:rounded-r-3xl  object-top"
-                    src={review.userAvatar}
-                    alt={review.userName}
+                    src={import.meta.env.VITE_IMAGE_URL + review.profile_pic}
+                    alt={review.name}
                   />
                 </div>
               </div>
