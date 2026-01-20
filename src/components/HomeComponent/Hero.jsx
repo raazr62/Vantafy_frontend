@@ -1,10 +1,15 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Radar from "./Radar";
+import { useSelector } from "react-redux";
+import { selectIsAuthenticated } from "@/Redux/slices/authSlice";
+import { useNavigate } from "react-router";
 
 const Hero = ({ hero_section, hero_radar_icons }) => {
+  const navigate = useNavigate();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const handleGetProtected = () => {
-    console.log("Get Protected");
+    isAuthenticated ? navigate("/dashboard") : navigate("/auth/signup");
   };
   return (
     <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-6 md:pt-8 lg:pt-10 px-4 xl:px-0">

@@ -1,3 +1,4 @@
+import { handleApiError } from "@/utils/apiUtils";
 import { useUpload } from "./useApi";
 import { toast } from "react-hot-toast";
 
@@ -8,11 +9,6 @@ export const useUpdateAvatar = () => {
     onSuccess: (data) => {
       toast.success(data?.message || "Profile photo updated successfully");
     },
-    onError: (error) => {
-      console.error("Avatar upload error:", error);
-      toast.error(
-        error?.response?.data?.message || "Failed to update profile photo"
-      );
-    },
+    onError: handleApiError,
   });
 };

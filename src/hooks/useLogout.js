@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { clearUser } from "@/Redux/slices/authSlice";
+import { handleApiError } from "@/utils/apiUtils";
 
 export const useLogout = () => {
   const navigate = useNavigate();
@@ -17,8 +18,6 @@ export const useLogout = () => {
       toast.success("Logged out successfully");
       navigate("/auth/signin");
     },
-    onError: () => {
-      toast.error("Logout failed");
-    },
+    onError: handleApiError,
   });
 };

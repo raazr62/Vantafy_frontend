@@ -1,5 +1,6 @@
 import { usePost } from "./useApi";
 import { toast } from "react-hot-toast";
+import { handleApiError } from "../utils/apiUtils";
 
 export const useResendOtp = () => {
   return usePost({
@@ -8,8 +9,6 @@ export const useResendOtp = () => {
     onSuccess: () => {
       toast.success("OTP resent successfully!");
     },
-    onError: (error) => {
-      toast.error(error?.response?.data?.message || "Something went wrong!");
-    },
+    onError: handleApiError,
   });
 };

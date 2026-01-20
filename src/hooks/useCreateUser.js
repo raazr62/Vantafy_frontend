@@ -1,5 +1,6 @@
 import { usePost } from "./useApi";
 import { toast } from "react-hot-toast";
+import { handleApiError } from "../utils/apiUtils";
 import { useNavigate } from "react-router";
 
 export const useCreateUser = () => {
@@ -13,8 +14,6 @@ export const useCreateUser = () => {
       toast.success("Signed up successfully!");
       navigate("/auth/otp-verify", { state: { from: "/auth/signup" } });
     },
-    onError: () => {
-      toast.error("Something went wrong!");
-    },
+    onError: handleApiError,
   });
 };

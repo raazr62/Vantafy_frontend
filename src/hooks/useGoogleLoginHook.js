@@ -4,6 +4,7 @@ import { usePost } from "./useApi";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/Redux/slices/authSlice";
+import { handleApiError } from "@/utils/apiUtils";
 
 /**
  * Custom hook for Google OAuth login
@@ -25,13 +26,7 @@ export const useGoogleLoginHook = (role) => {
       toast.success(data?.message || "Sign In Successful!");
       navigate("/dashboard");
     },
-    onError: (error) => {
-      console.error("Google login API error:", error);
-      toast.error(
-        error?.response?.data?.message ||
-          "Google login failed. Please try again."
-      );
-    },
+    onError: handleApiError,
   });
 
   // Setup Google OAuth login
@@ -44,10 +39,7 @@ export const useGoogleLoginHook = (role) => {
         role: role,
       });
     },
-    onError: (error) => {
-      console.error("Google OAuth error:", error);
-      toast.error("Google authentication failed. Please try again.");
-    },
+    onError: handleApiError,
   });
 
   return { googleLogin, isPending };
