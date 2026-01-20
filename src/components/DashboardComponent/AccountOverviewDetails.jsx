@@ -1,19 +1,57 @@
 import React from "react";
 import { DashboardLocalImages } from "../AllPhotos/DashboardLocalImages";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectGroup,
+  SelectLabel,
+  SelectItem,
+} from "../ui/select";
 
 const AccountOverviewDetails = () => {
   return (
     <div className="bg-[#F2F5F7] p-3 rounded-[12px]">
-      <div className="flex items-center gap-3.5">
-        <img
-          src="https://i.pravatar.cc/"
-          className="w-14 h-14 rounded-full"
-          alt="Your Avatar"
-        />
-        <div>
-          <p className="font-bold">Welcome to Jacob Jones</p>
-          <p className="text-[#707070] text-sm">Jacob Jones</p>
+      <div className="flex justify-between gap-3 w-full flex-col sm:flex-row sm:items-center mb-2">
+        <div className="flex items-center gap-3.5">
+          <img
+            src="https://i.pravatar.cc/"
+            className="w-14 h-14 rounded-full"
+            alt="Your Avatar"
+          />
+          <div>
+            <p className="font-bold">Welcome to Jacob Jones</p>
+            <p className="text-[#707070] text-sm">Jacob Jones</p>
+          </div>
         </div>
+
+        {/* Select User */}
+        <Select>
+          <SelectTrigger className="border-none w-full max-w-[250px] sm:w-auto bg-white">
+            <SelectValue placeholder="Select User" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Select User</SelectLabel>
+              <SelectItem className="cursor-pointer" value="apple">
+                Jacob Jones
+              </SelectItem>
+              <SelectItem className="cursor-pointer" value="banana">
+                John Doe
+              </SelectItem>
+              <SelectItem className="cursor-pointer" value="blueberry">
+                Marry Williams
+              </SelectItem>
+              <SelectItem className="cursor-pointer" value="grapes">
+                Garry Larson
+              </SelectItem>
+              <SelectItem className="cursor-pointer" value="pineapple">
+                Marry Jane
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
       <div className="flex items-center gap-1.5 sm:gap-3.5">
         {/* Chart */}
