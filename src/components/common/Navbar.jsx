@@ -8,6 +8,8 @@ import Logo from "@/shared/LandingShared/Logo";
 import MobileNav from "./MobileNav";
 import { selectIsAuthenticated, selectUser } from "@/Redux/slices/authSlice";
 import { useSelector } from "react-redux";
+import { useLogout } from "@/hooks/useLogout";
+import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -16,6 +18,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const user = useSelector(selectUser);
+  const { mutate: logout } = useLogout();
 
   console.log("isAuthenticated", isAuthenticated);
   console.log("user", user);
@@ -101,20 +104,46 @@ const Navbar = () => {
 
       {/* Auth Buttons */}
       <div className="hidden lg:flex gap-5.5 items-center">
-        <Button
-          onClick={() => navigate("/auth/signin")}
-          variant={"ghost"}
-          className={"text-white hover:text-white"}
-        >
-          <SignInSVG className={"text-white"} /> Login
-        </Button>
-        <Button
-          onClick={() => navigate("/auth/signup")}
-          variant="outline"
-          className="bg-purple-800 text-white rounded-4xl font-medium border-sky-500 border-2 hover:bg-purple-700 hover:text-white"
-        >
-          Get Protected
-        </Button>
+        {isAuthenticated ? (
+          <>
+            <Button
+              onClick={() => navigate("/dashboard")}
+              variant="outline"
+              className="bg-purple-800 text-white rounded-4xl font-medium border-sky-500 border-2 hover:bg-purple-700 hover:text-white"
+            >
+              Dashboard
+            </Button>
+            <Button
+              onClick={() => {
+                logout();
+                setSheetOpen?.(false);
+              }}
+              variant={"ghost"}
+              className={
+                "text-white hover:text-white hover:border hover:border-white border border-transparent rounded-xl transition-all duration-500"
+              }
+            >
+              <LogoutIconSVG className={"text-white"} /> Logout
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              onClick={() => navigate("/auth/signin")}
+              variant={"ghost"}
+              className={"text-white hover:text-white"}
+            >
+              <SignInSVG className={"text-white"} /> Login
+            </Button>
+            <Button
+              onClick={() => navigate("/auth/signup")}
+              variant="outline"
+              className="bg-purple-800 text-white rounded-4xl font-medium border-sky-500 border-2 hover:bg-purple-700 hover:text-white"
+            >
+              Get Protected
+            </Button>
+          </>
+        )}
       </div>
     </nav>
   );
