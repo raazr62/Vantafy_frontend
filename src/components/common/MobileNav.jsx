@@ -11,6 +11,7 @@ import { HashLink } from "react-router-hash-link";
 import { Button } from "../ui/button";
 import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { useNavigate } from "react-router";
+import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
 const MobileNav = ({
   toggleDrawer,
@@ -20,6 +21,8 @@ const MobileNav = ({
   setOpen,
   active,
   open,
+  isAuthenticated,
+  logout,
 }) => {
   const navigate = useNavigate();
 
@@ -116,23 +119,47 @@ const MobileNav = ({
           <div className="flex flex-col gap-4">
             <div className="h-px w-full bg-fuchsia-100" />
 
-            <Button
-              className="w-full justify-start gap-3 rounded-xl border border-gray-200 bg-white py-6 text-base text-gray-700 hover:bg-gray-50 hover:text-black"
-              onClick={() => navigate("/auth/signin")}
-              variant="ghost"
-            >
-              <SignInSVG className="h-5 w-5 text-gray-500" />
-              <span>Login</span>
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <Button
+                  className="w-full gap-3 rounded-xl border border-gray-200 bg-white py-6 text-base text-gray-700 hover:bg-gray-50 hover:text-black text-center"
+                  onClick={() => navigate("/dashboard")}
+                  variant="ghost"
+                >
+                  Dashboard
+                </Button>
 
-            <button
-              onClick={() => navigate("/auth/signup")}
-              className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-primary to-purple-600 px-5 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-primary/25 active:scale-[0.98]"
-            >
-              <span className="relative flex items-center justify-center gap-2">
-                Get Protected
-              </span>
-            </button>
+                <button
+                  onClick={() => {
+                    logout();
+                  }}
+                  className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-primary to-purple-600 px-5 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-primary/25 active:scale-[0.98] flex items-center gap-2"
+                >
+                  <LogoutIconSVG className={"text-white"} />
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Button
+                  className="w-full justify-start gap-3 rounded-xl border border-gray-200 bg-white py-6 text-base text-gray-700 hover:bg-gray-50 hover:text-black"
+                  onClick={() => navigate("/auth/signin")}
+                  variant="ghost"
+                >
+                  <SignInSVG className="h-5 w-5 text-gray-500" />
+                  <span>Login</span>
+                </Button>
+
+                <button
+                  onClick={() => navigate("/auth/signup")}
+                  className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-primary to-purple-600 px-5 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-primary/25 active:scale-[0.98]"
+                >
+                  <span className="relative flex items-center justify-center gap-2">
+                    Get Protected
+                  </span>
+                </button>
+              </>
+            )}
           </div>
         </div>
       </DrawerContent>

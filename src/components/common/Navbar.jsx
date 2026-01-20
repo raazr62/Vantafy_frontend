@@ -100,6 +100,8 @@ const Navbar = () => {
         setOpen={setOpen}
         active={active}
         open={open}
+        isAuthenticated={isAuthenticated}
+        logout={logout}
       />
 
       {/* Auth Buttons */}
@@ -116,7 +118,6 @@ const Navbar = () => {
             <Button
               onClick={() => {
                 logout();
-                setSheetOpen?.(false);
               }}
               variant={"ghost"}
               className={
