@@ -2,7 +2,10 @@ import { baseApi, fileUploadApi } from "@/lib/axios";
 
 // --- Generic GET ---
 export const GetData = async (endpoint, params = {}) => {
-  const response = await baseApi.get(endpoint, { params });
+  const response = await baseApi.get(endpoint, {
+    params,
+    withCredentials: true,
+  });
   return response.data;
 };
 
@@ -10,8 +13,12 @@ export const GetData = async (endpoint, params = {}) => {
 export const GetPublicData = async (endpoint, params = {}) => {
   const response = await baseApi.get(endpoint, {
     params,
-    withCredentials: false, // Override the default withCredentials: true for public endpoints
+    withCredentials: false,
+    headers: {
+      "ngrok-skip-browser-warning": "true",
+    },
   });
+
   return response.data;
 };
 
