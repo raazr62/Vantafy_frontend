@@ -1,13 +1,18 @@
 import React from "react";
 import { Button } from "../ui/button";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
 import { useSubscriptionPckagesGet } from "@/hooks/useSubscriptionPckagesGet";
 import BillingSkeleton from "./BillingSkeleton";
+import { useSubscriptionStripeCheckout } from "@/hooks/useSubscriptionStripeCheckout";
+import { selectIsAuthenticated } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const AnnualBilling = ({ fromAuthPage }) => {
-  const navigate = useNavigate();
+  const { mutate: checkout } = useSubscriptionStripeCheckout();
   const { data, isLoading, isError } = useSubscriptionPckagesGet("year");
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const navigate = useNavigate();
 
   if (isLoading) {
     return <BillingSkeleton />;
@@ -21,13 +26,19 @@ const AnnualBilling = ({ fromAuthPage }) => {
     );
   }
 
-  const handleSubscription = (plan) => {
-    if (fromAuthPage) {
-      toast.success(
-        `Subscription confirmed! Thanks for choosing the ${plan} plan.`,
-      );
-      navigate("/dashboard");
+  const handleSubscription = (id) => {
+    if (!isAuthenticated) {
+      toast.error("Please login to subscribe");
+      navigate("/auth/signin", { state: { from: "/" } });
+      return;
     }
+    const payload = {
+      price_id: id,
+      success_url: "http://localhost:5176/payment-success",
+      cancel_url: "http://localhost:5176/payment-cancel",
+      type: "year",
+    };
+    checkout(payload);
   };
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-2 sm:mt-4 mx-auto">
@@ -64,7 +75,7 @@ const AnnualBilling = ({ fromAuthPage }) => {
               ))}
             </div>
             <Button
-              onClick={() => handleSubscription(plan.id)}
+              onClick={() => handleSubscription(plan.stripe_price_id)}
               className={
                 "bg-[linear-gradient(90deg,#FF8904_0%,#FDC700_100%)] text-black text-xs font-bold mt-auto"
               }
