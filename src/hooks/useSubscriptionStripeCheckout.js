@@ -7,7 +7,6 @@ export const useSubscriptionStripeCheckout = () => {
     invalidateQueries: ["stripe-checkout"],
     onSuccess: ({ data }) => {
       localStorage.setItem("stripe-checkout", "true");
-      toast.success("Checkout session created successfully!");
       window.location.href = data;
     },
     onError: (error) => {
