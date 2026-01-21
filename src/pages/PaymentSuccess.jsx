@@ -1,12 +1,23 @@
 import { useEffect } from "react";
-import { Link } from "react-router";
 import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { Link, useNavigate } from "react-router";
 
 const PaymentSuccess = () => {
+  const navigate = useNavigate();
+  const isFromCheckout = localStorage.getItem("stripe-checkout");
+
   useEffect(() => {
-    const end = Date.now() + 3 * 1000; // 3 seconds
+    if (!isFromCheckout) {
+      navigate("/");
+      return;
+    }
+
+    // Clear the flag after using it
+    localStorage.removeItem("stripe-checkout");
+
+    const end = Date.now() + 3 * 1000;
     const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
 
     const frame = () => {
@@ -33,7 +44,12 @@ const PaymentSuccess = () => {
     };
 
     frame();
-  }, []);
+  }, [isFromCheckout, navigate]);
+
+  // Don't render anything if user didn't come from checkout
+  if (!isFromCheckout) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-purple-50 via-orange-50 to-yellow-50 p-4">
