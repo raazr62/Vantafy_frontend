@@ -4,7 +4,7 @@ import { LocalImages } from "../AllPhotos/HomeLocalImages";
 import { HashLink } from "react-router-hash-link";
 import Logo from "@/shared/LandingShared/Logo";
 
-const Footer = () => {
+const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
   return (
     <div className="relative bg-[#1E2833] py-14  md:py-18 overflow-hidden px-4 sm:px-0">
       <div className="absolute bg-[#8133F18F] h-50 w-50 rounded-full right-0 translate-x-1/2 blur-3xl"></div>

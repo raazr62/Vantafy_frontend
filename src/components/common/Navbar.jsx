@@ -11,7 +11,9 @@ import { useSelector } from "react-redux";
 import { useLogout } from "@/hooks/useLogout";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
-const Navbar = () => {
+const Navbar = ({systemData,
+          isSystemDataLoading,
+          isSystemDataError}) => {
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
