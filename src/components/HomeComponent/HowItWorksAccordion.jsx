@@ -5,17 +5,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HowItWorksMockData } from "@/lib/HomeMockData";
 
-const HowItWorksAccordion = () => {
+const HowItWorksAccordion = ({ how_it_works }) => {
   return (
     <Accordion
       type="single"
       collapsible
       className="w-full px-4 xl:px-0"
-      defaultValue={HowItWorksMockData[0].id.toString()}
+      defaultValue={how_it_works[0].id.toString()}
     >
-      {HowItWorksMockData.map((faq, idx) => (
+      {how_it_works.map((faq, idx) => (
         <AccordionItem key={faq.id} value={faq.id.toString()}>
           <AccordionTrigger className={"text-lg sm:text-xl lg:text-2xl"}>
             {idx + 1}. {faq.question}

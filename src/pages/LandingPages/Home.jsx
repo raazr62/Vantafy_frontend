@@ -42,7 +42,7 @@ const Home = () => {
     testimonials,
   } = data?.data || {};
 
-  console.log("platforms", data.data);
+  console.log("Home data: ", data.data);
   return (
     <div>
       <div className="bg-linear-to-b from-sky-300 to-50% to-transparent relative -top-10 sm:static">

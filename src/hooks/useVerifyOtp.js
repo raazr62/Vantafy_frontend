@@ -1,5 +1,6 @@
 import { usePost } from "./useApi";
 import { toast } from "react-hot-toast";
+import { handleApiError } from "../utils/apiUtils";
 import { useNavigate } from "react-router";
 
 export const useVerifyOtp = ({ fromPage }) => {
@@ -14,8 +15,6 @@ export const useVerifyOtp = ({ fromPage }) => {
         ? navigate("/auth/change-password")
         : navigate("/auth/success", { state: { from: "/auth/signup" } });
     },
-    onError: () => {
-      toast.error("Something went wrong!");
-    },
+    onError: handleApiError,
   });
 };

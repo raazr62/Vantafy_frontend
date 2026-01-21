@@ -110,18 +110,18 @@ const SignUpForm = () => {
               {/* Customer */}
               <div
                 onClick={() => {
-                  setRole("customer");
-                  setValue("role", "customer");
+                  setRole("individual");
+                  setValue("role", "individual");
                   setRoleError(false);
                 }}
                 className="border border-sky-500 rounded-xl py-3 sm:py-4 w-full flex items-center justify-center gap-1.5 sm:gap-2.5 cursor-pointer"
               >
                 <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-sky-500 flex items-center justify-center">
-                  {role === "customer" && (
+                  {role === "individual" && (
                     <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
                   )}
                 </div>
-                <label className="text-xs sm:text-sm">Customer</label>
+                <label className="text-xs sm:text-sm">Individual</label>
               </div>
             </div>
 

@@ -1,5 +1,6 @@
 import { usePost } from "./useApi";
 import { toast } from "react-hot-toast";
+import { handleApiError } from "../utils/apiUtils";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/Redux/slices/authSlice";
@@ -20,8 +21,6 @@ export const useSignIn = () => {
       toast.success(data.message || "Signed in successfully!");
       navigate("/select-niches");
     },
-    onError: (error) => {
-      toast.error(error?.response?.data?.message || "Something went wrong!");
-    },
+    onError: handleApiError,
   });
 };

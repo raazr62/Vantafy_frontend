@@ -31,7 +31,7 @@ const AmongOurCustomerCarousel = ({ customers }) => {
                 />
               </p>
               <p className="text-sm sm:text-base lg:text-lg text-white">
-                Subscribe {customer.subscribe}
+                Subscribe {customer.followers_count}
               </p>
             </div>
           </div>
