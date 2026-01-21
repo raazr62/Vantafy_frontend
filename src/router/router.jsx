@@ -8,6 +8,8 @@ import SelectNiches from "@/pages/SelectNiches";
 import ConnectAccounts from "@/pages/ConnectAccounts";
 import RecommendPlan from "@/pages/RecommendPlan";
 import PricingPlan from "@/pages/PricingPlan";
+import PaymentSuccess from "@/pages/PaymentSuccess";
+import PaymentCancel from "@/pages/PaymentCancel";
 import { dashboardRoutes } from "./DashboardRoutes";
 import AxiosInterceptor from "@/components/AxiosInterceptor";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -64,6 +66,22 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <PricingPlan />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/payment-success",
+        element: (
+          <ProtectedRoute>
+            <PaymentSuccess />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/payment-cancel",
+        element: (
+          <ProtectedRoute>
+            <PaymentCancel />
           </ProtectedRoute>
         ),
       },

@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { useLogout } from "@/hooks/useLogout";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
-const Navbar = () => {
+const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
   const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -64,7 +64,19 @@ const Navbar = () => {
         to={"/#"}
         className="font-bold text-3xl text-white"
       >
-        <Logo />
+        {isSystemDataLoading ? (
+          <p>Loading...</p>
+        ) : isSystemDataError ? (
+          <Logo />
+        ) : (
+          <img
+            className="w-25 sm:w-30 lg:w-35 cursor-pointer"
+            src={
+              import.meta.env.VITE_IMAGE_URL + systemData?.about_system?.logo
+            }
+            alt="Vantafy"
+          />
+        )}
       </HashLink>
 
       {/* Desktop NavLinks */}

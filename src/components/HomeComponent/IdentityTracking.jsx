@@ -11,7 +11,7 @@ const IdentityTracking = ({ identity_tracking }) => {
         {/* Image */}
         <div className="relative rounded-[12px] flex-1">
           <img
-            src={LocalImages.IdentitiyTrackingImage}
+            src={import.meta.env.VITE_IMAGE_URL + identity_tracking[0].image}
             alt="Identity Tracking"
             className="min-w-full min-h-full object-cover rounded-2xl"
           />
