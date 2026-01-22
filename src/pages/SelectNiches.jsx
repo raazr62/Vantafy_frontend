@@ -4,7 +4,6 @@ import StageNamesAdd from "@/components/OtherComponent/StageNamesAdd";
 import Logo from "@/shared/LandingShared/Logo";
 import React from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
 
 const SelectNiches = () => {
   // const navigate = useNavigate();
