@@ -1,21 +1,18 @@
-// import ConnectAccountsNiches from "@/components/OtherComponent/ConnectAccountsNiches";
 import SelectYourNiches from "@/components/OtherComponent/SelectYourNiches";
 import StageNamesAdd from "@/components/OtherComponent/StageNamesAdd";
+import { useAddNichesAndNtageNames } from "@/hooks/useAddNichesAndNtageNames";
 import Logo from "@/shared/LandingShared/Logo";
 import React from "react";
-import toast from "react-hot-toast";
 
 const SelectNiches = () => {
-  // const navigate = useNavigate();
+  const { mutate: addNichesAndStageNames } = useAddNichesAndNtageNames();
   const [formData, setFormData] = React.useState({
     niches: [],
     stageNames: [],
   });
   const handleSaveNiches = (e) => {
     e.preventDefault();
-    console.log(formData);
-    toast.success("Successfully saved your niches");
-    // navigate("/connect-accounts");
+    addNichesAndStageNames(formData);
   };
   return (
     <form
