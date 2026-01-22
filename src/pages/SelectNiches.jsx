@@ -3,6 +3,7 @@ import StageNamesAdd from "@/components/OtherComponent/StageNamesAdd";
 import { useAddNichesAndNtageNames } from "@/hooks/useAddNichesAndNtageNames";
 import Logo from "@/shared/LandingShared/Logo";
 import React from "react";
+import toast from "react-hot-toast";
 
 const SelectNiches = () => {
   const { mutate: addNichesAndStageNames } = useAddNichesAndNtageNames();
@@ -12,7 +13,15 @@ const SelectNiches = () => {
   });
   const handleSaveNiches = (e) => {
     e.preventDefault();
-    addNichesAndStageNames(formData);
+    if (formData.niches.length < 1) {
+      toast.error("You must select 1 niche before submit");
+      return;
+    } else if (formData.stageNames.length < 1) {
+      toast.error("You must add 1 stage name before submit");
+      return;
+    } else {
+      addNichesAndStageNames(formData);
+    }
   };
   return (
     <form
