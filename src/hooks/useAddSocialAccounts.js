@@ -6,11 +6,10 @@ export const useAddSocialAccounts = (setIsConnected, onClose) => {
   return usePost({
     endpoint: "/add-social-accounts/",
     invalidateQueries: ["add-social-accounts"],
-    onSuccess: (data) => {
-      toast.success(`Your account connected ${e.target.name.value}`);
+    onSuccess: () => {
+      toast.success(`Your account connected successfully`);
       setIsConnected(true);
       onClose();
-      return data;
     },
     onError: handleApiError,
   });
