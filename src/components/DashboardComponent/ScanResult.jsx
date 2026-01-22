@@ -53,7 +53,7 @@ const ScanResult = ({ activeDialog }) => {
       <div className="grid grid-cols-2 gap-4">
         <div className="rounded-[12px] bg-linear-to-b from-[rgba(78,120,253,0.04)] to-[rgba(255,27,228,0.04)] flex flex-col items-center justify-center py-5 space-y-1">
           <p className="text-[#707070] text-xs sm:text-sm font-medium">
-            Total Scanned
+            Total Result Found
           </p>
           <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#212B36]">
             2,450
@@ -62,7 +62,7 @@ const ScanResult = ({ activeDialog }) => {
 
         <div className="rounded-[12px] bg-linear-to-b from-[rgba(78,120,253,0.04)] to-[rgba(255,27,228,0.04)] flex flex-col items-center justify-center py-5 space-y-1">
           <p className="text-[#707070] text-xs sm:text-sm font-medium">
-            Matches Found
+            Total Numbers of Sites
           </p>
           <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#FF4ECF]">
             76

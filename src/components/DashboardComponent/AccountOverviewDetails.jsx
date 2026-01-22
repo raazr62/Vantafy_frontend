@@ -29,11 +29,11 @@ const AccountOverviewDetails = () => {
         {/* Select User */}
         <Select>
           <SelectTrigger className="border-none w-full max-w-[250px] sm:w-auto bg-white">
-            <SelectValue placeholder="Select User" />
+            <SelectValue placeholder="Select Creator Name" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Select User</SelectLabel>
+              <SelectLabel>Select Creator Name</SelectLabel>
               <SelectItem className="cursor-pointer" value="apple">
                 Jacob Jones
               </SelectItem>

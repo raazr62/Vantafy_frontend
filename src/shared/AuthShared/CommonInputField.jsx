@@ -48,7 +48,7 @@ const CommonInputField = ({
             Icon ? "pl-9" : "",
             readOnly && "bg-gray-100 cursor-not-allowed opacity-70",
             error && "border-red-500 focus:border-red-500",
-            className
+            className,
           )}
           {...(register && register(name, rules))}
           {...props}

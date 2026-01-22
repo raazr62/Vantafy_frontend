@@ -1,7 +1,7 @@
 import {
   AddMemberIconSVG,
   EditIconSVG,
-  EmailIconSVG,
+  AddMemberBlueIconSVG,
 } from "@/components/SVG/DashboardLayoutSVG";
 import { Button } from "@/components/ui/button";
 import { memberMockData } from "@/lib/DashboardMockData";
@@ -33,7 +33,7 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
     }
 
     toast.success(
-      "Email has been sent to your member. Please ask them to check their inbox and follow the provided link to join the agency."
+      "Email has been sent to your member. Please ask them to check their inbox and follow the provided link to join the agency.",
     );
     setOpenAddMemberInput(false);
   };
@@ -78,10 +78,10 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
       {openAddMemberInput && (
         <form onSubmit={handleAddMember}>
           <CommonInputField
-            type="email"
-            name="email"
-            placeholder={"Enter Email Address"}
-            icon={EmailIconSVG}
+            type="text"
+            name="name"
+            placeholder={"Enter Name"}
+            icon={AddMemberBlueIconSVG}
           />
           <div className="flex items-center gap-5 mt-2">
             <Button

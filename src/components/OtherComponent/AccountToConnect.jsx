@@ -1,9 +1,15 @@
+import { useAddSocialAccounts } from "@/hooks/useAddSocialAccounts";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { FaCheck } from "react-icons/fa6";
 
 const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
   const [isConnected, setIsConnected] = useState(false);
+  const { mutate: addSocialAccount } = useAddSocialAccounts(
+    setIsConnected,
+    onClose,
+  );
+
   const { name, logo } = account;
 
   const handleAccountClick = () => {
@@ -14,14 +20,16 @@ const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userName = e.target.name.value;
-    if (!userName) {
+    const username = e.target.name.value;
+    if (!username) {
       toast.error("Please provide your account username");
       return;
     }
-    toast.success(`Your account connected ${e.target.name.value}`);
-    setIsConnected(true);
-    onClose();
+
+    const payload = {
+      accounts: [{ platform: name, username }],
+    };
+    addSocialAccount(payload);
   };
 
   return (

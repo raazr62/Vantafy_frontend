@@ -45,11 +45,19 @@ const Sidebar = ({ setSheetOpen }) => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center gap-2 text-red-600 text-sm md:text-base font-medium mb-2 lg:mb-8 px-2 cursor-pointer"
+          className="flex items-center gap-2 text-red-600 text-sm md:text-base font-medium px-2 cursor-pointer"
         >
           <LogoutIconSVG /> Logout
         </button>
-        <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] p-4 rounded-2xl flex flex-col items-center gap-3">
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;
+
+{
+  /* <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] p-4 rounded-2xl flex flex-col items-center gap-3">
           <p className="text-center text-sm md:text-base">
             24/7 Access to Your Personal Dashboard
           </p>
@@ -66,10 +74,5 @@ const Sidebar = ({ setSheetOpen }) => {
           >
             Get Premium
           </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Sidebar;
+        </div> */
+}

@@ -3,7 +3,7 @@ import ChatArea from "@/components/DashboardComponent/ChatArea";
 import { useState } from "react";
 
 export default function DashboardMessages() {
-  const [currentUserId, setCurrentUserId] = useState();
+  const [currentUserId, setCurrentUserId] = useState(1);
   return (
     <div className="grow h-full bg-white rounded-2xl flex overflow-hidden">
       {/* Sidebar */}

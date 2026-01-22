@@ -1,65 +1,60 @@
 import React from "react";
-import { Button } from "../ui/button";
-import { RecommendedPricingPlansMockData } from "@/lib/HomeMockData";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { selectIsAuthenticated, selectUser } from "@/Redux/slices/authSlice";
+import { useSubscriptionPckagesGet } from "@/hooks/useSubscriptionPckagesGet";
+import BillingSkeleton from "../HomeComponent/BillingSkeleton";
+import PlansPriceCard from "./PlansPriceCard";
+import { useSubscriptionStripeCheckout } from "@/hooks/useSubscriptionStripeCheckout";
 
 const RecommendedPackages = () => {
+  const user = useSelector(selectUser);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const navigate = useNavigate();
-  const handleSubscription = (planName) => {
-    console.log(planName);
-    toast.success(
-      `Subscription confirmed! Thanks for choosing the ${planName} plan.`
+  const { mutate: checkout } = useSubscriptionStripeCheckout();
+  const { data, isLoading, isError } = useSubscriptionPckagesGet(
+    user.role === "agency" ? "agency" : "month",
+    true,
+  );
+
+  if (isLoading) {
+    return <BillingSkeleton />;
+  }
+
+  if (isError) {
+    return (
+      <div className="w-full h-[400px] flex items-center justify-center text-red-500 font-semibold text-lg">
+        Something went wrong. Please try again later.
+      </div>
     );
-    navigate("/dashboard");
+  }
+
+  const handleSubscription = (id, type) => {
+    if (!isAuthenticated) {
+      toast.error("Please login to subscribe");
+      navigate("/auth/signin", { state: { from: "/" } });
+      return;
+    }
+    const payload = {
+      price_id: id,
+      success_url: `${import.meta.env.VITE_APP_FRONTEND_URL}/payment-success`,
+      cancel_url: `${import.meta.env.VITE_APP_FRONTEND_URL}/payment-cancel`,
+      type: type,
+    };
+    checkout(payload);
   };
+
   return (
     <div className="flex flex-wrap justify-center items-center gap-3 mt-4">
-      {RecommendedPricingPlansMockData.map((plan) => {
-        const backroundColor =
-          plan.planName === "Silver"
-            ? "bg-[linear-gradient(135deg,#4A5565_0%,#364153_50%,#101828_100%)]"
-            : plan.planName === "Gold"
-            ? "bg-[linear-gradient(135deg,#D08700_0%,#A65F00_50%,#733E0A_100%)]"
-            : plan.planName === "Platinum"
-            ? "bg-[linear-gradient(135deg,#D1D5DC_0%,#99A1AF_50%,#6A7282_100%)]"
-            : plan.planName === "Diamond"
-            ? "bg-[linear-gradient(135deg,#53EAFD_0%,#00D3F2_50%,#00B8DB_100%)]"
-            : "";
-        return (
-          <div
-            key={plan.id}
-            className={`py-3 sm:py-6 px-2.5 ${backroundColor} text-white rounded-[12px] shadow-[0_15px_18.75px_-3.75px_rgba(0,0,0,0.10),0_6px_7.5px_-4.5px_rgba(0,0,0,0.10)] flex flex-col items-center
-      `}
-          >
-            <p className="text-2xl md:text-[32px] font-semibold">
-              {plan.planName}
-            </p>
-            <p className="text-xs font-semibold">Package</p>
-            <p className="px-6 sm:px-8 py-2 sm:py-4 bg-white text-black text-2xl sm:text-[32px] font-semibold rounded-[45px] mt-6 mb-3">
-              {plan.price}
-            </p>
-            <div className="flex flex-col items-center mb-4 sm:mb-8 md:mb-10 lg:mb-12 w-full">
-              {plan.features.map((feature, index) => (
-                <p
-                  key={index}
-                  className="py-2 sm:py-2.5 border-b text-xs border-white border-dotted w-full text-center first:text-sm first:font-bold"
-                >
-                  {feature}
-                </p>
-              ))}
-            </div>
-            <Button
-              onClick={() => handleSubscription(plan.planName)}
-              className={
-                "bg-[linear-gradient(90deg,#FF8904_0%,#FDC700_100%)] text-black text-xs font-bold"
-              }
-            >
-              SUBSCRIBE
-            </Button>
-          </div>
-        );
-      })}
+      {data.map((plan, i) => (
+        <PlansPriceCard
+          key={plan.id}
+          i={i}
+          plan={plan}
+          handleSubscription={handleSubscription}
+        />
+      ))}
     </div>
   );
 };
