@@ -99,7 +99,7 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
               <div className="p-2 rounded-xl bg-linear-to-l from-[#EC70DA] to-[#51AEFA] flex items-center justify-center text-white font-semibold">
                 <SupportIconSVG />
               </div>
-              <div>
+              <div className="flex-1">
                 <div className="flex-1">
                   <div className="flex justify-between gap-4 items-center">
                     <p className="text-sm sm:text-base font-medium">
