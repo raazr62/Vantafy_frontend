@@ -4,8 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MonthlyBilling from "@/components/HomeComponent/MonthlyBilling";
 import AnnualBilling from "@/components/HomeComponent/AnnualBilling";
 import AgenciesBilling from "@/components/HomeComponent/AgenciesBilling";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
 
 const PricingPlan = () => {
+  const user = useSelector(selectUser);
   return (
     <div className="container max-w-7xl mx-auto flex items-center justify-center mt-2 mb-5">
       <div className="w-full h-full flex flex-col">
@@ -14,25 +17,42 @@ const PricingPlan = () => {
         </div>
         <div className="rounded-[12px] border border-[#EFE6FD] flex flex-col py-4 sm:py-6 sm:px-4 flex-1 sm:mx-4">
           <div className="flex justify-center flex-1 w-full">
-            <Tabs defaultValue="monthly-billing" className="w-full">
+            <Tabs
+              defaultValue={
+                user.role === "agency" ? "agencies" : "monthly-billing"
+              }
+              className="w-full px-4 xl:px-0"
+            >
               <TabsList
                 className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}
               >
-                <TabsTrigger value="monthly-billing">
-                  Monthly billing
-                </TabsTrigger>
-                <TabsTrigger value="annual-billing">Annual billing</TabsTrigger>
-                <TabsTrigger value="agencies">Agencies</TabsTrigger>
+                {user.role === "agency" ? (
+                  <TabsTrigger value="agencies">Agencies</TabsTrigger>
+                ) : (
+                  <>
+                    <TabsTrigger value="monthly-billing">
+                      Monthly billing
+                    </TabsTrigger>
+                    <TabsTrigger value="annual-billing">
+                      Annual billing
+                    </TabsTrigger>
+                  </>
+                )}
               </TabsList>
-              <TabsContent value="monthly-billing">
-                <MonthlyBilling fromAuthPage={true} />
-              </TabsContent>
-              <TabsContent value="annual-billing">
-                <AnnualBilling fromAuthPage={true} />
-              </TabsContent>
-              <TabsContent value="agencies">
-                <AgenciesBilling fromAuthPage={true} />
-              </TabsContent>
+              {user.role === "agency" ? (
+                <TabsContent value="agencies">
+                  <AgenciesBilling fromAuthPage={true} />
+                </TabsContent>
+              ) : (
+                <>
+                  <TabsContent value="monthly-billing">
+                    <MonthlyBilling fromAuthPage={true} />
+                  </TabsContent>
+                  <TabsContent value="annual-billing">
+                    <AnnualBilling fromAuthPage={true} />
+                  </TabsContent>
+                </>
+              )}
             </Tabs>
           </div>
         </div>

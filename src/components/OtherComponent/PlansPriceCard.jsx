@@ -17,10 +17,12 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
       key={plan.id}
       className={`py-3 sm:py-6 px-2.5 ${backroundColor} text-white rounded-[12px] shadow-[0_15px_18.75px_-3.75px_rgba(0,0,0,0.10),0_6px_7.5px_-4.5px_rgba(0,0,0,0.10)] flex flex-col items-center`}
     >
-      <p className="text-2xl md:text-[32px] font-semibold">{plan.name}</p>
+      <p className="text-2xl md:text-[32px] font-semibold text-center">
+        {plan.name}
+      </p>
       <p className="text-xs font-semibold">Package</p>
       <p className="px-6 sm:px-8 py-2 sm:py-4 bg-white text-black text-2xl sm:text-[32px] font-semibold rounded-[45px] mt-6 mb-3">
-        {plan.price}$
+        ${plan.price}
       </p>
       <div className="flex flex-col items-center mb-4 sm:mb-8 md:mb-10 lg:mb-12 w-full">
         {plan.features.map((feature, index) => (
