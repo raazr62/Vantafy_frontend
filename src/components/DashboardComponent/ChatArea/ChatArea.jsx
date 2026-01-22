@@ -179,15 +179,12 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
       )}
 
       <section
-        className={`flex flex-col overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 h-full`}
+        className={`${currentUserId === 1 ? "flex" : "hidden"} sm:flex flex-col overflow-hidden flex-2/5 lg:flex-3/5 xl:flex-3/5 2xl:flex-4/5 h-full`}
       >
         {/* Header */}
         <ChatHeader
           filterMessages={{ person: "Support Team" }}
           setCurrentUserId={setCurrentUserId}
-          // openClearBtn={openClearBtn}
-          // setOpenClearBtn={setOpenClearBtn}
-          // onClearChat={handleClearChat}
         />
 
         {/* Messages */}
