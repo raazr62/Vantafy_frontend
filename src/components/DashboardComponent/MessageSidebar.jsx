@@ -8,8 +8,8 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
   useEffect(() => {
     setChatList((prev) =>
       prev.map((chat, index) =>
-        index === 0 ? { ...chat, messageStatus: 0 } : chat
-      )
+        index === 0 ? { ...chat, messageStatus: 0 } : chat,
+      ),
     );
   }, []);
 
