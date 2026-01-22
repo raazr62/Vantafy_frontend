@@ -1,14 +1,25 @@
 import { nichesMockData } from "@/lib/DashboardMockData";
-import React, { useState } from "react";
+import React from "react";
 
-const SelectYourNiches = () => {
-  const [selectedNiches, setSelectedNiches] = useState({});
-
+const SelectYourNiches = ({ setFormData, formData }) => {
   const toggleNiche = (index) => {
-    setSelectedNiches((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+    const selectedNiche = nichesMockData[index];
+    setFormData((prev) => {
+      const isCurrentlySelected = prev.niches.includes(selectedNiche);
+      if (isCurrentlySelected) {
+        // Remove the niche if it's already selected
+        return {
+          ...prev,
+          niches: prev.niches.filter((niche) => niche !== selectedNiche),
+        };
+      } else {
+        // Add the niche if it's not selected
+        return {
+          ...prev,
+          niches: [...prev.niches, selectedNiche],
+        };
+      }
+    });
   };
 
   return (
@@ -19,7 +30,7 @@ const SelectYourNiches = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-5 overflow-y-auto grow p-2">
         {/* grid md:grid-cols-3 xl:grid-cols-4 */}
         {nichesMockData.map((niche, idx) => {
-          const isSelected = selectedNiches[idx] || false;
+          const isSelected = formData.niches.includes(niche);
           return (
             <p
               key={idx}
