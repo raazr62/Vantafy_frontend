@@ -74,23 +74,13 @@ const errorInterceptor = async (error) => {
       processQueue(refreshError, null);
       isRefreshing = false;
 
-      // Auth cookie really expired - Logout user
-      try {
-        await axios.post(
-          `${BASE_URL}/signout/`,
-          {},
-          {
-            withCredentials: true,
-          },
-        );
-      } catch (logoutError) {
-        console.error("Logout failed", logoutError);
-      } finally {
-        if (navigateFn) {
-          navigateFn("/auth/signin");
-        } else if (typeof window !== "undefined") {
-          window.location.href = "/auth/signin";
-        }
+      // Refresh failed - redirect to signin
+      // No need to call /signout/ as tokens are already invalid
+      console.log("🔀 Refresh failed, redirecting to signin page...");
+      if (navigateFn) {
+        navigateFn("/auth/signin");
+      } else if (typeof window !== "undefined") {
+        window.location.href = "/auth/signin";
       }
       return Promise.reject(refreshError);
     }

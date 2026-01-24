@@ -17,43 +17,32 @@ const PricingPlan = () => {
         </div>
         <div className="rounded-[12px] border border-[#EFE6FD] flex flex-col py-4 sm:py-6 sm:px-4 flex-1 sm:mx-4">
           <div className="flex justify-center flex-1 w-full">
-            <Tabs
-              defaultValue={
-                user.role === "agency" ? "agencies" : "monthly-billing"
-              }
-              className="w-full px-4 xl:px-0"
-            >
-              <TabsList
-                className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}
+            {user.role === "agency" ? (
+              <AgenciesBilling />
+            ) : (
+              <Tabs
+                defaultValue={"monthly-billing"}
+                className="w-full px-4 xl:px-0"
               >
-                {user.role === "agency" ? (
-                  <TabsTrigger value="agencies">Agencies</TabsTrigger>
-                ) : (
-                  <>
-                    <TabsTrigger value="monthly-billing">
-                      Monthly billing
-                    </TabsTrigger>
-                    <TabsTrigger value="annual-billing">
-                      Annual billing
-                    </TabsTrigger>
-                  </>
-                )}
-              </TabsList>
-              {user.role === "agency" ? (
-                <TabsContent value="agencies">
-                  <AgenciesBilling fromAuthPage={true} />
+                <TabsList
+                  className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}
+                >
+                  <TabsTrigger value="monthly-billing">
+                    Monthly billing
+                  </TabsTrigger>
+                  <TabsTrigger value="annual-billing">
+                    Annual billing
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="monthly-billing">
+                  <MonthlyBilling fromAuthPage={true} />
                 </TabsContent>
-              ) : (
-                <>
-                  <TabsContent value="monthly-billing">
-                    <MonthlyBilling fromAuthPage={true} />
-                  </TabsContent>
-                  <TabsContent value="annual-billing">
-                    <AnnualBilling fromAuthPage={true} />
-                  </TabsContent>
-                </>
-              )}
-            </Tabs>
+                <TabsContent value="annual-billing">
+                  <AnnualBilling fromAuthPage={true} />
+                </TabsContent>
+              </Tabs>
+            )}
           </div>
         </div>
       </div>

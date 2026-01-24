@@ -1,13 +1,22 @@
 import Sidebar from "@/components/DashboardComponent/Sidebar";
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router";
+import { Link, Navigate, Outlet } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/shared/LandingShared/Logo";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 export default function DashboardLayout() {
   const [sheetOpen, setSheetOpen] = useState(false);
+  const user = useSelector(selectUser);
+  if (!user.has_subscription) {
+    toast.error("Please purchase a plan to access this page");
+    return <Navigate to="/pricing-plan" />;
+  }
+
   return (
     <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row">
       <div className="hidden xl:block">
