@@ -14,7 +14,7 @@ export const useAddMember = () => {
     mutationFn: (formData) => UploadFile("/add-agency-member/", formData),
     onSuccess: (data) => {
       // Invalidate members list to refetch updated data
-      queryClient.invalidateQueries({ queryKey: ["agency-members"] });
+      queryClient.invalidateQueries({ queryKey: ["get-agency-member-list"] });
       toast.success(data?.message || "Member added successfully!");
     },
     onError: handleApiError,
