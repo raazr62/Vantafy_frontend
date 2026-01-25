@@ -34,8 +34,12 @@ export const useGoogleLoginHook = (role) => {
       // Close modal if it was open
       setShowRoleModal(false);
       setPendingAccessToken(null);
-
-      navigate("/dashboard");
+      if (!data.data.user.has_subscription) {
+        navigate("/select-niches");
+        return;
+      } else {
+        navigate("/dashboard");
+      }
     },
     onError: (error) => {
       if (error?.response?.data?.message === "Invalid role specified") {
