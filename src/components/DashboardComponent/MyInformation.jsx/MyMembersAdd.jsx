@@ -12,6 +12,7 @@ import { IoMdClose } from "react-icons/io";
 import Swal from "sweetalert2";
 import { Dialog } from "@/components/ui/dialog";
 import EditProfileModal from "../EditProfileModal";
+import AddMemberModal from "../AddMemberModal";
 
 const MyMembersAdd = ({ setWhichMember, whichMember }) => {
   const [activeDialog, setActiveDialog] = useState(null);
@@ -75,7 +76,17 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
         </button>
       </div>
 
-      {openAddMemberInput && (
+      <Dialog
+        open={!!openAddMemberInput}
+        onOpenChange={() => setOpenAddMemberInput(false)}
+      >
+        <AddMemberModal
+          setActiveDialog={setOpenAddMemberInput}
+          isAddMember={true}
+        />
+      </Dialog>
+
+      {/* {openAddMemberInput && (
         <form onSubmit={handleAddMember}>
           <CommonInputField
             type="text"
@@ -97,7 +108,7 @@ const MyMembersAdd = ({ setWhichMember, whichMember }) => {
             </Button>
           </div>
         </form>
-      )}
+      )} */}
 
       {/* All the member List */}
       <div className="flex flex-col grow min-h-0 max-h-90 lg:max-h-full">
