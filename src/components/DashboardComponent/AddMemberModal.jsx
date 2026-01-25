@@ -63,7 +63,7 @@ const AddMemberModal = ({ setActiveDialog }) => {
     // Create FormData to send file and name
     const formData = new FormData();
     formData.append("name", data.name);
-    formData.append("profile_image", imageFile); // Backend expects 'profile_image'
+    formData.append("profile_image", imageFile);
 
     // Call the API
     addMember(formData, {
