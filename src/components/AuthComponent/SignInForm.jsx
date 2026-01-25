@@ -13,9 +13,16 @@ import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
 import { useSignIn } from "@/hooks/useSignIn";
 import { useGoogleLoginHook } from "@/hooks/useGoogleLoginHook";
+import RoleSelectionModal from "./RoleSelectionModal";
 
 const SignInForm = () => {
-  const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook();
+  const {
+    googleLogin,
+    isPending: isGoogleLoading,
+    showRoleModal,
+    setShowRoleModal,
+    handleRoleSelect,
+  } = useGoogleLoginHook();
   const { mutate: signIn } = useSignIn();
 
   const {
@@ -170,6 +177,14 @@ const SignInForm = () => {
             </Link>
           </p>
         </div>
+
+        {/* Role Selection Modal */}
+        <RoleSelectionModal
+          isOpen={showRoleModal}
+          onClose={() => setShowRoleModal(false)}
+          onRoleSelect={handleRoleSelect}
+          isPending={isGoogleLoading}
+        />
       </div>
     </div>
   );
