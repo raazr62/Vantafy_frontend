@@ -7,13 +7,17 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Camera } from "lucide-react";
 import { Button } from "../ui/button";
 import { useRef, useState } from "react";
-import toast from "react-hot-toast";
+import useUpdateMemberPhoto from "@/hooks/useUpdateMemberPhoto";
 
 const EditProfileModal = ({ memberData, setActiveDialog }) => {
+  const { mutate: updateMemberPhoto, isPending } = useUpdateMemberPhoto();
   const fileInputRef = useRef(null);
 
-  // Store the preview
-  const [avatar, setAvatar] = useState(memberData.image);
+  // Store the preview and selected file
+  const [avatar, setAvatar] = useState(
+    import.meta.env.VITE_IMAGE_URL + memberData.profile_image,
+  );
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const triggerFileInput = () => {
     fileInputRef.current?.click();
@@ -27,17 +31,28 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
     const previewURL = URL.createObjectURL(file);
     setAvatar(previewURL);
 
-    // Upload to server (your mutation)
-    handleProfileUpload(file);
+    // Store the file for later upload
+    setSelectedFile(file);
 
     // Reset input to allow uploading same file again
     fileInputRef.current.value = "";
   };
 
-  const handleProfileUpload = (file) => {
-    console.log("Uploading file:", file);
-    // Your upload logic goes here...
-    toast.success("Photo uploaded successfully");
+  const handleSaveChanges = () => {
+    if (selectedFile) {
+      // Upload the photo
+      updateMemberPhoto(
+        { id: memberData.id, file: selectedFile },
+        {
+          onSuccess: () => {
+            setActiveDialog("");
+          },
+        },
+      );
+    } else {
+      // No changes, just close
+      setActiveDialog("");
+    }
   };
 
   return (
@@ -82,6 +97,7 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
             <button
               className="rounded-xl text-sm sm:text-base font-medium cursor-pointer flex items-center gap-2 text-primary py-2 sm:py-3 px-2 sm:px-6 border-2 border-primary"
               onClick={triggerFileInput}
+              disabled={isPending}
             >
               <Camera className="text-primary text-base sm:text-xl" /> Upload
               New Photo
@@ -100,7 +116,9 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
 
           <p className="text-xs text-[#475569]">
             Links Attributed:{" "}
-            <span className="text-primary font-bold">{memberData.links}</span>
+            <span className="text-primary font-bold">
+              {memberData.links || 0}
+            </span>
           </p>
 
           <div className="flex items-center sm:justify-end gap-3">
@@ -108,15 +126,24 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
               onClick={() => setActiveDialog("")}
               variant={"outline"}
               className={"flex-1 sm:grow-0"}
+              disabled={isPending}
             >
               Cancel
             </Button>
             <Button
-              onClick={() => setActiveDialog("")}
+              onClick={handleSaveChanges}
               variant={"formSubmit"}
               className={"flex-1 sm:grow-0"}
+              disabled={isPending}
             >
-              Save Changes
+              {isPending ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                  Saving...
+                </>
+              ) : (
+                "Save Changes"
+              )}
             </Button>
           </div>
         </div>

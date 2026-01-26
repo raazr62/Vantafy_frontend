@@ -62,3 +62,9 @@ export const UploadFile = async (endpoint, formData) => {
   const response = await fileUploadApi.post(endpoint, formData);
   return response.data;
 };
+
+// --- File Upload with PUT ---
+export const PutFile = async (endpoint, formData) => {
+  const response = await fileUploadApi.put(endpoint, formData);
+  return response.data;
+};

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProfilePhoto from "./ProfilePhoto";
 import AdvancedTimezoneDropdown from "@/shared/DashboardShared/AdvancedTimezoneDropdown";
 import CountryDropdown from "@/shared/DashboardShared/CountryDropdown";
@@ -6,14 +6,19 @@ import { EmailIconSVG, ProfileIconSVG } from "../SVG/DashboardLayoutSVG";
 import { Button } from "../ui/button";
 import { useForm, Controller } from "react-hook-form";
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
-import toast from "react-hot-toast";
+import { useGetProfileData } from "@/hooks/useGetProfileData";
+import useUpdateProfile from "@/hooks/useUpdateProfile";
 
 const ProfileDetails = () => {
+  const { data, isLoading } = useGetProfileData();
+  const { mutate: updateProfile, isPending } = useUpdateProfile();
+
   const {
     register,
     control,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -24,16 +29,47 @@ const ProfileDetails = () => {
     },
   });
 
+  useEffect(() => {
+    if (data?.data) {
+      reset({
+        fullName: data.data.full_name || "",
+        email: data.data.email || "",
+        country: data.data.country || "",
+        timezone: data.data.time_zone || "",
+      });
+    }
+  }, [data?.data, reset]);
+
   const timezone = watch("timezone");
 
-  const onSubmit = (data) => {
-    console.log("Profile Form Submitted:", data);
-    toast.success("Successfully updated profile details");
+  const onSubmit = (formData) => {
+    // Map form fields to API expected fields
+    const payload = {
+      full_name: formData.fullName,
+      country: formData.country,
+      time_zone: formData.timezone,
+    };
+
+    updateProfile(payload);
   };
+
+  if (isLoading) {
+    return (
+      <div className="px-2 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white rounded-b-[12px]">
+        <div className="animate-pulse space-y-4">
+          <div className="h-24 bg-gray-200 rounded-xl"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="px-2 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white rounded-b-[12px]">
-      <ProfilePhoto />
+      <ProfilePhoto profile_photo={data?.data?.avatar} />
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -48,6 +84,7 @@ const ProfileDetails = () => {
           register={register}
           error={errors.fullName}
           rules={{ required: "Full name is required" }}
+          disabled={isPending}
         />
 
         {/* Email (Read Only) */}
@@ -56,7 +93,6 @@ const ProfileDetails = () => {
           name="email"
           type="email"
           placeholder="example@gmail.com"
-          value="fixedEmail@gmail.com"
           icon={EmailIconSVG}
           register={register}
           readOnly={true}
@@ -78,6 +114,7 @@ const ProfileDetails = () => {
                 value={field.value}
                 onChange={(val) => field.onChange(val)}
                 placeholder="Select your country"
+                disabled={isPending}
               />
             )}
           />
@@ -101,6 +138,7 @@ const ProfileDetails = () => {
                 onChange={(val) => field.onChange(val)}
                 country={watch("country")}
                 placeholder="Select your timezone"
+                disabled={isPending}
               />
             )}
           />
@@ -131,8 +169,15 @@ const ProfileDetails = () => {
           </div>
         )}
 
-        <Button type="submit" variant="secondary">
-          Save
+        <Button type="submit" variant="secondary" disabled={isPending}>
+          {isPending ? (
+            <>
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+              Saving...
+            </>
+          ) : (
+            "Save"
+          )}
         </Button>
       </form>
     </div>

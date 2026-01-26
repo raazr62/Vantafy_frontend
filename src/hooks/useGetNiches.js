@@ -1,5 +1,5 @@
 import { useFetch } from "./useApi";
 
 export const useGetNiches = () => {
-  return useFetch(["get-niches"], "/get-niches/");
+  return useFetch(["get-my-niches"], "/get-niches/");
 };

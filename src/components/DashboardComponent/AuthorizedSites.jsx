@@ -8,7 +8,7 @@ import { VscGlobe } from "react-icons/vsc";
 import { useAuthorizedSites } from "@/hooks/useAuthorizedSites";
 import { getLogoUrls, isValidUrl } from "@/utils/urlHelpers";
 import Swal from "sweetalert2";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 /**
  * AuthorizedSites Component
@@ -69,7 +69,7 @@ const AuthorizedSites = () => {
         toast.success(
           `Successfully added ${
             selectedPlatform.name === "Custom" ? url : selectedPlatform.name
-          }`
+          }`,
         );
         // Reset form
         e.target.reset();
@@ -77,7 +77,7 @@ const AuthorizedSites = () => {
         toast.error("Failed to add site. Please check the URL.");
       }
     },
-    [selectedPlatform, addSite, url]
+    [selectedPlatform, addSite, url],
   );
 
   // Handle platform selection
@@ -85,7 +85,7 @@ const AuthorizedSites = () => {
     (platform) => {
       selectPlatform(platform);
     },
-    [selectPlatform]
+    [selectPlatform],
   );
 
   // Handle delete with SweetAlert2 confirmation
@@ -107,7 +107,7 @@ const AuthorizedSites = () => {
         toast.success("Site removed successfully!");
       }
     },
-    [removeSite]
+    [removeSite],
   );
 
   // Handle modal open
@@ -177,10 +177,10 @@ const AuthorizedSites = () => {
                         idx === 0
                           ? "-left-4"
                           : idx === 1
-                          ? "-left-6"
-                          : idx === 2
-                          ? "-left-10"
-                          : ""
+                            ? "-left-6"
+                            : idx === 2
+                              ? "-left-10"
+                              : ""
                       }`}
                     >
                       <img
@@ -357,7 +357,7 @@ const SiteItem = React.memo(({ site, onDelete }) => {
       <button
         onClick={handleDelete}
         aria-label={`Delete ${site.url}`}
-        className="text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 rounded p-1 transition-colors shrink-0"
+        className="text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 rounded p-1 transition-colors shrink-0 cursor-pointer"
       >
         <FaRegTrashAlt size={18} aria-hidden="true" />
       </button>

@@ -1,5 +1,5 @@
 import { useFetch } from "./useApi";
 
 export const useGetAgencyMemberList = () => {
-  return useFetch(["get-agency-member-list"], "/get-agency-member-list/");
+  return useFetch(["agency-member-list"], "/agency-member-list/");
 };

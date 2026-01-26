@@ -1,8 +1,12 @@
-import { useReducer, useCallback, useMemo } from "react";
+import { useReducer, useCallback, useMemo, useEffect } from "react";
 import { getDomain } from "@/utils/urlHelpers";
+import { useGetUserSocialAccounts } from "./useGetUserSocialAccounts";
+import useAddUserSocialAccount from "./useAddUserSocialAccount";
+import useDeleteUserSocialAccount from "./useDeleteUserSocialAccount";
 
 // Action types
 const ACTIONS = {
+  SET_SITES: "SET_SITES",
   ADD_SITE: "ADD_SITE",
   REMOVE_SITE: "REMOVE_SITE",
   SET_SELECTED_PLATFORM: "SET_SELECTED_PLATFORM",
@@ -22,6 +26,11 @@ const initialState = {
 // Reducer function
 const authorizedSitesReducer = (state, action) => {
   switch (action.type) {
+    case ACTIONS.SET_SITES:
+      return {
+        ...state,
+        sites: action.payload,
+      };
     case ACTIONS.ADD_SITE:
       return {
         ...state,
@@ -66,6 +75,24 @@ const authorizedSitesReducer = (state, action) => {
 export const useAuthorizedSites = () => {
   const [state, dispatch] = useReducer(authorizedSitesReducer, initialState);
 
+  // API hooks
+  const { data } = useGetUserSocialAccounts();
+  const { mutate: addSocialAccount } = useAddUserSocialAccount(() => {});
+  const { mutate: deleteSocialAccount } = useDeleteUserSocialAccount();
+
+  // Load sites from API
+  useEffect(() => {
+    if (data?.data) {
+      const apiSites = data.data.map((account) => ({
+        id: account.id,
+        url: account.platform,
+        domain: getDomain(account.platform),
+        platformName: "API", // Mark as from API
+      }));
+      dispatch({ type: ACTIONS.SET_SITES, payload: apiSites });
+    }
+  }, [data]);
+
   // Add a new site
   const addSite = useCallback(
     (platform, username = "") => {
@@ -83,24 +110,31 @@ export const useAuthorizedSites = () => {
         if (!domain) return false;
       }
 
-      const newSite = {
-        id: crypto.randomUUID(),
-        url,
-        domain,
-        platformName: platform.name,
-      };
+      // Call backend API
+      addSocialAccount(
+        { platform: url },
+        {
+          onSuccess: () => {
+            // The site will be added via useEffect when data refreshes
+          },
+        },
+      );
 
-      dispatch({ type: ACTIONS.ADD_SITE, payload: newSite });
       dispatch({ type: ACTIONS.RESET_FORM });
       return true;
     },
-    [state.url]
+    [state.url, addSocialAccount],
   );
 
   // Remove a site
-  const removeSite = useCallback((id) => {
-    dispatch({ type: ACTIONS.REMOVE_SITE, payload: id });
-  }, []);
+  const removeSite = useCallback(
+    (id) => {
+      // Call backend API
+      deleteSocialAccount(id);
+      // The site will be removed via useEffect when data refreshes
+    },
+    [deleteSocialAccount],
+  );
 
   // Set selected platform
   const selectPlatform = useCallback((platform) => {

@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import toast from "react-hot-toast";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { AlertIconSVG } from "../SVG/DashboardLayoutSVG";
+import { useGetUserStageNames } from "@/hooks/useGetUserStageNames";
+import useAddStageName from "@/hooks/useAddStageName";
+import useDeleteUserStageName from "@/hooks/useDeleteUserStageName";
+import Swal from "sweetalert2";
+import { FiAlertCircle } from "react-icons/fi";
 
 const StageNamesToProtect = () => {
-  const [stageNames, setStageNames] = useState([]);
+  const { data } = useGetUserStageNames();
+  const { mutate: deleteStageName } = useDeleteUserStageName();
+  const { mutate: addStageName } = useAddStageName();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,23 +21,25 @@ const StageNamesToProtect = () => {
       return;
     }
 
-    const isCommonName = Math.random() < 0.3;
-
-    setStageNames([
-      {
-        id: stageNames.length + 1,
-        stageName,
-        status: "Active",
-        isCommonName,
-      },
-      ...stageNames,
-    ]);
+    addStageName({ name: stageName });
     e.target.reset();
   };
 
   const handleDelete = (id) => {
-    const filterData = stageNames.filter((stageName) => stageName.id !== id);
-    setStageNames(filterData);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This stage name will be removed permanently.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, remove",
+      cancelButtonText: "No, cancel",
+      confirmButtonColor: "#ef4444",
+      cancelButtonColor: "#6b7280",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteStageName(id);
+      }
+    });
   };
 
   return (
@@ -58,26 +66,24 @@ const StageNamesToProtect = () => {
       </form>
 
       {/* Added Stage names */}
-      {stageNames.length > 0 && (
+      {data?.data && data.data.length > 0 && (
         <div className="p-2 sm:p-6 border border-[#BCC6C9] rounded-xl space-y-2 grow min-h-0 overflow-y-auto">
           {/* Details */}
-          {stageNames.map((stageNameData, idx) => (
+          {data.data.map((stageNameData) => (
             <div
-              key={idx}
-              className=" bg-[#F9F9F9] py-3 sm:py-4.5 px-4 border border-[#A8B2B5] rounded-xl"
+              key={stageNameData.id}
+              className="bg-[#F9F9F9] py-3 sm:py-4.5 px-4 border border-[#A8B2B5] rounded-xl space-y-3"
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <p className="font-semibold">{stageNameData.stageName}</p>{" "}
-                  <span
-                    className={`rounded-full px-2.5 py-1 font-medium ${
-                      stageNameData.status === "Active"
-                        ? "bg-[linear-gradient(90deg,#E27CE9_0%,#B099F3_52.4%,#33B1FE_100%)] text-white"
-                        : "bg-[#E9EEF0]"
-                    }`}
-                  >
-                    {stageNameData.status}
-                  </span>
+                  <p className="font-semibold flex items-center gap-2">
+                    {stageNameData.name}
+                    {stageNameData.is_common && (
+                      <span className="rounded-full px-2.5 py-0.5 font-medium bg-[linear-gradient(90deg,#E27CE9_0%,#B099F3_52.4%,#33B1FE_100%)] text-white">
+                        Active
+                      </span>
+                    )}
+                  </p>
                 </div>
                 <FaRegTrashAlt
                   onClick={() => handleDelete(stageNameData.id)}
@@ -86,11 +92,10 @@ const StageNamesToProtect = () => {
                   size={18}
                 />
               </div>
-
-              {stageNameData.isCommonName && (
-                <p className="py-1 px-2 bg-[#E6F4FF] rounded-lg text-xs text-[#0293FF] flex items-center gap-2 mt-2">
-                  <AlertIconSVG className="w-4 h-4 text-[#0293FF]" /> This name
-                  seems quite general
+              {stageNameData.is_common && (
+                <p className="text-[#0293FF] bg-[#E6F4FF] px-2 py-1.5 rounded-sm text-xs font-semibold flex items-center gap-1">
+                  <FiAlertCircle />
+                  This name seems quite general
                 </p>
               )}
             </div>
