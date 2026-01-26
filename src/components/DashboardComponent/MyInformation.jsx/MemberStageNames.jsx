@@ -3,9 +3,17 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { PlusIcon } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { useGetMemberStageNames } from "@/hooks/useGetMemberStageNames";
+import { FaTrashAlt } from "react-icons/fa";
+import useAddMemberStageName from "@/hooks/useAddMemberStageName";
 
 const MemberStageNames = ({ memberData }) => {
   const [isAddActive, setIsAddActive] = useState(false);
+  const { data } = useGetMemberStageNames(memberData?.id);
+  const { mutate: addStageName } = useAddMemberStageName(
+    memberData?.id,
+    setIsAddActive,
+  );
 
   // Add Social Media
   const handleAddStageName = (e) => {
@@ -15,8 +23,7 @@ const MemberStageNames = ({ memberData }) => {
       toast.error("Please provide a Stage Name");
       return;
     }
-    toast.success("Stage Name Successfully added");
-    setIsAddActive(false);
+    addStageName({ name: stageName });
     e.target.reset();
   };
   return (
@@ -57,14 +64,16 @@ const MemberStageNames = ({ memberData }) => {
         </form>
       )}
 
-      <div className="space-y-2 grow overflow-y-auto px-2 max-h-80 lg:max-h-full">
-        {memberData?.stageNames?.map((stageName, idx) => (
-          <p
-            key={idx}
-            className="py-2 px-3 text-xs font-medium text-white bg-primary rounded-[6px] text-center"
-          >
-            {stageName}
-          </p>
+      <div className="space-y-2 grow overflow-y-auto px-2 max-h-80 lg:max-h-full grid sm:grid-cols-2 grid-cols-1 gap-2">
+        {data?.data?.map((stageName, idx) => (
+          <div key={idx} className="flex items-center w-full">
+            <p className="py-2 px-3 text-xs font-medium text-white bg-primary rounded-l-[6px] text-center w-full">
+              {stageName.name}
+            </p>
+            <button className="cursor-pointer px-4 py-2 rounded-r-[6px] border border-primary hover:bg-red-100">
+              <FaTrashAlt size={14} />
+            </button>
+          </div>
         ))}
       </div>
     </div>
