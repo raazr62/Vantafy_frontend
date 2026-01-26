@@ -3,17 +3,19 @@ import AuthorizedSites from "@/components/DashboardComponent/AuthorizedSites";
 import ChangePassword from "@/components/DashboardComponent/ChangePassword";
 import ProfileDetails from "@/components/DashboardComponent/ProfileDetails";
 import StageNamesToProtect from "@/components/DashboardComponent/StageNamesToProtect";
+import { selectUser } from "@/Redux/slices/authSlice";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const MyAccount = () => {
   const [activeTab, setActiveTab] = useState("Profile");
+  const user = useSelector(selectUser);
   const tabTiggerList = [
     "Profile",
     "Niches",
     "Stage names to protect",
     "Authorized Sites",
   ];
-
   return (
     <div className="flex flex-col h-full pb-4 lg:pb-0">
       {/* Tab header (fixed height) */}
@@ -42,7 +44,7 @@ const MyAccount = () => {
       {activeTab === "Profile" && (
         <div className="space-y-4 sm:space-y-6 grow overflow-y-auto min-h-0 rounded-b-[12px]">
           <ProfileDetails />
-          <ChangePassword />
+          {!user.is_google_login && <ChangePassword />}
         </div>
       )}
 
