@@ -1,42 +1,40 @@
-import { nichesMockData } from "@/lib/DashboardMockData";
-import React, { useState } from "react";
-import { Button } from "../ui/button";
+import React from "react";
+import { useGetNiches } from "@/hooks/useGetNiches";
+import { useGetUserNiches } from "@/hooks/useGetUserNiches";
+import useNichesAddRemove from "@/hooks/useNichesAddRemove";
 
 const AccountNiches = () => {
-  const [selectedNiches, setSelectedNiches] = useState({});
+  const { data: nichesData } = useGetNiches();
+  const { data: userNichesData } = useGetUserNiches();
+  const { mutate: nichesAddRemove } = useNichesAddRemove();
 
-  const toggleNiche = (index) => {
-    setSelectedNiches((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
+  const selectedNiches = userNichesData?.data || [];
+
+  const handleAddRemoveNiches = (niche) => {
+    nichesAddRemove({ name: niche });
   };
 
   return (
     <div className="py-4 rounded-b-[12px] border border-[#EFE6FD] bg-white flex flex-col min-h-0">
       {/* Scrollable list section */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-5 grow overflow-y-auto min-h-0 p-2 sm:p-6">
-        {nichesMockData.map((niche, idx) => {
-          const isSelected = selectedNiches[idx] || false;
+        {nichesData?.data?.map((niche, idx) => {
+          const isActive = selectedNiches?.some(
+            (selectedNiche) => selectedNiche.name === niche.name,
+          );
+
           return (
             <p
               key={idx}
-              onClick={() => toggleNiche(idx)}
-              className={`text-sm sm:text-base font-medium rounded-full text-center py-2 sm:py-3.5 cursor-pointer ${
-                isSelected ? "bg-primary text-white" : "bg-[#E9EEF0] text-black"
+              onClick={() => handleAddRemoveNiches(niche.name)}
+              className={`text-sm sm:text-base font-medium rounded-full text-center py-2 sm:py-3.5 cursor-pointer transition ${
+                isActive ? "bg-primary text-white" : "bg-[#E9EEF0] text-black"
               }`}
             >
-              {niche}
+              {niche.name}
             </p>
           );
         })}
-        {/* Save button stays fixed at bottom */}
-        <Button
-          variant="secondary"
-          className="mt-4 col-span-2 sm:col-span-3 lg:col-span-4"
-        >
-          Save
-        </Button>
       </div>
     </div>
   );
