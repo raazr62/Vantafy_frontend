@@ -13,7 +13,9 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
   const fileInputRef = useRef(null);
 
   // Store the preview
-  const [avatar, setAvatar] = useState(memberData.image);
+  const [avatar, setAvatar] = useState(
+    import.meta.env.VITE_IMAGE_URL + memberData.profile_image,
+  );
 
   const triggerFileInput = () => {
     fileInputRef.current?.click();
@@ -100,7 +102,9 @@ const EditProfileModal = ({ memberData, setActiveDialog }) => {
 
           <p className="text-xs text-[#475569]">
             Links Attributed:{" "}
-            <span className="text-primary font-bold">{memberData.links}</span>
+            <span className="text-primary font-bold">
+              {memberData.links || 0}
+            </span>
           </p>
 
           <div className="flex items-center sm:justify-end gap-3">
