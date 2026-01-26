@@ -2,7 +2,7 @@ import { nichesMockData } from "@/lib/DashboardMockData";
 import React from "react";
 
 const MemberNiches = ({ memberData }) => {
-  const selectedNiches = new Set(memberData.niches);
+  const selectedNiches = new Set(memberData?.niches || []);
 
   return (
     <div className="bg-white rounded-2xl py-4 w-full border border-[#E2E8F0] shadow-[0_0.785px_2.355px_rgba(0,0,0,0.10)] gap-4 flex flex-col min-h-60 lg:min-h-0 grow flex-1">

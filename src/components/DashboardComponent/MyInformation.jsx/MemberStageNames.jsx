@@ -58,7 +58,7 @@ const MemberStageNames = ({ memberData }) => {
       )}
 
       <div className="space-y-2 grow overflow-y-auto px-2 max-h-80 lg:max-h-full">
-        {memberData.stageNames.map((stageName, idx) => (
+        {memberData?.stageNames?.map((stageName, idx) => (
           <p
             key={idx}
             className="py-2 px-3 text-xs font-medium text-white bg-primary rounded-[6px] text-center"

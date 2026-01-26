@@ -4,12 +4,12 @@ import MyMembersInfo from "./MyMembersInfo";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 const MyMembers = () => {
-  const [whichMember, setWhichMember] = useState(1);
+  const [whichMember, setWhichMember] = useState(null);
   const { data, isLoading, isError } = useGetAgencyMemberList();
 
   useEffect(() => {
-    if (data?.data) {
-      setWhichMember(data?.data[0]?.id);
+    if (data?.data && data.data.length > 0) {
+      setWhichMember(data.data[0]?.id);
     }
   }, [data]);
 

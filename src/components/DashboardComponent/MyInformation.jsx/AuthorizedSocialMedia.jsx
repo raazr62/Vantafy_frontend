@@ -59,7 +59,7 @@ const AuthorizedSocialMedia = ({ memberData }) => {
         </form>
       )}
       <div className="space-y-2 grow overflow-y-auto px-2 max-h-80 lg:max-h-full">
-        {memberData.socialMedia.map((url, idx) => {
+        {memberData?.socialMedia?.map((url, idx) => {
           const platform = getSocialPlatform(url);
           if (!platform) return null;
 
