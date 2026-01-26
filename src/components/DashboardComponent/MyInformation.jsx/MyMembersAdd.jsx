@@ -3,12 +3,12 @@ import {
   EditIconSVG,
 } from "@/components/SVG/DashboardLayoutSVG";
 import React, { useState } from "react";
-import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
 import Swal from "sweetalert2";
 import { Dialog } from "@/components/ui/dialog";
 import EditProfileModal from "../EditProfileModal";
 import AddMemberModal from "../AddMemberModal";
+import useDeleteMember from "@/hooks/useDeleteMember";
 
 const MyMembersAdd = ({
   setWhichMember,
@@ -17,27 +17,11 @@ const MyMembersAdd = ({
   isLoading,
   isError,
 }) => {
+  const { mutate: deleteMember, isPending } = useDeleteMember();
   const [activeDialog, setActiveDialog] = useState(null);
 
   // State for Input filed Toggle
   const [openAddMemberInput, setOpenAddMemberInput] = useState(false);
-
-  // Add Member
-  const handleAddMember = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-
-    // Basic email validation
-    if (!email || !email.includes("@")) {
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-
-    toast.success(
-      "Email has been sent to your member. Please ask them to check their inbox and follow the provided link to join the agency.",
-    );
-    setOpenAddMemberInput(false);
-  };
 
   const handleRemoveMember = (id) => {
     if (!id) {
@@ -56,7 +40,7 @@ const MyMembersAdd = ({
       cancelButtonColor: "#6b7280",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Removed!", "Member has been removed.", "success");
+        deleteMember(id);
       }
     });
   };
