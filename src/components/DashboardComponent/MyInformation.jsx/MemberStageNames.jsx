@@ -6,10 +6,13 @@ import toast from "react-hot-toast";
 import { useGetMemberStageNames } from "@/hooks/useGetMemberStageNames";
 import { FaTrashAlt } from "react-icons/fa";
 import useAddMemberStageName from "@/hooks/useAddMemberStageName";
+import useDeleteStageName from "@/hooks/useDeleteStageName";
+import Swal from "sweetalert2";
 
 const MemberStageNames = ({ memberData }) => {
   const [isAddActive, setIsAddActive] = useState(false);
   const { data } = useGetMemberStageNames(memberData?.id);
+  const { mutate: deleteStageName } = useDeleteStageName();
   const { mutate: addStageName } = useAddMemberStageName(
     memberData?.id,
     setIsAddActive,
@@ -25,6 +28,24 @@ const MemberStageNames = ({ memberData }) => {
     }
     addStageName({ name: stageName });
     e.target.reset();
+  };
+
+  // Delete Stage Name
+  const handleDeleteStageName = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This member will be removed permanently.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, remove",
+      cancelButtonText: "No, cancel",
+      confirmButtonColor: "#ef4444",
+      cancelButtonColor: "#6b7280",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteStageName(id);
+      }
+    });
   };
   return (
     <div className="bg-white rounded-2xl p-4 w-full border border-[#E2E8F0] shadow-[0_0.785px_2.355px_rgba(0,0,0,0.10)] flex flex-col min-h-60 lg:min-h-0 grow flex-1">
@@ -64,13 +85,16 @@ const MemberStageNames = ({ memberData }) => {
         </form>
       )}
 
-      <div className="space-y-2 grow overflow-y-auto px-2 max-h-80 lg:max-h-full grid sm:grid-cols-2 grid-cols-1 gap-2">
-        {data?.data?.map((stageName, idx) => (
-          <div key={idx} className="flex items-center w-full">
+      <div className="overflow-y-auto px-2 max-h-80 lg:max-h-full grid sm:grid-cols-2 grid-cols-1 gap-2">
+        {data?.data?.map((stageName) => (
+          <div key={stageName.id} className="flex items-center w-full">
             <p className="py-2 px-3 text-xs font-medium text-white bg-primary rounded-l-[6px] text-center w-full">
               {stageName.name}
             </p>
-            <button className="cursor-pointer px-4 py-2 rounded-r-[6px] border border-primary hover:bg-red-100">
+            <button
+              onClick={() => handleDeleteStageName(stageName.id)}
+              className="cursor-pointer px-4 py-2 rounded-r-[6px] border border-primary hover:bg-red-100"
+            >
               <FaTrashAlt size={14} />
             </button>
           </div>

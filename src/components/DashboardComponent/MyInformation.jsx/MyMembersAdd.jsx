@@ -44,7 +44,7 @@ const MyMembersAdd = ({
       }
     });
   };
-  console.log(membersData);
+
   return (
     <div className="bg-white rounded-2xl p-4 w-full shadow-[0_0.785px_2.355px_0_rgba(0,0,0,0.10),0_0.785px_1.57px_-0.785px_rgba(0,0,0,0.10)] space-y-4 border border-[#E2E8F0] flex flex-col grow flex-1">
       {/* Header */}
