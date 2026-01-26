@@ -7,10 +7,10 @@ const useMemberNichesAddRemove = (id) => {
 
   return usePost({
     endpoint: `/create-or-update-agency-member-niches/${id}/`,
-    invalidateQueries: ["create-or-update-agency-member-niches"],
+    invalidateQueries: ["create-or-update-agency-member-niches", id],
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["agency-member-list"],
+        queryKey: ["agency-member-niches", id],
       });
     },
     onError: handleApiError,
