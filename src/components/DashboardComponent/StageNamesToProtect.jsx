@@ -5,6 +5,7 @@ import { useGetUserStageNames } from "@/hooks/useGetUserStageNames";
 import useAddStageName from "@/hooks/useAddStageName";
 import useDeleteUserStageName from "@/hooks/useDeleteUserStageName";
 import Swal from "sweetalert2";
+import { FiAlertCircle } from "react-icons/fi";
 
 const StageNamesToProtect = () => {
   const { data } = useGetUserStageNames();
@@ -71,15 +72,17 @@ const StageNamesToProtect = () => {
           {data.data.map((stageNameData) => (
             <div
               key={stageNameData.id}
-              className="bg-[#F9F9F9] py-3 sm:py-4.5 px-4 border border-[#A8B2B5] rounded-xl"
+              className="bg-[#F9F9F9] py-3 sm:py-4.5 px-4 border border-[#A8B2B5] rounded-xl space-y-3"
             >
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <p className="font-semibold">
-                    {stageNameData.name}{" "}
-                    <span className="rounded-full px-2.5 py-1 font-medium bg-[linear-gradient(90deg,#E27CE9_0%,#B099F3_52.4%,#33B1FE_100%)] text-white">
-                      Active
-                    </span>
+                  <p className="font-semibold flex items-center gap-2">
+                    {stageNameData.name}
+                    {stageNameData.is_common && (
+                      <span className="rounded-full px-2.5 py-0.5 font-medium bg-[linear-gradient(90deg,#E27CE9_0%,#B099F3_52.4%,#33B1FE_100%)] text-white">
+                        Active
+                      </span>
+                    )}
                   </p>
                 </div>
                 <FaRegTrashAlt
@@ -89,6 +92,12 @@ const StageNamesToProtect = () => {
                   size={18}
                 />
               </div>
+              {stageNameData.is_common && (
+                <p className="text-[#0293FF] bg-[#E6F4FF] px-2 py-1.5 rounded-sm text-xs font-semibold flex items-center gap-1">
+                  <FiAlertCircle />
+                  This name seems quite general
+                </p>
+              )}
             </div>
           ))}
         </div>
