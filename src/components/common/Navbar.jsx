@@ -20,9 +20,6 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
   const user = useSelector(selectUser);
   const { mutate: logout } = useLogout();
 
-  console.log("isAuthenticated", isAuthenticated);
-  console.log("user", user);
-
   useEffect(() => {
     const handleScroll = () => {
       // If drawer is open, don't update active state (prevents reset due to body lock)

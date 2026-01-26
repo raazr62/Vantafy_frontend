@@ -19,7 +19,11 @@ export const useSignIn = () => {
         dispatch(setUser(data.data));
       }
       toast.success(data.message || "Signed in successfully!");
-      navigate("/select-niches");
+      if (!!data.data.user.has_subscription) {
+        navigate("/dashboard");
+      } else {
+        navigate("/select-niches");
+      }
     },
     onError: handleApiError,
   });
