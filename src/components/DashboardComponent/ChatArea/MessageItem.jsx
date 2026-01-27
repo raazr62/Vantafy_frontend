@@ -10,7 +10,6 @@ import {
   User,
 } from "lucide-react";
 import { getFileIcon } from "./utils/iconUtils.jsx";
-import { formatFileSize, downloadFile } from "./utils/fileUtils";
 import { SupportIconSVG } from "@/components/SVG/DashboardLayoutSVG";
 
 // Helper function to format ISO date string to readable time
@@ -38,10 +37,6 @@ const MessageItem = ({
   expandedImages,
   toggleImageExpand,
   onOpenFullscreen,
-  showMessageMenu,
-  onShowMessageMenu,
-  onDeleteMessage,
-  onCopyMessage,
 }) => {
   const messageMenuRef = useRef(null);
 
@@ -238,46 +233,7 @@ const MessageItem = ({
                 <p className="text-[10px] sm:text-[11px] text-gray-400 text-right ml-auto">
                   {formatTime(msg.sent_at)}
                 </p>
-                <button
-                  onClick={() =>
-                    onShowMessageMenu(
-                      showMessageMenu === msg.id ? null : msg.id,
-                    )
-                  }
-                  className="opacity-0 group-hover:opacity-100 p-1 hover:bg-gray-100 rounded-lg transition-opacity cursor-pointer message-menu-trigger"
-                >
-                  <MoreVertical className="w-3 h-3" />
-                </button>
               </div>
-            </div>
-          )}
-
-          {/* Message Menu */}
-          {showMessageMenu === msg.id && (
-            <div
-              ref={messageMenuRef}
-              className="absolute right-0 mt-1 w-36 bg-white rounded-lg shadow-lg border z-50"
-            >
-              <button
-                onClick={() => onCopyMessage(msg.txt)}
-                className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 flex items-center gap-2 cursor-pointer"
-              >
-                <Copy className="w-4 h-4" /> Copy
-              </button>
-              <button
-                onClick={() => {
-                  /* Forward message */
-                }}
-                className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 flex items-center gap-2 cursor-pointer"
-              >
-                <Share2 className="w-4 h-4" /> Forward
-              </button>
-              <button
-                onClick={() => onDeleteMessage(msg.id)}
-                className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2 cursor-pointer border-t"
-              >
-                <Trash2 className="w-4 h-4" /> Delete
-              </button>
             </div>
           )}
         </div>
