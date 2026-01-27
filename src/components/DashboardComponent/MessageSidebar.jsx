@@ -50,11 +50,11 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
     }
 
     return {
-      id: 1, // Static ID since we only have one conversation
+      id: 1,
       person: "Support",
       lastMessage: lastMessageText,
       time: formatTime(lastMessageTime),
-      messageStatus: lastMsg.reply_count || 0, // Show reply count as unread count
+      messageStatus: lastMsg.reply_count || 0,
     };
   }, [messages]);
 
@@ -129,8 +129,25 @@ const MessageSidebar = ({ setCurrentUserId, currentUserId }) => {
             </div>
           </div>
         ) : (
-          <div className="px-4 py-8 text-center text-gray-400 text-sm">
-            No messages yet
+          <div
+            onClick={() => setCurrentUserId(1)}
+            className={`px-2 sm:px-4 py-2 sm:py-3 border-t border-gray-200 last:border-b cursor-pointer bg-[linear-gradient(90deg,#EC70DA14_0%,#51AEFA14_100%)]`}
+          >
+            <div className="flex items-start gap-2 sm:gap-3">
+              <div className="p-2 rounded-xl bg-linear-to-l from-[#EC70DA] to-[#51AEFA] flex items-center justify-center text-white font-semibold">
+                <SupportIconSVG />
+              </div>
+              <div className="flex-1">
+                <div className="flex-1">
+                  <div className="flex justify-between gap-4 items-center">
+                    <p className="text-sm sm:text-base font-medium">Support</p>
+                  </div>
+                  <p className="text-xs text-[#636363] line-clamp-1">
+                    No messages yet
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>

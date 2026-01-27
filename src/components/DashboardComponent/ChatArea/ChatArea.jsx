@@ -7,16 +7,13 @@ import ChatInput from "./ChatInput";
 import { getFileType } from "./utils/fileUtils";
 import { useSendMessage } from "@/hooks/useSendMessage";
 import { useGetMessages } from "@/hooks/useGetMessages";
-import toast from "react-hot-toast";
 
 const ChatArea = ({ setCurrentUserId, currentUserId }) => {
-  // const [openClearBtn, setOpenClearBtn] = useState(false);
   const [input, setInput] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [expandedImages, setExpandedImages] = useState({});
   const [showMessageMenu, setShowMessageMenu] = useState(null);
   const [fullscreenImage, setFullscreenImage] = useState(null);
-
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
 
@@ -95,12 +92,6 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
     });
   };
 
-  // const handleClearChat = () => {
-  //   // Clear chat logic - you may want to add an API call here
-  //   setOpenClearBtn(false);
-  //   toast.success("Chat cleared");
-  // };
-
   const handleFileSelect = (e) => {
     const files = Array.from(e.target.files);
 
@@ -140,17 +131,6 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
     }));
   };
 
-  const copyMessage = (text) => {
-    navigator.clipboard.writeText(text);
-    toast.success("Message copied to clipboard!");
-  };
-
-  const deleteMessage = (messageId) => {
-    // You may want to add an API call here to delete from backend
-    toast.success("Message deleted");
-    setShowMessageMenu(null);
-  };
-
   const openFullscreenImage = (imageUrl) => {
     setFullscreenImage(imageUrl);
   };
@@ -188,13 +168,13 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
         />
 
         {/* Messages */}
-        <div className="grow overflow-y-auto p-6 space-y-6 min-h-0 sm:max-h-full">
+        <div className="grow overflow-y-auto p-6 pb-0 space-y-6 min-h-0 sm:max-h-full">
           {isLoading ? (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center">
               <p className="text-gray-400">Loading messages...</p>
             </div>
           ) : messages.length === 0 ? (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center">
               <p className="text-gray-400">
                 No messages yet. Start a conversation!
               </p>
@@ -207,10 +187,6 @@ const ChatArea = ({ setCurrentUserId, currentUserId }) => {
                 expandedImages={expandedImages}
                 toggleImageExpand={toggleImageExpand}
                 onOpenFullscreen={openFullscreenImage}
-                showMessageMenu={showMessageMenu}
-                onShowMessageMenu={setShowMessageMenu}
-                onDeleteMessage={deleteMessage}
-                onCopyMessage={copyMessage}
               />
             ))
           )}
