@@ -19,30 +19,34 @@ const MyAccount = () => {
   return (
     <div className="flex flex-col h-full pb-4 lg:pb-0">
       {/* Tab header (fixed height) */}
-      <div className="bg-white rounded-t-[12px]">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full p-2 sm:p-4 bg-slate-50 border border-slate-200 rounded-t-[12px]">
-          {tabTiggerList.map((tab, idx) => {
-            const active = tab === activeTab;
-            return (
-              <p
-                key={idx}
-                onClick={() => setActiveTab(tab)}
-                className={`${
-                  active
-                    ? "font-medium sm:font-semibold border border-[#FF5CE1] bg-[linear-gradient(90deg,rgba(236,112,218,0.10)_0%,rgba(81,174,250,0.10)_100%)]"
-                    : "text-[#212B36] bg-white border border-slate-200"
-                } text-center py-4 rounded-xl cursor-pointer text-xs sm:text-sm`}
-              >
-                {tab}
-              </p>
-            );
-          })}
+      {user.role !== "agency" && (
+        <div className="bg-white rounded-t-[12px]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full p-2 sm:p-4 bg-slate-50 border border-slate-200 rounded-t-[12px]">
+            {tabTiggerList.map((tab, idx) => {
+              const active = tab === activeTab;
+              return (
+                <p
+                  key={idx}
+                  onClick={() => setActiveTab(tab)}
+                  className={`${
+                    active
+                      ? "font-medium sm:font-semibold border border-[#FF5CE1] bg-[linear-gradient(90deg,rgba(236,112,218,0.10)_0%,rgba(81,174,250,0.10)_100%)]"
+                      : "text-[#212B36] bg-white border border-slate-200"
+                  } text-center py-4 rounded-xl cursor-pointer text-xs sm:text-sm`}
+                >
+                  {tab}
+                </p>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Scrollable content area */}
       {activeTab === "Profile" && (
-        <div className="space-y-4 sm:space-y-6 grow overflow-y-auto min-h-0 rounded-b-[12px]">
+        <div
+          className={`space-y-4 sm:space-y-6 grow overflow-y-auto min-h-0 ${user.role === "agency" ? "rounded-[12px]" : "rounded-b-[12px]"}`}
+        >
           <ProfileDetails />
           {!user.is_google_login && <ChangePassword />}
         </div>
