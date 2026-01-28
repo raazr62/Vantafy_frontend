@@ -20,18 +20,18 @@ const AccountNiches = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-5 grow overflow-y-auto min-h-0 p-2 sm:p-6">
         {nichesData?.data?.map((niche, idx) => {
           const isActive = selectedNiches?.some(
-            (selectedNiche) => selectedNiche.name === niche.name,
+            (selectedNiche) => selectedNiche.name === niche,
           );
 
           return (
             <p
               key={idx}
-              onClick={() => handleAddRemoveNiches(niche.name)}
+              onClick={() => handleAddRemoveNiches(niche)}
               className={`text-sm sm:text-base font-medium rounded-full text-center py-2 sm:py-3.5 cursor-pointer transition ${
                 isActive ? "bg-primary text-white" : "bg-[#E9EEF0] text-black"
               }`}
             >
-              {niche.name}
+              {niche}
             </p>
           );
         })}
