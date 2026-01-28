@@ -52,7 +52,7 @@ const AuthorizedSocialMedia = ({ memberData }) => {
 
   return (
     <div className="bg-white rounded-2xl p-4 w-full border border-[#E2E8F0] shadow-[0_0.785px_2.355px_rgba(0,0,0,0.10)] flex flex-col min-h-60 lg:min-h-0 grow flex-1">
-      <p className="font-semibold text-center">Authorized Social Media</p>
+      <p className="font-semibold text-center">Authorized Sites</p>
 
       <button
         onClick={() => setIsAddActive(true)}
