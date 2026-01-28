@@ -24,7 +24,7 @@ const RoleSelectionModal = ({ isOpen, onClose, onRoleSelect, isPending }) => {
       description: "Manage multiple clients and team members",
     },
     {
-      value: "individual",
+      value: "customer",
       label: "Individual",
       icon: User,
       description: "Personal account for individual use",

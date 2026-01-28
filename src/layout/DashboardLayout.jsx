@@ -1,5 +1,5 @@
 import Sidebar from "@/components/DashboardComponent/Sidebar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Navigate, Outlet } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
@@ -12,8 +12,14 @@ import toast from "react-hot-toast";
 export default function DashboardLayout() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const user = useSelector(selectUser);
+
+  useEffect(() => {
+    if (!user.has_subscription) {
+      toast.error("Please purchase a plan to access this page");
+    }
+  }, [user.has_subscription]);
+
   if (!user.has_subscription) {
-    toast.error("Please purchase a plan to access this page");
     return <Navigate to="/pricing-plan" />;
   }
 
