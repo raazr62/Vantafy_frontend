@@ -298,7 +298,7 @@ export const overviewScanStatsMockData = [
   },
   {
     id: 2,
-    title: "Start Scan",
+    title: "Initial Scan",
     icon: <StartScanIconSVG />,
   },
   {

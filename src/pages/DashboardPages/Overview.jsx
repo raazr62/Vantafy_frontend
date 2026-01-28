@@ -46,7 +46,7 @@ export default function Overview() {
         {activeDialog === "List of Delisted links" && (
           <ListOfDelistedLinksModal />
         )}
-        {activeDialog === "Start Scan" && (
+        {activeDialog === "Initial Scan" && (
           <StartScanModal setActiveDialog={setActiveDialog} />
         )}
         {activeDialog === "Start Scanning" && (

@@ -60,7 +60,7 @@ const ScanCompleteModal = ({ setActiveDialog }) => {
           View Results
         </button>
         <button
-          onClick={() => setActiveDialog("Start Scan")}
+          onClick={() => setActiveDialog("Initial Scan")}
           className={
             "py-2 text-xs sm:text-sm font-semibold w-full rounded-xl border border-[#0000001A] cursor-pointer"
           }
