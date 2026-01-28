@@ -8,7 +8,7 @@ const SelectYourNiches = ({ setFormData, formData }) => {
   const toggleNiche = (index) => {
     if (!nichesData || !nichesData[index]) return;
 
-    const selectedNicheName = nichesData[index].name;
+    const selectedNicheName = nichesData[index];
     setFormData((prev) => {
       const isCurrentlySelected = prev.niches.includes(selectedNicheName);
       if (isCurrentlySelected) {
@@ -40,7 +40,7 @@ const SelectYourNiches = ({ setFormData, formData }) => {
           <p>Error</p>
         ) : (
           nichesData?.map((niche, idx) => {
-            const isSelected = formData.niches.includes(niche.name);
+            const isSelected = formData.niches.includes(niche);
             return (
               <p
                 key={idx}
@@ -51,7 +51,7 @@ const SelectYourNiches = ({ setFormData, formData }) => {
                     : "bg-[#E9EEF0] text-black"
                 }`}
               >
-                {niche.name}
+                {niche}
               </p>
             );
           })
