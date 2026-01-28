@@ -17,11 +17,11 @@ const FAQ = ({ faqs }) => {
     <CommonContainer id={"faq"}>
       <CommonTitle title={"FAQ"} />
       {/* FAQS */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-10 sm:mt-12 lg:mt-15">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-10 sm:mt-12 lg:mt-15 w-full">
         <Accordion
           type="single"
           collapsible
-          className="w-full flex-5/7"
+          className="flex-5/7"
           defaultValue={faqs[0].id.toString()}
         >
           {faqs.map((faq, idx) => {
