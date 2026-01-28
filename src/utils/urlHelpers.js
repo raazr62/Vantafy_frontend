@@ -33,5 +33,5 @@ export const isValidUrl = (url) => {
  */
 export const getLogoUrls = (domain) => ({
   primary: `https://logo.clearbit.com/${domain}`,
-  fallback: `https://www.google.com/s2/favicons?domain=${domain}&sz=64`,
+  fallback: `https://icons.duckduckgo.com/ip3/${domain}.ico`,
 });
