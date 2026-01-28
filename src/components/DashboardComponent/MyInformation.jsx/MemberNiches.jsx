@@ -21,13 +21,13 @@ const MemberNiches = ({ memberData }) => {
         {nichesData?.data &&
           nichesData.data.map((niche, idx) => {
             const isActive = selectedNiches?.some(
-              (selectedNiche) => selectedNiche.name === niche.name,
+              (selectedNiche) => selectedNiche.name === niche,
             );
 
             return (
               <span
                 key={idx}
-                onClick={() => handleAddRemoveNiches(niche.name)}
+                onClick={() => handleAddRemoveNiches(niche)}
                 className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium flex items-center justify-center text-center border transition cursor-pointer
                 ${
                   isActive
@@ -35,7 +35,7 @@ const MemberNiches = ({ memberData }) => {
                     : "bg-[#F8FAFC] text-[#475569] border-[#E2E8F0]"
                 }`}
               >
-                {niche?.name}
+                {niche}
               </span>
             );
           })}
