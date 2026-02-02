@@ -29,7 +29,7 @@ const SelectNiches = () => {
       className="h-screen flex flex-col p-5 gap-5 max-w-3xl mx-auto"
     >
       <div className="grow flex items-center flex-col gap-6 overflow-hidden">
-        {/* <ConnectAccountsNiches /> */}
+        {/* <ConnectAccountsNiches /> removed */}
         <Logo variant="grayFull" className={"mx-auto shrink-0 sticky top-0"} />
         <div className="flex-1 flex flex-col gap-2 sm:gap-3 overflow-hidden w-full grow">
           <SelectYourNiches formData={formData} setFormData={setFormData} />
