@@ -19,6 +19,8 @@ const MyMembersAdd = ({
 }) => {
   const { mutate: deleteMember, isPending } = useDeleteMember();
   const [activeDialog, setActiveDialog] = useState(null);
+  // Track which member is being deleted
+  const [deletingMemberId, setDeletingMemberId] = useState(null);
 
   // State for Input filed Toggle
   const [openAddMemberInput, setOpenAddMemberInput] = useState(false);
@@ -40,7 +42,13 @@ const MyMembersAdd = ({
       cancelButtonColor: "#6b7280",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteMember(id);
+        setDeletingMemberId(id);
+        deleteMember(id, {
+          onSettled: () => {
+            // Clear the deleting state after success or error
+            setDeletingMemberId(null);
+          },
+        });
       }
     });
   };
@@ -224,14 +232,14 @@ const MyMembersAdd = ({
                       e.stopPropagation();
                       handleRemoveMember(memberData.id);
                     }}
-                    disabled={isPending}
+                    disabled={deletingMemberId === memberData.id}
                     className={`w-6 h-6 sm:w-8 sm:h-8 bg-[#FF2B2B1A] flex items-center justify-center rounded-full ${
-                      isPending
+                      deletingMemberId === memberData.id
                         ? "opacity-50 cursor-not-allowed"
                         : "cursor-pointer hover:bg-[#FF2B2B30]"
                     } transition-all`}
                   >
-                    {isPending ? (
+                    {deletingMemberId === memberData.id ? (
                       <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-red-500 border-t-transparent rounded-full animate-spin"></div>
                     ) : (
                       <IoMdClose color="red" className="text-sm sm:text-xl" />
