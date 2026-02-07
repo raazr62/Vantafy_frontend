@@ -15,6 +15,8 @@ export const useAddMember = () => {
     onSuccess: (data) => {
       // Invalidate members list to refetch updated data
       queryClient.invalidateQueries({ queryKey: ["agency-member-list"] });
+      // Invalidate member limits to update usage count
+      queryClient.invalidateQueries({ queryKey: ["get-member-limits"] });
       toast.success(data?.message || "Member added successfully!");
     },
     onError: handleApiError,
