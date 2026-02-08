@@ -42,6 +42,7 @@ export default function Overview() {
             setSelectedMemberId={setSelectedMemberId}
             memberData={memberData}
             selectedMemberID={selectedMemberID}
+            user={user}
           />
         </div>
 

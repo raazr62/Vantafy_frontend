@@ -6,6 +6,7 @@ const AccountOverview = ({
   setSelectedMemberId,
   memberData,
   selectedMemberID,
+  user,
 }) => {
   return (
     <div className="p-3 lg:p-4 bg-white rounded-2xl space-y-4 lg:h-full lg:overflow-y-auto">
@@ -13,6 +14,7 @@ const AccountOverview = ({
         memberData={memberData}
         setSelectedMemberId={setSelectedMemberId}
         selectedMemberID={selectedMemberID}
+        user={user}
       />
       <AccountOverviewStats />
     </div>

@@ -14,6 +14,7 @@ const AccountOverviewDetails = ({
   memberData,
   setSelectedMemberId,
   selectedMemberID,
+  user,
 }) => {
   return (
     <div className="bg-[#F2F5F7] p-3 rounded-[12px]">
@@ -31,24 +32,26 @@ const AccountOverviewDetails = ({
         </div>
 
         {/* Select User */}
-        <Select
-          value={selectedMemberID?.toString()}
-          onValueChange={(value) => setSelectedMemberId(value)}
-        >
-          <SelectTrigger className="border-none w-full max-w-[250px] sm:w-auto bg-white">
-            <SelectValue placeholder="Select Creator Name" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Select Creator Name</SelectLabel>
-              {memberData?.data?.map((member) => (
-                <SelectItem key={member.id} value={member.id.toString()}>
-                  {member.name}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+        {user.role === "agency" && (
+          <Select
+            value={selectedMemberID?.toString()}
+            onValueChange={(value) => setSelectedMemberId(value)}
+          >
+            <SelectTrigger className="border-none w-full max-w-[250px] sm:w-auto bg-white">
+              <SelectValue placeholder="Select Creator Name" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Select Creator Name</SelectLabel>
+                {memberData?.data?.map((member) => (
+                  <SelectItem key={member.id} value={member.id.toString()}>
+                    {member.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        )}
       </div>
       <div className="flex items-center gap-1.5 sm:gap-3.5">
         {/* Chart */}
