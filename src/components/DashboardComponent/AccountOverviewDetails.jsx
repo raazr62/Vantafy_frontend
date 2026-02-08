@@ -10,7 +10,11 @@ import {
   SelectItem,
 } from "../ui/select";
 
-const AccountOverviewDetails = () => {
+const AccountOverviewDetails = ({
+  memberData,
+  setSelectedMemberId,
+  selectedMemberID,
+}) => {
   return (
     <div className="bg-[#F2F5F7] p-3 rounded-[12px]">
       <div className="flex justify-between gap-3 w-full flex-col sm:flex-row sm:items-center mb-2">
@@ -27,28 +31,21 @@ const AccountOverviewDetails = () => {
         </div>
 
         {/* Select User */}
-        <Select>
+        <Select
+          value={selectedMemberID?.toString()}
+          onValueChange={(value) => setSelectedMemberId(value)}
+        >
           <SelectTrigger className="border-none w-full max-w-[250px] sm:w-auto bg-white">
             <SelectValue placeholder="Select Creator Name" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Select Creator Name</SelectLabel>
-              <SelectItem className="cursor-pointer" value="apple">
-                Jacob Jones
-              </SelectItem>
-              <SelectItem className="cursor-pointer" value="banana">
-                John Doe
-              </SelectItem>
-              <SelectItem className="cursor-pointer" value="blueberry">
-                Marry Williams
-              </SelectItem>
-              <SelectItem className="cursor-pointer" value="grapes">
-                Garry Larson
-              </SelectItem>
-              <SelectItem className="cursor-pointer" value="pineapple">
-                Marry Jane
-              </SelectItem>
+              {memberData?.data?.map((member) => (
+                <SelectItem key={member.id} value={member.id.toString()}>
+                  {member.name}
+                </SelectItem>
+              ))}
             </SelectGroup>
           </SelectContent>
         </Select>
