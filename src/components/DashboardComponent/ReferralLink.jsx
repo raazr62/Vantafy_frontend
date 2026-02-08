@@ -2,9 +2,12 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import React from "react";
 import { CopyLinkIconSVG } from "../SVG/DashboardLayoutSVG";
 import toast from "react-hot-toast";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
 
 const ReferralLink = () => {
-  const refferalLink = "https://www.vantafy.com/refer-1142";
+  const user = useSelector(selectUser);
+  const refferalLink = `${import.meta.env.VITE_APP_FRONTEND_URL}/auth/signup?referral_code=${user?.id}`;
   const handleCopyLink = () => {
     navigator.clipboard
       .writeText(refferalLink)
