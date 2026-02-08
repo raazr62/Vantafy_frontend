@@ -8,7 +8,7 @@ import {
 import toast from "react-hot-toast";
 import { motion } from "motion/react";
 
-const StartScanningModal = ({ setActiveDialog }) => {
+const StartScanningModal = ({ setActiveDialog, selectedMemberID }) => {
   const [progress, setProgress] = useState(0);
   const [stats, setStats] = useState({
     sites: 0,
@@ -37,7 +37,7 @@ const StartScanningModal = ({ setActiveDialog }) => {
     }, 200);
 
     const fetchApi = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 2800));
+      await new Promise((resolve) => setTimeout(resolve, 100));
       setProgress(100);
       clearInterval(interval);
     };

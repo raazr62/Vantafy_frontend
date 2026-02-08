@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { useForm } from "react-hook-form";
 
@@ -21,6 +21,12 @@ const SignUpForm = () => {
   const [roleError, setRoleError] = useState(false);
   const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook(role);
   const { mutate: createUser } = useCreateUser();
+  const [searchParams] = useSearchParams();
+  const referralCode = searchParams.get("referral_code");
+
+  if (referralCode) {
+    localStorage.setItem("referral_code", referralCode);
+  }
 
   const {
     register,
@@ -37,6 +43,7 @@ const SignUpForm = () => {
       purpose: "account_create",
       role: "",
       term_and_condition_accepted: false,
+      referral_code: referralCode || "",
     },
   });
 
@@ -53,6 +60,15 @@ const SignUpForm = () => {
     if (!termAccepted) {
       toast.error("You must agree to Terms & Condition");
       return;
+    }
+
+    if (!data.referral_code || data.referral_code.trim() === "") {
+      delete data.referral_code;
+    }
+
+    const localStorageReferralCode = localStorage.getItem("referral_code");
+    if (localStorageReferralCode) {
+      data.referral_code = localStorageReferralCode;
     }
 
     createUser({ ...data, role });

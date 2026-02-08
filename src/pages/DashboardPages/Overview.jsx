@@ -2,25 +2,48 @@ import AccountHistory from "@/components/DashboardComponent/AccountHistory";
 import AccountOverview from "@/components/DashboardComponent/AccountOverview";
 import LimitationStatus from "@/components/DashboardComponent/LimitationStatus";
 import { overviewScanStatsMockData } from "@/lib/DashboardMockData";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
 import ListOfDelistedLinksModal from "@/components/DashboardComponent/ListOfDelistedLinksModal";
 import StartScanModal from "@/components/DashboardComponent/StartScanModal";
 import StartScanningModal from "@/components/DashboardComponent/StartScanningModal";
 import ScanCompleteModal from "@/components/DashboardComponent/ScanCompleteModal";
 import ScanResult from "@/components/DashboardComponent/ScanResult";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
+import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 export default function Overview() {
   const [activeDialog, setActiveDialog] = useState(null);
+  const [selectedMemberID, setSelectedMemberId] = useState(null);
+  const user = useSelector(selectUser);
+
+  const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
+
+  useEffect(() => {
+    if (
+      user.role === "agency" &&
+      !isLoading &&
+      !isError &&
+      memberData?.data?.length > 0
+    ) {
+      setSelectedMemberId(memberData.data[0]?.id);
+    }
+  }, [memberData, isLoading, isError, user.role]);
 
   return (
     <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
-      <LimitationStatus />
+      {user.role === "customer" && <LimitationStatus />}
 
       {/* Middle layout */}
       <div className="grow flex flex-col lg:flex-row gap-3 lg:min-h-0">
         <div className="lg:min-h-0 lg:flex-2/5">
-          <AccountOverview />
+          <AccountOverview
+            setSelectedMemberId={setSelectedMemberId}
+            memberData={memberData}
+            selectedMemberID={selectedMemberID}
+            user={user}
+          />
         </div>
 
         <div className="min-h-0 w-full lg:flex-3/5">
@@ -50,7 +73,10 @@ export default function Overview() {
           <StartScanModal setActiveDialog={setActiveDialog} />
         )}
         {activeDialog === "Start Scanning" && (
-          <StartScanningModal setActiveDialog={setActiveDialog} />
+          <StartScanningModal
+            setActiveDialog={setActiveDialog}
+            selectedMemberID={selectedMemberID}
+          />
         )}
         {activeDialog === "Scan Complete" && (
           <ScanCompleteModal setActiveDialog={setActiveDialog} />
