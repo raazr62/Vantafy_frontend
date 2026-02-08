@@ -27,9 +27,12 @@ const ReferralLink = () => {
         <div className="relative">
           <CommonInputField
             value={refferalLink}
+            className="px-6 cursor-pointer"
             readOnly
-            className={"px-6"}
-          ></CommonInputField>
+            title="Copy link"
+            onClick={handleCopyLink}
+          />
+
           <button
             onClick={handleCopyLink}
             className="bg-primary flex items-center justify-center mt-2 sm:mt-0 w-full sm:w-fit gap-2 text-white font-medium text-xs sm:text-sm px-2.5 py-1.5 rounded-xl sm:absolute sm:top-1/2 sm:-translate-y-1/2 right-2.5 cursor-pointer"
@@ -37,6 +40,7 @@ const ReferralLink = () => {
             <CopyLinkIconSVG /> Copy link
           </button>
         </div>
+
         <p className="text-xs sm:text-sm text-[#4A4A4A] mt-1.5">
           Share this link to give your friends{" "}
           <span className="text-[#00AEEF]">15% off!</span>
