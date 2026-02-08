@@ -73,7 +73,10 @@ export default function Overview() {
           <StartScanModal setActiveDialog={setActiveDialog} />
         )}
         {activeDialog === "Start Scanning" && (
-          <StartScanningModal setActiveDialog={setActiveDialog} />
+          <StartScanningModal
+            setActiveDialog={setActiveDialog}
+            selectedMemberID={selectedMemberID}
+          />
         )}
         {activeDialog === "Scan Complete" && (
           <ScanCompleteModal setActiveDialog={setActiveDialog} />
