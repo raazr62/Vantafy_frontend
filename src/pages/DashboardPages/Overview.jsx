@@ -88,10 +88,10 @@ export default function Overview() {
           />
         )}
         {activeDialog === "Scan Result Single" && (
-          <ScanResult activeDialog={activeDialog} />
+          <ScanResult selectedMemberID={selectedMemberID} />
         )}
         {activeDialog === "Scan Result" && (
-          <ScanResult activeDialog={activeDialog} />
+          <ScanResult selectedMemberID={selectedMemberID} />
         )}
       </Dialog>
     </div>
