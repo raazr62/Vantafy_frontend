@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 export default function Overview() {
-  const [activeDialog, setActiveDialog] = useState("Start Scanning");
+  const [activeDialog, setActiveDialog] = useState("Scan Result Single");
   const [selectedMemberID, setSelectedMemberId] = useState(1);
   const user = useSelector(selectUser);
 
@@ -82,7 +82,10 @@ export default function Overview() {
           />
         )}
         {activeDialog === "Scan Complete" && (
-          <ScanCompleteModal setActiveDialog={setActiveDialog} />
+          <ScanCompleteModal
+            selectedMemberID={selectedMemberID}
+            setActiveDialog={setActiveDialog}
+          />
         )}
         {activeDialog === "Scan Result Single" && (
           <ScanResult activeDialog={activeDialog} />
