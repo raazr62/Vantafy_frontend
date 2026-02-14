@@ -308,29 +308,6 @@ export const overviewScanStatsMockData = [
   },
 ];
 
-export const scanCompleteOverviewMockData = [
-  {
-    id: 1,
-    title: "Total Scanned",
-    count: 200,
-  },
-  {
-    id: 2,
-    title: "Matches Found",
-    count: 100,
-  },
-  {
-    id: 3,
-    title: "Images",
-    count: 1000,
-  },
-  {
-    id: 4,
-    title: "Videos",
-    count: 400,
-  },
-];
-
 export const requestRemovalStatsMockData = [
   {
     id: 1,

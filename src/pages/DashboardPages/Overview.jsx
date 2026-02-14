@@ -70,7 +70,10 @@ export default function Overview() {
           <ListOfDelistedLinksModal />
         )}
         {activeDialog === "Initial Scan" && (
-          <StartScanModal setActiveDialog={setActiveDialog} />
+          <StartScanModal
+            setActiveDialog={setActiveDialog}
+            selectedMemberID={selectedMemberID}
+          />
         )}
         {activeDialog === "Start Scanning" && (
           <StartScanningModal
@@ -79,13 +82,16 @@ export default function Overview() {
           />
         )}
         {activeDialog === "Scan Complete" && (
-          <ScanCompleteModal setActiveDialog={setActiveDialog} />
+          <ScanCompleteModal
+            selectedMemberID={selectedMemberID}
+            setActiveDialog={setActiveDialog}
+          />
         )}
         {activeDialog === "Scan Result Single" && (
-          <ScanResult activeDialog={activeDialog} />
+          <ScanResult selectedMemberID={selectedMemberID} />
         )}
         {activeDialog === "Scan Result" && (
-          <ScanResult activeDialog={activeDialog} />
+          <ScanResult selectedMemberID={selectedMemberID} />
         )}
       </Dialog>
     </div>

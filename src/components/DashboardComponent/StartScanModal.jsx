@@ -6,8 +6,27 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
+import { usePostScanNow } from "@/hooks/usePostScanNow";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
-const StartScanModal = ({ setActiveDialog }) => {
+const StartScanModal = ({ setActiveDialog, selectedMemberID }) => {
+  const { mutate: postScanNow } = usePostScanNow(setActiveDialog);
+  const user = useSelector(selectUser);
+
+  const handleInitialScan = () => {
+    if (user?.role === "agency" && !selectedMemberID) {
+      toast.error("Please select a member");
+      return;
+    }
+
+    const data =
+      user?.role === "agency" ? { agency_member_id: selectedMemberID } : {};
+
+    postScanNow(data);
+  };
+
   return (
     <DialogContent>
       <DialogHeader>
@@ -27,9 +46,7 @@ const StartScanModal = ({ setActiveDialog }) => {
           content.
         </p>
       </div>
-      <Button onClick={() => setActiveDialog("Start Scanning")}>
-        Start Scanning
-      </Button>
+      <Button onClick={handleInitialScan}>Start Scanning</Button>
     </DialogContent>
   );
 };

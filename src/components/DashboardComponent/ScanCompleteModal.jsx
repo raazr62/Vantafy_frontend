@@ -5,9 +5,36 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ScanCompleteIconSVG } from "../SVG/DashboardLayoutSVG";
-import { scanCompleteOverviewMockData } from "@/lib/DashboardMockData";
+import { useGetScanRunTimeResult } from "@/hooks/useGetScanRunTimeResult";
 
-const ScanCompleteModal = ({ setActiveDialog }) => {
+const ScanCompleteModal = ({ setActiveDialog, selectedMemberID }) => {
+  const { data: scanRunTimeResultData } =
+    useGetScanRunTimeResult(selectedMemberID);
+  const scanResults = scanRunTimeResultData?.data || null;
+
+  const scanCompletedData = [
+    {
+      id: 1,
+      title: "Total Scanned",
+      count: scanResults?.total_scanned,
+    },
+    {
+      id: 2,
+      title: "Matches Found",
+      count: scanResults?.total_matched,
+    },
+    {
+      id: 3,
+      title: "Images",
+      count: scanResults?.total_image,
+    },
+    {
+      id: 4,
+      title: "Videos",
+      count: scanResults?.total_videos,
+    },
+  ];
+
   return (
     <DialogContent>
       <DialogHeader>
@@ -25,12 +52,13 @@ const ScanCompleteModal = ({ setActiveDialog }) => {
           Scan Complete!
         </p>
         <p className="text-[#707070] text-center text-sm sm:text-base">
-          We found 100 potential matches across 200 sites
+          We found {scanResults?.total_matched} potential matches across{" "}
+          {scanResults?.total_scanned} sites
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        {scanCompleteOverviewMockData.map((scanData) => (
+        {scanCompletedData.map((scanData) => (
           <div
             key={scanData.id}
             className="py-5 rounded-[12px] flex flex-col items-center justify-center bg-[#F7FCFF] gap-2"
