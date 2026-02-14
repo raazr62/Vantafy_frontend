@@ -14,8 +14,8 @@ import { useSelector } from "react-redux";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 export default function Overview() {
-  const [activeDialog, setActiveDialog] = useState(null);
-  const [selectedMemberID, setSelectedMemberId] = useState(null);
+  const [activeDialog, setActiveDialog] = useState("Start Scanning");
+  const [selectedMemberID, setSelectedMemberId] = useState(1);
   const user = useSelector(selectUser);
 
   const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
@@ -70,7 +70,10 @@ export default function Overview() {
           <ListOfDelistedLinksModal />
         )}
         {activeDialog === "Initial Scan" && (
-          <StartScanModal setActiveDialog={setActiveDialog} selectedMemberID={selectedMemberID} />
+          <StartScanModal
+            setActiveDialog={setActiveDialog}
+            selectedMemberID={selectedMemberID}
+          />
         )}
         {activeDialog === "Start Scanning" && (
           <StartScanningModal

@@ -7,53 +7,36 @@ import {
 } from "@/components/ui/dialog";
 import toast from "react-hot-toast";
 import { motion } from "motion/react";
+import { useGetScanRunTimeResult } from "@/hooks/useGetScanRunTimeResult";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
 
 const StartScanningModal = ({ setActiveDialog, selectedMemberID }) => {
-  const [progress, setProgress] = useState(0);
-  const [stats, setStats] = useState({
-    sites: 0,
-    matches: 0,
-    images: 0,
-    videos: 0,
-  });
+  const user = useSelector(selectUser);
 
-  // Animation + fake API
+  // Validate agency role selection
   useEffect(() => {
-    let percent = 0;
+    if (user?.role === "agency" && !selectedMemberID) {
+      toast.error("Please select a member");
+      setActiveDialog(null);
+      return;
+    }
+  }, [user, selectedMemberID, setActiveDialog]);
 
-    const interval = setInterval(() => {
-      percent += Math.random() * 6;
+  // Fetch scan runtime results from API
+  const { data: scanData } = useGetScanRunTimeResult(selectedMemberID);
 
-      if (percent < 100) {
-        setProgress(Math.floor(percent));
+  const scanResults = scanData?.data || null;
+  const progress = scanResults?.progress_percentage || 0;
+  const status = scanResults?.status || "running";
 
-        setStats({
-          sites: Math.floor(percent / 5),
-          matches: Math.floor(percent / 10),
-          images: Math.floor(percent * 1),
-          videos: Math.floor(percent / 2.5),
-        });
-      }
-    }, 200);
-
-    const fetchApi = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      setProgress(100);
-      clearInterval(interval);
-    };
-
-    fetchApi();
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Correct toast trigger
+  // Trigger completion when scan is complete
   useEffect(() => {
-    if (progress === 100) {
+    if (status === "completed" || progress === 100) {
       toast.success("Scan Successful! Your results are ready.");
       setActiveDialog("Scan Complete");
     }
-  }, [progress]);
+  }, [status, progress, setActiveDialog]);
 
   return (
     <DialogContent>
@@ -99,28 +82,28 @@ const StartScanningModal = ({ setActiveDialog, selectedMemberID }) => {
         <div className="rounded-[12px] border border-[rgba(58,184,255,0.20)] bg-linear-to-b from-[rgba(58,184,255,0.10)] to-[rgba(58,184,255,0.05)] text-center shadow-sm flex flex-col items-center justify-center py-4">
           <p className="text-xs sm:text-sm text-gray-600">Sites Scanned</p>
           <p className="text-xl sm:text-2xl md:text-[28px] font-bold text-[#3AB8FF]">
-            {stats.sites}
+            {scanResults?.total_scanned || 0}
           </p>
         </div>
 
         <div className="rounded-[12px] border border-[rgba(255,78,207,0.2)] bg-linear-to-b from-[rgba(255,78,207,0.1)] to-[rgba(255,78,207,0.05)] text-center shadow-sm flex flex-col items-center justify-center py-4">
           <p className="text-xs sm:text-sm text-gray-600">Matches Found</p>
           <p className="text-xl sm:text-2xl md:text-[28px] font-bold text-[#FF4ECF]">
-            {stats.matches}
+            {scanResults?.total_matched || 0}
           </p>
         </div>
 
         <div className="rounded-[12px] border border-[rgba(78,120,253,0.2)] bg-linear-to-r from-[rgba(236,112,218,0.1)] to-[rgba(81,174,250,0.1)] text-center shadow-sm flex flex-col items-center justify-center py-4">
           <p className="text-xs sm:text-sm text-gray-600">Images Checked</p>
           <p className="text-xl sm:text-2xl md:text-[28px] font-bold text-[#4E78FD]">
-            {stats.images}
+            {scanResults?.total_image || 0}
           </p>
         </div>
 
         <div className="rounded-[12px] border border-[rgba(255,27,228,0.2)] bg-linear-to-b from-[rgba(255,27,228,0.1)] to-[rgba(255,27,228,0.05)] text-center shadow-sm flex flex-col items-center justify-center py-4">
           <p className="text-xs sm:text-sm text-gray-600">Videos Checked</p>
           <p className="text-xl sm:text-2xl md:text-[28px] font-bold text-[#FF1BE4]">
-            {stats.videos}
+            {scanResults?.total_videos || 0}
           </p>
         </div>
       </div>
