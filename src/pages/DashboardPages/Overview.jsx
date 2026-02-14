@@ -70,7 +70,7 @@ export default function Overview() {
           <ListOfDelistedLinksModal />
         )}
         {activeDialog === "Initial Scan" && (
-          <StartScanModal setActiveDialog={setActiveDialog} />
+          <StartScanModal setActiveDialog={setActiveDialog} selectedMemberID={selectedMemberID} />
         )}
         {activeDialog === "Start Scanning" && (
           <StartScanningModal
