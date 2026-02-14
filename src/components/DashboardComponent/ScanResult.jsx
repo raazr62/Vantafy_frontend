@@ -73,7 +73,7 @@ const ScanResult = ({ selectedMemberID }) => {
 
       <div className="flex items-center justify-between">
         <p className="text-sm text-gray-600">
-          Total: {finalScanResultData?.total_result_found} links
+          Total: {finalScanResultData?.total_links} links
         </p>
         <Button
           onClick={copyAllLinks}

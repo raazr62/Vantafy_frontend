@@ -14,8 +14,8 @@ import { useSelector } from "react-redux";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 export default function Overview() {
-  const [activeDialog, setActiveDialog] = useState("Scan Result Single");
-  const [selectedMemberID, setSelectedMemberId] = useState(1);
+  const [activeDialog, setActiveDialog] = useState(null);
+  const [selectedMemberID, setSelectedMemberId] = useState(null);
   const user = useSelector(selectUser);
 
   const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
