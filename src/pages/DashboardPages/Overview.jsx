@@ -12,11 +12,18 @@ import ScanResult from "@/components/DashboardComponent/ScanResult";
 import { selectUser } from "@/Redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
+import { useGetDashboardData } from "@/hooks/useGetDashboardData";
+import GlobalLoader from "@/components/common/GlobalLoader";
 
 export default function Overview() {
   const [activeDialog, setActiveDialog] = useState(null);
   const [selectedMemberID, setSelectedMemberId] = useState(null);
   const user = useSelector(selectUser);
+  const {
+    data: dashboardData,
+    isLoading: dashboardLoading,
+    isError: dashboardIsError,
+  } = useGetDashboardData(selectedMemberID);
 
   const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
 
@@ -30,6 +37,14 @@ export default function Overview() {
       setSelectedMemberId(memberData.data[0]?.id);
     }
   }, [memberData, isLoading, isError, user.role]);
+
+  if (dashboardLoading) {
+    return <GlobalLoader />;
+  }
+
+  if (dashboardIsError) {
+    return <div>Error...</div>;
+  }
 
   return (
     <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
