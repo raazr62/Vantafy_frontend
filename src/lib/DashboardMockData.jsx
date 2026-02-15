@@ -277,17 +277,17 @@ export const accountStatsMockData = [
 ];
 
 export const linksMockData = [
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
-  "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
+  // "https://www.thisisarandomlink.com/not-real/for-demo",
 ];
 
 export const overviewScanStatsMockData = [

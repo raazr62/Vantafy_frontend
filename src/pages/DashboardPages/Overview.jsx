@@ -49,7 +49,7 @@ export default function Overview() {
 
   return (
     <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
-      {user.role === "customer" && <LimitationStatus />}
+      {/* {user.role === "customer" && <LimitationStatus />} */}
 
       {/* Middle layout */}
       <div className="grow flex flex-col lg:flex-row gap-3 lg:min-h-0">
