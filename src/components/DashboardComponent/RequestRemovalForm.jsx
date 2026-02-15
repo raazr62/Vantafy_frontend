@@ -23,8 +23,8 @@ import {
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 const RequestRemovalForm = ({
-  setLinksData,
-  linksData,
+  // setLinksData,
+  // linksData,
   selectedMemberID,
   setSelectedMemberId,
   memberData,
@@ -74,8 +74,8 @@ const RequestRemovalForm = ({
           }),
         };
       });
-
-    setLinksData((prev) => [...linksArray, ...prev]);
+    console.log(linksArray);
+    // setLinksData((prev) => [...linksArray, ...prev]);
     setUrlsText("");
   };
 
@@ -127,16 +127,15 @@ const RequestRemovalForm = ({
           </Select>
         )}
 
-        <Dialog className="flex-1">
-          {/* Remaining Request */}
-          <div className="bg-[linear-gradient(180deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] border-[0.952px] border-[#4E78FD33] py-2 sm:py-3.5 px-3.5 rounded-[10px] text-xs sm:text-sm text-[#333333] flex flex-col md:flex-row items-center gap-2 md:gap-5 w-full">
-            <p>
-              You have{" "}
-              <span className="text-[#4E78FD] font-bold">45 links</span>{" "}
-              remaining for removal requests this month under your{" "}
-              <span className="font-semibold">Premium</span> plan.{" "}
-            </p>
-            {linksData.length > 0 && (
+        {/* <Dialog className="flex-1"> */}
+        {/* Remaining Request */}
+        <div className="bg-[linear-gradient(180deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] border-[0.952px] border-[#4E78FD33] py-2 sm:py-3.5 px-3.5 rounded-[10px] text-xs sm:text-sm text-[#333333] flex flex-col md:flex-row items-center gap-2 md:gap-5 w-full">
+          <p>
+            You have <span className="text-[#4E78FD] font-bold">45 links</span>{" "}
+            remaining for removal requests this month under your{" "}
+            <span className="font-semibold">Premium</span> plan.{" "}
+          </p>
+          {/* {linksData.length > 0 && (
               <DialogTrigger asChild>
                 <button
                   type="button"
@@ -145,10 +144,10 @@ const RequestRemovalForm = ({
                   View Submitted Links ({linksData.length})
                 </button>
               </DialogTrigger>
-            )}
-          </div>
+            )} */}
+        </div>
 
-          <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
+        {/* <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
             <DialogHeader>
               <DialogTitle>Submitted Links</DialogTitle>
             </DialogHeader>
@@ -160,7 +159,7 @@ const RequestRemovalForm = ({
               />
             </div>
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
       </div>
 
       {/* Form */}
