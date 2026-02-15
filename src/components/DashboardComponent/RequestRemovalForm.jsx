@@ -1,16 +1,6 @@
 import { requestRemovalInfoMockData } from "@/lib/DashboardMockData";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SendIconSVG } from "../SVG/DashboardLayoutSVG";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import SubmittedLinksStatus from "./SubmittedLinksStatus";
-import { selectUser } from "@/Redux/slices/authSlice";
-import { useSelector } from "react-redux";
 import {
   Select,
   SelectContent,
@@ -20,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
 const RequestRemovalForm = ({
   // setLinksData,
@@ -28,53 +17,15 @@ const RequestRemovalForm = ({
   selectedMemberID,
   setSelectedMemberId,
   memberData,
-  isLoading,
-  isError,
+  user,
 }) => {
-  const user = useSelector(selectUser);
   const [urlsText, setUrlsText] = useState("");
-
-  useEffect(() => {
-    if (
-      user.role === "agency" &&
-      !isLoading &&
-      !isError &&
-      memberData?.data?.length > 0
-    ) {
-      setSelectedMemberId(memberData.data[0]?.id);
-    }
-  }, [memberData, isLoading, isError, user.role]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    const statuses = ["Processing", "Removed", "Failed"];
+    const linksArray = urlsText.split("\n").map((url) => url.trim());
 
-    const linksArray = urlsText
-      .split("\n")
-      .map((url) => url.trim())
-      .filter((url) => url.length > 0)
-      .map((url, index) => {
-        const platform = Math.random() < 0.5 ? "Image" : "Video";
-        const status = statuses[Math.floor(Math.random() * statuses.length)];
-
-        return {
-          id: index + 1,
-          link: url,
-          platform,
-          detectedItem: getRandomInt(5, 20),
-          status,
-          date: new Date().toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          }),
-        };
-      });
-    console.log(linksArray);
     // setLinksData((prev) => [...linksArray, ...prev]);
     setUrlsText("");
   };
