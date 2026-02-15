@@ -2,49 +2,36 @@ import { requestRemovalInfoMockData } from "@/lib/DashboardMockData";
 import React, { useState } from "react";
 import { SendIconSVG } from "../SVG/DashboardLayoutSVG";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import SubmittedLinksStatus from "./SubmittedLinksStatus";
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { usePostLinkRemovalRequest } from "@/hooks/usePostLinkRemovalRequest";
 
-const RequestRemovalForm = ({ setLinksData, linksData }) => {
+const RequestRemovalForm = ({
+  // setLinksData,
+  // linksData,
+  selectedMemberID,
+  setSelectedMemberId,
+  memberData,
+  user,
+}) => {
   const [urlsText, setUrlsText] = useState("");
+  const { mutate: postLinkRemovalRequest } = usePostLinkRemovalRequest(
+    selectedMemberID,
+    setUrlsText,
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    const statuses = ["Processing", "Removed", "Failed"];
+    const linksArray = urlsText.split("\n").map((url) => url.trim());
 
-    const linksArray = urlsText
-      .split("\n")
-      .map((url) => url.trim())
-      .filter((url) => url.length > 0)
-      .map((url, index) => {
-        const platform = Math.random() < 0.5 ? "Image" : "Video";
-        const status = statuses[Math.floor(Math.random() * statuses.length)];
-
-        return {
-          id: index + 1,
-          link: url,
-          platform,
-          detectedItem: getRandomInt(5, 20),
-          status,
-          date: new Date().toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          }),
-        };
-      });
-
-    setLinksData((prev) => [...linksArray, ...prev]);
-    setUrlsText("");
+    postLinkRemovalRequest({ links: linksArray });
   };
 
   return (
@@ -72,39 +59,63 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
 
       {/* View Submitted Links */}
 
-      <Dialog>
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        {/* Select User */}
+        {user.role === "agency" && (
+          <Select
+            value={selectedMemberID?.toString()}
+            onValueChange={(value) => setSelectedMemberId(value)}
+          >
+            <SelectTrigger className="py-2 sm:py-5.5 px-3.5 rounded-[10px] w-full min-w-80 max-w-[250px] sm:w-auto bg-white text-xs sm:text-sm">
+              <SelectValue placeholder="Select Creator Name" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Select Creator Name</SelectLabel>
+                {memberData?.data?.map((member) => (
+                  <SelectItem key={member.id} value={member.id.toString()}>
+                    {member.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        )}
+
+        {/* <Dialog className="flex-1"> */}
         {/* Remaining Request */}
-        <div className="bg-[linear-gradient(180deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] border-[0.952px] border-[#4E78FD33] py-2 sm:py-3.5 px-3.5 rounded-[10px] text-xs sm:text-sm text-[#333333] flex flex-col md:flex-row items-center gap-2 md:gap-5">
+        <div className="bg-[linear-gradient(180deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] border-[0.952px] border-[#4E78FD33] py-2 sm:py-3.5 px-3.5 rounded-[10px] text-xs sm:text-sm text-[#333333] flex flex-col md:flex-row items-center gap-2 md:gap-5 w-full">
           <p>
             You have <span className="text-[#4E78FD] font-bold">45 links</span>{" "}
             remaining for removal requests this month under your{" "}
             <span className="font-semibold">Premium</span> plan.{" "}
           </p>
-          {linksData.length > 0 && (
-            <DialogTrigger asChild>
-              <button
-                type="button"
-                className="bg-linear-to-bl from-primary to-sky-500 border-[#4E78FD33] py-1.5 text-xs sm:text-sm rounded-[10px] text-white font-medium px-5 hover:underline cursor-pointer"
-              >
-                View Submitted Links ({linksData.length})
-              </button>
-            </DialogTrigger>
-          )}
+          {/* {linksData.length > 0 && (
+              <DialogTrigger asChild>
+                <button
+                  type="button"
+                  className="bg-linear-to-bl from-primary to-sky-500 border-[#4E78FD33] py-1.5 text-xs sm:text-sm rounded-[10px] text-white font-medium px-5 hover:underline cursor-pointer"
+                >
+                  View Submitted Links ({linksData.length})
+                </button>
+              </DialogTrigger>
+            )} */}
         </div>
 
-        <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
-          <DialogHeader>
-            <DialogTitle>Submitted Links</DialogTitle>
-          </DialogHeader>
+        {/* <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
+            <DialogHeader>
+              <DialogTitle>Submitted Links</DialogTitle>
+            </DialogHeader>
 
-          <div className="flex-1 min-h-0 flex flex-col">
-            <SubmittedLinksStatus
-              linksData={linksData}
-              setLinksData={setLinksData}
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
+            <div className="flex-1 min-h-0 flex flex-col">
+              <SubmittedLinksStatus
+                linksData={linksData}
+                setLinksData={setLinksData}
+              />
+            </div>
+          </DialogContent>
+        </Dialog> */}
+      </div>
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="grow lg:min-h-0 flex flex-col">
