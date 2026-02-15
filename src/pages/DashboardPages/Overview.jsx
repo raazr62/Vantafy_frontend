@@ -12,14 +12,22 @@ import ScanResult from "@/components/DashboardComponent/ScanResult";
 import { selectUser } from "@/Redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
+import { useGetDashboardData } from "@/hooks/useGetDashboardData";
+import GlobalLoader from "@/components/common/GlobalLoader";
 
 export default function Overview() {
   const [activeDialog, setActiveDialog] = useState(null);
   const [selectedMemberID, setSelectedMemberId] = useState(null);
   const user = useSelector(selectUser);
+  const {
+    data,
+    isLoading: dashboardLoading,
+    isError: dashboardIsError,
+  } = useGetDashboardData(selectedMemberID);
 
   const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
 
+  const dashboardData = data?.data;
   useEffect(() => {
     if (
       user.role === "agency" &&
@@ -31,9 +39,17 @@ export default function Overview() {
     }
   }, [memberData, isLoading, isError, user.role]);
 
+  if (dashboardLoading) {
+    return <GlobalLoader />;
+  }
+
+  if (dashboardIsError) {
+    return <div>Error...</div>;
+  }
+
   return (
     <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
-      {user.role === "customer" && <LimitationStatus />}
+      {/* {user.role === "customer" && <LimitationStatus />} */}
 
       {/* Middle layout */}
       <div className="grow flex flex-col lg:flex-row gap-3 lg:min-h-0">
@@ -43,6 +59,7 @@ export default function Overview() {
             memberData={memberData}
             selectedMemberID={selectedMemberID}
             user={user}
+            dashboardData={dashboardData}
           />
         </div>
 

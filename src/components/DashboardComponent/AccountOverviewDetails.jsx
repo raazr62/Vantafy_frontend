@@ -9,25 +9,27 @@ import {
   SelectLabel,
   SelectItem,
 } from "../ui/select";
+import { formatNumberUS } from "@/lib/utils";
 
 const AccountOverviewDetails = ({
   memberData,
   setSelectedMemberId,
   selectedMemberID,
   user,
+  dashboardData,
 }) => {
   return (
     <div className="bg-[#F2F5F7] p-3 rounded-[12px]">
       <div className="flex justify-between gap-3 w-full flex-col sm:flex-row sm:items-center mb-2">
         <div className="flex items-center gap-3.5">
           <img
-            src="https://i.pravatar.cc/"
+            src={import.meta.env.VITE_IMAGE_URL + dashboardData?.avatar}
             className="w-14 h-14 rounded-full"
             alt="Your Avatar"
           />
           <div>
-            <p className="font-bold">Welcome to Jacob Jones</p>
-            <p className="text-[#707070] text-sm">Jacob Jones</p>
+            <p className="font-bold">Welcome to {dashboardData?.name}</p>
+            <p className="text-[#707070] text-sm">{dashboardData?.name}</p>
           </div>
         </div>
 
@@ -65,7 +67,7 @@ const AccountOverviewDetails = ({
             <span className="text-xs md:text-[15px] text-white">Total</span>
             <br />
             <span className="text-2xl md:text-3xl font-semibold md:font-bold text-white">
-              1.1k
+              {formatNumberUS(dashboardData?.total_media) ?? 0}
             </span>
           </p>
         </div>
@@ -77,9 +79,11 @@ const AccountOverviewDetails = ({
               <p className="font-medium flex items-center gap-1.5">
                 <img src={DashboardLocalImages.camera} alt="Camera" /> Photos
               </p>
-              <p className="text-sm">1.9k item</p>
+              <p className="text-sm">
+                {formatNumberUS(dashboardData?.total_photo) ?? 0} item
+              </p>
             </div>
-            <p className="font-medium">67%</p>
+            <p className="font-medium">{dashboardData?.photo_percentage}%</p>
           </div>
 
           {/* Video */}
@@ -88,9 +92,11 @@ const AccountOverviewDetails = ({
               <p className="font-medium flex items-center gap-1.5">
                 <img src={DashboardLocalImages.camera} alt="Camera" /> Videos
               </p>
-              <p className="text-sm">927 item</p>
+              <p className="text-sm">
+                {formatNumberUS(dashboardData?.total_video) ?? 0} item
+              </p>
             </div>
-            <p className="font-medium">67%</p>
+            <p className="font-medium">{dashboardData?.video_percentage}%</p>
           </div>
         </div>
       </div>
