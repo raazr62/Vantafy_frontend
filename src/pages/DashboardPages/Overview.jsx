@@ -20,13 +20,14 @@ export default function Overview() {
   const [selectedMemberID, setSelectedMemberId] = useState(null);
   const user = useSelector(selectUser);
   const {
-    data: dashboardData,
+    data,
     isLoading: dashboardLoading,
     isError: dashboardIsError,
   } = useGetDashboardData(selectedMemberID);
 
   const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
 
+  const dashboardData = data?.data;
   useEffect(() => {
     if (
       user.role === "agency" &&
@@ -58,6 +59,7 @@ export default function Overview() {
             memberData={memberData}
             selectedMemberID={selectedMemberID}
             user={user}
+            dashboardData={dashboardData}
           />
         </div>
 
