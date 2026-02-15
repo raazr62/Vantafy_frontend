@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { usePostLinkRemovalRequest } from "@/hooks/usePostLinkRemovalRequest";
 
 const RequestRemovalForm = ({
   // setLinksData,
@@ -20,14 +21,17 @@ const RequestRemovalForm = ({
   user,
 }) => {
   const [urlsText, setUrlsText] = useState("");
+  const { mutate: postLinkRemovalRequest } = usePostLinkRemovalRequest(
+    selectedMemberID,
+    setUrlsText,
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const linksArray = urlsText.split("\n").map((url) => url.trim());
 
-    // setLinksData((prev) => [...linksArray, ...prev]);
-    setUrlsText("");
+    postLinkRemovalRequest({ links: linksArray });
   };
 
   return (
