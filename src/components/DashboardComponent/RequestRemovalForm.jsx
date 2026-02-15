@@ -1,5 +1,5 @@
 import { requestRemovalInfoMockData } from "@/lib/DashboardMockData";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SendIconSVG } from "../SVG/DashboardLayoutSVG";
 import {
   Dialog,
@@ -9,9 +9,41 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import SubmittedLinksStatus from "./SubmittedLinksStatus";
+import { selectUser } from "@/Redux/slices/authSlice";
+import { useSelector } from "react-redux";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 
-const RequestRemovalForm = ({ setLinksData, linksData }) => {
+const RequestRemovalForm = ({
+  setLinksData,
+  linksData,
+  selectedMemberID,
+  setSelectedMemberId,
+  memberData,
+  isLoading,
+  isError,
+}) => {
+  const user = useSelector(selectUser);
   const [urlsText, setUrlsText] = useState("");
+
+  useEffect(() => {
+    if (
+      user.role === "agency" &&
+      !isLoading &&
+      !isError &&
+      memberData?.data?.length > 0
+    ) {
+      setSelectedMemberId(memberData.data[0]?.id);
+    }
+  }, [memberData, isLoading, isError, user.role]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,39 +104,64 @@ const RequestRemovalForm = ({ setLinksData, linksData }) => {
 
       {/* View Submitted Links */}
 
-      <Dialog>
-        {/* Remaining Request */}
-        <div className="bg-[linear-gradient(180deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] border-[0.952px] border-[#4E78FD33] py-2 sm:py-3.5 px-3.5 rounded-[10px] text-xs sm:text-sm text-[#333333] flex flex-col md:flex-row items-center gap-2 md:gap-5">
-          <p>
-            You have <span className="text-[#4E78FD] font-bold">45 links</span>{" "}
-            remaining for removal requests this month under your{" "}
-            <span className="font-semibold">Premium</span> plan.{" "}
-          </p>
-          {linksData.length > 0 && (
-            <DialogTrigger asChild>
-              <button
-                type="button"
-                className="bg-linear-to-bl from-primary to-sky-500 border-[#4E78FD33] py-1.5 text-xs sm:text-sm rounded-[10px] text-white font-medium px-5 hover:underline cursor-pointer"
-              >
-                View Submitted Links ({linksData.length})
-              </button>
-            </DialogTrigger>
-          )}
-        </div>
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        {/* Select User */}
+        {user.role === "agency" && (
+          <Select
+            value={selectedMemberID?.toString()}
+            onValueChange={(value) => setSelectedMemberId(value)}
+          >
+            <SelectTrigger className="py-2 sm:py-5.5 px-3.5 rounded-[10px] w-full min-w-80 max-w-[250px] sm:w-auto bg-white text-xs sm:text-sm">
+              <SelectValue placeholder="Select Creator Name" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Select Creator Name</SelectLabel>
+                {memberData?.data?.map((member) => (
+                  <SelectItem key={member.id} value={member.id.toString()}>
+                    {member.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        )}
 
-        <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
-          <DialogHeader>
-            <DialogTitle>Submitted Links</DialogTitle>
-          </DialogHeader>
-
-          <div className="flex-1 min-h-0 flex flex-col">
-            <SubmittedLinksStatus
-              linksData={linksData}
-              setLinksData={setLinksData}
-            />
+        <Dialog className="flex-1">
+          {/* Remaining Request */}
+          <div className="bg-[linear-gradient(180deg,rgba(78,120,253,0.08)_0%,rgba(255,27,228,0.08)_100%)] border-[0.952px] border-[#4E78FD33] py-2 sm:py-3.5 px-3.5 rounded-[10px] text-xs sm:text-sm text-[#333333] flex flex-col md:flex-row items-center gap-2 md:gap-5 w-full">
+            <p>
+              You have{" "}
+              <span className="text-[#4E78FD] font-bold">45 links</span>{" "}
+              remaining for removal requests this month under your{" "}
+              <span className="font-semibold">Premium</span> plan.{" "}
+            </p>
+            {linksData.length > 0 && (
+              <DialogTrigger asChild>
+                <button
+                  type="button"
+                  className="bg-linear-to-bl from-primary to-sky-500 border-[#4E78FD33] py-1.5 text-xs sm:text-sm rounded-[10px] text-white font-medium px-5 hover:underline cursor-pointer"
+                >
+                  View Submitted Links ({linksData.length})
+                </button>
+              </DialogTrigger>
+            )}
           </div>
-        </DialogContent>
-      </Dialog>
+
+          <DialogContent className="sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
+            <DialogHeader>
+              <DialogTitle>Submitted Links</DialogTitle>
+            </DialogHeader>
+
+            <div className="flex-1 min-h-0 flex flex-col">
+              <SubmittedLinksStatus
+                linksData={linksData}
+                setLinksData={setLinksData}
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="grow lg:min-h-0 flex flex-col">
