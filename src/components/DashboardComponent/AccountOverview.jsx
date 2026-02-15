@@ -18,7 +18,7 @@ const AccountOverview = ({
         user={user}
         dashboardData={dashboardData}
       />
-      <AccountOverviewStats />
+      <AccountOverviewStats dashboardData={dashboardData} />
     </div>
   );
 };
