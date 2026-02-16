@@ -8,6 +8,8 @@ const AccountOverview = ({
   selectedMemberID,
   user,
   dashboardData,
+  isLoading,
+  isError,
 }) => {
   return (
     <div className="p-3 lg:p-4 bg-white rounded-2xl space-y-4 lg:h-full lg:overflow-y-auto">
@@ -18,7 +20,11 @@ const AccountOverview = ({
         user={user}
         dashboardData={dashboardData}
       />
-      <AccountOverviewStats dashboardData={dashboardData} />
+      <AccountOverviewStats
+        dashboardData={dashboardData}
+        isLoading={isLoading}
+        isError={isError}
+      />
     </div>
   );
 };

@@ -10,6 +10,7 @@ const RequestRemoval = () => {
   // const [linksData, setLinksData] = useState([]);
   const [selectedMemberID, setSelectedMemberId] = useState(null);
   const { data: memberData, isLoading, isError } = useGetAgencyMemberList();
+
   const user = useSelector(selectUser);
   const {
     data,
@@ -74,11 +75,13 @@ const RequestRemoval = () => {
 
   return (
     <div className="flex flex-col-reverse lg:flex-col gap-4 lg:h-full pb-4 lg:pb-0">
-      <RequestRemovalStats
-        dashboardData={dashboardData}
-        isLoading={dashboardLoading}
-        isError={dashboardIsError}
-      />
+      {memberData?.data?.length > 0 && (
+        <RequestRemovalStats
+          dashboardData={dashboardData}
+          isLoading={dashboardLoading}
+          isError={dashboardIsError}
+        />
+      )}
       <RequestRemovalForm
         // setLinksData={setLinksData}
         // linksData={linksData}
