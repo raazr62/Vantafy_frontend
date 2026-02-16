@@ -27,7 +27,8 @@ const AccountToConnect = ({ account, isOpen, onOpen, onClose }) => {
     }
 
     const payload = {
-      accounts: [{ platform: name, username }],
+      platform: name,
+      username,
     };
     addSocialAccount(payload);
   };
