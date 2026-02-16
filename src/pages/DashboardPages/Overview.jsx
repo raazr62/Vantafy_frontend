@@ -193,7 +193,7 @@ export default function Overview() {
       {/* Modal */}
       <Dialog open={!!activeDialog} onOpenChange={() => setActiveDialog(null)}>
         {activeDialog === "List of Delisted links" && (
-          <ListOfDelistedLinksModal />
+          <ListOfDelistedLinksModal selectedMemberID={selectedMemberID} />
         )}
         {activeDialog === "Initial Scan" && (
           <StartScanModal
