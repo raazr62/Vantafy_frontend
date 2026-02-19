@@ -4,13 +4,21 @@ import Radar from "./Radar";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated } from "@/Redux/slices/authSlice";
 import { useNavigate } from "react-router";
+import HeroSkeleton from "./HeroSkeleton";
+import SectionError from "./SectionError";
 
-const Hero = ({ hero_section, hero_radar_icons }) => {
+const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
   const navigate = useNavigate();
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const handleGetProtected = () => {
     isAuthenticated ? navigate("/dashboard") : navigate("/auth/signup");
   };
+
+  if (isLoading) return <HeroSkeleton />;
+
+  if (isError)
+    return <SectionError message="Failed to load the hero section." />;
+
   return (
     <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-6 md:pt-8 lg:pt-10 px-4 xl:px-0">
       {/* Hero Description */}

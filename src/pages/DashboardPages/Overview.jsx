@@ -1,6 +1,5 @@
 import AccountHistory from "@/components/DashboardComponent/AccountHistory";
 import AccountOverview from "@/components/DashboardComponent/AccountOverview";
-import LimitationStatus from "@/components/DashboardComponent/LimitationStatus";
 import { overviewScanStatsMockData } from "@/lib/DashboardMockData";
 import React, { useEffect, useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
@@ -13,7 +12,6 @@ import { selectUser } from "@/Redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { useGetAgencyMemberList } from "@/hooks/useGetAgencyMemberList";
 import { useGetDashboardData } from "@/hooks/useGetDashboardData";
-import GlobalLoader from "@/components/common/GlobalLoader";
 
 export default function Overview() {
   const [activeDialog, setActiveDialog] = useState(null);

@@ -1,4 +1,3 @@
-import { FAQMockData } from "@/lib/HomeMockData";
 import { motion } from "motion/react";
 import {
   Accordion,
@@ -10,56 +9,63 @@ import CommonContainer from "@/shared/LandingShared/CommonContainer";
 import CommonTitle from "@/shared/LandingShared/CommonTitle";
 import React from "react";
 import { LocalImages } from "../AllPhotos/HomeLocalImages";
+import FAQSkeleton from "./FAQSkeleton";
+import SectionError from "./SectionError";
 
-const FAQ = ({ faqs }) => {
+const FAQ = ({ faqs, isLoading, isError }) => {
   const formatNumber = (num) => (num < 9 ? `0${num + 1}` : `${num + 1}`);
   return (
     <CommonContainer id={"faq"}>
       <CommonTitle title={"FAQ"} />
-      {/* FAQS */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-10 sm:mt-12 lg:mt-15 w-full">
-        <Accordion
-          type="single"
-          collapsible
-          className="flex-5/7"
-          defaultValue={faqs[0].id.toString()}
-        >
-          {faqs.map((faq, idx) => {
-            return (
-              <AccordionItem key={faq.id} value={faq.id.toString()}>
-                <AccordionTrigger>
-                  <p className="flex items-start gap-3">
-                    <span className="text-[#454F5B] text-xl sm:text-2xl lg:text-3xl font-bold">
-                      {formatNumber(idx)}
-                    </span>{" "}
-                    {faq.question}
-                  </p>
-                </AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
-            );
-          })}
-        </Accordion>
+      {isLoading ? (
+        <FAQSkeleton />
+      ) : isError ? (
+        <SectionError message="Failed to load FAQs." />
+      ) : (
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 mt-10 sm:mt-12 lg:mt-15 w-full">
+          <Accordion
+            type="single"
+            collapsible
+            className="flex-5/7"
+            defaultValue={faqs[0].id.toString()}
+          >
+            {faqs.map((faq, idx) => {
+              return (
+                <AccordionItem key={faq.id} value={faq.id.toString()}>
+                  <AccordionTrigger>
+                    <p className="flex items-start gap-3">
+                      <span className="text-[#454F5B] text-xl sm:text-2xl lg:text-3xl font-bold">
+                        {formatNumber(idx)}
+                      </span>{" "}
+                      {faq.question}
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
 
-        <div className="relative overflow-hidden flex-2/7">
-          <motion.img
-            animate={{
-              rotate: 360,
-              transition: {
-                duration: 10,
-                repeat: Infinity,
-                ease: "linear",
-              },
-            }}
-            src={LocalImages.FaqSpinner}
-            className="lg:max-w-full lg:max-h-full max-w-[300px] max-h-[300px] p-2"
-            alt="Faq Image Spinner"
-          />
-          <p className="text-xl sm:text-2xl lg:text-[28px] font-bold text-white bg-linear-to-l from-[#EC70DA] to-[#51AEFA] rounded-full w-18 h-18 sm:w-20 sm:h-20 lg:w-25 lg:h-25 flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            FAQ
-          </p>
+          <div className="relative overflow-hidden flex-2/7">
+            <motion.img
+              animate={{
+                rotate: 360,
+                transition: {
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "linear",
+                },
+              }}
+              src={LocalImages.FaqSpinner}
+              className="lg:max-w-full lg:max-h-full max-w-[300px] max-h-[300px] p-2"
+              alt="Faq Image Spinner"
+            />
+            <p className="text-xl sm:text-2xl lg:text-[28px] font-bold text-white bg-linear-to-l from-[#EC70DA] to-[#51AEFA] rounded-full w-18 h-18 sm:w-20 sm:h-20 lg:w-25 lg:h-25 flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              FAQ
+            </p>
+          </div>
         </div>
-      </div>
+      )}
     </CommonContainer>
   );
 };
