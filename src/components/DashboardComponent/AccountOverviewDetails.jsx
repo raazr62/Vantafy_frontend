@@ -24,7 +24,7 @@ const AccountOverviewDetails = ({
         <div className="flex items-center gap-3.5">
           <img
             src={import.meta.env.VITE_IMAGE_URL + dashboardData?.avatar}
-            className="w-14 h-14 rounded-full"
+            className="w-14 h-14 object-cover rounded-full"
             alt="Your Avatar"
           />
           <div>
