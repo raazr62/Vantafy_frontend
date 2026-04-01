@@ -1,6 +1,7 @@
 import { useAuthInit } from "@/hooks/useAuthInit";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated, selectUser } from "@/Redux/slices/authSlice";
+import { useLocation } from "react-router";
 
 /**
  * AuthProvider component that initializes authentication state
@@ -9,11 +10,13 @@ import { selectIsAuthenticated, selectUser } from "@/Redux/slices/authSlice";
 const AuthProvider = ({ children }) => {
   const { isLoading } = useAuthInit();
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  const user = useSelector(selectUser);
+
+  const isHome =
+    typeof window !== "undefined" && window.location.pathname === "/";
 
   // Only show loading spinner if we're verifying AND user is not already authenticated
   // This prevents blocking navigation after sign-in
-  if (isLoading && !isAuthenticated) {
+  if (isLoading && !isAuthenticated && !isHome) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center gap-4">

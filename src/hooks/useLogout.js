@@ -15,6 +15,7 @@ export const useLogout = () => {
     endpoint: "/signout/",
     onSuccess: () => {
       // Clear user data from Redux
+      
       dispatch(clearUser());
 
       // Clear all React Query cache to ensure fresh start
