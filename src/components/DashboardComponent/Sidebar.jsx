@@ -26,7 +26,7 @@ const Sidebar = ({ setSheetOpen }) => {
         <ul className="mt-3 lg:mt-8 space-y-1">
           {sidebarLinks.map((link) => {
             const isSkipped =
-              user.role !== "agency" && link.name === "My Information";
+              user.role !== "agency" && (link.name === "My Information" || link.name === "Add Email");
             if (isSkipped) return null;
             return (
               <li key={link.id} onClick={() => setSheetOpen?.(false)}>
