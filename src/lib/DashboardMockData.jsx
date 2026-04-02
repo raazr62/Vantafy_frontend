@@ -1,6 +1,7 @@
 import { DashboardLocalImages } from "@/components/AllPhotos/DashboardLocalImages";
 import TypingIndicator from "@/components/DashboardComponent/ChatArea/TypingIndicator";
 import {
+  AddEmailIconSVG,
   AffiliateIconSVG,
   HomeIconSVG,
   ImageIconSVG,
@@ -240,6 +241,12 @@ export const sidebarLinks = [
     name: "Plans",
     to: "/dashboard/plans",
     icon: <PlansIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
+  },
+  {
+    id: 9,
+    name: "Add Email",
+    to: "/dashboard/add-email",
+    icon: <AddEmailIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
   },
 ];
 
