@@ -45,6 +45,7 @@ export const usePublicFetch = (
   return useQuery({
     queryKey,
     queryFn: () => GetPublicData(endpoint, params),
+
     ...options,
   });
 };
