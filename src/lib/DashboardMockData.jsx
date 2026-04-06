@@ -242,12 +242,6 @@ export const sidebarLinks = [
     to: "/dashboard/plans",
     icon: <PlansIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
   },
-  {
-    id: 9,
-    name: "Add Email",
-    to: "/dashboard/add-email",
-    icon: <AddEmailIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
-  },
 ];
 
 export const accountStatsMockData = [
