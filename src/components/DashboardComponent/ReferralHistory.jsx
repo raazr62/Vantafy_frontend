@@ -8,7 +8,6 @@ const ReferralHistory = ({ affiliateProgramData, isLoading, isError }) => {
     return <ReferralHistorySkeleton />;
   }
 
-  console.log("data", affiliateProgramData)
 
   // Handle error state
   if (isError) {

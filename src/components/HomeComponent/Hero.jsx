@@ -15,7 +15,7 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
   };
 
   if (isLoading) return <HeroSkeleton />;
-  console.log("hero", hero_section)
+
 
   if (isError)
     return <SectionError message="Failed to load the hero section." />;
