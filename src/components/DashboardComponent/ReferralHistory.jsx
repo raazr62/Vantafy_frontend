@@ -8,6 +8,7 @@ const ReferralHistory = ({ affiliateProgramData, isLoading, isError }) => {
     return <ReferralHistorySkeleton />;
   }
 
+
   // Handle error state
   if (isError) {
     return (
@@ -71,9 +72,9 @@ const ReferralHistory = ({ affiliateProgramData, isLoading, isError }) => {
                   <p className="p-1.5 rounded-[6px] bg-[linear-gradient(135deg,rgba(78,120,253,0.10)_0%,rgba(255,27,228,0.10)_100%)]">
                     <ReferralProfileIconSVG />
                   </p>
-                  {referralData.name}
+                  {referralData.full_name}
                 </p>
-                <p className="text-xs text-[#4A4A4A]">{referralData.date}</p>
+                <p className="text-xs text-[#4A4A4A]">  {new Date(referralData.joined_date).toLocaleDateString()}</p>
               </div>
             ))}
           </div>
