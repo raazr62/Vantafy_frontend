@@ -206,9 +206,11 @@ const MyMembersAdd = ({
                     <div className="relative w-fit">
                       <img
                         src={
-                          import.meta.env.VITE_IMAGE_URL +
-                          memberData.profile_image
-                        }
+    memberData.profile_image?.startsWith("http")
+      ? memberData.profile_image
+      : import.meta.env.VITE_IMAGE_URL +
+        memberData.profile_image
+  }
                         alt={memberData.name}
                         className="w-7.5 h-7.5 sm:w-10.5 sm:h-10.5 rounded-full border sm:border-2 border-gray-300"
                       />

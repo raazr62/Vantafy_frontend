@@ -241,7 +241,12 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
         ) : (
           <img
             className="w-25 sm:w-30 lg:w-35 cursor-pointer"
-            src={import.meta.env.VITE_IMAGE_URL + systemData?.about_system?.logo}
+             src={
+    systemData?.about_system?.logo?.startsWith("http")
+      ? systemData.about_system.logo
+      : import.meta.env.VITE_IMAGE_URL +
+        systemData?.about_system?.logo
+  }
             alt="Vantafy"
           />
         )}

@@ -120,7 +120,11 @@ export default function Radar({ hero_radar_icons }) {
         {logoPositions.map((logo) => (
           <motion.img
             key={logo.id}
-            src={import.meta.env.VITE_IMAGE_URL + logo.image}
+            src={
+              logo.image?.startsWith("http")
+                ? logo.image
+                : import.meta.env.VITE_IMAGE_URL + logo.image
+            }
             alt={logo.alt}
             className="absolute w-8"
             style={{

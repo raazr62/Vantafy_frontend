@@ -15,7 +15,11 @@ const AmongOurCustomerCarousel = ({ customers }) => {
             className="relative min-w-[250px] md:min-w-[280px] xl:min-w-[348px] rounded-2xl mx-1 sm:mx-1.5 lg:mx-2.5"
           >
             <img
-              src={import.meta.env.VITE_IMAGE_URL + customer.profile_pic}
+               src={
+    customer.profile_pic?.startsWith("http")
+      ? customer.profile_pic
+      : import.meta.env.VITE_IMAGE_URL + customer.profile_pic
+  }
               alt={customer.name}
               className="w-full h-full max-h-[300px] md:max-h-[350px] lg:max-h-[430px] object-top object-cover rounded-2xl"
             />
@@ -24,8 +28,10 @@ const AmongOurCustomerCarousel = ({ customers }) => {
                 {customer.name}{" "}
                 <img
                   src={
-                    import.meta.env.VITE_IMAGE_URL + customer.social_media_icon
-                  }
+        customer.social_media_icon?.startsWith("http")
+          ? customer.social_media_icon
+          : import.meta.env.VITE_IMAGE_URL + customer.social_media_icon
+      }
                   className="w-4.5 sm:w-5.5 lg:w-6"
                   alt="Company Logo"
                 />

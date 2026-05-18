@@ -23,7 +23,11 @@ const AccountOverviewDetails = ({
       <div className="flex justify-between gap-3 w-full flex-col sm:flex-row sm:items-center mb-2">
         <div className="flex items-center gap-3.5">
           <img
-            src={import.meta.env.VITE_IMAGE_URL + dashboardData?.avatar}
+            src={
+    dashboardData?.avatar?.startsWith("http")
+      ? dashboardData.avatar
+      : import.meta.env.VITE_IMAGE_URL + dashboardData?.avatar
+  }
             className="w-14 h-14 object-cover rounded-full"
             alt="Your Avatar"
           />
@@ -59,7 +63,12 @@ const AccountOverviewDetails = ({
         {/* Chart */}
         <div className="relative w-fit mt-4">
           <img
-            src={DashboardLocalImages.overviewChart}
+            src={
+    DashboardLocalImages.overviewChart?.startsWith("http")
+      ? DashboardLocalImages.overviewChart
+      : import.meta.env.VITE_IMAGE_URL +
+        DashboardLocalImages.overviewChart
+  }
             className="w-40"
             alt="Overview"
           />
@@ -77,7 +86,11 @@ const AccountOverviewDetails = ({
           <div className="flex items-center justify-between py-2 px-5 lg:px-3 bg-white rounded-xl w-full">
             <div>
               <p className="font-medium flex items-center gap-1.5">
-                <img src={DashboardLocalImages.camera} alt="Camera" /> Photos
+                <img  src={
+    DashboardLocalImages.camera?.startsWith("http")
+      ? DashboardLocalImages.camera
+      : import.meta.env.VITE_IMAGE_URL + DashboardLocalImages.camera
+  } alt="Camera" /> Photos
               </p>
               <p className="text-sm">
                 {formatNumberUS(dashboardData?.total_photo) ?? 0} item
@@ -90,7 +103,11 @@ const AccountOverviewDetails = ({
           <div className="flex items-center justify-between py-2 px-3 bg-white rounded-xl w-full">
             <div>
               <p className="font-medium flex items-center gap-1.5">
-                <img src={DashboardLocalImages.camera} alt="Camera" /> Videos
+                <img src={
+    DashboardLocalImages.camera?.startsWith("http")
+      ? DashboardLocalImages.camera
+      : import.meta.env.VITE_IMAGE_URL + DashboardLocalImages.camera
+  } alt="Camera" /> Videos
               </p>
               <p className="text-sm">
                 {formatNumberUS(dashboardData?.total_video) ?? 0} item
