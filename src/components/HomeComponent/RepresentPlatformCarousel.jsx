@@ -11,8 +11,12 @@ const RepresentPlatformCarousel = ({ platforms }) => {
         {platforms.map((platform) => (
           <img
             key={platform.id}
-            src={import.meta.env.VITE_IMAGE_URL + platform.icon}
-            alt={platform.name}
+            src={
+    platform.icon?.startsWith("http")
+      ? platform.icon
+      : import.meta.env.VITE_IMAGE_URL + platform.icon
+  }
+  alt={platform.name}
             className="h-6 sm:h-8 lg:h-10 mx-4 sm:mx-6 lg:mx-8 inline-block object-contain"
             draggable={false}
           />
