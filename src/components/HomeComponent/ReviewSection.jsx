@@ -84,8 +84,12 @@ const ReviewSection = ({ testimonials, isLoading, isError }) => {
                       <div className="space-y-2 sm:space-y-4 xl:space-y-5">
                         <img
                           className="max-w-[60px] sm:max-w-[80px] lg:max-w-[90px] xl:max-w-[100px]"
-                          src={import.meta.env.VITE_IMAGE_URL + review.platform}
-                          alt="Company Logo"
+                          src={
+    review.platform?.startsWith("http")
+      ? review.platform
+      : import.meta.env.VITE_IMAGE_URL + review.platform
+  }
+  alt="Company Logo"
                         />
                         <div className="space-y-1">
                           <p className="text-xl sm:text-2xl xl:text-3xl font-semibold">
@@ -120,9 +124,11 @@ const ReviewSection = ({ testimonials, isLoading, isError }) => {
                       <img
                         className="w-full max-h-[300px] xl:min-h-[500px] object-cover rounded-t-3xl xl:rounded-t-none xl:rounded-r-3xl  object-top"
                         src={
-                          import.meta.env.VITE_IMAGE_URL + review.profile_pic
-                        }
-                        alt={review.name}
+    review.profile_pic?.startsWith("http")
+      ? review.profile_pic
+      : import.meta.env.VITE_IMAGE_URL + review.profile_pic
+  }
+  alt={review.name}
                       />
                     </div>
                   </div>

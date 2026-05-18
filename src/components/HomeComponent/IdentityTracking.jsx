@@ -17,7 +17,11 @@ const IdentityTracking = ({ identity_tracking, isLoading, isError }) => {
           {/* Image */}
           <div className="relative rounded-[12px] flex-1">
             <img
-              src={import.meta.env.VITE_IMAGE_URL + identity_tracking[0].image}
+              src={
+    identity_tracking[0].image?.startsWith("http")
+      ? identity_tracking[0].image
+      : import.meta.env.VITE_IMAGE_URL + identity_tracking[0].image
+  }
               alt="Identity Tracking"
               className="min-w-full min-h-full object-cover rounded-2xl"
             />
