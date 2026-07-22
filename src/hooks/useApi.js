@@ -10,6 +10,33 @@ import {
   PostFormUrlEncoded,
 } from "@/api";
 
+// --- Storage Caching Helpers for Instant Page Loading ---
+const getStorageCacheEntry = (key) => {
+  try {
+    const storageKey = `cq_cache_${JSON.stringify(key)}`;
+    const cached = localStorage.getItem(storageKey);
+    if (cached) {
+      return JSON.parse(cached);
+    }
+  } catch (e) {
+    console.warn("Error reading cache from localStorage", e);
+  }
+  return null;
+};
+
+const setStorageCache = (key, data) => {
+  try {
+    if (data === undefined || data === null) return;
+    const storageKey = `cq_cache_${JSON.stringify(key)}`;
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify({ data, timestamp: Date.now() })
+    );
+  } catch (e) {
+    console.warn("Error saving cache to localStorage", e);
+  }
+};
+
 /**
  * Generic Hook for fetching data (GET)
  * @param {Array} queryKey - The Query Key (e.g., ['users', 1])
@@ -20,10 +47,21 @@ import {
  */
 
 export const useFetch = (queryKey, endpoint, params = {}, options = {}) => {
+  const { skipCache, ...queryOptions } = options;
   return useQuery({
     queryKey,
-    queryFn: () => GetData(endpoint, params),
-    ...options,
+    queryFn: async () => {
+      const data = await GetData(endpoint, params);
+      if (!skipCache) setStorageCache(queryKey, data);
+      return data;
+    },
+    initialData: skipCache
+      ? undefined
+      : () => getStorageCacheEntry(queryKey)?.data,
+    initialDataUpdatedAt: skipCache
+      ? undefined
+      : () => getStorageCacheEntry(queryKey)?.timestamp,
+    ...queryOptions,
   });
 };
 
@@ -42,11 +80,21 @@ export const usePublicFetch = (
   params = {},
   options = {},
 ) => {
+  const { skipCache, ...queryOptions } = options;
   return useQuery({
     queryKey,
-    queryFn: () => GetPublicData(endpoint, params),
-
-    ...options,
+    queryFn: async () => {
+      const data = await GetPublicData(endpoint, params);
+      if (!skipCache) setStorageCache(queryKey, data);
+      return data;
+    },
+    initialData: skipCache
+      ? undefined
+      : () => getStorageCacheEntry(queryKey)?.data,
+    initialDataUpdatedAt: skipCache
+      ? undefined
+      : () => getStorageCacheEntry(queryKey)?.timestamp,
+    ...queryOptions,
   });
 };
 

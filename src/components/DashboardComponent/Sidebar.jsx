@@ -52,7 +52,7 @@ const Sidebar = ({ setSheetOpen }) => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center gap-2 text-red-600 text-sm md:text-base font-medium px-2 cursor-pointer"
+          className="flex items-center gap-2 text-[#FF4ECF] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
         >
           <LogoutIconSVG /> Logout
         </button>
