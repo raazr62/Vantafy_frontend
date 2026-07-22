@@ -5,9 +5,16 @@ import { usePublicFetch } from "./useApi";
  * Uses usePublicFetch since this is a public endpoint that doesn't require authentication
  * @returns {UseQueryResult} Query result with landing page data
  */
-export const useLandingPage = () => {
+export const useLandingPage = (options = {}) => {
   return usePublicFetch(
     ["landing-page"],
     "/landing-page-all-section-one-by-one/",
+    {},
+    {
+      staleTime: 1000 * 60 * 15, // 15 minutes fresh data
+      gcTime: 1000 * 60 * 60, // 1 hour memory cache
+      refetchOnWindowFocus: false,
+      ...options,
+    }
   );
 };

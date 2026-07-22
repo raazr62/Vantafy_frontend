@@ -207,7 +207,7 @@ export const LogoutIconSVG = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("text-[#FF1B14] w-6 h-6", className)}
+      className={cn("text-[#FF4ECF] w-6 h-6", className)}
       viewBox="0 0 24 24"
       fill="none"
     >
