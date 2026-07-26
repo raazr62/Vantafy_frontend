@@ -23,11 +23,11 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
             onClick={handleClick}
             className="w-30 sm:w-35 lg:w-40 cursor-pointer"
             src={
-    systemData?.about_system?.logo?.startsWith("http")
-      ? systemData.about_system.logo
-      : import.meta.env.VITE_IMAGE_URL +
-        systemData?.about_system?.logo
-  }
+              systemData?.about_system?.logo?.startsWith("http")
+                ? systemData.about_system.logo
+                : import.meta.env.VITE_IMAGE_URL +
+                systemData?.about_system?.logo
+            }
             alt="Vantafy"
           />
         )}
@@ -59,7 +59,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               }}
               to={"#what-we-do"}
             >
-              What we do
+              What We Do
             </HashLink>
           </li>
           <li>
@@ -73,7 +73,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               }}
               to={"#how-it-works"}
             >
-              How it works
+              How It Works
             </HashLink>
           </li>
           <li>
@@ -118,10 +118,10 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
                 <Link key={social.id} target="_blank" to={social.url}>
                   <img
                     src={
-    social.icon?.startsWith("http")
-      ? social.icon
-      : import.meta.env.VITE_IMAGE_URL + social.icon
-  }
+                      social.icon?.startsWith("http")
+                        ? social.icon
+                        : import.meta.env.VITE_IMAGE_URL + social.icon
+                    }
                     alt={social.name}
                     className="w-6 h-6 hover:scale-110 transition-all duration-300"
                   />

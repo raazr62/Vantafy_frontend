@@ -7,7 +7,7 @@ import SectionError from "./SectionError";
 const IdentityTracking = ({ identity_tracking, isLoading, isError }) => {
   return (
     <CommonContainer>
-      <CommonTitle title="Identity Tracking" />
+      <CommonTitle title="Peace of Mind" />
       {isLoading ? (
         <IdentityTrackingSkeleton />
       ) : isError ? (

@@ -20,7 +20,7 @@ import SectionError from "./SectionError";
 const ReviewSection = ({ testimonials, isLoading, isError }) => {
   return (
     <CommonContainer id={"testimonial"} className={"w-full"}>
-      <CommonTitle title={"Whats our client say"} />
+      <CommonTitle title={"What Our Clients Say"} />
 
       {isLoading ? (
         <ReviewSectionSkeleton />

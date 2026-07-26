@@ -5,7 +5,7 @@ import { LocalImages } from "../AllPhotos/HomeLocalImages";
 const Device = () => {
   return (
     <CommonContainer>
-      <CommonTitle title="Device" />
+      <CommonTitle title="Devices" />
 
       {/* Content */}
       <div className="flex flex-col-reverse md:flex-row items-center gap-6 sm:gap-8 lg:gap-10 mt-10 sm:mt-12 lg:mt-15">
