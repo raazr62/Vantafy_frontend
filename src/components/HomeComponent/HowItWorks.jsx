@@ -9,7 +9,7 @@ import SectionError from "./SectionError";
 const HowItWorks = ({ how_it_works, isLoading, isError }) => {
   return (
     <CommonContainer id={"how-it-works"}>
-      <CommonTitle title={"How it works"} />
+      <CommonTitle title={"How It Works"} />
 
       {isLoading ? (
         <HowItWorksSkeleton />

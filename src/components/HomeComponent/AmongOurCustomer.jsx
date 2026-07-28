@@ -8,7 +8,7 @@ import SectionError from "./SectionError";
 const AmongOurCustomer = ({ customers, isLoading, isError }) => {
   return (
     <CommonContainer className={"w-full"}>
-      <CommonTitle className="border-[#8133F1]" title={"Among our customer"} />
+      <CommonTitle className="border-[#8133F1]" title={"Among Our Customers"} />
       {isLoading ? (
         <AmongOurCustomerSkeleton />
       ) : isError ? (
