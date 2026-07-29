@@ -227,7 +227,15 @@ const SignUpForm = () => {
               )}
               <span className="text-xs sm:text-sm">
                 I agree to{" "}
-                <span className="text-sky-500">Term & Condition</span>
+                <Link
+                  to="/terms-and-conditions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-500 hover:underline font-medium"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Term & Condition
+                </Link>
               </span>
             </label>
 

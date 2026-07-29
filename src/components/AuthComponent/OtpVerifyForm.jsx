@@ -9,10 +9,17 @@ import { useVerifyOtp } from "@/hooks/useVerifyOtp";
 
 const OtpVerifyForm = ({ fromPage }) => {
   const [otp, setOtp] = useState(null);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(180);
   const [canResend, setCanResend] = useState(false);
   const { mutate: resendOtp } = useResendOtp();
   const { mutate: verifyOtp } = useVerifyOtp(fromPage);
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins < 10 ? `0${mins}` : mins}:${secs < 10 ? `0${secs}` : secs}`;
+  };
+
   React.useEffect(() => {
     if (timeLeft <= 0) {
       setCanResend(true);
@@ -29,7 +36,7 @@ const OtpVerifyForm = ({ fromPage }) => {
   const handleResend = () => {
     if (!canResend) return;
 
-    setTimeLeft(60);
+    setTimeLeft(180);
     setCanResend(false);
 
     const resendData = {
@@ -94,8 +101,8 @@ const OtpVerifyForm = ({ fromPage }) => {
           {!canResend ? (
             <p>
               Resend code in{" "}
-              <span className="text-xs sm:text-sm text-blue-500">
-                00:{timeLeft < 10 ? `0${timeLeft}` : timeLeft}
+              <span className="text-xs sm:text-sm text-blue-500 font-mono">
+                {formatTime(timeLeft)}
               </span>
             </p>
           ) : (
