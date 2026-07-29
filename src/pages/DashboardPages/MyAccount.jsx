@@ -13,7 +13,7 @@ const MyAccount = () => {
   const tabTiggerList = [
     "Profile",
     "Niches",
-    "Stage names to protect",
+    "Stage Names to Protect",
     "Authorized Sites",
   ];
   return (
@@ -53,7 +53,7 @@ const MyAccount = () => {
       )}
 
       {activeTab === "Niches" && <AccountNiches />}
-      {activeTab === "Stage names to protect" && <StageNamesToProtect />}
+      {activeTab === "Stage ames to protect" && <StageNamesToProtect />}
       {activeTab === "Authorized Sites" && <AuthorizedSites />}
     </div>
   );

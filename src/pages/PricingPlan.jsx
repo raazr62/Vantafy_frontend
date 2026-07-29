@@ -21,17 +21,17 @@ const PricingPlan = () => {
               <AgenciesBilling />
             ) : (
               <Tabs
-                defaultValue={"monthly-billing"}
+                defaultValue={"annual-billing"}
                 className="w-full px-4 xl:px-0"
               >
                 <TabsList
                   className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}
                 >
                   <TabsTrigger value="monthly-billing">
-                    Monthly billing
+                    Monthly
                   </TabsTrigger>
                   <TabsTrigger value="annual-billing">
-                    Annual billing
+                    Annual
                   </TabsTrigger>
                 </TabsList>
 

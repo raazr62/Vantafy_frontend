@@ -66,7 +66,7 @@ const PlanStatus = () => {
         </div>
         <div>
           <p className="text-base sm:text-lg lg:text-xl font-bold flex items-center gap-2">
-            {data?.data?.plan_name} Plan Active
+            {data?.data?.package.name} Plan Active
             <span className="bg-linear-to-b from-[#4E78FD] to-[#FF1BE4] rounded-[6px] p-1 sm:p-2 text-xs font-bold text-white">
               Active
             </span>

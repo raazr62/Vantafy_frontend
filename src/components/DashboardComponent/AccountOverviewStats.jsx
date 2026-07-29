@@ -44,17 +44,17 @@ const AccountOverviewStats = ({ dashboardData, isLoading, isError }) => {
     },
     {
       id: 2,
-      info: "Infringing Site",
+      info: "Infringing Sites",
       quantity: dashboardData?.infringing_sites || 0,
     },
     {
       id: 3,
-      info: "Image Found",
+      info: "Images Found",
       quantity: dashboardData?.total_photo || 0,
     },
     {
       id: 4,
-      info: "Video Found",
+      info: "Videos Found",
       quantity: dashboardData?.total_video || 0,
     },
     {

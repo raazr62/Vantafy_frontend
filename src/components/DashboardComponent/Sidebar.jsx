@@ -32,7 +32,7 @@ const Sidebar = ({ setSheetOpen }) => {
               <li key={link.id} onClick={() => setSheetOpen?.(false)}>
                 <NavLink
                   className={({ isActive }) =>
-                    `py-1.5 sm:py-3 px-4 flex items-center gap-3 rounded-xl text-xs sm:text-sm font-medium sm:font-semibold
+                    `py-1.5 sm:py-3 px-4 flex items-center gap- rounded-xl text-xs sm:text-sm font-medium sm:font-semibold
               ${isActive ? "bg-primary text-white" : "text-[#4A4A4A]"}`
                   }
                   to={link.to}
@@ -52,7 +52,7 @@ const Sidebar = ({ setSheetOpen }) => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center gap-2 text-[#FF4ECF] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
+          className="flex items-center ml-5 gap-2 text-[#FF4ECF] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
         >
           <LogoutIconSVG /> Logout
         </button>

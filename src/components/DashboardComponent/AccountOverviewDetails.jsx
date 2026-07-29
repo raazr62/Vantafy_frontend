@@ -32,7 +32,7 @@ const AccountOverviewDetails = ({
             alt="Your Avatar"
           />
           <div>
-            <p className="font-bold">Welcome to {dashboardData?.name}</p>
+            <p className="font-bold">Welcome {dashboardData?.name}</p>
             <p className="text-[#707070] text-sm">{dashboardData?.name}</p>
           </div>
         </div>
