@@ -8,11 +8,14 @@ export const useSendOtp = () => {
   return usePost({
     endpoint: "/send-otp/",
     invalidateQueries: ["send-otp"],
-    onSuccess: ({ data }) => {
+    onSuccess: (data, variables) => {
       toast.success(
         "We've emailed you a verification code to reset your password.",
       );
-      localStorage.setItem("email", data.email);
+      const email = variables?.email || data?.data?.email || data?.email;
+      if (email) {
+        localStorage.setItem("email", email);
+      }
       localStorage.setItem("purpose", "password_reset");
       navigate("/auth/otp-verify", { state: { from: "/auth/reset-password" } });
     },

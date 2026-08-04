@@ -8,8 +8,11 @@ export const useCreateUser = () => {
   return usePost({
     endpoint: "/signup/",
     invalidateQueries: ["register-user"],
-    onSuccess: ({ data }) => {
-      localStorage.setItem("email", data.user.email);
+    onSuccess: (data, variables) => {
+      const email = data?.user?.email || data?.data?.user?.email || variables?.email;
+      if (email) {
+        localStorage.setItem("email", email);
+      }
       localStorage.setItem("purpose", "account_create");
       toast.success("Signed up successfully!");
       navigate("/auth/otp-verify", { state: { from: "/auth/signup" } });

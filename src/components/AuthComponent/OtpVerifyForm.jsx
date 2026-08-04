@@ -54,8 +54,17 @@ const OtpVerifyForm = ({ fromPage }) => {
       toast.error("Please enter the 6-digit OTP.");
       return;
     }
+
+    const email = localStorage.getItem("email");
+    if (!email || email === "undefined" || email === "null") {
+      toast.error("Email missing. Please request a new OTP code.");
+      return;
+    }
+
+    localStorage.setItem("otp", otp.toString());
+
     const verifyOtpData = {
-      email: localStorage.getItem("email"),
+      email,
       purpose: localStorage.getItem("purpose"),
       otp: otp.toString(),
     };
