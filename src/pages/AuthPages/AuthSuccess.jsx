@@ -17,7 +17,7 @@ const AuthSuccess = () => {
   useEffect(() => {
     if (fromPage === "/auth/signup") {
       const timer = setTimeout(() => {
-        navigate("/auth/signin");
+        navigate("/select-niches");
       }, 3000);
 
       return () => clearTimeout(timer);

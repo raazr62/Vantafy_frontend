@@ -85,13 +85,14 @@ const ChangePasswordForm = () => {
             icon={LockIconSVG}
             required
           />
-          {/*  Confirm New Password */}
+          {/* Confirm New Password */}
           <CommonInputField
             label="Confirm Password"
             type="password"
             name="confirmPassword"
             placeholder="Re-enter your new password"
             icon={LockIconSVG}
+            preventPaste={true}
             required
           />
           <Button

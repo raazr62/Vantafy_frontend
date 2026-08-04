@@ -16,12 +16,35 @@ const CommonInputField = ({
   readOnly = false,
   value,
   labelClassName,
+  preventPaste,
+  onPaste,
+  onCopy,
+  onCut,
+  onDrop,
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const isPassword = type === "password";
   const inputType = isPassword ? (showPassword ? "text" : "password") : type;
+
+  const isConfirmField =
+    preventPaste ??
+    (name?.toLowerCase().includes("confirm") ||
+      label?.toLowerCase().includes("confirm") ||
+      name?.toLowerCase().includes("retype") ||
+      label?.toLowerCase().includes("retype") ||
+      placeholder?.toLowerCase().includes("retype") ||
+      placeholder?.toLowerCase().includes("re-enter"));
+
+  const handlePrevent = (e, customHandler) => {
+    if (isConfirmField) {
+      e.preventDefault();
+    }
+    if (customHandler) {
+      customHandler(e);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-1 sm:gap-2 w-full">
@@ -43,6 +66,10 @@ const CommonInputField = ({
           placeholder={placeholder}
           value={value}
           readOnly={readOnly}
+          onPaste={(e) => handlePrevent(e, onPaste)}
+          onCopy={(e) => handlePrevent(e, onCopy)}
+          onCut={(e) => handlePrevent(e, onCut)}
+          onDrop={(e) => handlePrevent(e, onDrop)}
           className={cn(
             "w-full py-2 sm:py-3.5 rounded-lg border border-sky-500 outline-none transition focus:border-primary",
             Icon ? "pl-9" : "",
