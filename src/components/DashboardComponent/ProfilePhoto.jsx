@@ -57,8 +57,16 @@ const ProfilePhoto = ({ profile_photo }) => {
     // If it's already a blob URL (from file upload preview)
     if (avatar.startsWith("blob:")) return avatar;
 
+    // If it's already an absolute http/https URL
+    if (avatar.startsWith("http://") || avatar.startsWith("https://")) {
+      return avatar;
+    }
+
     // Otherwise prepend the base URL
-    return import.meta.env.VITE_IMAGE_URL + avatar;
+    const baseUrl = import.meta.env.VITE_IMAGE_URL || "";
+    return baseUrl.endsWith("/") && avatar.startsWith("/")
+      ? `${baseUrl.slice(0, -1)}${avatar}`
+      : `${baseUrl}${avatar.startsWith("/") ? "" : "/"}${avatar}`;
   };
 
   return (

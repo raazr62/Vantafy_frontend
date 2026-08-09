@@ -18,22 +18,37 @@ const AccountOverviewDetails = ({
   user,
   dashboardData,
 }) => {
+  const getAvatarUrl = () => {
+    const avatar = dashboardData?.avatar;
+    const name = dashboardData?.name || user?.full_name || "User";
+    if (!avatar) {
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=100&background=random`;
+    }
+    if (avatar.startsWith("http://") || avatar.startsWith("https://")) {
+      return avatar;
+    }
+    const baseUrl = import.meta.env.VITE_IMAGE_URL || "";
+    return baseUrl.endsWith("/") && avatar.startsWith("/")
+      ? `${baseUrl.slice(0, -1)}${avatar}`
+      : `${baseUrl}${avatar.startsWith("/") ? "" : "/"}${avatar}`;
+  };
+
   return (
     <div className="bg-[#F2F5F7] p-3 rounded-[12px]">
       <div className="flex justify-between gap-3 w-full flex-col sm:flex-row sm:items-center mb-2">
         <div className="flex items-center gap-3.5">
           <img
-            src={
-    dashboardData?.avatar?.startsWith("http")
-      ? dashboardData.avatar
-      : import.meta.env.VITE_IMAGE_URL + dashboardData?.avatar
-  }
+            src={getAvatarUrl()}
             className="w-14 h-14 object-cover rounded-full"
             alt="Your Avatar"
+            onError={(e) => {
+              const name = dashboardData?.name || user?.full_name || "User";
+              e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=100&background=random`;
+            }}
           />
           <div>
-            <p className="font-bold">Welcome {dashboardData?.name}</p>
-            <p className="text-[#707070] text-sm">{dashboardData?.name}</p>
+            <p className="font-bold">Welcome {dashboardData?.name || user?.full_name || "User"}</p>
+            <p className="text-[#707070] text-sm">{dashboardData?.name || user?.full_name || "User"}</p>
           </div>
         </div>
 

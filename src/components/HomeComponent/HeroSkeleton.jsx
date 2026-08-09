@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSkeleton = () => {
   return (
-    <section className="container mx-auto flex  flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-6 md:pt-8  lg:pt-10 px-4 xl:px-0 animate-pulse">
+    <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-6 md:pt-8 lg:pt-10 px-4 sm:px-6 animate-pulse">
       {/* Left: text + button skeleton */}
       <div className="absolute top-90 sm:static -mt-20 md:mt-0 pb-20 flex flex-col items-center gap-4 lg:items-start max-w-2xl lg:pt-5 w-full">
         {/* Title */}

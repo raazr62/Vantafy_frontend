@@ -1,5 +1,5 @@
 import Sidebar from "@/components/DashboardComponent/Sidebar";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Link, Navigate, Outlet } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
@@ -14,12 +14,12 @@ export default function DashboardLayout() {
   const user = useSelector(selectUser);
 
   useEffect(() => {
-    if (!user.has_subscription) {
+    if (user && !user.has_subscription) {
       toast.error("Please purchase a plan to access this page");
     }
-  }, [user.has_subscription]);
+  }, [user]);
 
-  if (!user.has_subscription) {
+  if (user && !user.has_subscription) {
     return <Navigate to="/pricing-plan" />;
   }
 
@@ -54,7 +54,15 @@ export default function DashboardLayout() {
       </Sheet>
 
       <div className="px-2 lg:px-5 w-full flex-1 flex flex-col min-h-0 lg:max-h-[calc(100vh-80px)] xl:max-h-full mt-14 xl:mt-0 overflow-y-auto xl:overflow-visible">
-        <Outlet />
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center min-h-[400px]">
+              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const PricingPlan = () => {
             ) : (
               <Tabs
                 defaultValue={"annual-billing"}
-                className="w-full px-4 xl:px-0"
+                className="w-full px-4 sm:px-6"
               >
                 <TabsList
                   className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}

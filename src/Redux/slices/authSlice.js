@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: null,
   isAuthenticated: false,
-  isLoading: false, // Start as true to prevent flash of login page
+  isLoading: true, // Start as true to prevent flash of login page or premature redirect on page refresh
 };
 
 const authSlice = createSlice({

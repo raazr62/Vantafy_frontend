@@ -74,7 +74,7 @@ const ReviewSection = ({ testimonials, isLoading, isError }) => {
               },
             }}
             loop={true}
-            className="px-4! xl:px-0 w-full"
+            className="px-4 sm:px-6 w-full"
           >
             {testimonials.map((review) => {
               return (

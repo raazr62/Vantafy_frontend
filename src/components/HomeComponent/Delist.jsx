@@ -7,7 +7,7 @@ import {
 
 const Delist = () => {
   return (
-    <div className="bg-[#AD46FF0A] py-7 sm:py-9 lg:py-11 w-full mt-4 sm:mt-6 px-4 xl:px-0">
+    <div className="bg-[#AD46FF0A] py-7 sm:py-9 lg:py-11 w-full mt-4 sm:mt-6 px-4 sm:px-6">
       <div className="max-w-2xl mx-auto space-y-2 sm:space-y-4">
         <p className="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent font-semibold text-xl sm:text-2xl lg:text-[32px]">
           Search Delisting
@@ -31,7 +31,7 @@ const Delist = () => {
         </div>
 
         {/* Notify */}
-        <p className="py-4 sm:py-6 flex items-center gap-2 justify-center bg-[linear-gradient(90deg,rgba(78,120,253,0.04)_0%,rgba(255,27,228,0.04)_100%)] rounded-2xl font-medium text-xs sm:text-sm px-2 sm:px-0">
+        <p className="py-4 sm:py-6 flex items-center gap-2 justify-center bg-[linear-gradient(90deg,rgba(78,120,253,0.04)_0%,rgba(255,27,228,0.04)_100%)] rounded-2xl font-medium text-xs sm:text-sm px-2 sm:px-4">
           <WarningIconSVG /> We preserve referrals, reviews, and affiliate
           content you wish to keep
         </p>

@@ -21,7 +21,7 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
     return <SectionError message="Failed to load the hero section." />;
 
   return (
-    <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-6 md:pt-8 lg:pt-10 px-4 xl:px-0">
+    <section className="container mx-auto flex flex-col-reverse items-center justify-center lg:justify-between lg:flex-row sm:gap-10 overflow-hidden lg:items-start sm:pt-6 md:pt-8 lg:pt-10 px-4 sm:px-6">
       {/* Hero Description */}
       <div className="absolute top-90 sm:static flex flex-col items-center gap-2 lg:gap-4 text-center lg:items-start sm:text-left max-w-2xl lg:pt-5">
         <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl/tight text-center lg:text-left">

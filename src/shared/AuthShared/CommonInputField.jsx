@@ -64,7 +64,7 @@ const CommonInputField = ({
           id={name}
           type={inputType}
           placeholder={placeholder}
-          value={value}
+          {...(value !== undefined ? { value } : {})}
           readOnly={readOnly}
           onPaste={(e) => handlePrevent(e, onPaste)}
           onCopy={(e) => handlePrevent(e, onCopy)}

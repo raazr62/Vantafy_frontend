@@ -60,7 +60,7 @@ const WhatWeDo = () => {
         ))}
       </div>
 
-      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 xl:px-0 pb-2 no-scrollbar sm:mt-12 lg:mt-15">
+      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 sm:px-6 pb-2 no-scrollbar sm:mt-12 lg:mt-15">
         {WhatWeDoMockData.map((weDo, idx) => {
           const isActive = weDo.name === activeCard;
 

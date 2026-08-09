@@ -11,7 +11,7 @@ const HowItWorksAccordion = ({ how_it_works }) => {
     <Accordion
       type="single"
       collapsible
-      className="w-full px-4 xl:px-0"
+      className="w-full px-4 sm:px-6"
       defaultValue={how_it_works[0].id.toString()}
     >
       {how_it_works.map((faq, idx) => (

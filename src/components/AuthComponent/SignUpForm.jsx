@@ -85,7 +85,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="px-4 xl:px-0 flex-[55%] overflow-y-auto h-full">
+    <div className="px-4 sm:px-6 flex-[55%] overflow-y-auto h-full">
       <div className="relative flex flex-col items-center justify-center min-h-full">
         <Link
           to="/auth/signin"

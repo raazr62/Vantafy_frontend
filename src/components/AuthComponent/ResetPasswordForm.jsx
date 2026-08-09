@@ -22,7 +22,7 @@ const ResetPasswordForm = () => {
     }
   };
   return (
-    <div className="px-4 xl:px-0 flex-[55%] flex flex-col items-center justify-center w-full relative">
+    <div className="px-4 sm:px-6 flex-[55%] flex flex-col items-center justify-center w-full relative">
       <Link
         to="/auth/signin"
         className="left-5 top-5 lg:left-12 lg:top-12 absolute text-slate-500 hover:text-red-500"
