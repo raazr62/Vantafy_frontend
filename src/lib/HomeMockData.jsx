@@ -380,11 +380,11 @@ export const ReviewSectionMockData = [
 ];
 
 export const WeServedMockData = [
-  { id: 1, label: "Web search", value: "55M" },
-  { id: 2, label: "Content Creators", value: "1M" },
-  { id: 3, label: "Leaks found", value: "55M" },
-  { id: 4, label: "Recovered", value: "55M" },
-  { id: 5, label: "Success Score", value: "100%" },
+  { id: 1, label: "Web search", value: "+55M" },
+  { id: 2, label: "Content Creators", value: "+1M" },
+  { id: 3, label: "Leaks found", value: "+55M" },
+  { id: 4, label: "Recovered", value: "+55M" },
+  { id: 5, label: "Success Score", value: "+100%" },
 ];
 
 export const HowItWorksMockData = [
