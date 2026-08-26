@@ -39,6 +39,10 @@ const WeServed = ({ our_metrics }) => {
           const number = parseFloat(valStr.replace(/[^0-9.]/g, "")) || 0;
           const unit = valStr.replace(/^[+0-9.]*/, "") || "";
 
+          // Calculate decimals dynamically if API value contains a fractional number (e.g. 99.5%)
+          const decimalMatch = valStr.match(/\.([0-9]+)/);
+          const decimals = decimalMatch ? decimalMatch[1].length : 0;
+
           return (
             <div
               key={item.id || idx}
@@ -49,6 +53,8 @@ const WeServed = ({ our_metrics }) => {
                   prefix={prefix}
                   end={number}
                   suffix={unit}
+                  decimals={decimals}
+                  decimal="."
                   duration={5}
                   enableScrollSpy={true}
                 />
