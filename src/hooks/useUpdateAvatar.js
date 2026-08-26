@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 export const useUpdateAvatar = () => {
   return useUpload({
     endpoint: "/avatar-update/",
-    invalidateQueries: ["user-profile"],
+    invalidateQueries: ["my-profile"],
     onSuccess: (data) => {
       toast.success(data?.message || "Profile photo updated successfully");
     },

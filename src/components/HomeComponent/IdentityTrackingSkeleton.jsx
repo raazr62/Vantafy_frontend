@@ -2,7 +2,7 @@ import React from "react";
 
 const IdentityTrackingSkeleton = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 px-4 xl:px-0 mt-10 sm:mt-12 lg:mt-15 animate-pulse">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 mt-10 sm:mt-12 lg:mt-15 animate-pulse">
       {/* Image placeholder */}
       <div className="relative rounded-2xl flex-1 w-full">
         <div className="w-full h-[280px] sm:h-[340px] lg:h-[400px] bg-gray-200 rounded-2xl" />

@@ -28,17 +28,17 @@ export default function Overview() {
   const dashboardData = data?.data;
   useEffect(() => {
     if (
-      user.role === "agency" &&
+      user?.role === "agency" &&
       !isLoading &&
       !isError &&
       memberData?.data?.length > 0
     ) {
       setSelectedMemberId(memberData.data[0]?.id);
     }
-  }, [memberData, isLoading, isError, user.role]);
+  }, [memberData, isLoading, isError, user?.role]);
 
   // Show error message for member data fetching errors (agency users only)
-  if (isError && user.role === "agency") {
+  if (isError && user?.role === "agency") {
     return (
       <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
         <div className="bg-red-50 border border-red-200 rounded-2xl p-8 text-center">
@@ -70,7 +70,7 @@ export default function Overview() {
   }
 
   // Show "Add First Member" message for agency users without members
-  if (user.role === "agency" && !isLoading && memberData?.data?.length < 1) {
+  if (user?.role === "agency" && !isLoading && memberData?.data?.length < 1) {
     return (
       <div className="flex flex-col h-full gap-3 pb-4 lg:pb-0">
         <div className="bg-white rounded-2xl p-8 sm:p-12 text-center shadow-sm">

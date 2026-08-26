@@ -13,13 +13,13 @@ const MyAccount = () => {
   const tabTiggerList = [
     "Profile",
     "Niches",
-    "Stage names to protect",
+    "Stage Names to Protect",
     "Authorized Sites",
   ];
   return (
     <div className="flex flex-col h-full pb-4 lg:pb-0">
       {/* Tab header (fixed height) */}
-      {user.role !== "agency" && (
+      {user?.role !== "agency" && (
         <div className="bg-white rounded-t-[12px]">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full p-2 sm:p-4 bg-slate-50 border border-slate-200 rounded-t-[12px]">
             {tabTiggerList.map((tab, idx) => {
@@ -45,15 +45,15 @@ const MyAccount = () => {
       {/* Scrollable content area */}
       {activeTab === "Profile" && (
         <div
-          className={`space-y-4 sm:space-y-6 grow overflow-y-auto min-h-0 ${user.role === "agency" ? "rounded-[12px]" : "rounded-b-[12px]"}`}
+          className={`space-y-4 sm:space-y-6 grow overflow-y-auto min-h-0 ${user?.role === "agency" ? "rounded-[12px]" : "rounded-b-[12px]"}`}
         >
           <ProfileDetails />
-          {!user.is_google_login && <ChangePassword />}
+          {!user?.is_google_login && <ChangePassword />}
         </div>
       )}
 
       {activeTab === "Niches" && <AccountNiches />}
-      {activeTab === "Stage names to protect" && <StageNamesToProtect />}
+      {activeTab === "Stage Names to Protect" && <StageNamesToProtect />}
       {activeTab === "Authorized Sites" && <AuthorizedSites />}
     </div>
   );

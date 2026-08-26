@@ -5,8 +5,24 @@ import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 
+import { usePost } from "@/hooks/useApi";
+import { handleApiError } from "@/utils/apiUtils";
+
 const ChangePasswordForm = () => {
   const navigate = useNavigate();
+
+  const { mutate: resetPassword, isPending } = usePost({
+    endpoint: "/reset-password/",
+    onSuccess: () => {
+      toast.success("Your password has been successfully updated!");
+      localStorage.removeItem("email");
+      localStorage.removeItem("purpose");
+      localStorage.removeItem("otp");
+      localStorage.removeItem("reset_token");
+      navigate("/auth/success", { state: { from: "/auth/reset-password" } });
+    },
+    onError: handleApiError,
+  });
 
   // Handle Change Password
   const handleChangePassword = (e) => {
@@ -19,14 +35,26 @@ const ChangePasswordForm = () => {
       return;
     }
 
-    // Password change logic
-    toast.success("Your password has been successfully updated!");
-    e.target.reset();
-    navigate("/auth/success", { state: { from: "/auth/reset-password" } });
+    const email = localStorage.getItem("email");
+    const otp = localStorage.getItem("otp");
+    const resetToken = localStorage.getItem("reset_token");
+    const purpose = localStorage.getItem("purpose") || "password_reset";
+
+    const payload = {
+      email,
+      purpose,
+      new_password: newPassword,
+      confirm_password: confirmPassword,
+      password: newPassword,
+    };
+    if (otp) payload.otp = otp;
+    if (resetToken) payload.reset_token = resetToken;
+
+    resetPassword(payload);
   };
 
   return (
-    <div className="flex-[55%] flex flex-col items-center justify-center w-full relative px-4 xl:px-0">
+    <div className="flex-[55%] flex flex-col items-center justify-center w-full relative px-4 sm:px-6">
       <Link
         to="/auth/otp-verify"
         className="left-5 top-5 lg:left-12 lg:top-12 absolute text-slate-500 hover:text-red-500"
@@ -57,13 +85,14 @@ const ChangePasswordForm = () => {
             icon={LockIconSVG}
             required
           />
-          {/*  Confirm New Password */}
+          {/* Confirm New Password */}
           <CommonInputField
             label="Confirm Password"
             type="password"
             name="confirmPassword"
             placeholder="Re-enter your new password"
             icon={LockIconSVG}
+            preventPaste={true}
             required
           />
           <Button

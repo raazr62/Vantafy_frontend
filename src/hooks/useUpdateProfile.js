@@ -11,10 +11,15 @@ const useUpdateProfile = () => {
     onSuccess: (response) => {
       toast.success(response?.message || "Profile updated successfully");
       queryClient.invalidateQueries(["my-profile"]);
+      queryClient.invalidateQueries(["verify-token"]);
     },
 
     onError: (error) => {
-      toast.error(error?.response?.data?.message || "Failed to update profile");
+      const errorMsg =
+        error?.response?.data?.message ||
+        error?.response?.data?.detail ||
+        "Failed to update profile";
+      toast.error(errorMsg);
     },
   });
 };

@@ -23,6 +23,7 @@ const Home = () => {
     identity_tracking,
     platforms,
     testimonials,
+    our_metrics,
   } = data?.data || {};
 
   return (
@@ -60,8 +61,12 @@ const Home = () => {
         isError={isError}
       />
 
-      {/* We Served — static, no loading state needed */}
-      <WeServed />
+      {/* We Served */}
+      <WeServed
+        our_metrics={our_metrics}
+        isLoading={isLoading}
+        isError={isError}
+      />
 
       {/* How It Works */}
       <HowItWorks

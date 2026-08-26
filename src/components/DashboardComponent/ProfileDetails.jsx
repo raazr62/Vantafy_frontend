@@ -53,6 +53,12 @@ const ProfileDetails = () => {
     updateProfile(payload);
   };
 
+  const onFormError = (formErrors) => {
+    console.error("Profile form validation errors:", formErrors);
+    const firstError = Object.values(formErrors)[0]?.message;
+    toast.error(firstError || "Please fill in all required fields");
+  };
+
   if (isLoading) {
     return (
       <div className="px-2 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white rounded-b-[12px]">
@@ -72,7 +78,7 @@ const ProfileDetails = () => {
       <ProfilePhoto profile_photo={data?.data?.avatar} />
 
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onFormError)}
         className="space-y-2 sm:space-y-4 mt-4"
       >
         {/* Full Name */}

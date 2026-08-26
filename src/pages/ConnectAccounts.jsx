@@ -54,7 +54,7 @@ const ConnectAccounts = () => {
           className="flex items-center gap-2.5 w-full justify-center py-2 sm:py-3 bg-primary text-white my-2 sm:my-4 rounded-xl font-medium cursor-pointer text-sm sm:text-base lg:text-lg"
         >
           <AiFillThunderbolt />
-          Run Scan To Recommend Plan
+           Basic Scan to Find Your Plan
         </button>
         <button
           onClick={() => {

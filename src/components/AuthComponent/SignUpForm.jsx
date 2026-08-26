@@ -15,10 +15,12 @@ import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import { useCreateUser } from "@/hooks/useCreateUser";
 import { useGoogleLoginHook } from "@/hooks/useGoogleLoginHook";
+import TermsAndConditionsModal from "@/components/common/TermsAndConditionsModal";
 
 const SignUpForm = () => {
   const [role, setRole] = useState("");
   const [roleError, setRoleError] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
   const { googleLogin, isPending: isGoogleLoading } = useGoogleLoginHook(role);
   const { mutate: createUser } = useCreateUser();
   const [searchParams] = useSearchParams();
@@ -83,7 +85,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="px-4 xl:px-0 flex-[55%] overflow-y-auto h-full">
+    <div className="px-4 sm:px-6 flex-[55%] overflow-y-auto h-full">
       <div className="relative flex flex-col items-center justify-center min-h-full">
         <Link
           to="/auth/signin"
@@ -227,9 +229,25 @@ const SignUpForm = () => {
               )}
               <span className="text-xs sm:text-sm">
                 I agree to{" "}
-                <span className="text-sky-500">Term & Condition</span>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsTermsModalOpen(true);
+                  }}
+                  className="text-sky-500 hover:underline font-medium focus:outline-none cursor-pointer"
+                >
+                  Term & Condition
+                </button>
               </span>
             </label>
+
+            <TermsAndConditionsModal
+              open={isTermsModalOpen}
+              onOpenChange={setIsTermsModalOpen}
+              onAccept={() => setValue("term_and_condition_accepted", true)}
+            />
 
             <Button
               type="submit"

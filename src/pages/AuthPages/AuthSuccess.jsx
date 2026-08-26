@@ -17,7 +17,7 @@ const AuthSuccess = () => {
   useEffect(() => {
     if (fromPage === "/auth/signup") {
       const timer = setTimeout(() => {
-        navigate("/auth/signin");
+        navigate("/select-niches");
       }, 3000);
 
       return () => clearTimeout(timer);
@@ -27,7 +27,7 @@ const AuthSuccess = () => {
   return (
     <div className="h-screen flex">
       <StartarBanner />
-      <div className="flex-[55%] flex flex-col items-center justify-center w-full px-4 xl:px-0">
+      <div className="flex-[55%] flex flex-col items-center justify-center w-full px-4 sm:px-6">
         <div className="space-y-3">
           <SuccessIconSVG className={"mx-auto lg:mx-0"} />
           {fromPage === "/auth/signup" && (

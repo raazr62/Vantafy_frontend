@@ -226,7 +226,7 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center py-2 sm:py-3 lg:py-4 px-4 sm:px-0 mx-auto container">
+    <nav className="flex justify-between items-center py-2 sm:py-3 lg:py-4 px-4 sm:px-6 mx-auto container">
       {/* Logo Section */}
       <HashLink
         smooth

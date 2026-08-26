@@ -18,7 +18,7 @@ const WhatWeDo = () => {
   const [activeCard, setActiveCard] = useState("Scan");
   return (
     <CommonContainer id="what-we-do" className={"w-full"}>
-      <CommonTitle title="What we do" />
+      <CommonTitle title="What We Do" />
       {/* <p className="text-sm sm:text-base text-center text-[#333] font-medium py-4 sm:py-6 lg:py-8 px-4 xl:px-0">
         Discover our full suite of copyright protection features
       </p> */}
@@ -60,7 +60,7 @@ const WhatWeDo = () => {
         ))}
       </div>
 
-      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 xl:px-0 pb-2 no-scrollbar sm:mt-12 lg:mt-15">
+      <div className="flex md:grid md:grid-cols-4 overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 w-full px-4 sm:px-6 pb-2 no-scrollbar sm:mt-12 lg:mt-15">
         {WhatWeDoMockData.map((weDo, idx) => {
           const isActive = weDo.name === activeCard;
 

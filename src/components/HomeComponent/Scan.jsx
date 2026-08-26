@@ -5,7 +5,7 @@ import { TikMarkIConSVG } from "../SVG/HomeLayoutSVG";
 
 const Scan = () => {
   return (
-    <div className="w-full mt-4 sm:mt-6 px-4 xl:px-0">
+    <div className="w-full mt-4 sm:mt-6 px-4 sm:px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
         <ComprehensiveScanning />
         <ProtectionStats />

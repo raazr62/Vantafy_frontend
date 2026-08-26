@@ -12,10 +12,10 @@ const PricingAndPlans = () => {
       <CommonTitle title={"Pricing & Plan"} />
 
       {/* Tabs And Content */}
-      <Tabs defaultValue="monthly-billing" className="w-full mt-4">
+      <Tabs defaultValue="annual-billing" className="w-full mt-4">
         <TabsList className={"max-w-xs sm:max-w-full sm:min-w-lg mx-auto"}>
-          <TabsTrigger value="monthly-billing">Monthly billing</TabsTrigger>
-          <TabsTrigger value="annual-billing">Annual billing</TabsTrigger>
+          <TabsTrigger value="monthly-billing">Monthly</TabsTrigger>
+          <TabsTrigger value="annual-billing">Annual</TabsTrigger>
           <TabsTrigger value="agencies">Agencies</TabsTrigger>
         </TabsList>
         <TabsContent value="monthly-billing">

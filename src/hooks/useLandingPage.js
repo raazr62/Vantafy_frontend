@@ -11,9 +11,9 @@ export const useLandingPage = (options = {}) => {
     "/landing-page-all-section-one-by-one/",
     {},
     {
-      staleTime: 1000 * 60 * 15, // 15 minutes fresh data
-      gcTime: 1000 * 60 * 60, // 1 hour memory cache
-      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60 * 1, // 1 minute fresh data
+      gcTime: 1000 * 60 * 10,   // 10 minutes cache
+      refetchOnWindowFocus: true, // Refetch when switching back to tab
       ...options,
     }
   );

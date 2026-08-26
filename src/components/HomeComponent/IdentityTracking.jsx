@@ -7,13 +7,13 @@ import SectionError from "./SectionError";
 const IdentityTracking = ({ identity_tracking, isLoading, isError }) => {
   return (
     <CommonContainer>
-      <CommonTitle title="Identity Tracking" />
+      <CommonTitle title="Peace of Mind" />
       {isLoading ? (
         <IdentityTrackingSkeleton />
       ) : isError ? (
         <SectionError message="Failed to load identity tracking section." />
       ) : (
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 px-4 xl:px-0 mt-10 sm:mt-12 lg:mt-15">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-6 mt-10 sm:mt-12 lg:mt-15">
           {/* Image */}
           <div className="relative rounded-[12px] flex-1">
             <img

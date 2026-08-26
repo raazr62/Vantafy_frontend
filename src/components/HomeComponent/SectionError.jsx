@@ -14,7 +14,7 @@ const SectionError = ({
   showRetry = true,
 }) => {
   return (
-    <div className="w-full mt-10 sm:mt-12 lg:mt-15 px-4 xl:px-0 flex justify-center">
+    <div className="w-full mt-10 sm:mt-12 lg:mt-15 px-4 sm:px-6 flex justify-center">
       <div className="relative w-full max-w-lg rounded-2xl border border-[#AD46FF]/30 bg-[linear-gradient(138deg,rgba(255,27,228,0.04)_0%,rgba(63,128,255,0.06)_100%)] px-6 py-10 flex flex-col items-center gap-4 overflow-hidden">
         {/* Soft glow blobs */}
         <div className="pointer-events-none absolute -top-10 -left-10 w-32 h-32 rounded-full bg-primary/10 blur-2xl" />

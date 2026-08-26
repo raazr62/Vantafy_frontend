@@ -1,10 +1,26 @@
-import React from "react";
-import { Outlet } from "react-router";
+import React, { useEffect, Suspense } from "react";
+import { Outlet, useLocation } from "react-router";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import { useSystemInfo } from "@/hooks/useSystemInfo";
 
 export default function MainLayout() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Disable browser default scroll restoration on page reload
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    // Always start at top on page reload/refresh
+    window.scrollTo(0, 0);
+
+    // Clear any residual URL hash (e.g. #faq) on reload so it doesn't jump to FAQ
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, [pathname]);
+
   const {
     data,
     isLoading: isSystemDataLoading,
@@ -20,7 +36,9 @@ export default function MainLayout() {
           isSystemDataError={isSystemDataError}
         />
       </section>
-      <Outlet />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div></div>}>
+        <Outlet />
+      </Suspense>
       <footer>
         <Footer
           systemData={systemData}
