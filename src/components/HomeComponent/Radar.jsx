@@ -58,8 +58,7 @@ export default function Radar({ hero_radar_icons }) {
   const logoPositions = useMemo(
     () =>
       radarLogos.map((logo, index) => {
-        // Start angle at -Math.PI/2 for top-center alignment, spaced evenly around 360deg
-        const angle = -Math.PI / 2 + (index / radarLogos.length) * 2 * Math.PI;
+        const angle = (index / radarLogos.length) * 2 * Math.PI;
         const x = center.x + radius * Math.cos(angle);
         const y = center.y + radius * Math.sin(angle);
         return { ...logo, x, y };
