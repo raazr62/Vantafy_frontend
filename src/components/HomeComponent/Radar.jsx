@@ -58,7 +58,8 @@ export default function Radar({ hero_radar_icons }) {
   const logoPositions = useMemo(
     () =>
       radarLogos.map((logo, index) => {
-        const angle = (index / radarLogos.length) * 2 * Math.PI;
+        // Start angle at -Math.PI/2 for top-center alignment, spaced evenly around 360deg
+        const angle = -Math.PI / 2 + (index / radarLogos.length) * 2 * Math.PI;
         const x = center.x + radius * Math.cos(angle);
         const y = center.y + radius * Math.sin(angle);
         return { ...logo, x, y };
@@ -88,51 +89,27 @@ export default function Radar({ hero_radar_icons }) {
           alt="Radar Spinner"
         />
 
-        {/* Dots - using motion value for rotation */}
-        {dots.map((dot, i) => {
-          const dotAngle = getDotAngle(dot.x, dot.y);
-
-          return (
-            <motion.div
-              key={i}
-              style={{
-                left: dot.x,
-                top: dot.y,
-                zIndex: 20,
-                opacity: useTransform(rotation, (r) => {
-                  const scannerAngle = (r + SCANNER_OFFSET + 360) % 360;
-                  const fadeIn = Math.abs(scannerAngle - dotAngle) < 20;
-                  return fadeIn ? 1 : 0;
-                }),
-                scale: useTransform(rotation, (r) => {
-                  const scannerAngle = (r + SCANNER_OFFSET + 360) % 360;
-                  const fadeIn = Math.abs(scannerAngle - dotAngle) < 20;
-                  return fadeIn ? 1.6 : 1;
-                }),
-              }}
-              transition={{ duration: 0.4 }}
-              className="absolute w-1.5 h-1.5 bg-purple-600 rounded-full shadow-lg shadow-purple-400/40"
-            />
-          );
-        })}
-
         {/* Logos around the radar */}
         {logoPositions.map((logo) => (
-          <motion.img
+          <div
             key={logo.id}
-            src={
-              logo.image?.startsWith("http")
-                ? logo.image
-                : import.meta.env.VITE_IMAGE_URL + logo.image
-            }
-            alt={logo.alt}
-            className="absolute w-8"
+            className="absolute w-8 h-8 flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
             style={{
-              left: logo.x - 20,
-              top: logo.y - 10,
+              left: `${logo.x}px`,
+              top: `${logo.y}px`,
               zIndex: 30,
             }}
-          />
+          >
+            <img
+              src={
+                logo.image?.startsWith("http")
+                  ? logo.image
+                  : import.meta.env.VITE_IMAGE_URL + logo.image
+              }
+              alt={logo.alt}
+              className="max-w-full max-h-full object-contain"
+            />
+          </div>
         ))}
       </div>
     </div>
