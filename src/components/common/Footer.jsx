@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { HashLink } from "react-router-hash-link";
 import Logo from "@/shared/LandingShared/Logo";
+import TermsAndConditionsModal from "@/components/common/TermsAndConditionsModal";
 
 const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
   const navigate = useNavigate();
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalModalType, setLegalModalType] = useState("terms_and_conditions");
+
   const handleClick = () => {
     navigate("/");
   };
@@ -104,6 +108,30 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               FAQs
             </HashLink>
           </li>
+          <li>
+            <button
+              type="button"
+              onClick={() => {
+                setLegalModalType("privacy_policy");
+                setLegalModalOpen(true);
+              }}
+              className="hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 text-white text-sm sm:text-base font-normal"
+            >
+              Privacy Policy
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={() => {
+                setLegalModalType("terms_and_conditions");
+                setLegalModalOpen(true);
+              }}
+              className="hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 text-white text-sm sm:text-base font-normal"
+            >
+              Terms of Service
+            </button>
+          </li>
         </ul>
 
         {/* Social Links */}
@@ -131,6 +159,13 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
           )}
         </div>
       </div>
+
+      {/* Legal Paper Modal */}
+      <TermsAndConditionsModal
+        open={legalModalOpen}
+        onOpenChange={setLegalModalOpen}
+        pageType={legalModalType}
+      />
     </div>
   );
 };
