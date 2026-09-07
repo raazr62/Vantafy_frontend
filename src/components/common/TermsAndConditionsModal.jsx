@@ -11,54 +11,65 @@ import { Button } from "@/components/ui/button";
 import { usePage } from "@/hooks/usePage";
 import { Loader2, FileText, CheckCircle } from "lucide-react";
 
-const TermsAndConditionsModal = ({ open, onOpenChange, onAccept }) => {
-  const { data, isLoading, isError } = usePage("terms_and_conditions", {
+const TermsAndConditionsModal = ({
+  open,
+  onOpenChange,
+  onAccept,
+  pageType = "terms_and_conditions",
+  title,
+}) => {
+  const { data, isLoading, isError } = usePage(pageType, {
     enabled: open,
   });
 
   const pageData = Array.isArray(data?.data)
-    ? data.data.find((p) => p.type === "terms_and_conditions") || data.data[0]
+    ? data.data.find((p) => p.type === pageType) || data.data[0]
     : data?.data;
+
+  const defaultTitle =
+    pageType === "privacy_policy" ? "Privacy Policy" : "Terms & Conditions";
+
+  const displayTitle = pageData?.title || title || defaultTitle;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl w-[95vw] max-h-[85vh] flex flex-col p-4 sm:p-6 rounded-2xl bg-white shadow-xl border border-[#EFE6FD]">
-        <DialogHeader className="border-b border-gray-100 pb-3">
-          <div className="flex items-center gap-2 text-[#9654F4]">
-            <FileText className="w-5 h-5" />
-            <DialogTitle className="text-lg sm:text-xl font-bold text-gray-900">
-              {pageData?.title || "Terms & Conditions"}
+      <DialogContent className="sm:max-w-5xl md:max-w-6xl w-[95vw] max-h-[92vh] flex flex-col p-5 sm:p-8 rounded-2xl bg-white shadow-2xl border border-[#EFE6FD]">
+        <DialogHeader className="border-b border-gray-100 pb-4">
+          <div className="flex items-center gap-2.5 text-[#9654F4]">
+            <FileText className="w-6 h-6" />
+            <DialogTitle className="text-xl sm:text-2xl font-bold text-gray-900">
+              {displayTitle}
             </DialogTitle>
           </div>
-          <DialogDescription className="text-xs text-gray-500 mt-1">
-            Please review our terms and conditions below.
+          <DialogDescription className="text-xs sm:text-sm text-gray-500 mt-1">
+            Please review our {displayTitle.toLowerCase()} below.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto my-3 pr-2 space-y-4 text-sm text-gray-700 leading-relaxed max-h-[55vh]">
+        <div className="flex-1 overflow-y-auto my-4 pr-3 space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed max-h-[72vh] custom-scrollbar">
           {isLoading ? (
-            <div className="flex flex-col items-center justify-center py-16 gap-3 text-gray-400">
-              <Loader2 className="w-8 h-8 animate-spin text-[#9654F4]" />
-              <p className="text-sm">Loading Terms & Conditions...</p>
+            <div className="flex flex-col items-center justify-center py-20 gap-3 text-gray-400">
+              <Loader2 className="w-9 h-9 animate-spin text-[#9654F4]" />
+              <p className="text-base font-medium">Loading {displayTitle}...</p>
             </div>
           ) : isError || !pageData ? (
-            <div className="text-center py-12 text-gray-500">
-              <p className="text-base font-medium text-red-500">
-                Unable to load Terms & Conditions.
+            <div className="text-center py-16 text-gray-500">
+              <p className="text-lg font-medium text-red-500">
+                Unable to load {displayTitle}.
               </p>
-              <p className="text-xs mt-1">Please try again later.</p>
+              <p className="text-sm mt-1">Please try again later.</p>
             </div>
           ) : (
-            <div className="prose prose-slate max-w-none text-sm leading-relaxed">
+            <div className="prose prose-slate max-w-none text-sm sm:text-base leading-relaxed text-gray-800">
               {pageData.content ? (
                 pageData.content.includes("<") ? (
                   <div
                     dangerouslySetInnerHTML={{ __html: pageData.content }}
-                    className="space-y-3"
+                    className="space-y-4"
                   />
                 ) : (
                   pageData.content.split("\n\n").map((paragraph, index) => (
-                    <p key={index} className="whitespace-pre-line mb-3">
+                    <p key={index} className="whitespace-pre-line mb-4">
                       {paragraph}
                     </p>
                   ))
