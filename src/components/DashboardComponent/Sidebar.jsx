@@ -15,7 +15,7 @@ const Sidebar = ({ setSheetOpen }) => {
       {/* Top Bar */}
       <div className="mt-2">
         <Link
-          to={"/"}
+          to={"/dashboard"}
           onClick={() => setSheetOpen?.(false)}
           className="p-1 bg-linear-to-br from-[#971DFE] to-[#C289E8] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
         >

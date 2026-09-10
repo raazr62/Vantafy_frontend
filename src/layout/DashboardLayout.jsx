@@ -38,7 +38,7 @@ export default function DashboardLayout() {
             </Button>
           </SheetTrigger>
           <Link
-            to={"/"}
+            to={"/dashboard"}
             className="px-2 flex items-center justify-center cursor-pointer"
           >
             <Logo variant="whiteFull" />
