@@ -12,9 +12,9 @@ export const usePage = (type, options = {}) => {
     "/pages/",
     type ? { type } : {},
     {
-      staleTime: 1000 * 60 * 15,
-      gcTime: 1000 * 60 * 60,
-      refetchOnWindowFocus: false,
+      staleTime: 1000 * 10, // 10 seconds staleTime for quick updates
+      gcTime: 1000 * 60 * 5,
+      refetchOnWindowFocus: true,
       ...options,
     }
   );
