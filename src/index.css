@@ -248,3 +248,149 @@ input[type="number"] {
 .progress-bar::-webkit-progress-value {
   transition: width 300ms ease;
 }
+
+/* CKEditor 5 & Rich Text HTML Rendering Styles */
+.ck-content,
+.prose {
+  color: #334155;
+  font-family: var(--font-montserrat), sans-serif;
+  line-height: 1.7;
+}
+
+.ck-content h1,
+.prose h1,
+.ck-heading_heading1 {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.ck-content h2,
+.prose h2,
+.ck-heading_heading2 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.ck-content h3,
+.prose h3,
+.ck-heading_heading3 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #334155;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ck-content h4,
+.prose h4,
+.ck-heading_heading4 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  color: #475569;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.ck-content p,
+.prose p {
+  margin-bottom: 0.85rem;
+}
+
+.ck-content ul,
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.ck-content ol,
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.ck-content li,
+.prose li {
+  margin-bottom: 0.35rem;
+}
+
+.ck-content blockquote,
+.prose blockquote {
+  border-left: 4px solid #ff1be4;
+  background-color: #fdf4ff;
+  padding: 0.75rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: #475569;
+}
+
+.ck-content table,
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.925rem;
+}
+
+.ck-content th,
+.prose th {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  text-align: left;
+  color: #1e293b;
+}
+
+.ck-content td,
+.prose td {
+  border: 1px solid #e2e8f0;
+  padding: 0.65rem 1rem;
+  color: #334155;
+}
+
+.ck-content a,
+.prose a {
+  color: #971dfe;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.ck-content a:hover,
+.prose a:hover {
+  color: #ff1be4;
+}
+
+.ck-content code,
+.prose code {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: monospace;
+}
+
+.ck-content pre,
+.prose pre {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Drawer,
   DrawerClose,
@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { SignInSVG } from "../SVG/HomeLayoutSVG";
 import { useNavigate } from "react-router";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
+import TermsAndConditionsModal from "./TermsAndConditionsModal";
 
 const MobileNav = ({
   toggleDrawer,
@@ -25,6 +26,13 @@ const MobileNav = ({
   logout,
 }) => {
   const navigate = useNavigate();
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalModalType, setLegalModalType] = useState("terms_and_conditions");
+
+  const openLegalModal = (type) => {
+    setLegalModalType(type);
+    setLegalModalOpen(true);
+  };
 
   return (
     <Drawer
@@ -112,6 +120,25 @@ const MobileNav = ({
                   </li>
                 );
               })}
+
+              <li key="privacy-policy">
+                <button
+                  type="button"
+                  onClick={() => openLegalModal("privacy_policy")}
+                  className="block w-full text-left px-2 my-3 text-base font-medium transition-all duration-300 text-gray-600 hover:bg-gray-50 hover:text-black cursor-pointer"
+                >
+                  Privacy Policy
+                </button>
+              </li>
+              <li key="terms-of-service">
+                <button
+                  type="button"
+                  onClick={() => openLegalModal("terms_and_conditions")}
+                  className="block w-full text-left px-2 my-3 text-base font-medium transition-all duration-300 text-gray-600 hover:bg-gray-50 hover:text-black cursor-pointer"
+                >
+                  Terms of Service
+                </button>
+              </li>
             </ul>
           </nav>
 
@@ -163,6 +190,12 @@ const MobileNav = ({
           </div>
         </div>
       </DrawerContent>
+
+      <TermsAndConditionsModal
+        open={legalModalOpen}
+        onOpenChange={setLegalModalOpen}
+        pageType={legalModalType}
+      />
     </Drawer>
   );
 };
