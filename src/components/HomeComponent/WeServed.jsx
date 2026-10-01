@@ -34,10 +34,17 @@ const WeServed = ({ our_metrics }) => {
         </p>
         {metricsList.map((item, idx) => {
           const valStr = String(item.value || "").trim();
+          const isRecovered =
+            item.label?.toLowerCase().includes("recover") ||
+            valStr.includes("$");
           const hasExplicitPlus = valStr.startsWith("+");
-          const prefix = hasExplicitPlus ? "+" : "+"; // Always display + sign prefix for metric values
+          const prefix = isRecovered
+            ? "$"
+            : hasExplicitPlus
+            ? "+"
+            : "+";
           const number = parseFloat(valStr.replace(/[^0-9.]/g, "")) || 0;
-          const unit = valStr.replace(/^[+0-9.]*/, "") || "";
+          const unit = valStr.replace(/^[\+$0-9.]*/, "") || "";
 
           // Calculate decimals dynamically if API value contains a fractional number (e.g. 99.5%)
           const decimalMatch = valStr.match(/\.([0-9]+)/);

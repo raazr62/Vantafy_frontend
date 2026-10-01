@@ -182,7 +182,7 @@ const ProfileDetails = () => {
         <div className="flex items-center justify-between p-3.5 sm:p-4 bg-slate-50 border border-slate-200 rounded-xl">
           <div className="space-y-0.5 pr-4">
             <label className="text-xs sm:text-sm font-semibold text-[#2E3139] flex items-center gap-2">
-              <svg className="w-4 h-4 text-[#971DFE]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-[#240042]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Automated Email Reports
@@ -213,7 +213,7 @@ const ProfileDetails = () => {
                 }}
                 className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
                   field.value
-                    ? "bg-[linear-gradient(90deg,#971DFE_0%,#FF1BE4_100%)]"
+                    ? "bg-[linear-gradient(90deg,#240042_0%,#FF1BE4_100%)]"
                     : "bg-gray-300"
                 }`}
               >

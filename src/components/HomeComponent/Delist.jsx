@@ -10,11 +10,12 @@ const Delist = () => {
     <div className="bg-[#AD46FF0A] py-7 sm:py-9 lg:py-11 w-full mt-4 sm:mt-6 px-4 sm:px-6">
       <div className="max-w-2xl mx-auto space-y-2 sm:space-y-4">
         <p className="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent font-semibold text-xl sm:text-2xl lg:text-[32px]">
-          Search Delisting
+          Search Engine Removals
         </p>
         <p className="text-sm sm:text-base text-center text-[#333333] font-medium">
-          As a trusted partner, Google rapidly delists any infringing content we
-          report, ensuring your content doesn't appear in search results.
+          Our trusted reporting process quickly removes infringing content from search engines, which reduces visibility and unwanted exposure.
+          Google Trusted Copyright Removal Program Member (Badge)
+
         </p>
 
         {/* We Inspect */}

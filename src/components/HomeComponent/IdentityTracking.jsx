@@ -35,7 +35,7 @@ const IdentityTracking = ({ identity_tracking, isLoading, isError }) => {
 
           {/* Content */}
           <div className="flex-1 space-y-2 text-center lg:text-left">
-            <p className="text-lg sm:text-xl lg:text-2xl font-semibold">
+            <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#8400a4]">
               {identity_tracking[0].title}
             </p>
             <p className="text-base sm:text-lg lg:text-xl">

@@ -12,34 +12,11 @@ const PersonalAgent = () => {
     <div className="bg-[#AD46FF0A] py-7 sm:py-9 lg:py-11 w-full mt-4 sm:mt-6 px-4 sm:px-6">
       <div className="max-w-2xl mx-auto space-y-2 sm:space-y-4">
         <p className="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent font-semibold text-xl sm:text-2xl lg:text-[32px]">
-          Social Expertise
+          We Know What’s at Stake
         </p>
         <p className="text-sm sm:text-base text-center text-[#333333] font-medium">
-          The majority of our clients are OnlyFans models. We understand the
-          unique challenges you face and have developed specialized solutions.
+          Adult content creators make up a large part of our clientele. We understand the unique challenges that come with content creation and have built our services around helping protect your content, privacy, and peace of mind.
         </p>
-
-        <div className="py-6 sm:py-8 px-4 rounded-2xl bg-[linear-gradient(90deg,rgba(78,120,253,0.04)_0%,rgba(255,27,228,0.04)_100%)]">
-          <p className="text-base sm:text-lg lg:text-xl font-semibold text-primary text-center">
-            Manual Monitoring
-          </p>
-
-          <div className="space-y-3 sm:space-y-5 mt-6">
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-medium">
-              <SearchIconSVG /> Google Images deep search
-            </p>
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-medium">
-              <BrowserIconSVG /> 100% remove from google
-            </p>
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-medium">
-              <ShareIconSVG /> Social media platforms
-            </p>
-            <p className="flex items-center gap-2 text-xs sm:text-sm font-medium">
-              <VideoIconSVG /> Video Streaming Sites
-            </p>
-          </div>
-        </div>
-
         <div className="space-y-2 sm:space-y-4">
           {personalAgentMockData.map((data) => (
             <div

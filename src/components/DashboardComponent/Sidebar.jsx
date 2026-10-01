@@ -17,7 +17,7 @@ const Sidebar = ({ setSheetOpen }) => {
         <Link
           to={"/dashboard"}
           onClick={() => setSheetOpen?.(false)}
-          className="p-1 bg-linear-to-br from-[#971DFE] to-[#C289E8] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
+          className="p-1 bg-linear-to-br from-[#240042] to-[#6100a2] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
         >
           <Logo variant="whiteFull" />
         </Link>
@@ -52,9 +52,9 @@ const Sidebar = ({ setSheetOpen }) => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center ml-5 gap-2 text-[#FF4ECF] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
+          className="flex items-center ml-5 gap-2 text-[#51AEFA] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
         >
-          <LogoutIconSVG /> Logout
+          <LogoutIconSVG className="text-[#51AEFA]" /> Logout
         </button>
       </div>
     </div>

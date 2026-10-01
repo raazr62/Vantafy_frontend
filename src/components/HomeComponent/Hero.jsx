@@ -25,16 +25,16 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
       {/* Hero Description */}
       <div className="absolute top-90 sm:static flex flex-col items-center gap-2 lg:gap-4 text-center lg:items-start sm:text-left max-w-2xl lg:pt-5">
         <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl/tight text-center lg:text-left">
-         {hero_section?.title}
+          {hero_section?.title}
         </h1>
-        <p className="text-base sm:text-lg lg:text-xl text-lightText/60 text-center lg:text-left">
-           {hero_section?.subtitle}
+        <p className="text-base sm:text-lg lg:text-xl text-black text-center lg:text-left">
+          {hero_section?.subtitle}
         </p>
         <Button
           onClick={handleGetProtected}
           className="font-semibold px-8 py-4 lg:mt-2 place-content-center"
         >
-          Get Protected
+          Scan for Your Leaks
         </Button>
       </div>
 

@@ -158,6 +158,15 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
             })
           )}
         </div>
+
+        {/* Copyright Text */}
+        <p className="text-gray-400 text-xs sm:text-sm text-center pt-2">
+          {systemData?.about_system?.copyright
+            ? systemData.about_system.copyright.toLowerCase().includes("all rights reserved")
+              ? systemData.about_system.copyright
+              : `${systemData.about_system.copyright}. All rights reserved.`
+            : "©2026 VANTAFY. All rights reserved."}
+        </p>
       </div>
 
       {/* Legal Paper Modal */}

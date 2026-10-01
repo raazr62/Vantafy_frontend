@@ -13,7 +13,7 @@ function AccordionItem({ className, ...props }) {
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "bg-[#FAF6FF] data-[state=open]:bg-[#F2EBFD] px-4 sm:px-6 lg:px-10 py-4 sm:py-6 lg:py-8",
+        "bg-[#FAF6FF] data-[state=open]:bg-[#e2f3fe] px-4 sm:px-6 lg:px-10 py-4 sm:py-6 lg:py-8 first:rounded-t-2xl last:rounded-b-2xl overflow-hidden",
         className
       )}
       {...props}

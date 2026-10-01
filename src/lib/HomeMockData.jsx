@@ -3,6 +3,7 @@ import {
   AiProtectionSVG,
   AnonymousSVG,
   BrowserIconSVG,
+  CameraIconSVG,
   DocumentScanSVG,
   FileHostingSVG,
   GoogleHomeSVG,
@@ -55,37 +56,37 @@ export const WhatWeDoMockData = [
   },
   {
     id: 2,
-    name: "Delist",
+    name: "Delisting",
     icon: <GoogleHomeSVG className={"group-hover:text-white"} />,
   },
   {
     id: 3,
-    name: "Takedown",
+    name: "Deletion",
     icon: <TakedownSVG className={"group-hover:text-white"} />,
   },
   {
     id: 4,
-    name: "Impersonation",
+    name: "Detection",
     icon: <ImpressionSVG className={"group-hover:text-white"} />,
   },
   {
     id: 5,
-    name: "Platforms",
+    name: "Deepfakes",
     icon: <PlatformsSVG className={"group-hover:text-white"} />,
   },
   {
     id: 6,
-    name: "Personal Agent",
+    name: "Human Touch",
     icon: <PersonalAgentSVG className={"group-hover:text-white"} />,
   },
   {
     id: 7,
-    name: "Ai Protection",
+    name: "Anonymity",
     icon: <AiProtectionSVG className={"group-hover:text-white"} />,
   },
   {
     id: 8,
-    name: "Anonymous",
+    name: "Reports",
     icon: <AnonymousSVG className={"group-hover:text-white"} />,
   },
 ];
@@ -93,49 +94,45 @@ export const WhatWeDoMockData = [
 export const impersonationMockData = [
   {
     id: 1,
-    siteName: "OnlyFans",
-    logo: LocalImages.OnlyfansIcon,
+    title: "Crawling",
+    description:
+      "400+ crawlers have been programmed to detect your content on known leak sites",
+    icon: <FastResponseIconSVG />,
   },
   {
     id: 2,
-    siteName: "Fansly",
-    logo: LocalImages.FanslyIcon,
+    title: "A.I. Protection",
+    description:
+      "Artificial intelligence serves as a sleepless agent working day and night for you",
+    icon: <SmartAlgorithmsIconSVG />,
   },
   {
     id: 3,
-    siteName: "Instagram",
-    logo: LocalImages.InstagramIcon,
-  },
-  {
-    id: 4,
-    siteName: "Twitter",
-    logo: LocalImages.TwitterIcon,
-  },
-  {
-    id: 5,
-    siteName: "TikTok",
-    logo: LocalImages.tiktokOnlyLogo,
+    title: "Manual Scans",
+    description:
+      "Our operators use proven methods to uncover your stolen content",
+    icon: <CoverageIconSVG />,
   },
 ];
 
 export const takeDownMockData = [
   {
     id: 1,
-    title: "Fast Response",
+    title: "Rapid Response",
     description:
-      "Close relationships with platforms ensure quick content removal",
+      "Our extensive database of sites known for violations enables swift removals",
     icon: <FastResponseIconSVG />,
   },
   {
     id: 2,
-    title: "Legal Compliance",
-    description: "All takedowns follow DMCA guidelines and legal requirements",
+    title: "Lawful Compliance",
+    description: "All takedown requests follow DMCA (United States) and GDPR (Europe) guidelines",
     icon: <LegalCompilanceIconSVG />,
   },
   {
     id: 3,
-    title: "Comprehensive Coverage",
-    description: "We remove illegal copies from all detected sources*",
+    title: "Direct Removal",
+    description: "Illegal copies are removed from illicit servers*",
     icon: <CoverageIconSVG />,
   },
 ];
@@ -143,36 +140,29 @@ export const takeDownMockData = [
 export const platformsMockData = [
   {
     id: 1,
-    title: "Deep Understanding",
-    description: "We know the social ecosystem inside and out",
+    title: "",
+    description: "Photo and video manipulation can use someone’s likeness to create intimate content they never created or consented to share. Finding this content quickly is essential to protecting your privacy, reputation, and control over your image. Vantafy helps you find deepfake content across the web and takes the appropriate measures to get them removed.",
     icon: <DeepUnderstandingIconSVG />,
-  },
-  {
-    id: 2,
-    title: "Tailored Solutions",
-    description: "Services  designed for all over creators",
-    icon: <TailoredSolutionIconSVG />,
-  },
-  {
-    id: 3,
-    title: "Experienced Support",
-    description: "Whatever you're facing, we've handled it before",
-    icon: <SupportIconSVG />,
   },
 ];
 
 export const personalAgentMockData = [
   {
     id: 1,
-    title: "Reddit Expertise",
-    description: "We know the OnlyFans ecosystem inside and out",
+    title: "Female Focused Team",
+    description: "Due to the intimate nature of our client’s material, we have made the decision to ONLY hire female associates for operating removals. Aside from our software developers and founder, Vantafy is fully operated by female team members.",
     icon: <MessageIconSVG />,
   },
   {
     id: 2,
-    title: "7 days/week Support",
-    description:
-      "Live chat support available seven days a week for immediate assistance",
+    title: "Manual Scans",
+    description:"Our team constantly surveys the net for items that automated scans miss",
+    icon: <SupportIconSVG />,
+  },
+  {
+    id: 3,
+    title: "Support Availability",
+    description: "Message the support team from your dashboard 7 days a week",
     icon: <SupportIconSVG />,
   },
 ];
@@ -180,41 +170,35 @@ export const personalAgentMockData = [
 export const anonymousMockData = [
   {
     id: 1,
-    title: "Your Info Stays Private",
-    description: "We never expose your real name, address, or contact details",
+    title: "Daily/Weekly Reporting",
+    description: "You will be emailed your analytics based on your tier frequency",
     icon: <LockIconSVG />,
   },
   {
     id: 2,
-    title: "Database Protection",
+    title: "Expired Subscriptions",
     description:
-      "Shielded from public databases like Lumen used by Google and Twitter",
+      "Receive monthly notices of detected leaks so that you can handle them yourself",
     icon: <DatabaseProtectionIconSVG />,
-  },
-  {
-    id: 3,
-    title: "Corporate Shield",
-    description: "Rulta's corporate details are used for all legal filings",
-    icon: <CorporateShieldIconSVG />,
   },
 ];
 export const aiProtectionMockData = [
   {
     id: 1,
-    title: "Facial Recognition",
-    description: "Identifies your content across platforms",
+    title: "Identity Shield",
+    description: "Vantafy’s business details are used for all notices and correspondence",
     icon: <FacialRecognitionIconSVG />,
   },
   {
     id: 2,
-    title: "OCR Technology",
-    description: "Detects text and watermarks in images",
+    title: "Privacy Guaranteed",
+    description: "We will never release your name or contact details",
     icon: <OcrTechnologyIconSVG />,
   },
   {
     id: 3,
-    title: "Smart Algorithms",
-    description: "Custom-built for content protection",
+    title: "Lumen Database",
+    description: "Nothing, aside from your display name will ever show up in public DMCA databases.",
     icon: <SmartAlgorithmsIconSVG />,
   },
 ];
@@ -222,7 +206,7 @@ export const aiProtectionMockData = [
 export const protectionStatsMockData = [
   {
     id: 1,
-    count: "72k+",
+    count: "24k+",
     text: "Platforms Monitored",
   },
   {
@@ -245,19 +229,19 @@ export const protectionStatsMockData = [
 export const InspectMockData = [
   {
     id: 1,
-    detail: "Google search, images and videos results",
+    detail: "Google, Bing, Yandex, Baidu search engines",
     icon: <SearchIconSVG />,
   },
   {
     id: 2,
-    detail: "72,000+ websites including video platforms and forums",
-    icon: <BrowserIconSVG />,
+    detail: "Photo and video results",
+    icon: <CameraIconSVG />,
   },
   {
     id: 3,
     detail:
-      "Social media: reedit, twitter, Instagram, tikTok, YouTube, Facebook, VK",
-    icon: <ShareIconSVG />,
+      "Social media and forum removals",
+    icon: <BrowserIconSVG />,
   },
   {
     id: 4,
@@ -383,7 +367,7 @@ export const WeServedMockData = [
   { id: 1, label: "Web search", value: "+55M" },
   { id: 2, label: "Content Creators", value: "+1M" },
   { id: 3, label: "Leaks found", value: "+55M" },
-  { id: 4, label: "Recovered", value: "+55M" },
+  { id: 4, label: "Recovered", value: "$55M" },
   { id: 5, label: "Success Score", value: "+100%" },
 ];
 

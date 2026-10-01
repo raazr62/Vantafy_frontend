@@ -21,8 +21,7 @@ const Scan = () => {
             Automated Detection
           </p>
           <p className="text-[#4A5565] text-xs sm:text-sm">
-            AI-powered scanning automatically identifies unauthorized use of
-            your content across the internet.
+            Advanced automated systems continuously crawl the internet to identify and detect unauthorized use of your content.
           </p>
         </div>
 
@@ -35,8 +34,7 @@ const Scan = () => {
             Legal Support
           </p>
           <p className="text-[#4A5565] text-xs sm:text-sm">
-            Professional takedown notices and legal documentation for copyright
-            enforcement.
+            Professionally prepared copyright claims, takedown notices, and enforcement documentation.
           </p>
         </div>
 
@@ -46,11 +44,10 @@ const Scan = () => {
             <TikMarkIConSVG />
           </p>
           <p className="text-base sm:text-lg text-[#101828] my-2">
-            Automated Detection
+            Visible Results
           </p>
           <p className="text-[#4A5565] text-xs sm:text-sm">
-            AI-powered scanning automatically identifies unauthorized use of
-            your content across the internet.
+            Track your protection efforts with automated reports delivered to your email or customer dashboard.
           </p>
         </div>
       </div>

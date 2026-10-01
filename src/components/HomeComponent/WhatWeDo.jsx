@@ -89,13 +89,13 @@ const WhatWeDo = () => {
       </div>
 
       {activeCard === "Scan" && <Scan />}
-      {activeCard === "Delist" && <Delist />}
-      {activeCard === "Takedown" && <Takedown />}
-      {activeCard === "Impersonation" && <Impersonation />}
-      {activeCard === "Platforms" && <Platforms />}
-      {activeCard === "Personal Agent" && <PersonalAgent />}
-      {activeCard === "Ai Protection" && <AiProtection />}
-      {activeCard === "Anonymous" && <Anonymous />}
+      {activeCard === "Delisting" && <Delist />}
+      {activeCard === "Deletion" && <Takedown />}
+      {activeCard === "Detection" && <Impersonation />}
+      {activeCard === "Deepfakes" && <Platforms />}
+      {activeCard === "Human Touch" && <PersonalAgent />}
+      {activeCard === "Anonymity" && <AiProtection />}
+      {activeCard === "Reports" && <Anonymous />}
     </CommonContainer>
   );
 };

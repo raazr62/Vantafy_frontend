@@ -92,7 +92,7 @@ const ReviewSection = ({ testimonials, isLoading, isError }) => {
   alt="Company Logo"
                         />
                         <div className="space-y-1">
-                          <p className="text-xl sm:text-2xl xl:text-3xl font-semibold">
+                          <p className="text-xl sm:text-2xl xl:text-3xl font-semibold text-[#FF1BE4]">
                             {review.review_title}
                           </p>
                           <p className="text-[#706B6B] text-sm sm:text-base">
