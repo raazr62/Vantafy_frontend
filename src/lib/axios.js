@@ -21,7 +21,18 @@ export const fileUploadApi = axios.create({
   },
 });
 
-// --- Response Interceptors ---
+// --- Request Interceptor to attach Authorization header ---
+const attachTokenInterceptor = (config) => {
+  const token = localStorage.getItem("access_token");
+  if (token && token !== "null" && token !== "undefined" && token !== "None") {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+};
+
+baseApi.interceptors.request.use(attachTokenInterceptor, (error) => Promise.reject(error));
+fileUploadApi.interceptors.request.use(attachTokenInterceptor, (error) => Promise.reject(error));
+
 // --- Response Interceptors ---
 let isRefreshing = false;
 let failedQueue = [];
@@ -63,10 +74,26 @@ const errorInterceptor = async (error) => {
     isRefreshing = true;
 
     try {
+      const refreshToken = localStorage.getItem("refresh_token");
       // Attempt to refresh the token
-      await baseApi.post("/token/refresh/");
+      const refreshResponse = await baseApi.post("/token/refresh/", {
+        refresh_token: refreshToken,
+      });
 
-      // If successful, process the queue and retry the original request
+      const newAccess =
+        refreshResponse.data?.data?.tokens?.access ||
+        refreshResponse.data?.tokens?.access;
+      const newRefresh =
+        refreshResponse.data?.data?.tokens?.refresh ||
+        refreshResponse.data?.tokens?.refresh;
+
+      if (newAccess) {
+        localStorage.setItem("access_token", newAccess);
+      }
+      if (newRefresh) {
+        localStorage.setItem("refresh_token", newRefresh);
+      }
+
       processQueue(null);
       isRefreshing = false;
       return baseApi(originalRequest);
@@ -74,7 +101,9 @@ const errorInterceptor = async (error) => {
       processQueue(refreshError, null);
       isRefreshing = false;
 
-      // Token refresh failed - let ProtectedRoute handle authentication redirect
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+
       return Promise.reject(refreshError);
     }
   }
@@ -87,3 +116,4 @@ fileUploadApi.interceptors.response.use(
   (response) => response,
   errorInterceptor,
 );
+
