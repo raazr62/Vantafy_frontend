@@ -31,18 +31,21 @@ export const getSocialPlatform = (url) => {
 };
 
 export const formatNumberUS = (num) => {
-  if (num < 1000) return num.toString();
+  if (num === undefined || num === null || num === "") return "0";
+  const val = Number(num);
+  if (isNaN(val)) return "0";
+  if (val < 1000) return val.toString();
 
-  if (num < 1000000) {
-    if (num < 10000) {
-      return Math.floor(num / 1000) + "k";
+  if (val < 1000000) {
+    if (val < 10000) {
+      return Math.floor(val / 1000) + "k";
     }
-    return (num / 1000).toFixed(1).replace(/\.0$/, "") + "k";
+    return (val / 1000).toFixed(1).replace(/\.0$/, "") + "k";
   }
 
-  if (num < 1000000000) {
-    return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+  if (val < 1000000000) {
+    return (val / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
   }
 
-  return (num / 1000000000).toFixed(1).replace(/\.0$/, "") + "B";
+  return (val / 1000000000).toFixed(1).replace(/\.0$/, "") + "B";
 };

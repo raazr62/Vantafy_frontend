@@ -11,19 +11,19 @@ const Sidebar = ({ setSheetOpen }) => {
   const { mutate: logout } = useLogout();
   const user = useSelector(selectUser);
   return (
-    <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] h-full px-3 py-6 max-w-[260px] w-full lg:rounded-2xl flex flex-col justify-between">
+    <div className="bg-[#3c0048] h-full px-3 py-6 max-w-[260px] w-full lg:rounded-2xl flex flex-col justify-between">
       {/* Top Bar */}
       <div className="mt-2">
         <Link
           to={"/dashboard"}
           onClick={() => setSheetOpen?.(false)}
-          className="p-1 bg-linear-to-br from-[#240042] to-[#6100a2] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
+          className="p-1.5 flex items-center justify-start cursor-pointer"
         >
           <Logo variant="whiteFull" />
         </Link>
 
         {/* Navigation Link */}
-        <ul className="mt-3 lg:mt-8 space-y-1">
+        <ul className="mt-3 lg:mt-8 space-y-1.5">
           {sidebarLinks.map((link) => {
             const isSkipped =
               user?.role !== "agency" && (link.name === "My Information" || link.name === "Add Email");
@@ -32,8 +32,8 @@ const Sidebar = ({ setSheetOpen }) => {
               <li key={link.id} onClick={() => setSheetOpen?.(false)}>
                 <NavLink
                   className={({ isActive }) =>
-                    `py-1.5 sm:py-3 px-4 flex items-center gap- rounded-xl text-xs sm:text-sm font-medium sm:font-semibold
-              ${isActive ? "bg-primary text-white" : "text-[#4A4A4A]"}`
+                    `py-2 sm:py-2.5 px-4 flex items-center gap-3 rounded-xl text-xs sm:text-sm font-medium transition-colors
+              ${isActive ? "bg-[#d926d4] text-white shadow-sm font-semibold" : "text-white/90 hover:text-white hover:bg-white/10"}`
                   }
                   to={link.to}
                 >
@@ -46,15 +46,16 @@ const Sidebar = ({ setSheetOpen }) => {
       </div>
 
       {/* Bottom Part*/}
-      <div className="max-w-[230px]">
+      <div className="w-full">
         <button
           onClick={() => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center ml-5 gap-2 text-[#51AEFA] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
+          className="flex items-center justify-center gap-2.5 text-white/90 hover:text-white text-sm md:text-base font-medium px-4 py-2.5 rounded-xl hover:bg-white/10 cursor-pointer transition-colors w-full"
         >
-          <LogoutIconSVG className="text-[#51AEFA]" /> Logout
+          <LogoutIconSVG className="text-white w-5 h-5 shrink-0" />
+          <span>Logout</span>
         </button>
       </div>
     </div>

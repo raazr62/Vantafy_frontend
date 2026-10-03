@@ -28,14 +28,14 @@ export default function DashboardLayout() {
   }
 
   return (
-    <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row">
+    <div className="xl:p-4 bg-[#3c0048] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row">
       <div className="hidden xl:block">
         <Sidebar />
       </div>
 
       {/* mobile sidebar */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <div className="flex items-center bg-primary/50 py-2 px-4 backdrop-blur-sm xl:hidden fixed top-0 w-full z-50">
+        <div className="flex items-center bg-[#3c0048] border-b border-purple-900/50 py-2 px-4 backdrop-blur-sm xl:hidden fixed top-0 w-full z-50">
           <SheetTrigger asChild>
             <Button className="xl:hidden rounded-lg py-1.5! px-2.5!">
               <IoMenu className="sm:size-8! size-6" size={24} />
@@ -49,7 +49,7 @@ export default function DashboardLayout() {
           </Link>
         </div>
 
-        <SheetContent side="left" className="p-0 w-60 md:pt-10 border-none">
+        <SheetContent side="left" className="p-0 w-60 md:pt-10 border-none bg-[#3c0048]">
           <Sidebar
             setSheetOpen={setSheetOpen}
             closeSheet={() => setSheetOpen(false)}
