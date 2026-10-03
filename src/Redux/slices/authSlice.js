@@ -11,7 +11,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload;
+      const payload = action.payload;
+      // Normalize user object whether payload is { user: {...}, access, refresh } or direct user object
+      state.user = payload?.user ? payload.user : payload;
       state.isAuthenticated = true;
       state.isLoading = false;
     },

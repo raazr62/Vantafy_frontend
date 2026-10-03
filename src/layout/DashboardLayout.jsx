@@ -13,13 +13,17 @@ export default function DashboardLayout() {
   const [sheetOpen, setSheetOpen] = useState(false);
   const user = useSelector(selectUser);
 
+  const hasSubscription = Boolean(
+    user?.has_subscription ?? user?.user?.has_subscription
+  );
+
   useEffect(() => {
-    if (user && !user.has_subscription) {
+    if (user && !hasSubscription) {
       toast.error("Please purchase a plan to access this page");
     }
-  }, [user]);
+  }, [user, hasSubscription]);
 
-  if (user && !user.has_subscription) {
+  if (user && !hasSubscription) {
     return <Navigate to="/pricing-plan" />;
   }
 

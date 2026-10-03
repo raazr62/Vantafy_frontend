@@ -323,7 +323,7 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               variant="outline"
               className="bg-purple-800 text-white rounded-4xl font-medium border-sky-500 border-2 hover:bg-purple-700 hover:text-white"
             >
-              Scan for Your Leaks
+              Get Protected
             </Button>
           </>
         )}

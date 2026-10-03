@@ -2,9 +2,9 @@ import React from "react";
 
 const HowItWorksSkeleton = () => {
   return (
-    <div className="w-full flex items-center justify-between lg:gap-4 xl:gap-16 mt-10 sm:mt-12 lg:mt-15 animate-pulse">
+    <div className="w-full mt-10 sm:mt-12 lg:mt-15 animate-pulse">
       {/* Accordion items */}
-      <div className="w-full lg:flex-1 px-4 sm:px-6 space-y-4">
+      <div className="w-full px-4 sm:px-6 space-y-4">
         {[...Array(4)].map((_, i) => (
           <div key={i} className="border-b border-gray-200 py-4 space-y-2">
             <div className="h-6 w-4/5 bg-gray-200 rounded" />
@@ -16,10 +16,6 @@ const HowItWorksSkeleton = () => {
             )}
           </div>
         ))}
-      </div>
-      {/* Image placeholder */}
-      <div className="hidden lg:block lg:flex-1">
-        <div className="w-full h-[350px] bg-gray-200 rounded-2xl" />
       </div>
     </div>
   );
