@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "@/Redux/slices/authSlice";
 import { handleApiError } from "@/utils/apiUtils";
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 /**
  * Custom hook for Google OAuth login
@@ -15,6 +16,7 @@ import { useState } from "react";
 export const useGoogleLoginHook = (role) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const queryClient = useQueryClient();
 
   // State for role selection modal
   const [showRoleModal, setShowRoleModal] = useState(false);
@@ -27,6 +29,12 @@ export const useGoogleLoginHook = (role) => {
       // Store user data in Redux
       // Backend returns: { success: true, message: "...", data: { id, email, role } }
       if (data.success && data.data) {
+        const userData = data.data.user || data.data;
+        queryClient.setQueryData(["verify-token"], {
+          success: true,
+          message: data.message,
+          data: userData,
+        });
         dispatch(setUser(data.data));
       }
       toast.success(data?.message || "Sign In Successful!");
@@ -34,7 +42,10 @@ export const useGoogleLoginHook = (role) => {
       // Close modal if it was open
       setShowRoleModal(false);
       setPendingAccessToken(null);
-      if (!data.data.user.has_subscription) {
+      const hasSub = Boolean(
+        data?.data?.user?.has_subscription ?? data?.data?.has_subscription
+      );
+      if (!hasSub) {
         navigate("/select-niches");
         return;
       } else {

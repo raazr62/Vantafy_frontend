@@ -16,7 +16,7 @@ const HowItWorksAccordion = ({ how_it_works }) => {
     >
       {how_it_works.map((faq, idx) => (
         <AccordionItem key={faq.id} value={faq.id.toString()}>
-          <AccordionTrigger className={"text-lg sm:text-xl lg:text-2xl"}>
+          <AccordionTrigger className={"text-lg sm:text-xl lg:text-2xl text-[#8400a4]"}>
             {idx + 1}. {faq.question}
           </AccordionTrigger>
           <AccordionContent className={"text-sm lg:text-base"}>

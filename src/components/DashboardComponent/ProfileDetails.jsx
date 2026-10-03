@@ -26,6 +26,7 @@ const ProfileDetails = () => {
       email: "",
       country: "",
       timezone: "",
+      isAutomatedMail: true,
     },
   });
 
@@ -36,6 +37,7 @@ const ProfileDetails = () => {
         email: data.data.email || "",
         country: data.data.country || "",
         timezone: data.data.time_zone || "",
+        isAutomatedMail: data.data.is_automated_mail ?? true,
       });
     }
   }, [data?.data, reset]);
@@ -48,6 +50,7 @@ const ProfileDetails = () => {
       full_name: formData.fullName,
       country: formData.country,
       time_zone: formData.timezone,
+      is_automated_mail: formData.isAutomatedMail,
     };
 
     updateProfile(payload);
@@ -174,6 +177,55 @@ const ProfileDetails = () => {
             </p>
           </div>
         )}
+
+        {/* Automated Email Reports Toggle */}
+        <div className="flex items-center justify-between p-3.5 sm:p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <div className="space-y-0.5 pr-4">
+            <label className="text-xs sm:text-sm font-semibold text-[#2E3139] flex items-center gap-2">
+              <svg className="w-4 h-4 text-[#240042]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Automated Email Reports
+            </label>
+            <p className="text-xs text-gray-500">
+              Enable or disable receiving automated email reports for scan findings and link removals.
+            </p>
+          </div>
+
+          <Controller
+            name="isAutomatedMail"
+            control={control}
+            render={({ field }) => (
+              <button
+                type="button"
+                role="switch"
+                aria-checked={field.value}
+                disabled={isPending}
+                onClick={() => {
+                  const newValue = !field.value;
+                  field.onChange(newValue);
+                  updateProfile({
+                    full_name: watch("fullName"),
+                    country: watch("country"),
+                    time_zone: watch("timezone"),
+                    is_automated_mail: newValue,
+                  });
+                }}
+                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                  field.value
+                    ? "bg-[linear-gradient(90deg,#240042_0%,#FF1BE4_100%)]"
+                    : "bg-gray-300"
+                }`}
+              >
+                <span
+                  className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${
+                    field.value ? "translate-x-5" : "translate-x-0"
+                  }`}
+                />
+              </button>
+            )}
+          />
+        </div>
 
         <Button type="submit" variant="secondary" disabled={isPending}>
           {isPending ? (

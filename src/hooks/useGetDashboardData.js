@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 export const useGetDashboardData = (selectedMemberID, options = {}) => {
   const user = useSelector(selectUser);
   const endpoint =
-    user.role === "agency"
+    user?.role === "agency"
       ? `/dashboard-data/?agency_member_id=${selectedMemberID}`
       : `/dashboard-data/`;
   return useFetch(

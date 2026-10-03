@@ -3,6 +3,14 @@ import { ourCustomerMockData } from "@/lib/HomeMockData";
 import Marquee from "react-fast-marquee";
 
 const AmongOurCustomerCarousel = ({ customers = [] }) => {
+  const getImageUrl = (path) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    const baseUrl = (import.meta.env.VITE_IMAGE_URL || "").replace(/\/$/, "");
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    return `${baseUrl}${cleanPath}`;
+  };
+
   const displayCustomers =
     customers.length > 0
       ? Array.from({ length: Math.max(3, Math.ceil(12 / customers.length)) }, () => customers).flat()
@@ -17,31 +25,31 @@ const AmongOurCustomerCarousel = ({ customers = [] }) => {
         {displayCustomers.map((customer, idx) => (
           <div
             key={`${customer.id}-${idx}`}
-            className="relative min-w-[250px] md:min-w-[280px] xl:min-w-[348px] rounded-2xl mx-1 sm:mx-1.5 lg:mx-2.5"
+            className="relative min-w-[125px] md:min-w-[140px] xl:min-w-[174px] rounded-xl mx-1 sm:mx-1.5 lg:mx-2.5"
           >
             <img
-               src={
-    customer.profile_pic?.startsWith("http")
-      ? customer.profile_pic
-      : import.meta.env.VITE_IMAGE_URL + customer.profile_pic
-  }
+              src={getImageUrl(customer.profile_pic)}
               alt={customer.name}
-              className="w-full h-full max-h-[300px] md:max-h-[350px] lg:max-h-[430px] object-top object-cover rounded-2xl"
+              className="w-full h-full max-h-[150px] md:max-h-[175px] lg:max-h-[215px] object-top object-cover rounded-xl"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330";
+              }}
             />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-[#62626233] backdrop-blur-[3px] rounded-b-2xl space-y-1">
-              <p className="flex items-center gap-2 text-white text-lg md:text-xl lg:text-2xl font-semibold">
+            <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-2.5 bg-[#62626233] backdrop-blur-[3px] rounded-b-xl space-y-0.5">
+              <p className="flex items-center gap-1.5 text-white text-xs md:text-sm font-semibold">
                 {customer.name}{" "}
-                <img
-                  src={
-        customer.social_media_icon?.startsWith("http")
-          ? customer.social_media_icon
-          : import.meta.env.VITE_IMAGE_URL + customer.social_media_icon
-      }
-                  className="w-4.5 sm:w-5.5 lg:w-6"
-                  alt="Company Logo"
-                />
+                {customer.social_media_icon && (
+                  <img
+                    src={getImageUrl(customer.social_media_icon)}
+                    className="w-3 sm:w-3.5 lg:w-4 object-contain inline-block"
+                    alt="Social Media Icon"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                )}
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white">
+              <p className="text-[10px] sm:text-xs text-white">
                 Subscribe {customer.followers_count}
               </p>
             </div>

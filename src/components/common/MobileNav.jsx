@@ -53,19 +53,16 @@ const MobileNav = ({
         >
           <div className="flex flex-col items-center justify-center w-10 h-10 space-y-1.5">
             <span
-              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
-                isOpen ? "rotate-45 translate-y-2" : "group-hover:w-6"
-              }`}
+              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${isOpen ? "rotate-45 translate-y-2" : "group-hover:w-6"
+                }`}
             ></span>
             <span
-              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
-                isOpen ? "opacity-0" : ""
-              }`}
+              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${isOpen ? "opacity-0" : ""
+                }`}
             ></span>
             <span
-              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
-                isOpen ? "-rotate-45 -translate-y-2.5" : "group-hover:w-4"
-              }`}
+              className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${isOpen ? "-rotate-45 -translate-y-2.5" : "group-hover:w-4"
+                }`}
             ></span>
           </div>
         </button>
@@ -109,11 +106,10 @@ const MobileNav = ({
                         }, 300);
                       }}
                       onClick={toggleDrawer}
-                      className={`block w-full px-2 my-3 text-base font-medium transition-all duration-300 text-gray-600 ${
-                        isActive
+                      className={`block w-full px-2 my-3 text-base font-medium transition-all duration-300 text-gray-600 ${isActive
                           ? "border-l-3 border-primary"
                           : "hover:bg-gray-50 hover:text-black"
-                      }`}
+                        }`}
                     >
                       {nav.name}
                     </HashLink>
@@ -182,7 +178,7 @@ const MobileNav = ({
                   className="group relative w-full overflow-hidden rounded-xl bg-linear-to-r from-primary to-purple-600 px-5 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-primary/25 active:scale-[0.98]"
                 >
                   <span className="relative flex items-center justify-center gap-2">
-                    Get Protected
+                    Scan for Your Leaks
                   </span>
                 </button>
               </>

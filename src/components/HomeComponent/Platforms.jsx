@@ -3,36 +3,36 @@ import React from "react";
 
 const Platforms = () => {
   return (
-    <div className="bg-[#AD46FF0A] py-7 sm:py-9 lg:py-11 w-full mt-4 sm:mt-6 px-4 sm:px-6">
-      <div className="max-w-2xl mx-auto space-y-2 sm:space-y-4">
-        <p className="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent font-semibold text-xl sm:text-2xl lg:text-[32px]">
-          Social Expertise
-        </p>
-        <p className="text-sm sm:text-base text-center text-[#333333] font-medium">
-          The majority of our clients are OnlyFans models. We understand the
-          unique challenges you face and have developed specialized solutions.
-        </p>
+    <div className="w-full mt-4 sm:mt-6 px-4 sm:px-6">
+      <div className="bg-[#AD46FF0A] py-7 sm:py-9 lg:py-11 w-full rounded-3xl px-4 sm:px-6">
+        <div className="max-w-2xl mx-auto space-y-2 sm:space-y-4">
+          <p className="text-center bg-linear-to-r from-[#4E78FD] to-[#FF1BE4] bg-clip-text text-transparent font-semibold text-xl sm:text-2xl lg:text-[32px]">
+            Is That You?
+          </p>
+          <p className="text-sm sm:text-base text-center text-[#333333] font-medium">
+            Advanced facial recognition and the analysis of your existing images/videos allow our platform to find content of you, regardless of how heavily altered it is.
+          </p>
 
-        <div className="space-y-2 sm:space-y-4">
-          {platformsMockData.map((data) => (
-            <div
-              key={data.id}
-              className="py-4 sm:py-6 px-2 sm:px-4 rounded-2xl bg-[linear-gradient(90deg,rgba(78,120,253,0.04)_0%,rgba(255,27,228,0.04)_100%)] flex items-center gap-2"
-            >
-              <p className="bg-linear-to-r from-[#EC70DA] to-[#51AEFA] p-2 sm:p-2.5 rounded-xl">
-                {data.icon}
-              </p>
-              <div>
-                <p className="text-[#333333] font-semibold text-sm sm:text-base">
-                  {data.title}
+          <div className="space-y-2 sm:space-y-4">
+            {platformsMockData.map((data) => (
+              <div
+                key={data.id}
+                className="py-4 sm:py-6 px-2 sm:px-4 rounded-2xl bg-[linear-gradient(90deg,rgba(78,120,253,0.04)_0%,rgba(255,27,228,0.04)_100%)] flex items-center gap-2"
+              >
+                <p className="bg-linear-to-r from-[#EC70DA] to-[#51AEFA] p-2 sm:p-2.5 rounded-xl shrink-0">
+                  {data.icon}
                 </p>
-                <p className="text-[#333333] text-sm sm:text-base">
-                  {data.description}
-                </p>
+                <div>
+                  <p className="text-[#333333] font-semibold text-sm sm:text-base">
+                    {data.title}
+                  </p>
+                  <p className="text-[#333333] text-sm sm:text-base">
+                    {data.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-          <div></div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

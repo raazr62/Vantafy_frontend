@@ -11,7 +11,7 @@ const ProtectionStats = () => {
       </p>
 
       <p className="text-3xl sm:text-4xl lg:text-5xl font-medium my-4">
-        12+ Billion
+        1+ Million
       </p>
       <p className="text-[#FFFFFFE5] text-base sm:text-lg lg:text-xl">
         Copyright infringements detected

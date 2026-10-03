@@ -11,19 +11,25 @@ export const useLogout = () => {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
 
+  const handleLocalLogout = () => {
+    // Clear user data from Redux
+    dispatch(clearUser());
+
+    // Clear all React Query cache to ensure fresh start
+    queryClient.clear();
+
+    navigate("/auth/signin");
+  };
+
   return usePost({
     endpoint: "/signout/",
     onSuccess: () => {
-      // Clear user data from Redux
-      
-      dispatch(clearUser());
-
-      // Clear all React Query cache to ensure fresh start
-      queryClient.clear();
-
+      handleLocalLogout();
       toast.success("Logged out successfully");
-      navigate("/auth/signin");
     },
-    onError: handleApiError,
+    onError: () => {
+      handleLocalLogout();
+      toast.success("Logged out");
+    },
   });
 };

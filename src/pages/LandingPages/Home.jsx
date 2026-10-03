@@ -1,5 +1,4 @@
 import AmongOurCustomer from "@/components/HomeComponent/AmongOurCustomer";
-import Device from "@/components/HomeComponent/Device";
 import FAQ from "@/components/HomeComponent/FAQ";
 import Hero from "@/components/HomeComponent/Hero";
 import HowItWorks from "@/components/HomeComponent/HowItWorks";
@@ -84,9 +83,6 @@ const Home = () => {
 
       {/* Pricing & Plans — static, no loading state needed */}
       <PricingAndPlans />
-
-      {/* Device — static, no loading state needed */}
-      <Device />
 
       {/* FAQ */}
       <FAQ faqs={faqs} isLoading={isLoading} isError={isError} />

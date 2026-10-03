@@ -149,7 +149,7 @@
 //               variant="outline"
 //               className="bg-purple-800 text-white rounded-4xl font-medium border-sky-500 border-2 hover:bg-purple-700 hover:text-white"
 //             >
-//               Get Protected
+//               Scan for Your Leaks
 //             </Button>
 //           </>
 //         )} 
@@ -176,9 +176,9 @@ import { useLogout } from "@/hooks/useLogout";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 
 const NavSkeleton = ({ className }) => (
-  <div 
-    className={`animate-pulse bg-white/20 rounded-md ${className}`} 
-    style={{ 
+  <div
+    className={`animate-pulse bg-white/20 rounded-md ${className}`}
+    style={{
       background: "linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%)",
       backgroundSize: '200% 100%'
     }}
@@ -241,12 +241,12 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
         ) : (
           <img
             className="w-25 sm:w-30 lg:w-35 cursor-pointer"
-             src={
-    systemData?.about_system?.logo?.startsWith("http")
-      ? systemData.about_system.logo
-      : import.meta.env.VITE_IMAGE_URL +
-        systemData?.about_system?.logo
-  }
+            src={
+              systemData?.about_system?.logo?.startsWith("http")
+                ? systemData.about_system.logo
+                : import.meta.env.VITE_IMAGE_URL +
+                systemData?.about_system?.logo
+            }
             alt="Vantafy"
           />
         )}
@@ -254,22 +254,21 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
 
       {/* Desktop NavLinks */}
       <ul className="hidden lg:flex items-center gap-8">
-        { NavlinksItems.map((nav) => (
-              <li key={nav.id}>
-                <HashLink
-                  smooth
-                  to={nav.link}
-                  scroll={smoothScroll}
-                  className={`text-white px-2 pb-0.5 border-b-2 transition-all duration-300 ${
-                    active === nav.link.replace("#", "")
-                      ? "font-semibold border-white"
-                      : "font-medium border-transparent hover:border-white/50"
-                  }`}
-                >
-                  {nav.name}
-                </HashLink>
-              </li>
-            ))
+        {NavlinksItems.map((nav) => (
+          <li key={nav.id}>
+            <HashLink
+              smooth
+              to={nav.link}
+              scroll={smoothScroll}
+              className={`text-white px-2 pb-0.5 border-b-2 transition-all duration-300 ${active === nav.link.replace("#", "")
+                  ? "font-semibold border-white"
+                  : "font-medium border-transparent hover:border-white/50"
+                }`}
+            >
+              {nav.name}
+            </HashLink>
+          </li>
+        ))
         }
       </ul>
 
@@ -290,8 +289,8 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
       <div className="hidden lg:flex gap-5.5 items-center">
         {isSystemDataLoading ? (
           <div className="flex gap-4">
-             <NavSkeleton className="h-10 w-24 rounded-xl" />
-             <NavSkeleton className="h-10 w-32 rounded-4xl" />
+            <NavSkeleton className="h-10 w-24 rounded-xl" />
+            <NavSkeleton className="h-10 w-32 rounded-4xl" />
           </div>
         ) : isAuthenticated ? (
           <>

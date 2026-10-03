@@ -363,7 +363,7 @@ input[type="number"] {
 
 .ck-content a,
 .prose a {
-  color: #971dfe;
+  color: #240042;
   text-decoration: underline;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -392,5 +392,40 @@ input[type="number"] {
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 1rem 0;
+}
+
+/* Crisp Animated Gradient Border */
+@keyframes borderSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.clean-animated-border {
+  position: relative;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.clean-animated-border::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    #00c0ff 0deg,
+    #ff1be4 120deg,
+    #8400a4 240deg,
+    #00c0ff 360deg
+  );
+  animation: borderSpin 2.5s linear infinite;
 }
 

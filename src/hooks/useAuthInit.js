@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setUser, clearUser, setAuthLoading } from "@/Redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser, clearUser, setAuthLoading, selectIsAuthenticated } from "@/Redux/slices/authSlice";
 import { useVerifyAuth } from "./useVerifyAuth";
 
 /**
@@ -9,6 +9,7 @@ import { useVerifyAuth } from "./useVerifyAuth";
  */
 export const useAuthInit = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const { data, isLoading, isError } = useVerifyAuth();
 
   useEffect(() => {
@@ -17,20 +18,21 @@ export const useAuthInit = () => {
       return;
     }
 
-    if (isError || !data) {
+    if (isError) {
       // User is not authenticated or token is invalid
       dispatch(clearUser());
       return;
     }
 
     // User is authenticated, store user data
-    // Backend returns: { success: true, message: "...", data: { id, email, role } }
-    if (data.success && data.data) {
+    if (data?.success && data?.data) {
       dispatch(setUser(data.data));
-    } else {
+    } else if (!isAuthenticated && !data) {
       dispatch(clearUser());
+    } else {
+      dispatch(setAuthLoading(false));
     }
-  }, [data, isLoading, isError, dispatch]);
+  }, [data, isLoading, isError, isAuthenticated, dispatch]);
 
   return { isLoading };
 };

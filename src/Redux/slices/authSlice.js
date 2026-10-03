@@ -11,11 +11,25 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload;
+      const payload = action.payload;
+
+      // Extract tokens if passed in payload and save to localStorage for Authorization header fallback
+      const tokens = payload?.tokens || payload?.data?.tokens;
+      if (tokens?.access) {
+        localStorage.setItem("access_token", tokens.access);
+      }
+      if (tokens?.refresh) {
+        localStorage.setItem("refresh_token", tokens.refresh);
+      }
+
+      // Normalize user object whether payload is { user: {...}, access, refresh } or direct user object
+      state.user = payload?.user ? payload.user : payload;
       state.isAuthenticated = true;
       state.isLoading = false;
     },
     clearUser: (state) => {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
       state.user = null;
       state.isAuthenticated = false;
       state.isLoading = false;

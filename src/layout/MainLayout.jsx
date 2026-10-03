@@ -29,7 +29,7 @@ export default function MainLayout() {
   const systemData = data?.data;
   return (
     <>
-      <section className="sticky top-0 left-0 bg-linear-to-b from-[#971DFE] to-[#C289E8] border-b-2 border-b-white z-50 items-center w-full">
+      <section className="sticky top-0 left-0 bg-linear-to-b from-[#240042] to-[#6100a2] border-b-2 border-b-white z-50 items-center w-full">
         <Navbar
           systemData={systemData}
           isSystemDataLoading={isSystemDataLoading}

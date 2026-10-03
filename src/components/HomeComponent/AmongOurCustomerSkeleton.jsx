@@ -7,14 +7,14 @@ const AmongOurCustomerSkeleton = () => {
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="relative min-w-[250px] md:min-w-[280px] xl:min-w-[348px] shrink-0 rounded-2xl overflow-hidden"
+            className="relative min-w-[125px] md:min-w-[140px] xl:min-w-[174px] shrink-0 rounded-xl overflow-hidden"
           >
             {/* Portrait image placeholder */}
-            <div className="w-full max-h-[300px] md:max-h-[350px] lg:max-h-[430px] h-[300px] md:h-[350px] lg:h-[430px] bg-gray-200 rounded-2xl" />
+            <div className="w-full max-h-[150px] md:max-h-[175px] lg:max-h-[215px] h-[150px] md:h-[175px] lg:h-[215px] bg-gray-200 rounded-xl" />
             {/* Name/sub overlay placeholder */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 space-y-2">
-              <div className="h-5 w-3/5 bg-gray-300 rounded" />
-              <div className="h-4 w-2/5 bg-gray-300 rounded" />
+            <div className="absolute bottom-0 left-0 right-0 p-2.5 space-y-1">
+              <div className="h-3 w-3/5 bg-gray-300 rounded" />
+              <div className="h-2.5 w-2/5 bg-gray-300 rounded" />
             </div>
           </div>
         ))}

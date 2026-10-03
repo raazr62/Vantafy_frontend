@@ -15,7 +15,7 @@ import SectionError from "./SectionError";
 const FAQ = ({ faqs, isLoading, isError }) => {
   const formatNumber = (num) => (num < 9 ? `0${num + 1}` : `${num + 1}`);
   return (
-    <CommonContainer id={"faq"}>
+    <CommonContainer id={"faq"} className="mb-12 sm:mb-16 lg:mb-20">
       <CommonTitle title={"FAQ"} />
       {isLoading ? (
         <FAQSkeleton />
@@ -26,21 +26,23 @@ const FAQ = ({ faqs, isLoading, isError }) => {
           <Accordion
             type="single"
             collapsible
-            className="flex-5/7"
+            className="flex-5/7 rounded-2xl overflow-hidden"
             defaultValue={faqs[0].id.toString()}
           >
             {faqs.map((faq, idx) => {
               return (
                 <AccordionItem key={faq.id} value={faq.id.toString()}>
                   <AccordionTrigger>
-                    <p className="flex items-start gap-3">
-                      <span className="text-[#454F5B] text-xl sm:text-2xl lg:text-3xl font-bold">
+                    <p className="flex items-start gap-3 text-[#8400a4]">
+                      <span className="text-[#FF1BE4] text-xl sm:text-2xl lg:text-3xl font-bold">
                         {formatNumber(idx)}
                       </span>{" "}
-                      {faq.question}
+                      <span>{faq.question}</span>
                     </p>
                   </AccordionTrigger>
-                  <AccordionContent>{faq.answer}</AccordionContent>
+                  <AccordionContent className="text-black">
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               );
             })}
