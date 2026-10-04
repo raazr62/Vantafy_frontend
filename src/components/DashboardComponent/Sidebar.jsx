@@ -11,19 +11,19 @@ const Sidebar = ({ setSheetOpen }) => {
   const { mutate: logout } = useLogout();
   const user = useSelector(selectUser);
   return (
-    <div className="bg-[#3c0048] h-full px-3 py-6 max-w-[260px] w-full lg:rounded-2xl flex flex-col justify-between">
+    <div className="bg-[#440054] h-full px-3 py-6 max-w-[250px] w-full rounded-[24px] border border-purple-800/30 flex flex-col justify-between shadow-lg">
       {/* Top Bar */}
-      <div className="mt-2">
+      <div>
         <Link
           to={"/dashboard"}
           onClick={() => setSheetOpen?.(false)}
-          className="p-1.5 flex items-center justify-start cursor-pointer"
+          className="px-4 py-2 flex items-center justify-start cursor-pointer"
         >
           <Logo variant="whiteFull" />
         </Link>
 
         {/* Navigation Link */}
-        <ul className="mt-3 lg:mt-8 space-y-1.5">
+        <ul className="mt-6 space-y-2">
           {sidebarLinks.map((link) => {
             const isSkipped =
               user?.role !== "agency" && (link.name === "My Information" || link.name === "Add Email");
@@ -32,8 +32,12 @@ const Sidebar = ({ setSheetOpen }) => {
               <li key={link.id} onClick={() => setSheetOpen?.(false)}>
                 <NavLink
                   className={({ isActive }) =>
-                    `py-2 sm:py-2.5 px-4 flex items-center gap-3 rounded-xl text-xs sm:text-sm font-medium transition-colors
-              ${isActive ? "bg-[#d926d4] text-white shadow-sm font-semibold" : "text-white/90 hover:text-white hover:bg-white/10"}`
+                    `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200
+              ${
+                isActive
+                  ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
+                  : "text-white/90 hover:text-white"
+              }`
                   }
                   to={link.to}
                 >
@@ -46,15 +50,15 @@ const Sidebar = ({ setSheetOpen }) => {
       </div>
 
       {/* Bottom Part*/}
-      <div className="w-full">
+      <div className="w-full flex justify-center">
         <button
           onClick={() => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center justify-center gap-2.5 text-white/90 hover:text-white text-sm md:text-base font-medium px-4 py-2.5 rounded-xl hover:bg-white/10 cursor-pointer transition-colors w-full"
+          className="flex items-center justify-center gap-2.5 text-[#e024d2] hover:text-pink-300 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-white/10 cursor-pointer transition-colors w-full"
         >
-          <LogoutIconSVG className="text-white w-5 h-5 shrink-0" />
+          <LogoutIconSVG className="text-[#e024d2] w-5 h-5 shrink-0" />
           <span>Logout</span>
         </button>
       </div>

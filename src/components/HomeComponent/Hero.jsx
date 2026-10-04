@@ -32,7 +32,7 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
           {hero_section?.subtitle}
         </p>
         {/* Trust Badges: Google TCRP & Trustpilot + Centered CTA Button */}
-        <div className="flex flex-col items-center lg:items-start gap-2.5 mt-2 lg:mt-3">
+        <div className="flex flex-col items-center gap-2.5 mt-2 lg:mt-3 w-full">
           {/* Row 1: Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {/* Google TCRP Partner Badge */}
@@ -44,7 +44,12 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
             </div>
 
             {/* Trustpilot Badge */}
-            <div className="bg-white border border-[#00C0FF] rounded-full px-3 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-1.5 shadow-xs transition-all hover:border-[#0090FF]">
+            <a
+              href="https://www.trustpilot.com/review/vantafy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white border border-[#00C0FF] rounded-full px-3 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-1.5 shadow-xs transition-all hover:border-[#0090FF] hover:shadow-sm cursor-pointer"
+            >
               <div className="flex items-center gap-0.5 shrink-0">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-3.5 h-3.5 bg-[#00b67a] flex items-center justify-center rounded-[1px]">
@@ -66,15 +71,15 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
                 </svg>
                 Trustpilot
               </span>
-            </div>
+            </a>
           </div>
 
           {/* Row 2: Scan For Your Leaks CTA Button (Centered relative to the badges) */}
-          <div className="w-full sm:w-[350px] flex justify-center">
+          <div className="w-full flex justify-center">
             <div className="clean-animated-border cursor-pointer group">
               <button
                 onClick={handleGetProtected}
-                className="relative z-10 bg-[#8400a4] hover:bg-[#72008e] text-white font-semibold text-xs sm:text-sm px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 transform group-hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="relative z-10 bg-white hover:bg-gray-50 text-black font-semibold text-xs sm:text-sm px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 transform group-hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
                 Scan For Your Leaks
               </button>

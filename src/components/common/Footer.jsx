@@ -37,8 +37,8 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
         )}
 
         {/* Links */}
-        <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-white text-sm sm:text-base">
-          <li>
+        <ul className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 gap-y-2.5 text-white text-xs sm:text-base max-w-2xl mx-auto px-2 text-center">
+          <li className="shrink-0 whitespace-nowrap">
             <HashLink
               smooth
               scroll={(el) => {
@@ -52,7 +52,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               Home
             </HashLink>
           </li>
-          <li>
+          <li className="shrink-0 whitespace-nowrap">
             <HashLink
               smooth
               scroll={(el) => {
@@ -66,7 +66,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               What We Do
             </HashLink>
           </li>
-          <li>
+          <li className="shrink-0 whitespace-nowrap">
             <HashLink
               smooth
               scroll={(el) => {
@@ -80,7 +80,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               How It Works
             </HashLink>
           </li>
-          <li>
+          <li className="shrink-0 whitespace-nowrap">
             <HashLink
               smooth
               scroll={(el) => {
@@ -94,7 +94,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               Pricing
             </HashLink>
           </li>
-          <li>
+          <li className="shrink-0 whitespace-nowrap">
             <HashLink
               smooth
               scroll={(el) => {
@@ -108,26 +108,26 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               FAQs
             </HashLink>
           </li>
-          <li>
+          <li className="shrink-0 whitespace-nowrap">
             <button
               type="button"
               onClick={() => {
                 setLegalModalType("privacy_policy");
                 setLegalModalOpen(true);
               }}
-              className="hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 text-white text-sm sm:text-base font-normal"
+              className="hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 text-white text-xs sm:text-base font-normal whitespace-nowrap"
             >
               Privacy Policy
             </button>
           </li>
-          <li>
+          <li className="shrink-0 whitespace-nowrap">
             <button
               type="button"
               onClick={() => {
                 setLegalModalType("terms_and_conditions");
                 setLegalModalOpen(true);
               }}
-              className="hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 text-white text-sm sm:text-base font-normal"
+              className="hover:text-purple-300 transition-colors cursor-pointer bg-transparent border-none p-0 text-white text-xs sm:text-base font-normal whitespace-nowrap"
             >
               Terms of Service
             </button>
@@ -165,7 +165,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
             ? systemData.about_system.copyright.toLowerCase().includes("all rights reserved")
               ? systemData.about_system.copyright
               : `${systemData.about_system.copyright}. All rights reserved.`
-            : "©2026 VANTAFY. All rights reserved."}
+            : "©2027 VANTAFY. All rights reserved."}
         </p>
       </div>
 
