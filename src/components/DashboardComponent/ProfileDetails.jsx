@@ -211,10 +211,10 @@ const ProfileDetails = () => {
                     is_automated_mail: newValue,
                   });
                 }}
-                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border transition-colors duration-200 ease-in-out focus:outline-none ${
                   field.value
-                    ? "bg-[linear-gradient(90deg,#240042_0%,#FF1BE4_100%)]"
-                    : "bg-gray-300"
+                    ? "bg-gray-700 border-gray-800"
+                    : "bg-gray-200 border-gray-300"
                 }`}
               >
                 <span
