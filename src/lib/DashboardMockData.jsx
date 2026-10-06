@@ -3,6 +3,7 @@ import TypingIndicator from "@/components/DashboardComponent/ChatArea/TypingIndi
 import {
   AddEmailIconSVG,
   AffiliateIconSVG,
+  FlashingStarIconSVG,
   HomeIconSVG,
   ImageIconSVG,
   ListOfDelistedLinksIconSVG,
@@ -238,9 +239,9 @@ export const sidebarLinks = [
   },
   {
     id: 8,
-    name: "Plans",
+    name: "Subscriptions",
     to: "/dashboard/plans",
-    icon: <PlansIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
+    icon: <FlashingStarIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
   },
 ];
 

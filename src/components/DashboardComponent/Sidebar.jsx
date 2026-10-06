@@ -39,6 +39,30 @@ const Sidebar = ({ setSheetOpen }) => {
             const isSkipped =
               user?.role !== "agency" && (link.name === "My Information" || link.name === "Add Email");
             if (isSkipped) return null;
+
+            const isSubscriptions = link.name === "Subscriptions";
+
+            if (isSubscriptions) {
+              return (
+                <li key={link.id} onClick={() => setSheetOpen?.(false)}>
+                  <div className="clean-animated-border w-full cursor-pointer group rounded-full">
+                    <NavLink
+                      className={({ isActive }) =>
+                        `relative z-10 w-full py-2.5 px-4 flex items-center gap-3 text-sm font-semibold transition-all duration-200 rounded-full ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white shadow-md"
+                            : "bg-[#440054] text-white hover:bg-[#58006d]"
+                        }`
+                      }
+                      to={link.to}
+                    >
+                      {link.icon} {link.name}
+                    </NavLink>
+                  </div>
+                </li>
+              );
+            }
+
             return (
               <li key={link.id} onClick={() => setSheetOpen?.(false)}>
                 <NavLink
@@ -76,7 +100,6 @@ const Sidebar = ({ setSheetOpen }) => {
               type="button"
               onClick={() => {
                 openLegalModal("privacy_policy");
-                setSheetOpen?.(false);
               }}
               className="w-full py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200 text-left cursor-pointer"
             >
@@ -90,7 +113,6 @@ const Sidebar = ({ setSheetOpen }) => {
               type="button"
               onClick={() => {
                 openLegalModal("terms_and_conditions");
-                setSheetOpen?.(false);
               }}
               className="w-full py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200 text-left cursor-pointer"
             >

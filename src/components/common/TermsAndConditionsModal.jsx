@@ -33,7 +33,7 @@ const TermsAndConditionsModal = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-5xl md:max-w-6xl w-[95vw] max-h-[92vh] flex flex-col p-5 sm:p-8 rounded-2xl bg-white shadow-2xl border border-[#EFE6FD]">
+      <DialogContent className="sm:max-w-5xl md:max-w-6xl w-[95vw] max-h-[92vh] flex flex-col p-5 sm:p-8 rounded-2xl bg-white shadow-2xl border border-[#EFE6FD] z-[100]">
         <DialogHeader className="border-b border-gray-100 pb-4">
           <div className="flex items-center gap-2.5 text-[#9654F4]">
             <FileText className="w-6 h-6" />

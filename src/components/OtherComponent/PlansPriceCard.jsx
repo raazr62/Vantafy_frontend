@@ -16,7 +16,12 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
   const isAgency = plan.type === "agency";
 
   if (isAgency) {
-    const memberLimit = Number(plan.member_limit) || 1;
+    const defaultLimits = [5, 10, 15, 20];
+    const memberLimit =
+      Number(plan.member_limit) && Number(plan.member_limit) > 0
+        ? Number(plan.member_limit)
+        : defaultLimits[i % defaultLimits.length];
+
     const rawPrice = Number(plan.price) || 0;
     const perPersonPrice = Math.round(rawPrice / memberLimit);
 
@@ -24,22 +29,26 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
       {
         cardBg: "bg-[linear-gradient(180deg,#FFFFFF_0%,#E5E5E7_100%)] border-[#D4D4D8]",
         pillBorder: "border-[#CCCCCC]",
-        btnBg: "bg-[#CCCCCC] hover:bg-[#B5B5B5] text-black",
+        btnBg: "!bg-[#CCCCCC] hover:!bg-[#B5B5B5]",
+        btnBorder: "border border-[#A8A8A8]",
       },
       {
         cardBg: "bg-[linear-gradient(180deg,#FFFBF0_0%,#FFE4B8_100%)] border-[#FFC069]",
         pillBorder: "border-[#FFC069]",
-        btnBg: "bg-[#FFA82E] hover:bg-[#F0971D] text-black",
+        btnBg: "!bg-[#FFA82E] hover:!bg-[#F0971D]",
+        btnBorder: "border border-[#E89218]",
       },
       {
         cardBg: "bg-[linear-gradient(180deg,#FFFFFF_0%,#C8C8C8_100%)] border-[#B0B0B0]",
         pillBorder: "border-[#B0B0B0]",
-        btnBg: "bg-[#B8B8B8] hover:bg-[#A3A3A3] text-black",
+        btnBg: "!bg-[#B8B8B8] hover:!bg-[#A3A3A3]",
+        btnBorder: "border border-[#969696]",
       },
       {
         cardBg: "bg-[linear-gradient(180deg,#F0FBFF_0%,#B5F0FF_100%)] border-[#66E0FF]",
         pillBorder: "border-[#66E0FF]",
-        btnBg: "bg-[#33D6FF] hover:bg-[#1ACBFA] text-black",
+        btnBg: "!bg-[#33D6FF] hover:!bg-[#1ACBFA]",
+        btnBorder: "border border-[#00BCE8]",
       },
     ];
 
@@ -48,24 +57,35 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
     return (
       <div
         key={plan.id}
-        className={`py-3 sm:py-6 px-2.5 ${style.cardBg} border rounded-[12px] shadow-[0_15px_18.75px_-3.75px_rgba(0,0,0,0.10),0_6px_7.5px_-4.5px_rgba(0,0,0,0.10)] flex flex-col items-center justify-between h-full transition-transform hover:-translate-y-1 duration-200`}
+        className={`py-3 sm:py-6 px-2.5 ${style.cardBg} border rounded-[12px] shadow-[0_15px_18.75px_-3.75px_rgba(0,0,0,0.10),0_6px_7.5px_-4.5px_rgba(0,0,0,0.10)] flex flex-col items-center h-full transition-transform hover:-translate-y-1 duration-200`}
       >
+        {/* Head: Package Name & Subtitle */}
+        <p className="text-2xl md:text-[32px] font-semibold text-center text-black">
+          {plan.name}
+        </p>
+        <p className="text-xs font-semibold text-gray-700">Package</p>
+
         {/* Top Per Creator Price Pill */}
-        <div className={`px-4 sm:px-6 py-2 sm:py-3 bg-white border ${style.pillBorder} rounded-[45px] shadow-xs flex items-center justify-center gap-1 mt-2 sm:mt-4 mb-2`}>
-          <span className="text-xl sm:text-2xl font-extrabold text-black">
+        <div
+          className={`px-6 sm:px-8 py-2 sm:py-4 bg-white border ${style.pillBorder} rounded-[45px] shadow-xs flex items-center justify-center gap-1.5 mt-6 mb-3`}
+        >
+          <span className="text-2xl sm:text-[32px] font-semibold text-black">
             ${perPersonPrice}
           </span>
-          <span className="text-xs font-medium text-gray-600">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 whitespace-nowrap">
             /per creator
           </span>
         </div>
 
         {/* Features List (if available) */}
-        <div className="flex flex-col items-center mb-4 sm:mb-8 w-full text-center">
+        <div className="flex flex-col items-center mb-4 sm:mb-8 md:mb-10 lg:mb-12 w-full text-center">
           {plan.features && plan.features.length > 0 && (
-            <div className="space-y-1.5 w-full">
+            <div className="w-full">
               {plan.features.map((feature, index) => (
-                <p key={index} className="py-1.5 border-b text-xs border-gray-400 border-dotted w-full text-center text-gray-800 font-medium">
+                <p
+                  key={index}
+                  className="py-2 sm:py-2.5 border-b text-xs border-gray-400 border-dotted w-full text-center text-gray-800 first:text-sm first:font-bold"
+                >
                   {feature.name}
                 </p>
               ))}
@@ -75,23 +95,23 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
 
         {/* Bottom Section: Member Limit (Star Count) & Subscribe Button */}
         <div className="flex flex-col items-center gap-2 mt-auto w-full">
-          <div className="flex items-center gap-1 text-sm font-bold text-black">
-            <span>{plan.member_limit ?? memberLimit}</span>
-            <StarIconSVG className="w-4 h-4 text-black fill-current" />
+          <div className="flex items-center justify-center gap-1.5 text-[20px] leading-none font-bold text-black">
+            <span>{memberLimit}</span>
+            <StarIconSVG className="w-[20px] h-[20px] text-black fill-current" />
           </div>
 
-          <button
+          <Button
             onClick={() => handleSubscription(plan.stripe_price_id, plan.type)}
-            className={`${style.btnBg} text-xs font-extrabold px-6 sm:px-8 py-2.5 rounded-full cursor-pointer transition-all shadow-xs border-none tracking-wide`}
+            className={`!bg-none ${style.btnBg} ${style.btnBorder} text-black text-xs font-bold mt-auto`}
           >
             SUBSCRIBE
-          </button>
+          </Button>
         </div>
       </div>
     );
   }
 
-  // Non-agency plans (Monthly & Annual) remain unchanged
+  // Non-agency plans (Monthly & Annual)
   const backroundColor =
     i === 0
       ? "bg-[linear-gradient(135deg,#4A5565_0%,#364153_50%,#101828_100%)]"
@@ -138,3 +158,8 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
 };
 
 export default PlansPriceCard;
+
+
+
+
+
