@@ -232,16 +232,16 @@ export const sidebarLinks = [
     icon: <RequestRemovalIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
   },
   {
+    id: 8,
+    name: "Subscription",
+    to: "/dashboard/plans",
+    icon: <FlashingStarIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
+  },
+  {
     id: 6,
     name: "Affiliate Program",
     to: "/dashboard/affiliate-program",
     icon: <AffiliateIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
-  },
-  {
-    id: 8,
-    name: "Subscriptions",
-    to: "/dashboard/plans",
-    icon: <FlashingStarIconSVG className={"w-3.5 h-3.5 sm:w-4.5 sm:h-4.5"} />,
   },
 ];
 

@@ -2,7 +2,6 @@ import { sidebarLinks } from "@/lib/DashboardMockData";
 import Logo from "@/shared/LandingShared/Logo";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
-import { HashLink } from "react-router-hash-link";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 import { useLogout } from "@/hooks/useLogout";
 import { selectUser } from "@/Redux/slices/authSlice";
@@ -40,7 +39,8 @@ const Sidebar = ({ setSheetOpen }) => {
               user?.role !== "agency" && (link.name === "My Information" || link.name === "Add Email");
             if (isSkipped) return null;
 
-            const isSubscriptions = link.name === "Subscriptions";
+            const isSubscriptions =
+              link.name === "Subscriptions" || link.name === "Subscription";
 
             if (isSubscriptions) {
               return (
@@ -82,16 +82,17 @@ const Sidebar = ({ setSheetOpen }) => {
             );
           })}
 
-          {/* FAQ Link */}
+          {/* Terms of Services */}
           <li>
-            <HashLink
-              smooth
-              to="/#faq"
-              onClick={() => setSheetOpen?.(false)}
-              className="py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200"
+            <button
+              type="button"
+              onClick={() => {
+                openLegalModal("terms_and_conditions");
+              }}
+              className="w-full py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200 text-left cursor-pointer"
             >
-              <HelpCircle className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> FAQ
-            </HashLink>
+              <FileText className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> Terms of Services
+            </button>
           </li>
 
           {/* Privacy Policy */}
@@ -107,17 +108,21 @@ const Sidebar = ({ setSheetOpen }) => {
             </button>
           </li>
 
-          {/* Terms of Services */}
+          {/* FAQ Link */}
           <li>
-            <button
-              type="button"
-              onClick={() => {
-                openLegalModal("terms_and_conditions");
-              }}
-              className="w-full py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200 text-left cursor-pointer"
+            <NavLink
+              to="/dashboard/faq"
+              onClick={() => setSheetOpen?.(false)}
+              className={({ isActive }) =>
+                `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200 ${
+                  isActive
+                    ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
+                    : "text-white/90 hover:text-white"
+                }`
+              }
             >
-              <FileText className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> Terms of Services
-            </button>
+              <HelpCircle className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> FAQ
+            </NavLink>
           </li>
         </ul>
       </div>
