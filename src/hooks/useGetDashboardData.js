@@ -9,12 +9,12 @@ export const useGetDashboardData = (selectedMemberID, options = {}) => {
       ? `/dashboard-data/?agency_member_id=${selectedMemberID}`
       : `/dashboard-data/`;
   return useFetch(
-    ["dashboard-data", selectedMemberID],
+    ["dashboard-data", user?.role, selectedMemberID],
     endpoint,
     {},
     {
-      staleTime: 1000 * 60 * 5, // 5 minutes fresh data
-      gcTime: 1000 * 60 * 30, // 30 minutes memory cache
+      skipCache: true, // Don't use stale zero-data from localStorage
+      enabled: user?.role === "agency" ? Boolean(selectedMemberID) : true,
       refetchOnWindowFocus: false,
       ...options,
     }

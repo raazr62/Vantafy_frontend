@@ -19,7 +19,7 @@ const AffiliateProgram = lazy(() =>
 const MyInformation = lazy(() =>
   import("@/pages/DashboardPages/MyInformation")
 );
-
+const FAQPage = lazy(() => import("@/pages/DashboardPages/FAQPage"));
 
 export const dashboardRoutes = [
   {
@@ -53,6 +53,10 @@ export const dashboardRoutes = [
   {
     path: "my-information",
     element: <MyInformation />,
+  },
+  {
+    path: "faq",
+    element: <FAQPage />,
   },
  
   {

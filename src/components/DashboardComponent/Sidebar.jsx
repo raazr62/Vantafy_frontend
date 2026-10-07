@@ -1,39 +1,78 @@
 import { sidebarLinks } from "@/lib/DashboardMockData";
 import Logo from "@/shared/LandingShared/Logo";
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { LogoutIconSVG } from "../SVG/DashboardLayoutSVG";
 import { useLogout } from "@/hooks/useLogout";
 import { selectUser } from "@/Redux/slices/authSlice";
 import { useSelector } from "react-redux";
+import TermsAndConditionsModal from "../common/TermsAndConditionsModal";
+import { HelpCircle, FileText, ShieldCheck } from "lucide-react";
 
 const Sidebar = ({ setSheetOpen }) => {
   const { mutate: logout } = useLogout();
   const user = useSelector(selectUser);
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalModalType, setLegalModalType] = useState("terms_and_conditions");
+
+  const openLegalModal = (type) => {
+    setLegalModalType(type);
+    setLegalModalOpen(true);
+  };
+
   return (
-    <div className="bg-[linear-gradient(90deg,rgba(78,120,253,0.12)_0%,rgba(255,27,228,0.12)_100%)] h-full px-3 py-6 max-w-[260px] w-full lg:rounded-2xl flex flex-col justify-between">
+    <div className="bg-[#440054] h-full px-3 py-6 max-w-[250px] w-full rounded-[24px] border border-purple-800/30 flex flex-col justify-between shadow-lg overflow-y-auto">
       {/* Top Bar */}
-      <div className="mt-2">
+      <div>
         <Link
           to={"/dashboard"}
           onClick={() => setSheetOpen?.(false)}
-          className="p-1 bg-linear-to-br from-[#240042] to-[#6100a2] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
+          className="px-4 py-2 flex items-center justify-center cursor-pointer w-full"
         >
           <Logo variant="whiteFull" />
         </Link>
 
         {/* Navigation Link */}
-        <ul className="mt-3 lg:mt-8 space-y-1">
+        <ul className="mt-6 space-y-2">
           {sidebarLinks.map((link) => {
             const isSkipped =
               user?.role !== "agency" && (link.name === "My Information" || link.name === "Add Email");
             if (isSkipped) return null;
+
+            const isSubscriptions =
+              link.name === "Subscriptions" || link.name === "Subscription";
+
+            if (isSubscriptions) {
+              return (
+                <li key={link.id} onClick={() => setSheetOpen?.(false)}>
+                  <div className="clean-animated-border w-full cursor-pointer group rounded-full">
+                    <NavLink
+                      className={({ isActive }) =>
+                        `relative z-10 w-full py-2.5 px-4 flex items-center gap-3 text-sm font-semibold transition-all duration-200 rounded-full ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white shadow-md"
+                            : "bg-[#440054] text-white hover:bg-[#58006d]"
+                        }`
+                      }
+                      to={link.to}
+                    >
+                      {link.icon} {link.name}
+                    </NavLink>
+                  </div>
+                </li>
+              );
+            }
+
             return (
               <li key={link.id} onClick={() => setSheetOpen?.(false)}>
                 <NavLink
                   className={({ isActive }) =>
-                    `py-1.5 sm:py-3 px-4 flex items-center gap- rounded-xl text-xs sm:text-sm font-medium sm:font-semibold
-              ${isActive ? "bg-primary text-white" : "text-[#4A4A4A]"}`
+                    `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200
+              ${
+                isActive
+                  ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
+                  : "text-white/90 hover:text-white"
+              }`
                   }
                   to={link.to}
                 >
@@ -42,21 +81,71 @@ const Sidebar = ({ setSheetOpen }) => {
               </li>
             );
           })}
+
+          {/* Terms of Services */}
+          <li>
+            <button
+              type="button"
+              onClick={() => {
+                openLegalModal("terms_and_conditions");
+              }}
+              className="w-full py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200 text-left cursor-pointer"
+            >
+              <FileText className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> Terms of Services
+            </button>
+          </li>
+
+          {/* Privacy Policy */}
+          <li>
+            <button
+              type="button"
+              onClick={() => {
+                openLegalModal("privacy_policy");
+              }}
+              className="w-full py-2.5 px-4 flex items-center gap-3 text-sm font-medium text-white/90 hover:text-white transition-all duration-200 text-left cursor-pointer"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> Privacy Policy
+            </button>
+          </li>
+
+          {/* FAQ Link */}
+          <li>
+            <NavLink
+              to="/dashboard/faq"
+              onClick={() => setSheetOpen?.(false)}
+              className={({ isActive }) =>
+                `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200 ${
+                  isActive
+                    ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
+                    : "text-white/90 hover:text-white"
+                }`
+              }
+            >
+              <HelpCircle className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" /> FAQ
+            </NavLink>
+          </li>
         </ul>
       </div>
 
       {/* Bottom Part*/}
-      <div className="max-w-[230px]">
+      <div className="w-full flex justify-center mt-6">
         <button
           onClick={() => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center ml-5 gap-2 text-[#51AEFA] text-sm md:text-base font-medium px-2 cursor-pointer hover:opacity-80 transition-opacity"
+          className="flex items-center justify-center gap-2.5 text-[#e024d2] hover:text-pink-300 text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-white/10 cursor-pointer transition-colors w-full"
         >
-          <LogoutIconSVG className="text-[#51AEFA]" /> Logout
+          <LogoutIconSVG className="text-[#e024d2] w-5 h-5 shrink-0" />
+          <span>Logout</span>
         </button>
       </div>
+
+      <TermsAndConditionsModal
+        open={legalModalOpen}
+        onOpenChange={setLegalModalOpen}
+        pageType={legalModalType}
+      />
     </div>
   );
 };

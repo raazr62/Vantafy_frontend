@@ -3,6 +3,7 @@ import AuthorizedSites from "@/components/DashboardComponent/AuthorizedSites";
 import ChangePassword from "@/components/DashboardComponent/ChangePassword";
 import ProfileDetails from "@/components/DashboardComponent/ProfileDetails";
 import StageNamesToProtect from "@/components/DashboardComponent/StageNamesToProtect";
+import DeleteAllImagesCard from "@/components/DashboardComponent/DeleteAllImagesCard";
 import { selectUser } from "@/Redux/slices/authSlice";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -49,6 +50,7 @@ const MyAccount = () => {
         >
           <ProfileDetails />
           {!user?.is_google_login && <ChangePassword />}
+          <DeleteAllImagesCard />
         </div>
       )}
 

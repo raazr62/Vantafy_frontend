@@ -52,7 +52,7 @@ const ProfilePhoto = ({ profile_photo }) => {
 
   // Generate image URL with fallback
   const getImageUrl = () => {
-    if (!avatar) return "https://ui-avatars.com/api/?name=User&size=100";
+    if (!avatar) return "https://i.pravatar.cc/150?img=33";
 
     // If it's already a blob URL (from file upload preview)
     if (avatar.startsWith("blob:")) return avatar;
@@ -63,10 +63,13 @@ const ProfilePhoto = ({ profile_photo }) => {
     }
 
     // Otherwise prepend the base URL
-    const baseUrl = import.meta.env.VITE_IMAGE_URL || "";
-    return baseUrl.endsWith("/") && avatar.startsWith("/")
-      ? `${baseUrl.slice(0, -1)}${avatar}`
-      : `${baseUrl}${avatar.startsWith("/") ? "" : "/"}${avatar}`;
+    let baseUrl = import.meta.env.VITE_IMAGE_URL || "http://127.0.0.1:8000";
+    if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+      baseUrl = "http://127.0.0.1:8000";
+    }
+    const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+    const cleanAvatar = avatar.startsWith("/") ? avatar : `/${avatar}`;
+    return `${cleanBaseUrl}${cleanAvatar}`;
   };
 
   return (
@@ -82,8 +85,7 @@ const ProfilePhoto = ({ profile_photo }) => {
             alt="Profile"
             className="w-full h-full object-cover rounded-xl"
             onError={(e) => {
-              e.currentTarget.src =
-                "https://ui-avatars.com/api/?name=User&size=100";
+              e.currentTarget.src = "https://i.pravatar.cc/150?img=33";
             }}
           />
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded-xl">

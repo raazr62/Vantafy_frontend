@@ -61,6 +61,8 @@ export const useFetch = (queryKey, endpoint, params = {}, options = {}) => {
     initialDataUpdatedAt: skipCache
       ? undefined
       : () => getStorageCacheEntry(queryKey)?.timestamp,
+    staleTime: 0,
+    refetchOnMount: true,
     ...queryOptions,
   });
 };
@@ -94,6 +96,8 @@ export const usePublicFetch = (
     initialDataUpdatedAt: skipCache
       ? undefined
       : () => getStorageCacheEntry(queryKey)?.timestamp,
+    staleTime: 0,
+    refetchOnMount: true,
     ...queryOptions,
   });
 };

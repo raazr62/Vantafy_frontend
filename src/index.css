@@ -429,3 +429,19 @@ input[type="number"] {
   animation: borderSpin 2.5s linear infinite;
 }
 
+/* Flashing Blue and Pink Star Animation */
+@keyframes flashBluePink {
+  0%, 100% {
+    fill: #00C0FF;
+    filter: drop-shadow(0 0 5px rgba(0, 192, 255, 0.9));
+  }
+  50% {
+    fill: #FF1BE4;
+    filter: drop-shadow(0 0 5px rgba(255, 27, 228, 0.9));
+  }
+}
+
+.animate-flash-blue-pink {
+  animation: flashBluePink 1.2s ease-in-out infinite;
+}
+
