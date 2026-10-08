@@ -11,11 +11,25 @@ import { selectUser } from "@/Redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
+import { useNavigate } from "react-router";
+
 const StartScanModal = ({ setActiveDialog, selectedMemberID }) => {
   const { mutate: postScanNow } = usePostScanNow(setActiveDialog);
   const user = useSelector(selectUser);
+  const navigate = useNavigate();
+
+  const hasSubscription = Boolean(
+    user?.has_subscription ?? user?.user?.has_subscription
+  );
 
   const handleInitialScan = () => {
+    if (!hasSubscription) {
+      toast.error("Subscription required to run scans. Please choose a plan.");
+      if (setActiveDialog) setActiveDialog(false);
+      navigate("/dashboard/plans");
+      return;
+    }
+
     if (user?.role === "agency" && !selectedMemberID) {
       toast.error("Please select a member");
       return;

@@ -445,3 +445,64 @@ input[type="number"] {
   animation: flashBluePink 1.2s ease-in-out infinite;
 }
 
+/* Animated Gradient Border for Star Package Card */
+.clean-animated-border-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5px;
+  border-radius: 34px;
+  overflow: hidden;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .clean-animated-border-card {
+    border-radius: 52px;
+  }
+}
+
+.clean-animated-border-card::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    #ffc069 0deg,
+    #ff5ce1 90deg,
+    #33d6ff 180deg,
+    #ff8904 270deg,
+    #ffc069 360deg
+  );
+  animation: borderSpin 3s linear infinite;
+}
+
+/* Animated Gradient Border for Subscribe Button */
+.clean-animated-border-btn {
+  position: relative;
+  display: inline-flex;
+  padding: 2.5px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.clean-animated-border-btn::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    #ffa82e 0deg,
+    #ff1be4 120deg,
+    #00c0ff 240deg,
+    #ffa82e 360deg
+  );
+  animation: borderSpin 2.5s linear infinite;
+}
+

@@ -46,7 +46,7 @@ const RecommendedPackages = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-3 mt-4">
+    <div className="w-full max-w-[330px] mx-auto flex flex-col items-center gap-3 mt-2">
       {data.map((plan, i) => (
         <PlansPriceCard
           key={plan.id}
