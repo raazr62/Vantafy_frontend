@@ -8,6 +8,7 @@ import { useForm, Controller } from "react-hook-form";
 import CommonInputField from "@/shared/AuthShared/CommonInputField";
 import { useGetProfileData } from "@/hooks/useGetProfileData";
 import useUpdateProfile from "@/hooks/useUpdateProfile";
+import DeleteAllImagesCard from "./DeleteAllImagesCard";
 
 const ProfileDetails = () => {
   const { data, isLoading } = useGetProfileData();
@@ -77,12 +78,12 @@ const ProfileDetails = () => {
   }
 
   return (
-    <div className="px-2 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-6 bg-white rounded-b-[12px]">
+    <div className="w-full bg-white">
       <ProfilePhoto profile_photo={data?.data?.avatar} />
 
       <form
         onSubmit={handleSubmit(onSubmit, onFormError)}
-        className="space-y-2 sm:space-y-4 mt-4"
+        className="space-y-2 sm:space-y-2.5 mt-3"
       >
         {/* Full Name */}
         <CommonInputField
@@ -96,7 +97,7 @@ const ProfileDetails = () => {
           disabled={isPending}
         />
 
-        {/* Email (Read Only) */}
+        {/* Email Address */}
         <CommonInputField
           label="Email Address"
           name="email"
@@ -110,7 +111,7 @@ const ProfileDetails = () => {
 
         {/* Country */}
         <div>
-          <label className="text-xs text-[#2E3139] font-medium mb-1">
+          <label className="text-xs text-[#2E3139] font-medium mb-1 block">
             Country
           </label>
 
@@ -159,14 +160,13 @@ const ProfileDetails = () => {
           )}
         </div>
 
-        {/* Timezone preview */}
+        {/* Timezone preview bar */}
         {timezone && (
-          <div className="p-3 bg-blue-50 rounded-md">
-            <p className="text-sm text-blue-800">
+          <div className="p-2 bg-blue-50/80 border border-blue-100 rounded-lg flex items-center justify-between text-xs text-blue-800">
+            <span>
               <strong>Selected Timezone:</strong> {timezone}
-            </p>
-
-            <p className="text-xs text-blue-600 mt-1">
+            </span>
+            <span className="text-blue-600 font-medium">
               Current time:{" "}
               {new Date().toLocaleTimeString("en-US", {
                 timeZone: timezone,
@@ -174,15 +174,15 @@ const ProfileDetails = () => {
                 minute: "2-digit",
                 hour12: true,
               })}
-            </p>
+            </span>
           </div>
         )}
 
-        {/* Automated Email Reports Toggle */}
-        <div className="flex items-center justify-between p-3.5 sm:p-4 bg-slate-50 border border-slate-200 rounded-xl">
-          <div className="space-y-0.5 pr-4">
-            <label className="text-xs sm:text-sm font-semibold text-[#2E3139] flex items-center gap-2">
-              <svg className="w-4 h-4 text-[#240042]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Automated Email Reports */}
+        <div className="flex items-center justify-between p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <div className="space-y-0.5 pr-2">
+            <label className="text-xs sm:text-sm font-semibold text-[#2E3139] flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-[#240042] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Automated Email Reports
@@ -211,15 +211,15 @@ const ProfileDetails = () => {
                     is_automated_mail: newValue,
                   });
                 }}
-                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border transition-colors duration-200 ease-in-out focus:outline-none ${
+                className={`relative inline-flex items-center h-6 w-11 shrink-0 cursor-pointer rounded-full p-[2px] transition-colors duration-200 ease-in-out focus:outline-none ${
                   field.value
-                    ? "bg-gray-700 border-gray-800"
-                    : "bg-gray-200 border-gray-300"
+                    ? "bg-gray-800"
+                    : "bg-gray-300"
                 }`}
               >
                 <span
-                  className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${
-                    field.value ? "translate-x-5" : "translate-x-0"
+                  className={`pointer-events-none inline-block h-4.5 w-4.5 transform rounded-full bg-white shadow-md transition duration-200 ease-in-out ${
+                    field.value ? "translate-x-[20px]" : "translate-x-0"
                   }`}
                 />
               </button>
@@ -227,7 +227,10 @@ const ProfileDetails = () => {
           />
         </div>
 
-        <Button type="submit" variant="secondary" disabled={isPending}>
+        {/* Delete All Images Row */}
+        <DeleteAllImagesCard />
+
+        <Button type="submit" variant="secondary" disabled={isPending} className="!mt-3">
           {isPending ? (
             <>
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>

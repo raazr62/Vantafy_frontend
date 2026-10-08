@@ -49,7 +49,7 @@ const PricingAndPlanPackages = () => {
             <Button
               onClick={() => handleSubscription(plan.planName)}
               className={
-                "bg-[linear-gradient(90deg,#FF8904_0%,#FDC700_100%)] text-black text-xs font-bold"
+                "bg-[linear-gradient(90deg,#FF8904_0%,#FDC700_100%)] text-black text-sm sm:text-base font-extrabold"
               }
             >
               SUBSCRIBE

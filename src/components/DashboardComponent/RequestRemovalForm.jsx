@@ -12,22 +12,36 @@ import {
 } from "../ui/select";
 import { usePostLinkRemovalRequest } from "@/hooks/usePostLinkRemovalRequest";
 
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
+
 const RequestRemovalForm = ({
-  // setLinksData,
-  // linksData,
   selectedMemberID,
   setSelectedMemberId,
   memberData,
   user,
 }) => {
   const [urlsText, setUrlsText] = useState("");
+  const navigate = useNavigate();
   const { mutate: postLinkRemovalRequest } = usePostLinkRemovalRequest(
     selectedMemberID,
     setUrlsText,
   );
 
+  const hasSubscription = Boolean(
+    user?.has_subscription ?? user?.user?.has_subscription
+  );
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!hasSubscription) {
+      toast.error(
+        "Subscription required to submit removal requests. Please choose a plan."
+      );
+      navigate("/dashboard/plans");
+      return;
+    }
 
     const linksArray = urlsText.split("\n").map((url) => url.trim());
 

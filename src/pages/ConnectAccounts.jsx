@@ -58,11 +58,11 @@ const ConnectAccounts = () => {
         </button>
         <button
           onClick={() => {
-            navigate("/pricing-plan");
+            navigate("/dashboard");
           }}
           className="w-full py-2 sm:py-3 rounded-xl bg-[#F5F5F5] font-medium border border-[#E5E5E5] cursor-pointer text-sm sm:text-base lg:text-lg"
         >
-          Skip Scan & Choose Plan
+          Skip Scan
         </button>
       </div>
     </div>
