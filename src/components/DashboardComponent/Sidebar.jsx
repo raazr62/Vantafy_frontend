@@ -126,13 +126,13 @@ const Sidebar = ({ setSheetOpen }) => {
       </div>
 
       {/* Bottom Part*/}
-      <div className="max-w-[230px] w-full mt-6">
+      <div className="w-full mt-6 flex justify-center items-center">
         <button
           onClick={() => {
             logout();
             setSheetOpen?.(false);
           }}
-          className="flex items-center gap-2 text-red-600 text-sm md:text-base font-medium px-2 py-1 rounded-full cursor-pointer hover:opacity-80 transition-opacity"
+          className="flex items-center justify-center gap-2 text-red-600 text-sm md:text-base font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-white/40 hover:opacity-80 transition-all"
         >
           <LogoutIconSVG className="text-red-600 w-5 h-5 shrink-0" />
           <span>Logout</span>
