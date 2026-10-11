@@ -45,7 +45,7 @@ const Sidebar = ({ setSheetOpen }) => {
             if (isSubscriptions) {
               return (
                 <li key={link.id} onClick={() => setSheetOpen?.(false)}>
-                  <div className="clean-animated-border w-full cursor-pointer group rounded-full">
+                  <div className="clean-animated-border-subscription w-full cursor-pointer group rounded-full">
                     <NavLink
                       className={({ isActive }) =>
                         `relative z-10 w-full py-2 sm:py-2.5 px-4 flex items-center gap-3 text-xs sm:text-sm font-semibold transition-all duration-200 rounded-full ${
