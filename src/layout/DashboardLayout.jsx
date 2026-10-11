@@ -12,17 +12,17 @@ export default function DashboardLayout() {
   const user = useSelector(selectUser);
 
   return (
-    <div className="xl:p-4 bg-[#2b0033] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row gap-4">
+    <div className="xl:p-4 bg-[#F2F5F7] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row gap-4">
       <div className="hidden xl:block h-full">
         <Sidebar />
       </div>
 
       {/* mobile sidebar */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <div className="flex items-center justify-between bg-[#3c0048] border-b border-purple-900/50 py-2 px-4 backdrop-blur-sm xl:hidden fixed top-0 w-full z-50">
+        <div className="flex items-center justify-between bg-white border-b border-gray-200 py-2 px-4 shadow-xs xl:hidden fixed top-0 w-full z-50">
           <Link
             to={"/dashboard"}
-            className="flex items-center justify-center cursor-pointer"
+            className="p-1 bg-linear-to-br from-[#971DFE] to-[#C289E8] border border-purple-500 rounded-full flex items-center justify-center cursor-pointer"
           >
             <Logo variant="whiteFull" />
           </Link>
@@ -35,17 +35,17 @@ export default function DashboardLayout() {
             >
               <div className="flex flex-col items-center justify-center w-10 h-10 space-y-1.5">
                 <span
-                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
+                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-gray-800 ${
                     sheetOpen ? "rotate-45 translate-y-2" : "group-hover:w-6"
                   }`}
                 ></span>
                 <span
-                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
+                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-gray-800 ${
                     sheetOpen ? "opacity-0" : ""
                   }`}
                 ></span>
                 <span
-                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
+                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-gray-800 ${
                     sheetOpen ? "-rotate-45 -translate-y-2.5" : "group-hover:w-4"
                   }`}
                 ></span>
@@ -54,10 +54,9 @@ export default function DashboardLayout() {
           </SheetTrigger>
         </div>
 
-        <SheetContent side="left" className="p-0 w-60 md:pt-10 border-none bg-[#3c0048]">
+        <SheetContent side="left" className="p-0 w-64 border-none bg-transparent">
           <Sidebar
             setSheetOpen={setSheetOpen}
-            closeSheet={() => setSheetOpen(false)}
           />
         </SheetContent>
       </Sheet>

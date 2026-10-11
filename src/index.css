@@ -422,22 +422,21 @@ input[type="number"] {
   background: conic-gradient(
     from 0deg,
     #00c0ff 0deg,
-    #ff1be4 120deg,
-    #8400a4 240deg,
+    #ffffff 90deg,
+    #33d6ff 180deg,
+    #ffffff 270deg,
     #00c0ff 360deg
   );
   animation: borderSpin 2.5s linear infinite;
 }
 
-/* Flashing Blue and Pink Star Animation */
+/* Flashing Blue and White Star Animation */
 @keyframes flashBluePink {
   0%, 100% {
-    fill: #00C0FF;
-    filter: drop-shadow(0 0 5px rgba(0, 192, 255, 0.9));
+    fill: #00c0ff;
   }
   50% {
-    fill: #FF1BE4;
-    filter: drop-shadow(0 0 5px rgba(255, 27, 228, 0.9));
+    fill: #ffffff;
   }
 }
 
@@ -445,7 +444,7 @@ input[type="number"] {
   animation: flashBluePink 1.2s ease-in-out infinite;
 }
 
-/* Animated Gradient Border for Star Package Card */
+/* Animated Gradient Border for Star Package Card (White and Blue only) */
 .clean-animated-border-card {
   position: relative;
   display: flex;
@@ -471,16 +470,16 @@ input[type="number"] {
   height: 400%;
   background: conic-gradient(
     from 0deg,
-    #ffc069 0deg,
-    #ff5ce1 90deg,
+    #00c0ff 0deg,
+    #ffffff 90deg,
     #33d6ff 180deg,
-    #ff8904 270deg,
-    #ffc069 360deg
+    #ffffff 270deg,
+    #00c0ff 360deg
   );
   animation: borderSpin 3s linear infinite;
 }
 
-/* Animated Gradient Border for Subscribe Button */
+/* Animated Gradient Border for Subscribe Button (White and Blue only) */
 .clean-animated-border-btn {
   position: relative;
   display: inline-flex;
@@ -498,10 +497,11 @@ input[type="number"] {
   height: 400%;
   background: conic-gradient(
     from 0deg,
-    #ffa82e 0deg,
-    #ff1be4 120deg,
-    #00c0ff 240deg,
-    #ffa82e 360deg
+    #00c0ff 0deg,
+    #ffffff 90deg,
+    #33d6ff 180deg,
+    #ffffff 270deg,
+    #00c0ff 360deg
   );
   animation: borderSpin 2.5s linear infinite;
 }
