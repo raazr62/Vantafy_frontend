@@ -90,7 +90,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
         <div className="flex flex-col items-center mb-2 sm:mb-3 w-full text-center">
           <div className="w-full">
             <p className="py-1 sm:py-1.5 border-b text-xs leading-tight border-gray-400 border-dotted w-full text-center text-gray-800 font-normal">
-              billed as ${rawPrice ? rawPrice.toLocaleString() : "0"} per month
+              billed ${rawPrice ? rawPrice.toLocaleString() : "0"} per month
             </p>
             {plan.features &&
               plan.features
@@ -117,7 +117,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
             <div className="clean-animated-border-btn cursor-pointer group">
               <Button
                 onClick={() => handleSubscription(plan.stripe_price_id, plan.type)}
-                className="!bg-none !bg-[#33D6FF] hover:!bg-[#1ACBFA] border border-[#00BCE8] text-white text-base sm:text-lg font-extrabold px-8 h-[48px] sm:h-[56px] rounded-[28px] cursor-pointer shadow-xs flex items-center justify-center relative z-10"
+                className={`!bg-none ${style.btnBg} ${style.btnBorder} text-black text-base sm:text-lg font-extrabold px-8 h-[48px] sm:h-[56px] rounded-[28px] cursor-pointer shadow-xs flex items-center justify-center relative z-10`}
               >
                 SUBSCRIBE
               </Button>
@@ -212,7 +212,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
     },
   ];
 
-  const style = isStarPackage ? nonAgencyStyles[1] : nonAgencyStyles[i % nonAgencyStyles.length];
+  const style = nonAgencyStyles[i % nonAgencyStyles.length];
   const isYearly = plan.type === "year";
   const rawPrice = Number(plan.price) || 0;
   const displayedPrice = isYearly ? Math.round(rawPrice / 12) : rawPrice;
@@ -247,7 +247,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
           <div className="w-full">
             {isYearly && (
               <p className="py-1 sm:py-1.5 border-b text-xs leading-tight border-gray-400 border-dotted w-full text-center text-gray-800 font-normal">
-                billed as ${rawPrice ? rawPrice.toLocaleString() : "0"} per year
+                billed ${rawPrice ? rawPrice.toLocaleString() : "0"} per year
               </p>
             )}
             {(isYearly
@@ -280,7 +280,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
           <div className="clean-animated-border-btn cursor-pointer group">
             <Button
               onClick={() => handleSubscription(plan.stripe_price_id, plan.type)}
-              className="!bg-none !bg-[#33D6FF] hover:!bg-[#1ACBFA] border border-[#00BCE8] text-white text-base sm:text-lg font-extrabold px-8 h-[48px] sm:h-[56px] rounded-[28px] cursor-pointer shadow-xs flex items-center justify-center relative z-10"
+              className={`!bg-none ${style.btnBg} ${style.btnBorder} text-black text-base sm:text-lg font-extrabold px-8 h-[48px] sm:h-[56px] rounded-[28px] cursor-pointer shadow-xs flex items-center justify-center relative z-10`}
             >
               SUBSCRIBE
             </Button>

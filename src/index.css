@@ -404,7 +404,6 @@ input[type="number"] {
   }
 }
 
-/* Scan For Your Leaks Animated Border (Restored original cyan, pink, purple) */
 .clean-animated-border {
   position: relative;
   display: inline-flex;
@@ -430,40 +429,15 @@ input[type="number"] {
   animation: borderSpin 2.5s linear infinite;
 }
 
-/* Subscription Button Animated Border (White and Blue only) */
-.clean-animated-border-subscription {
-  position: relative;
-  display: inline-flex;
-  padding: 2px;
-  border-radius: 9999px;
-  overflow: hidden;
-}
-
-.clean-animated-border-subscription::before {
-  content: "";
-  position: absolute;
-  top: -150%;
-  left: -150%;
-  width: 400%;
-  height: 400%;
-  background: conic-gradient(
-    from 0deg,
-    #00c0ff 0deg,
-    #ffffff 90deg,
-    #33d6ff 180deg,
-    #ffffff 270deg,
-    #00c0ff 360deg
-  );
-  animation: borderSpin 2.5s linear infinite;
-}
-
-/* Flashing Blue and White Star Animation */
+/* Flashing Blue and Pink Star Animation */
 @keyframes flashBluePink {
   0%, 100% {
-    fill: #00c0ff;
+    fill: #00C0FF;
+    filter: drop-shadow(0 0 5px rgba(0, 192, 255, 0.9));
   }
   50% {
-    fill: #ffffff;
+    fill: #FF1BE4;
+    filter: drop-shadow(0 0 5px rgba(255, 27, 228, 0.9));
   }
 }
 
@@ -471,7 +445,7 @@ input[type="number"] {
   animation: flashBluePink 1.2s ease-in-out infinite;
 }
 
-/* Animated Gradient Border for Star Package Card (White and Blue only) */
+/* Animated Gradient Border for Star Package Card */
 .clean-animated-border-card {
   position: relative;
   display: flex;
@@ -497,16 +471,16 @@ input[type="number"] {
   height: 400%;
   background: conic-gradient(
     from 0deg,
-    #00c0ff 0deg,
-    #ffffff 90deg,
+    #ffc069 0deg,
+    #ff5ce1 90deg,
     #33d6ff 180deg,
-    #ffffff 270deg,
-    #00c0ff 360deg
+    #ff8904 270deg,
+    #ffc069 360deg
   );
   animation: borderSpin 3s linear infinite;
 }
 
-/* Animated Gradient Border for Subscribe Button (White and Blue only) */
+/* Animated Gradient Border for Subscribe Button */
 .clean-animated-border-btn {
   position: relative;
   display: inline-flex;
@@ -524,11 +498,10 @@ input[type="number"] {
   height: 400%;
   background: conic-gradient(
     from 0deg,
-    #00c0ff 0deg,
-    #ffffff 90deg,
-    #33d6ff 180deg,
-    #ffffff 270deg,
-    #00c0ff 360deg
+    #ffa82e 0deg,
+    #ff1be4 120deg,
+    #00c0ff 240deg,
+    #ffa82e 360deg
   );
   animation: borderSpin 2.5s linear infinite;
 }
