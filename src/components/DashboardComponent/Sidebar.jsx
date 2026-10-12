@@ -21,7 +21,7 @@ const Sidebar = ({ setSheetOpen }) => {
   };
 
   return (
-    <div className="bg-[#440054] h-full px-3 py-6 max-w-[250px] w-full rounded-[24px] border border-purple-800/30 flex flex-col justify-between shadow-lg overflow-y-auto">
+    <div className="bg-[#380e5c]/40 backdrop-blur-xl h-full px-3 py-6 max-w-[250px] w-full rounded-[24px] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex flex-col justify-between overflow-y-auto">
       {/* Top Bar */}
       <div>
         <Link
@@ -48,10 +48,9 @@ const Sidebar = ({ setSheetOpen }) => {
                   <div className="clean-animated-border w-full cursor-pointer group rounded-full">
                     <NavLink
                       className={({ isActive }) =>
-                        `relative z-10 w-full py-2.5 px-4 flex items-center gap-3 text-sm font-semibold transition-all duration-200 rounded-full ${
-                          isActive
-                            ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white shadow-md"
-                            : "bg-[#440054] text-white hover:bg-[#58006d]"
+                        `relative z-10 w-full py-2.5 px-4 flex items-center gap-3 text-sm font-semibold transition-all duration-200 rounded-full ${isActive
+                          ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white shadow-md"
+                          : "bg-[#3c0048] text-white hover:bg-[#500060]"
                         }`
                       }
                       to={link.to}
@@ -68,11 +67,10 @@ const Sidebar = ({ setSheetOpen }) => {
                 <NavLink
                   className={({ isActive }) =>
                     `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200
-              ${
-                isActive
-                  ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
-                  : "text-white/90 hover:text-white"
-              }`
+              ${isActive
+                      ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
+                      : "text-white/90 hover:text-white"
+                    }`
                   }
                   to={link.to}
                 >
@@ -114,10 +112,9 @@ const Sidebar = ({ setSheetOpen }) => {
               to="/dashboard/faq"
               onClick={() => setSheetOpen?.(false)}
               className={({ isActive }) =>
-                `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
-                    : "text-white/90 hover:text-white"
+                `py-2.5 px-4 flex items-center gap-3 text-sm font-medium transition-all duration-200 ${isActive
+                  ? "bg-gradient-to-r from-[#d926d4] to-[#e600a1] text-white font-semibold rounded-full shadow-md"
+                  : "text-white/90 hover:text-white"
                 }`
               }
             >

@@ -471,13 +471,13 @@ input[type="number"] {
   height: 400%;
   background: conic-gradient(
     from 0deg,
-    #ffc069 0deg,
-    #ff5ce1 90deg,
+    #00c0ff 0deg,
+    #ffffff 90deg,
     #33d6ff 180deg,
-    #ff8904 270deg,
-    #ffc069 360deg
+    #ffffff 270deg,
+    #00c0ff 360deg
   );
-  animation: borderSpin 3s linear infinite;
+  animation: borderSpin 1.2s linear infinite;
 }
 
 /* Animated Gradient Border for Subscribe Button */
@@ -498,11 +498,12 @@ input[type="number"] {
   height: 400%;
   background: conic-gradient(
     from 0deg,
-    #ffa82e 0deg,
-    #ff1be4 120deg,
-    #00c0ff 240deg,
-    #ffa82e 360deg
+    #00c0ff 0deg,
+    #ffffff 90deg,
+    #33d6ff 180deg,
+    #ffffff 270deg,
+    #00c0ff 360deg
   );
   animation: borderSpin 2.5s linear infinite;
-}
+ }
 
