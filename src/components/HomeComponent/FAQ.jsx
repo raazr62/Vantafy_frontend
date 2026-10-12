@@ -12,8 +12,17 @@ import { LocalImages } from "../AllPhotos/HomeLocalImages";
 import FAQSkeleton from "./FAQSkeleton";
 import SectionError from "./SectionError";
 
-const FAQ = ({ faqs, isLoading, isError }) => {
-  const formatNumber = (num) => (num < 9 ? `0${num + 1}` : `${num + 1}`);
+const FAQ = ({ faqs = [], isLoading, isError }) => {
+  const sortedFaqs = [...faqs].sort(
+    (a, b) => (a.display_order ?? 0) - (b.display_order ?? 0)
+  );
+
+  const formatNumber = (val) => {
+    const num = Number(val);
+    if (isNaN(num)) return val;
+    return num < 10 ? `0${num}` : `${num}`;
+  };
+
   return (
     <CommonContainer id={"faq"} className="mb-12 sm:mb-16 lg:mb-20">
       <CommonTitle title={"FAQ"} />
@@ -27,15 +36,15 @@ const FAQ = ({ faqs, isLoading, isError }) => {
             type="single"
             collapsible
             className="flex-5/7 rounded-2xl overflow-hidden"
-            defaultValue={faqs[0].id.toString()}
+            defaultValue={sortedFaqs[0]?.id?.toString() || "0"}
           >
-            {faqs.map((faq, idx) => {
+            {sortedFaqs.map((faq, idx) => {
               return (
-                <AccordionItem key={faq.id} value={faq.id.toString()}>
+                <AccordionItem key={faq.id || idx} value={(faq.id || idx).toString()}>
                   <AccordionTrigger>
                     <p className="flex items-start gap-3 text-[#8400a4]">
                       <span className="text-[#FF1BE4] text-xl sm:text-2xl lg:text-3xl font-bold">
-                        {formatNumber(idx)}
+                        {formatNumber(faq.display_order ?? idx + 1)}
                       </span>{" "}
                       <span>{faq.question}</span>
                     </p>
