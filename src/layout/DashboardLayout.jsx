@@ -13,7 +13,7 @@ export default function DashboardLayout() {
 
   return (
     <div className="xl:p-4 bg-[#3c0048] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row gap-4">
-      <div className="hidden xl:block h-full">
+      <div className="hidden xl:block h-full w-[250px] shrink-0">
         <Sidebar />
       </div>
 

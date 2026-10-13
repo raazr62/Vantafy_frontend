@@ -36,11 +36,24 @@ const AccountOverviewStats = ({ dashboardData, isLoading, isError }) => {
     );
   }
 
+  const formatPotentialRevenue = (revenue) => {
+    if (revenue === undefined || revenue === null || revenue === "") {
+      return "$0.00";
+    }
+    const cleanNum =
+      typeof revenue === "string" ? revenue.replace(/[^0-9.-]+/g, "") : revenue;
+    const num = Number(cleanNum);
+    if (isNaN(num)) {
+      return "$0.00";
+    }
+    return `$${num.toFixed(2)}`;
+  };
+
   const accountStatsData = [
     {
       id: 1,
       info: "Potential Revenue",
-      quantity: dashboardData?.potential_revenue || 0,
+      quantity: formatPotentialRevenue(dashboardData?.potential_revenue),
     },
     {
       id: 2,

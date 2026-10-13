@@ -504,6 +504,6 @@ input[type="number"] {
     #ffffff 270deg,
     #00c0ff 360deg
   );
-  animation: borderSpin 2.5s linear infinite;
- }
+  animation: borderSpin 1.2s linear infinite;
+}
 
