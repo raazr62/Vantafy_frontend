@@ -90,7 +90,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
         <div className="flex flex-col items-center mb-2 sm:mb-3 w-full text-center">
           <div className="w-full">
             <p className="py-1 sm:py-1.5 border-b text-xs leading-tight border-gray-400 border-dotted w-full text-center text-gray-800 font-normal">
-              billed ${rawPrice ? rawPrice.toLocaleString() : "0"} per month
+              billed as ${rawPrice ? rawPrice.toLocaleString() : "0"} per month
             </p>
             {plan.features &&
               plan.features
@@ -247,7 +247,7 @@ const PlansPriceCard = ({ plan, handleSubscription, i }) => {
           <div className="w-full">
             {isYearly && (
               <p className="py-1 sm:py-1.5 border-b text-xs leading-tight border-gray-400 border-dotted w-full text-center text-gray-800 font-normal">
-                billed ${rawPrice ? rawPrice.toLocaleString() : "0"} per year
+                billed as ${rawPrice ? rawPrice.toLocaleString() : "0"} per year
               </p>
             )}
             {(isYearly

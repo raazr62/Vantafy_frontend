@@ -12,8 +12,8 @@ export default function DashboardLayout() {
   const user = useSelector(selectUser);
 
   return (
-    <div className="xl:p-4 bg-[#2b0033] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row gap-4">
-      <div className="hidden xl:block h-full">
+    <div className="xl:p-4 bg-[#3c0048] lg:h-screen h-svh overflow-hidden flex flex-col xl:flex-row gap-4">
+      <div className="hidden xl:block h-full w-[250px] shrink-0">
         <Sidebar />
       </div>
 
@@ -35,19 +35,16 @@ export default function DashboardLayout() {
             >
               <div className="flex flex-col items-center justify-center w-10 h-10 space-y-1.5">
                 <span
-                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
-                    sheetOpen ? "rotate-45 translate-y-2" : "group-hover:w-6"
-                  }`}
+                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${sheetOpen ? "rotate-45 translate-y-2" : "group-hover:w-6"
+                    }`}
                 ></span>
                 <span
-                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
-                    sheetOpen ? "opacity-0" : ""
-                  }`}
+                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${sheetOpen ? "opacity-0" : ""
+                    }`}
                 ></span>
                 <span
-                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${
-                    sheetOpen ? "-rotate-45 -translate-y-2.5" : "group-hover:w-4"
-                  }`}
+                  className={`w-8 h-[3px] rounded-full transition-all duration-300 bg-white ${sheetOpen ? "-rotate-45 -translate-y-2.5" : "group-hover:w-4"
+                    }`}
                 ></span>
               </div>
             </button>
