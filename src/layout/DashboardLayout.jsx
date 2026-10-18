@@ -59,7 +59,7 @@ export default function DashboardLayout() {
         </SheetContent>
       </Sheet>
 
-      <div className="px-2 lg:px-5 w-full flex-1 flex flex-col min-h-0 lg:max-h-[calc(100vh-80px)] xl:max-h-full mt-14 xl:mt-0 overflow-y-auto xl:overflow-visible">
+      <div className="px-2 lg:px-5 xl:px-0 w-full flex-1 flex flex-col min-h-0 lg:max-h-[calc(100vh-80px)] xl:max-h-full mt-14 xl:mt-0 overflow-y-auto xl:overflow-visible">
         <Suspense
           fallback={
             <div className="flex items-center justify-center min-h-[400px]">

@@ -1,6 +1,6 @@
-import vantafyWhiteFulltextLogo from "@/assets/Images/Logo/Vantafy_white_fulltext.png";
-import vantafyGrayFulltextLogo from "@/assets/Images/Logo/Vantafy_gray_fulltext.png";
-import vantafyGrayLogo from "@/assets/Images/Logo/VantafyGray.png";
+import VantafyWhiteFulltextLogo from "@/assets/Images/Logo/Vantafy_white_fulltext.png";
+import VantafyGrayFulltextLogo from "@/assets/Images/Logo/Vantafy_gray_fulltext.png";
+import VantafyGrayLogo from "@/assets/Images/Logo/VantafyGray.png";
 import VantafyWhiteLogo from "@/assets/Images/Logo/VantafyLogo.png";
 import chaturbateLogo from "@/assets/Images/homeImages/chaturbate.png";
 import fanslyLogo from "@/assets/Images/homeImages/Fansly_logo.svg";
@@ -75,9 +75,9 @@ export const LocalImages = {
   instagramOnlyLogo,
   twitterLogoOnlyLogo,
   chaturbateOnlyLogo,
-  vantafyWhiteFulltextLogo,
-  vantafyGrayFulltextLogo,
-  vantafyGrayLogo,
+  VantafyWhiteFulltextLogo,
+  VantafyGrayFulltextLogo,
+  VantafyGrayLogo,
   VantafyWhiteLogo,
   chaturbateLogo,
   fanslyLogo,

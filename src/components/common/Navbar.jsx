@@ -234,21 +234,21 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
         to={"/#"}
         className="font-bold text-3xl text-white"
       >
-        {isSystemDataLoading ? (
-          <NavSkeleton className="h-8 w-32 sm:h-10 sm:w-36" />
-        ) : isSystemDataError ? (
-          <Logo />
-        ) : (
+        {systemData?.about_system?.logo ? (
           <img
             className="w-25 sm:w-30 lg:w-35 cursor-pointer"
+            loading="eager"
+            fetchPriority="high"
             src={
-              systemData?.about_system?.logo?.startsWith("http")
+              systemData.about_system.logo.startsWith("http")
                 ? systemData.about_system.logo
                 : import.meta.env.VITE_IMAGE_URL +
-                systemData?.about_system?.logo
+                systemData.about_system.logo
             }
             alt="Vantafy"
           />
+        ) : (
+          <Logo />
         )}
       </HashLink>
 
@@ -261,8 +261,8 @@ const Navbar = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
               to={nav.link}
               scroll={smoothScroll}
               className={`text-white px-2 pb-0.5 border-b-2 transition-all duration-300 ${active === nav.link.replace("#", "")
-                  ? "font-semibold border-white"
-                  : "font-medium border-transparent hover:border-white/50"
+                ? "font-semibold border-white"
+                : "font-medium border-transparent hover:border-white/50"
                 }`}
             >
               {nav.name}
