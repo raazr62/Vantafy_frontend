@@ -156,7 +156,7 @@ export const personalAgentMockData = [
   {
     id: 2,
     title: "Manual Scans",
-    description:"Our team constantly surveys the net for items that automated scans miss",
+    description: "Our team constantly surveys the net for items that automated scans miss",
     icon: <SupportIconSVG />,
   },
   {

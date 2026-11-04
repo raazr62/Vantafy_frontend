@@ -45,7 +45,7 @@ const Hero = ({ hero_section, hero_radar_icons, isLoading, isError }) => {
 
             {/* Trustpilot Badge */}
             <a
-              href="https://www.trustpilot.com/review/vantafy.com"
+              href="https://www.trustpilot.com/review/Vantafy.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white border border-[#00C0FF] rounded-full px-3 py-1 sm:px-3.5 sm:py-1.5 flex items-center gap-1.5 shadow-xs transition-all hover:border-[#0090FF] hover:shadow-sm cursor-pointer"

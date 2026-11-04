@@ -18,22 +18,21 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
       <div className="absolute bg-[#8133F18F] h-50 w-50 rounded-full left-0 -translate-x-1/2 blur-3xl"></div>
 
       <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-8">
-        {isSystemDataLoading ? (
-          <p>Loading...</p>
-        ) : isSystemDataError ? (
-          <Logo className={"w-30 sm:w-35 lg:w-40 cursor-pointer"} />
-        ) : (
+        {systemData?.about_system?.logo ? (
           <img
             onClick={handleClick}
             className="w-30 sm:w-35 lg:w-40 cursor-pointer"
+            loading="lazy"
             src={
-              systemData?.about_system?.logo?.startsWith("http")
+              systemData.about_system.logo.startsWith("http")
                 ? systemData.about_system.logo
                 : import.meta.env.VITE_IMAGE_URL +
-                systemData?.about_system?.logo
+                systemData.about_system.logo
             }
             alt="Vantafy"
           />
+        ) : (
+          <Logo className={"w-30 sm:w-35 lg:w-40 cursor-pointer"} />
         )}
 
         {/* Links */}
@@ -165,7 +164,7 @@ const Footer = ({ systemData, isSystemDataLoading, isSystemDataError }) => {
             ? systemData.about_system.copyright.toLowerCase().includes("all rights reserved")
               ? systemData.about_system.copyright
               : `${systemData.about_system.copyright}. All rights reserved.`
-            : "©2027 VANTAFY. All rights reserved."}
+            : "©2027 Vantafy. All rights reserved."}
         </p>
       </div>
 

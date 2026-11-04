@@ -7,14 +7,14 @@ const Logo = ({ className, variant = "whiteFull" }) => {
   const navigate = useNavigate();
   const logoSrc =
     variant === "whiteFull"
-      ? LocalImages.vantafyWhiteFulltextLogo
+      ? LocalImages.VantafyWhiteFulltextLogo
       : variant === "grayFull"
-      ? LocalImages.vantafyGrayFulltextLogo
-      : variant === "white"
-      ? LocalImages.VantafyWhiteLogo
-      : variant === "gray"
-      ? LocalImages.vantafyGrayLogo
-      : "";
+        ? LocalImages.VantafyGrayFulltextLogo
+        : variant === "white"
+          ? LocalImages.VantafyWhiteLogo
+          : variant === "gray"
+            ? LocalImages.VantafyGrayLogo
+            : "";
   const handleClick = () => {
     navigate("/");
   };
